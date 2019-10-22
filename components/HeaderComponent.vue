@@ -205,12 +205,20 @@ export default {
   .mobile__menu {
     display: flex !important;
   }
+  .top__menu,
+  .bottom__menu {
+    display: none !important;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .mobile__menu {
     display: none !important;
+  }
+  .top__menu,
+  .bottom__menu {
+    display: block !important;
   }
 }
 
@@ -219,12 +227,20 @@ export default {
   .mobile__menu {
     display: none !important;
   }
+  .top__menu,
+  .bottom__menu {
+    display: block !important;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .mobile__menu {
     display: none !important;
+  }
+  .top__menu,
+  .bottom__menu {
+    display: block !important;
   }
 }
 </style>
