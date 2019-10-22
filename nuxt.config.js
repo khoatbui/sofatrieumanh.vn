@@ -23,7 +23,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/assets/css/custom.css', '@/assets/scss/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -43,8 +43,29 @@ module.exports = {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/style-resources',
+    [
+      'nuxt-fontawesome',
+      {
+        component: 'fa',
+        imports: [
+          {
+            set: '@fortawesome/free-solid-svg-icons',
+            icons: [
+              'faCouch',
+              'faMapMarkerAlt',
+              'faPhoneAlt',
+              'faShoppingBasket'
+            ]
+          }
+        ]
+      }
+    ]
   ],
+  styleResources: {
+    scss: ['./assets/scss/vars/*.scss', './assets/scss/abstracts/_mixins.scss']
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

@@ -4,8 +4,8 @@
 
 <script>
 export default {
-  components: {},
-  layout: 'mainlayout'
+  layout: 'mainlayout',
+  components: {}
 }
 </script>
 
