@@ -200,6 +200,10 @@ export default {
 .mobile__menu {
   display: flex;
 }
+.top__menu,
+.bottom__menu {
+  display: none !important;
+}
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .mobile__menu {

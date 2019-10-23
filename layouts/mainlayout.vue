@@ -1,20 +1,23 @@
 <template>
   <div>
     <HeaderComponent />
-    <nuxt />
+    <nuxt class="body__component" />
+    <FooterComponent />
   </div>
 </template>
 <script>
 import Vue from 'vue'
 import Vuesax from 'vuesax'
 import HeaderComponent from '@/components/HeaderComponent.vue'
+import FooterComponent from '@/components/FooterComponent.vue'
 
 import 'vuesax/dist/vuesax.css' // Vuesax styles
 import 'material-icons/iconfont/material-icons.css'
 Vue.use(Vuesax)
 export default {
   components: {
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   }
 }
 </script>
@@ -35,5 +38,8 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+.body__component {
+  min-height: 80vh;
 }
 </style>
