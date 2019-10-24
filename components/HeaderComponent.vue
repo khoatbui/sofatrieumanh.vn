@@ -69,6 +69,7 @@
               type="text"
               name="isearch"
               placeholder="Search..."
+              class="search__input"
             />
             <fa :icon="['fas', 'couch']" />
           </div>
@@ -203,6 +204,22 @@ export default {
 .top__menu,
 .bottom__menu {
   display: none !important;
+}
+.search__input {
+  color: $primary__color;
+}
+.search__input::-webkit-input-placeholder {
+  /* Edge */
+  color: $primary__color;
+}
+
+.search__input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $primary__color;
+}
+
+.search__input::placeholder {
+  color: $primary__color;
 }
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {

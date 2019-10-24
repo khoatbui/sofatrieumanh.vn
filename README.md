@@ -28,3 +28,4 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 - https://github.com/nuxt-community/style-resources-module
 - https://mobiriseicons.com/cheatsheet.html
 - https://catalin.me/fontawesome-nuxt/
+- https://www.npmjs.com/package/v-owl-carousel

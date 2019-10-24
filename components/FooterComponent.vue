@@ -3,7 +3,7 @@
     <div class="footer__top">
       <div class="container">
         <div class="row mp--none">
-          <div class="col-4 mp--none pr-2">
+          <div class="col-12 col-md-6 col-lg-5 mp--none pr-4">
             <h6 class="footer__top__title">
               Cong ty TNHH San xuat Noi that Trieu Manh
             </h6>
@@ -14,18 +14,23 @@
             </p>
             <ul class="footer__top__menu">
               <li class="footer__top__item">
+                <i class="material-icons text__size--x1 pr-1"> storefront </i>
                 Địa Chỉ: 36/6 Đường TTH15, Khu Phố 3A, Phường Tân Thới Hiệp,
                 Quận 12, TP .HCM
               </li>
               <li class="footer__top__item">
+                <i class="material-icons text__size--x1 pr-1 ">
+                  phone_in_talk
+                </i>
                 Điện Thoại: 0961717979 - 0901611919 (Mr. Manh)
               </li>
               <li class="footer__top__item">
-                Email: sofatrieumanh@sofa.com
+                <i class="material-icons text__size--x1 pr-1 "> mail </i> Email:
+                sofatrieumanh@sofa.com
               </li>
             </ul>
           </div>
-          <div class="col-2 mp--none pr-2">
+          <div class="col-12 col-md-6 col-lg-2 mp--none pr-2">
             <h6 class="footer__top__title">San pham</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item">
@@ -42,7 +47,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-2 mp--none pr-2">
+          <div class="col-12 col-md-6 col-lg-2 mp--none pr-2">
             <h6 class="footer__top__title">Quicklink</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item">
@@ -62,15 +67,55 @@
               </li>
             </ul>
           </div>
-          <div class="col-4 mp--none">
+          <div class="col-12 col-md-6 col-lg-3 mp--none">
             <h6 class="footer__top__title">Dang ky</h6>
             <ul class="footer__top__menu">
-              <li class="footer__top__item">
+              <li class="footer__top__item footer__top__item__subscribe">
                 <input type="text" class="subscribe__input" />
                 <button class="subscribe__btn">subscribe</button>
               </li>
-              <li class="footer__top__item"></li>
+              <li
+                class="footer__top__item pt-2 footer__bottom__item__subscribe"
+              >
+                <img
+                  src="/images/icon/facebook.png"
+                  alt=""
+                  class="footer__social mx-1"
+                />
+                <img
+                  src="/images/icon/youtube.png"
+                  alt=""
+                  class="footer__social mx-1"
+                />
+                <img
+                  src="/images/icon/zalo.png"
+                  alt=""
+                  class="footer__social mx-1"
+                />
+                <img
+                  src="/images/icon/skype.png"
+                  alt=""
+                  class="footer__social mx-1"
+                />
+              </li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom py-2 mp--none">
+      <div class="container">
+        <div
+          class="row mp--none d-flex flex-wrap justify-content-between align-items-center"
+        >
+          <div class="footer__bottom__left">
+            <span>Copyright by sofatrieumanh, 2019</span>
+          </div>
+          <div class="footer__bottom__right">
+            <nuxt-link to="/privatepolicy">Private policy</nuxt-link>
+            <nuxt-link to="/privatepolicy">Term of use</nuxt-link>
+            <nuxt-link to="/privatepolicy">Help</nuxt-link>
+            <nuxt-link to="/privatepolicy">Contact us</nuxt-link>
           </div>
         </div>
       </div>
@@ -84,7 +129,7 @@
   color: $white__color;
 }
 .footer__top {
-  padding: 1rem 0;
+  padding: 2rem 0 1rem 0;
 }
 .footer__top__menu,
 .footer__top__menu li {
@@ -94,6 +139,9 @@
   font-size: 1.2rem;
   font-weight: 700;
   padding-bottom: 1.6rem;
+}
+.footer__top__item {
+  font-size: 0.9rem;
 }
 .footer__top__title::before {
   content: '';
@@ -119,5 +167,53 @@
   background-color: $secondary__color;
   color: $white__color;
   font-weight: bold;
+}
+.footer__social {
+  height: 40px;
+}
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid $white__color;
+  font-size: 0.9rem;
+}
+.footer__bottom__right a {
+  text-decoration: none !important;
+  color: $white__color;
+  padding: 0 0.4rem;
+  border-right: 1px solid $white__color;
+}
+.footer__bottom__right a:last-child {
+  border: none !important;
+}
+.footer__top__item__subscribe {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+.footer__top__item__subscribe input {
+  flex-grow: 1;
+}
+.footer__bottom__item__subscribe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
 }
 </style>
