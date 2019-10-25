@@ -32,3 +32,8 @@ body {
 .text__size--x2 {
   font-size: 2rem !important;
 }
+
+/* BORDER RADIUS =========== */
+.border__radius--none {
+  border-radius: 0 !important;
+}
