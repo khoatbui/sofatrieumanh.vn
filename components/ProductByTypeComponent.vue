@@ -27,12 +27,14 @@
                   :color="'#156867'"
                   type="border"
                   class="border__radius--none px-2 py-1 m-1"
+                  @click="redirectToComparePage"
                   >So sánh</vs-button
                 >
                 <vs-button
                   :color="'#156867'"
                   type="filled"
                   class="border__radius--none px-2 py-1 m-1 border__primary"
+                  @click="redirectToProductPage"
                   >Mua ngay</vs-button
                 >
               </div>
@@ -55,12 +57,14 @@
                   :color="'#156867'"
                   type="border"
                   class="border__radius--none px-2 py-1 m-1"
+                  @click="redirectToComparePage"
                   >So sánh</vs-button
                 >
                 <vs-button
                   :color="'#156867'"
                   type="filled"
                   class="border__radius--none px-2 py-1 m-1 border__primary"
+                  @click="redirectToProductPage"
                   >Mua ngay</vs-button
                 >
               </div>
@@ -83,12 +87,14 @@
                   :color="'#156867'"
                   type="border"
                   class="border__radius--none px-2 py-1 m-1"
+                  @click="redirectToComparePage"
                   >So sánh</vs-button
                 >
                 <vs-button
                   :color="'#156867'"
                   type="filled"
                   class="border__radius--none px-2 py-1 m-1 border__primary"
+                  @click="redirectToProductPage"
                   >Mua ngay</vs-button
                 >
               </div>
@@ -111,12 +117,14 @@
                   :color="'#156867'"
                   type="border"
                   class="border__radius--none px-2 py-1 m-1"
+                  @click="redirectToComparePage"
                   >So sánh</vs-button
                 >
                 <vs-button
                   :color="'#156867'"
                   type="filled"
                   class="border__radius--none px-2 py-1 m-1 border__primary"
+                  @click="redirectToProductPage"
                   >Mua ngay</vs-button
                 >
               </div>
@@ -139,12 +147,14 @@
                   :color="'#156867'"
                   type="border"
                   class="border__radius--none px-2 py-1 m-1"
+                  @click="redirectToComparePage"
                   >So sánh</vs-button
                 >
                 <vs-button
                   :color="'#156867'"
                   type="filled"
                   class="border__radius--none px-2 py-1 m-1 border__primary"
+                  @click="redirectToProductPage"
                   >Mua ngay</vs-button
                 >
               </div>
@@ -167,12 +177,14 @@
                   :color="'#156867'"
                   type="border"
                   class="border__radius--none px-2 py-1 m-1"
+                  @click="redirectToComparePage"
                   >So sánh</vs-button
                 >
                 <vs-button
                   :color="'#156867'"
                   type="filled"
                   class="border__radius--none px-2 py-1 m-1 border__primary"
+                  @click="redirectToProductPage"
                   >Mua ngay</vs-button
                 >
               </div>
@@ -195,12 +207,14 @@
                   :color="'#156867'"
                   type="border"
                   class="border__radius--none px-2 py-1 m-1"
+                  @click="redirectToComparePage"
                   >So sánh</vs-button
                 >
                 <vs-button
                   :color="'#156867'"
                   type="filled"
                   class="border__radius--none px-2 py-1 m-1 border__primary"
+                  @click="redirectToProductPage"
                   >Mua ngay</vs-button
                 >
               </div>
@@ -217,11 +231,8 @@
               </h6>
               <div class="product__item__action">
                 <button class="custom__design__btn">
-                  <i class="material-icons">
-                    exposure_plus_1
-                  </i>
-                  <i class="material-icons">
-                    arrow_right_alt
+                  <i class="material-icons text__size--x2">
+                    assignment
                   </i>
                 </button>
               </div>
@@ -232,7 +243,18 @@
     </div>
   </div>
 </template>
-
+<script>
+export default {
+  methods: {
+    redirectToProductPage() {
+      this.$router.replace('/san-pham')
+    },
+    redirectToComparePage() {
+      this.$router.replace('/so-sanh')
+    }
+  }
+}
+</script>
 <style lang="scss">
 .list__title {
   border-bottom: 3px solid $promotion__bg__color;

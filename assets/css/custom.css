@@ -32,8 +32,16 @@ body {
 .text__size--x2 {
   font-size: 2rem !important;
 }
-
+.text__size--x3 {
+  font-size: 3rem !important;
+}
 /* BORDER RADIUS =========== */
 .border__radius--none {
   border-radius: 0 !important;
+}
+
+/* SECTION MARGIN */
+.section__margin {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }

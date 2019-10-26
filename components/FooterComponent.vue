@@ -109,7 +109,7 @@
           class="row mp--none d-flex flex-wrap justify-content-between align-items-center"
         >
           <div class="footer__bottom__left">
-            <span>Copyright by sofatrieumanh, 2019</span>
+            <span>Copyright © by sofatrieumanh, 2019</span>
           </div>
           <div class="footer__bottom__right">
             <nuxt-link to="/privatepolicy">Private policy</nuxt-link>

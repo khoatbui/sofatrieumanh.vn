@@ -2,7 +2,15 @@
   <div class="home__page">
     <InstructionStepComponent />
     <PromotionComponent />
-    <div class="container">
+    <div class="container section__margin">
+      <div class="row mp--none my-2">
+        <div class="col-12 mp--none">
+          <ProductByTypeComponent />
+        </div>
+      </div>
+    </div>
+    <BestSellerProductComponent class="section__margin" />
+    <div class="container section__margin">
       <div class="row mp--none my-2">
         <div class="col-12 mp--none">
           <ProductByTypeComponent />
@@ -14,8 +22,8 @@
         </div>
       </div>
     </div>
-    <RequestAdvisorComponent />
-    <div class="container">
+    <RequestAdvisorComponent class="section__margin" />
+    <div class="container section__margin">
       <div class="row mp--none my-2">
         <div class="col-12 mp--none">
           <ProductByTypeComponent />
@@ -30,13 +38,15 @@ import PromotionComponent from '@/components/PromotionComponent.vue'
 import InstructionStepComponent from '@/components/InstructionStepComponent.vue'
 import ProductByTypeComponent from '@/components/ProductByTypeComponent.vue'
 import RequestAdvisorComponent from '@/components/RequestAdvisorComponent.vue'
+import BestSellerProductComponent from '@/components/BestSellerProductComponent.vue'
 export default {
   layout: 'mainlayout',
   components: {
     InstructionStepComponent,
     PromotionComponent,
     ProductByTypeComponent,
-    RequestAdvisorComponent
+    RequestAdvisorComponent,
+    BestSellerProductComponent
   }
 }
 </script>
