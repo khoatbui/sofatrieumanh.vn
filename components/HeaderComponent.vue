@@ -206,6 +206,13 @@ export default {
 }
 .mobile__menu {
   display: flex;
+  color: $primary__color;
+}
+.mobile__menu a {
+  color: $primary__color !important;
+}
+.mobile__menu .vs-navbar--btn-responsive .btn-responsive-line {
+  background-color: $primary__color !important;
 }
 .top__menu,
 .bottom__menu {

@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="row mp--none">
-      <div class="col-3 mp--none">
+      <div class="col-0 col-md-4 col-lg-3 mp--none filter__component">
         <div class="category__sidebar">
           <div class="category__header">
             <h5 v-b-toggle.collapse-category>
@@ -170,7 +170,7 @@
           </b-collapse>
         </div>
       </div>
-      <div class="col-9 mp--none">
+      <div class="col-12 col-md-8 col-lg-9 mp--none product__component">
         <div class="product__list">
           <div class="card border-0 product__list__item">
             <div class="card-body p-1">
@@ -567,13 +567,250 @@
         </div>
       </div>
     </div>
+    <div class="mobile__filter__component">
+      <vs-button
+        v-b-modal.modal-category
+        :color="'#ffa500'"
+        type="filled"
+        class="mobile__category__btn"
+        >Danh muc<i class="material-icons">
+          list
+        </i></vs-button
+      >
+      <vs-button
+        v-b-modal.modal-filter
+        :color="'#ffa500'"
+        type="filled"
+        class="mobile__filter__btn"
+        >Loc theo
+        <i class="material-icons">
+          filter_list
+        </i></vs-button
+      >
+    </div>
+    <div class="mobile__modal__filter">
+      <b-modal
+        id="modal-category"
+        ref="modal-category"
+        class="modal-category full__modal"
+        hide-footer
+        hide-header
+      >
+        <div class="modal__header__section">
+          <div class="category__header">
+            <h5>
+              Danh sach san pham
+
+              <i class="material-icons" @click="hideCategoryModal">
+                close
+              </i>
+            </h5>
+          </div>
+        </div>
+        <div class="modal__body__section">
+          <div class="category__sidebar">
+            <b-card class="border-0">
+              <div class="category__block">
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <ul class="category__list">
+                      <li class="category__item">
+                        <span class="category__item__name">Ghe Sofa</span>
+                        <span class="category__item__qty">10</span>
+                      </li>
+                      <li class="category__item">
+                        <span class="category__item__name">Ban Sofa</span>
+                        <span class="category__item__qty">10</span>
+                      </li>
+                      <li class="category__item">
+                        <span class="category__item__name">Sofa don</span>
+                        <span class="category__item__qty">10</span>
+                      </li>
+                      <li class="category__item">
+                        <span class="category__item__name">Sofa doi</span>
+                        <span class="category__item__qty">10</span>
+                      </li>
+                      <li class="category__item">
+                        <span class="category__item__name">Sofa hien dai</span>
+                        <span class="category__item__qty">10</span>
+                      </li>
+                      <li class="category__item">
+                        <span class="category__item__name">San pham khac</span>
+                        <span class="category__item__qty">10</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </b-card>
+          </div>
+        </div>
+        <div
+          class="modal__action d-flex justify-content-end align-items-center"
+        >
+          <vs-button
+            :color="'#156867'"
+            size="small"
+            class="border__radius--none mx-1"
+            type="border"
+            @click="hideCategoryModal"
+            >Clear</vs-button
+          >
+          <vs-button
+            :color="'#156867'"
+            type="filled"
+            size="small"
+            class="border__radius--none fill__border mx-1"
+            @click="hideCategoryModal"
+            >Done</vs-button
+          >
+        </div>
+      </b-modal>
+      <b-modal
+        id="modal-filter"
+        ref="modal-filter"
+        class="modal-filter full__modal"
+        hide-footer
+        hide-header
+      >
+        <div class="modal__header__section">
+          <div class="filter__header">
+            <h5>
+              Loc san pham
+
+              <i class="material-icons" @click="hideFilterModal">
+                close
+              </i>
+            </h5>
+          </div>
+        </div>
+        <div class="modal__body__section">
+          <div class="filter__sidebar">
+            <b-card class="border-0">
+              <div class="filter__block">
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <h6 class="filter__title">Chat lieu</h6>
+                  </div>
+                </div>
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <ul class="filter__list">
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="filter__block">
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <h6 class="filter__title">Chat lieu</h6>
+                  </div>
+                </div>
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <ul class="filter__list">
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="filter__block">
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <h6 class="filter__title">Chat lieu</h6>
+                  </div>
+                </div>
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <ul class="filter__list">
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </b-card>
+          </div>
+        </div>
+        <div
+          class="modal__action d-flex justify-content-end align-items-center"
+        >
+          <vs-button
+            :color="'#156867'"
+            size="small"
+            class="border__radius--none mx-1"
+            type="border"
+            @click="hideFilterModal"
+            >Clear</vs-button
+          >
+          <vs-button
+            :color="'#156867'"
+            size="small"
+            class="border__radius--none fill__border mx-1"
+            type="filled"
+            @click="hideFilterModal"
+            >Done</vs-button
+          >
+        </div>
+      </b-modal>
+    </div>
   </div>
 </template>
 <script>
 export default {
   data: () => ({
     checkBox1: false
-  })
+  }),
+  methods: {
+    hideCategoryModal() {
+      this.$refs['modal-category'].hide()
+    },
+    hideFilterModal() {
+      this.$refs['modal-filter'].hide()
+    }
+  }
 }
 </script>
 <style lang="scss">
@@ -760,12 +997,64 @@ export default {
 .product__list__item__img--03 {
   background-image: url('/images/product/pro_05.jpg');
 }
+
+.filter__component {
+  display: none;
+}
+.mobile__filter__component {
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+.mobile__category__btn {
+  border-radius: 0;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-right: 1px solid $white__color;
+}
+.mobile__filter__btn {
+  border-radius: 0;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border-left: 1px solid $white__color;
+  margin-left: -1px;
+}
+.mobile__filter__btn .vs-button-text,
+.mobile__category__btn .vs-button-text {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.mobile__filter__btn .vs-button-text i,
+.mobile__category__btn .vs-button-text i {
+  font-size: 0.9rem;
+  margin-left: 0.4rem;
+}
+#modal-category .modal-dialog,
+#modal-filter .modal-dialog {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#modal-category .modal-content,
+#modal-filter .modal-content {
+  border: 0 !important;
+  border-radius: 0 !important;
+  min-height: 100vh;
+}
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .product__list__item {
     width: 98%;
     min-height: 250px;
     margin: 1%;
+  }
+  .filter__component {
+    display: none;
   }
 }
 
@@ -776,6 +1065,9 @@ export default {
     min-height: 250px;
     margin: 1%;
   }
+  .filter__component {
+    display: block;
+  }
 }
 
 // Large devices (desktops, 992px and up)
@@ -785,6 +1077,9 @@ export default {
     min-height: 250px;
     margin: 1%;
   }
+  .filter__component {
+    display: block;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -793,6 +1088,9 @@ export default {
     width: 31%;
     min-height: 250px;
     margin: 1%;
+  }
+  .filter__component {
+    display: block;
   }
 }
 </style>
