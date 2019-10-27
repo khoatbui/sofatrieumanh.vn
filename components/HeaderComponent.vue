@@ -78,30 +78,33 @@
         </div>
       </div>
     </div>
-    <vs-navbar v-model="activeItem" class="nabarx py-2 mobile__menu">
+    <vs-navbar v-model="activeItem" collapse class="nabarx py-2 mobile__menu">
       <div slot="title">
-        <vs-navbar-title class="text__size--x2 mp--none header__logo">
-          Sofa <fa :icon="['fas', 'couch']" />
-        </vs-navbar-title>
+        <nuxt-link to="/"
+          ><vs-navbar-title class="text__size--x2 mp--none header__logo">
+            Sofa <fa :icon="['fas', 'couch']" />
+          </vs-navbar-title>
+        </nuxt-link>
       </div>
 
       <vs-navbar-item index="0">
-        <a href="#">Ghế sofa</a>
+        <nuxt-link to="/danh-muc/ghe-sofa">Ghế sofa</nuxt-link>
       </vs-navbar-item>
       <vs-navbar-item index="1">
-        <a href="#">Bàn +</a>
+        <nuxt-link to="/danh-muc/ban">Bàn +</nuxt-link>
       </vs-navbar-item>
       <vs-navbar-item index="2">
-        <a href="#">Sofa khuyến mãi</a>
+        <nuxt-link to="/danh-muc/sofa-khuyen-mai">Sofa khuyến mãi</nuxt-link>
       </vs-navbar-item>
       <vs-navbar-item index="3">
-        <a href="#">Nội thất</a>
+        <nuxt-link to="/danh-muc/noi-that">Nội thất</nuxt-link>
       </vs-navbar-item>
       <vs-navbar-item index="4">
+        <nuxt-link to="/danh-muc/sofa-thanh-ly">Sofa thanh lý</nuxt-link>
         <a href="#">Sofa thanh lý</a>
       </vs-navbar-item>
       <vs-navbar-item index="5">
-        <a href="#">Tin tức</a>
+        <nuxt-link to="/tin-tuc">Tin tức</nuxt-link>
       </vs-navbar-item>
     </vs-navbar>
   </div>

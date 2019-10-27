@@ -1001,6 +1001,14 @@ export default {
 .filter__component {
   display: none;
 }
+#modal-filter,
+#modal-category {
+  padding: 0 !important;
+}
+#modal-filter___BV_modal_outer_,
+#modal-category___BV_modal_outer_ {
+  z-index: 10001 !important;
+}
 .mobile__filter__component {
   display: flex;
   position: fixed;
