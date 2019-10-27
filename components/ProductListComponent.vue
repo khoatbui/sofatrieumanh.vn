@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="row mp--none">
-      <div class="col-0 col-md-4 col-lg-3 mp--none filter__component">
+      <div class="col-0 col-md-4 col-lg-3 mp--none filter__component px-2">
         <div class="category__sidebar">
           <div class="category__header">
             <h5 v-b-toggle.collapse-category>
@@ -170,7 +170,39 @@
           </b-collapse>
         </div>
       </div>
-      <div class="col-12 col-md-8 col-lg-9 mp--none product__component">
+      <div class="col-12 col-md-8 col-lg-9 mp--none product__component px-2">
+        <div class="sort__component">
+          <div class="breadcrumb__left">
+            <ul class="breadcrumb__list">
+              <li>Home</li>
+              <li>Danh mục</li>
+              <li>Bàn sofa</li>
+            </ul>
+          </div>
+          <div class="sort__right">
+            <vs-dropdown vs-trigger-click>
+              <a class="a-icon d-flex align-items-center" href="#">
+                Sắp xếp
+                <vs-icon class="" icon="expand_more"></vs-icon>
+              </a>
+
+              <vs-dropdown-menu>
+                <vs-dropdown-item>
+                  Gía cao đến thấp
+                </vs-dropdown-item>
+                <vs-dropdown-item>
+                  Giá thấp đến cao
+                </vs-dropdown-item>
+                <vs-dropdown-item divider>
+                  Phổ biến nhất
+                </vs-dropdown-item>
+                <vs-dropdown-item divider>
+                  Đánh giá cao nhất
+                </vs-dropdown-item>
+              </vs-dropdown-menu>
+            </vs-dropdown>
+          </div>
+        </div>
         <div class="product__list">
           <div class="card border-0 product__list__item">
             <div class="card-body p-1">
@@ -819,16 +851,17 @@ export default {
 //   color: $white__color;
 // }
 .category__name {
-  font-size: 4rem;
+  font-size: 3rem;
   text-transform: uppercase;
   font-weight: bold;
   text-align: center;
+  color: $primary__color;
 }
 .category__intro {
   text-align: center;
 }
 .category__action {
-  color: $three__color !important;
+  color: $primary__color !important;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -843,6 +876,52 @@ export default {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+}
+.sort__component {
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid $primary__color;
+  margin: 0 2%;
+}
+.sort__component {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.breadcrumb__list {
+  display: flex;
+  margin-bottom: 0 !important;
+}
+.breadcrumb__list li {
+  list-style: none;
+  color: $primary__color;
+  margin: 0 0.8rem;
+  position: relative;
+}
+.breadcrumb__list li::before {
+  content: '';
+  position: absolute;
+  height: 70%;
+  width: 1px;
+  background-color: $primary__color;
+  transform: rotate(20deg) translateY(20%);
+  right: -0.8rem;
+}
+.breadcrumb__list li:last-child:before {
+  display: none;
+}
+.breadcrumb__list li:first-child {
+  margin-left: 0 !important;
+}
+.breadcrumb__list li:last-child {
+  margin-right: 0 !important;
+}
+.sort__right,
+.sort__right a {
+  color: $primary__color;
+}
+.vs-dropdown--item-link {
+  white-space: nowrap !important;
 }
 .filter__header,
 .filter__header h5,
