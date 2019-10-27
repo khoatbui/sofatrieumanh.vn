@@ -57,13 +57,27 @@
           class="row mp--none d-flex justify-content-between align-items-center"
         >
           <div class="bottom__menu__left">
-            <a href="" class="bottom__menu__item">Ghế sofa</a>
-            <a href="" class="bottom__menu__item">Bàn +</a>
-            <a href="" class="bottom__menu__item">Sofa khuyến mãi</a>
-            <a href="" class="bottom__menu__item">Nội thất</a>
-            <a href="" class="bottom__menu__item">Sofa thanh lý</a>
-            <a href="" class="bottom__menu__item">Tin tức</a>
-            <a href="" class="bottom__menu__item">Hệ thống cửa hàng</a>
+            <nuxt-link to="/ghe-sofa" href="" class="bottom__menu__item"
+              >Ghế sofa</nuxt-link
+            >
+            <nuxt-link to="/ban" href="" class="bottom__menu__item"
+              >Bàn +</nuxt-link
+            >
+            <nuxt-link to="/sofa-khuyen-mai" href="" class="bottom__menu__item"
+              >Sofa khuyến mãi</nuxt-link
+            >
+            <nuxt-link to="/noi-that" href="" class="bottom__menu__item"
+              >Nội thất</nuxt-link
+            >
+            <nuxt-link to="/sofa-thanh-ly" href="" class="bottom__menu__item"
+              >Sofa thanh lý</nuxt-link
+            >
+            <nuxt-link to="/tin-tuc" href="" class="bottom__menu__item"
+              >Tin tức</nuxt-link
+            >
+            <nuxt-link to="/tu-van-thiet-ke" href="" class="bottom__menu__item"
+              >Tư vấn thiết kế</nuxt-link
+            >
           </div>
           <div class="bottom__menu__right">
             <input
@@ -235,6 +249,9 @@ export default {
 }
 
 .search__input::placeholder {
+  color: $primary__color;
+}
+.bottom__menu__item:hover {
   color: $primary__color;
 }
 // Small devices (landscape phones, 576px and up)

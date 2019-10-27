@@ -1,9 +1,9 @@
 <template>
   <div class="product__page">
-    <div class="container">
+    <div class="container section__margin">
       <div class="row mp--none">
         <div class="col-12 mp--none">
-          <ProductListComponent />
+          <ProductDetailComponent />
         </div>
       </div>
     </div>
@@ -12,12 +12,12 @@
 </template>
 <script>
 import RelatedProductComponent from '@/components/RelatedProductComponent.vue'
-import ProductListComponent from '@/components/ProductListComponent.vue'
+import ProductDetailComponent from '@/components/ProductDetailComponent.vue'
 export default {
   layout: 'mainlayout',
   components: {
     RelatedProductComponent,
-    ProductListComponent
+    ProductDetailComponent
   },
   data: () => ({})
 }

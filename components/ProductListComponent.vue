@@ -23,7 +23,7 @@
     </div>
     <div class="row mp--none">
       <div class="col-0 col-md-4 col-lg-3 mp--none filter__component px-2">
-        <div class="category__sidebar">
+        <div class="category__sidebar my-4">
           <div class="category__header">
             <h5 v-b-toggle.collapse-category>
               Danh muc san pham
@@ -70,7 +70,7 @@
             </b-card>
           </b-collapse>
         </div>
-        <div class="filter__sidebar">
+        <div class="filter__sidebar mt-4">
           <div class="filter__header">
             <h5 v-b-toggle.collapse-filter>
               Loc san pham
@@ -80,7 +80,11 @@
               </i>
             </h5>
           </div>
-          <b-collapse id="collapse-filter" class="filter__body mp--none">
+          <b-collapse
+            id="collapse-filter"
+            visible
+            class="filter__body mp--none"
+          >
             <b-card class="border-0">
               <div class="filter__block">
                 <div class="row mp--none">
@@ -924,6 +928,10 @@ export default {
   white-space: nowrap !important;
 }
 .filter__header,
+.category__header {
+  margin-bottom: 1.2rem;
+}
+.filter__header,
 .filter__header h5,
 .category__header,
 .category__header h5 {
@@ -943,7 +951,7 @@ export default {
 .category__header h5::before {
   position: absolute;
   content: '';
-  bottom: 0;
+  bottom: -0.4rem;
   left: 0;
   width: 40%;
   height: 4px;
@@ -1101,6 +1109,7 @@ export default {
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;
   border-right: 1px solid $white__color;
+  outline: none !important;
 }
 .mobile__filter__btn {
   border-radius: 0;
@@ -1108,6 +1117,7 @@ export default {
   border-bottom-right-radius: 100px;
   border-left: 1px solid $white__color;
   margin-left: -1px;
+  outline: none !important;
 }
 .mobile__filter__btn .vs-button-text,
 .mobile__category__btn .vs-button-text {
