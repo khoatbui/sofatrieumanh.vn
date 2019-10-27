@@ -78,7 +78,7 @@
         </div>
       </div>
     </div>
-    <vs-navbar v-model="activeItem" collapse class="nabarx py-2 mobile__menu">
+    <vs-navbar v-model="activeItem" class="nabarx py-2 mobile__menu">
       <div slot="title">
         <nuxt-link to="/"
           ><vs-navbar-title class="text__size--x2 mp--none header__logo">
