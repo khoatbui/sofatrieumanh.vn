@@ -12,7 +12,7 @@
         >
           <div class="card border-0 product__item">
             <div class="card-body p-1">
-              <div class="product__item__img">
+              <div class="product__item__img product__item__img--04">
                 <div class="discount__tag"></div>
               </div>
               <div class="product__item__detail">
@@ -42,7 +42,7 @@
           </div>
           <div class="card border-0 product__item">
             <div class="card-body p-1">
-              <div class="product__item__img">
+              <div class="product__item__img product__item__img--04">
                 <div class="discount__tag"></div>
               </div>
               <div class="product__item__detail">
@@ -72,7 +72,7 @@
           </div>
           <div class="card border-0 product__item">
             <div class="card-body p-1">
-              <div class="product__item__img">
+              <div class="product__item__img product__item__img--04">
                 <div class="discount__tag"></div>
               </div>
               <div class="product__item__detail">
@@ -102,7 +102,7 @@
           </div>
           <div class="card border-0 product__item">
             <div class="card-body p-1">
-              <div class="product__item__img">
+              <div class="product__item__img product__item__img--04">
                 <div class="discount__tag"></div>
               </div>
               <div class="product__item__detail">
@@ -132,7 +132,7 @@
           </div>
           <div class="card border-0 product__item">
             <div class="card-body p-1">
-              <div class="product__item__img">
+              <div class="product__item__img product__item__img--04">
                 <div class="discount__tag"></div>
               </div>
               <div class="product__item__detail">
@@ -162,7 +162,7 @@
           </div>
           <div class="card border-0 product__item">
             <div class="card-body p-1">
-              <div class="product__item__img">
+              <div class="product__item__img product__item__img--04">
                 <div class="discount__tag"></div>
               </div>
               <div class="product__item__detail">
@@ -195,3 +195,32 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    redirectToProductPage() {
+      this.$router.replace('/san-pham')
+    },
+    redirectToComparePage() {
+      this.$router.replace('/so-sanh')
+    }
+  }
+}
+</script>
+<style lang="scss">
+.product__item__img {
+  background-image: url('/images/product/pro_01.jpg');
+  min-height: 100px;
+  background-size: cover;
+  background-position: center;
+}
+.product__item__img--04 {
+  background-image: url('/images/product/pro_04.jpg');
+}
+.product__item__img--02 {
+  background-image: url('/images/product/pro_02.jpg');
+}
+.product__item__img--03 {
+  background-image: url('/images/product/pro_05.jpg');
+}
+</style>

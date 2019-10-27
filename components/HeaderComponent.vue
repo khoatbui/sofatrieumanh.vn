@@ -25,9 +25,11 @@
           </div>
           <div class="col-2 mp--none">
             <div slot="title">
-              <h1 class="text__size--x2 mp--none header__logo">
-                Sofa <fa :icon="['fas', 'couch']" />
-              </h1>
+              <nuxt-link to="/">
+                <h1 class="text__size--x2 mp--none header__logo">
+                  Sofa <fa :icon="['fas', 'couch']" />
+                </h1>
+              </nuxt-link>
             </div>
           </div>
           <div
@@ -112,6 +114,10 @@ export default {
 }
 </script>
 <style lang="scss">
+.header__component a,
+.header__component a:hover {
+  text-decoration: none;
+}
 .header__logo {
   color: $primary__color;
   font-weight: 700;

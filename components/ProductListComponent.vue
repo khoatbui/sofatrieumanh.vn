@@ -1,43 +1,656 @@
 <template>
   <div class="productlist__component">
+    <div class="row mp--none category__component section__margin">
+      <div
+        class="col-12 col-md-10 mx-auto mp--none d-flex justify-content-center align-items-center flex-column"
+      >
+        <h1 class="category__name">Ghe sofa</h1>
+        <p class="category__intro">
+          Ở SofaTrieuManh – bạn sẽ không thể tìm được một bộ sofa giá rẻ hay
+          những chương trình khuyến mãi hấp dẫn, thậm chí bạn cũng sẽ phải là
+          một vị khách thật khó tính để “đòi hỏi” SofaTrieuManh cung cấp những
+          thông tin hữu ích cho chiếc ghế sofa mà bạn lựa chọn… Bởi vì… ở
+          SofaTrieuManh, bạn chỉ có thể nhận được một sản phẩm thật với giá trị
+          thật mà thôi.
+        </p>
+        <nuxt-link to="/" class="category__action"
+          ><i class="material-icons">
+            keyboard_backspace
+          </i>
+          Quay lai</nuxt-link
+        >
+      </div>
+    </div>
     <div class="row mp--none">
-      <div class="col-4 mp--none">
+      <div class="col-3 mp--none">
+        <div class="category__sidebar">
+          <div class="category__header">
+            <h5 v-b-toggle.collapse-category>
+              Danh muc san pham
+            </h5>
+          </div>
+          <b-collapse
+            id="collapse-category"
+            visible
+            class="category__body mp--none"
+          >
+            <b-card class="border-0">
+              <div class="category__block">
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <ul class="category__list">
+                      <li class="category__item">
+                        <span class="category__item__name">Ghe Sofa</span>
+                        <span class="category__item__qty">10</span>
+                      </li>
+                      <li class="category__item">
+                        <span class="category__item__name">Ban Sofa</span>
+                        <span class="category__item__qty">10</span>
+                      </li>
+                      <li class="category__item">
+                        <span class="category__item__name">Sofa don</span>
+                        <span class="category__item__qty">10</span>
+                      </li>
+                      <li class="category__item">
+                        <span class="category__item__name">Sofa doi</span>
+                        <span class="category__item__qty">10</span>
+                      </li>
+                      <li class="category__item">
+                        <span class="category__item__name">Sofa hien dai</span>
+                        <span class="category__item__qty">10</span>
+                      </li>
+                      <li class="category__item">
+                        <span class="category__item__name">San pham khac</span>
+                        <span class="category__item__qty">10</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </b-card>
+          </b-collapse>
+        </div>
         <div class="filter__sidebar">
-          <div class="row mp--none">
-            <div class="col-12 mp--none">
-              <h6 class="filter__title">Chat lieu</h6>
+          <div class="filter__header">
+            <h5 v-b-toggle.collapse-filter>
+              Loc san pham
+
+              <i class="material-icons">
+                filter_list
+              </i>
+            </h5>
+          </div>
+          <b-collapse id="collapse-filter" class="filter__body mp--none">
+            <b-card class="border-0">
+              <div class="filter__block">
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <h6 class="filter__title">Chat lieu</h6>
+                  </div>
+                </div>
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <ul class="filter__list">
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="filter__block">
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <h6 class="filter__title">Chat lieu</h6>
+                  </div>
+                </div>
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <ul class="filter__list">
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="filter__block">
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <h6 class="filter__title">Chat lieu</h6>
+                  </div>
+                </div>
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <ul class="filter__list">
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </b-card>
+          </b-collapse>
+        </div>
+      </div>
+      <div class="col-9 mp--none">
+        <div class="product__list">
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div
+                class="product__list__item__img product__list__item__img--04"
+              >
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="row mp--none">
-            <div class="col-12 mp--none">
-              <ul class="filter__list">
-                <li class="filter__item">
-                  <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
-                </li>
-                <li class="filter__item">
-                  <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
-                </li>
-                <li class="filter__item">
-                  <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
-                </li>
-                <li class="filter__item">
-                  <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
-                </li>
-                <li class="filter__item">
-                  <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
-                </li>
-              </ul>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div
+                class="product__list__item__img product__list__item__img--03"
+              >
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div
+                class="product__list__item__img product__list__item__img--02"
+              >
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div
+                class="product__list__item__img product__list__item__img--04"
+              >
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-0 product__list__item">
+            <div class="card-body p-1">
+              <div class="product__list__item__img">
+                <div class="discount__tag"></div>
+              </div>
+              <div class="product__list__item__detail">
+                <h6 class="product__list__item__name">
+                  SOFA GÓC CỔ ĐIỂN MÃ 1468
+                </h6>
+                <div class="product__list__item__price">
+                  <span class="current__price">2,560,270</span>
+                  <span class="discount__price">3,900,000</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-8 mp--none">
-        <div class="product__list"></div>
-      </div>
     </div>
   </div>
 </template>
+<script>
+export default {
+  data: () => ({
+    checkBox1: false
+  })
+}
+</script>
 <style lang="scss">
+// .category__component {
+//   background-color: $secondary__color;
+//   color: $white__color;
+// }
+.category__name {
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+.category__intro {
+  text-align: center;
+}
+.category__action {
+  color: $three__color !important;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  font-size: 1.2rem;
+}
+.category__action:hover {
+  text-decoration: none !important;
+}
+.category__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.filter__header,
+.filter__header h5,
+.category__header,
+.category__header h5 {
+  font-size: 1.5rem;
+  color: $primary__color !important;
+  font-weight: bold !important;
+  cursor: pointer;
+}
+.filter__header h5,
+.category__header h5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.filter__header h5::before,
+.category__header h5::before {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  height: 4px;
+  border-radius: 100px;
+  background-color: $primary__color !important;
+}
+.filter__body,
+.category__body {
+  padding: 0.4rem;
+}
+.filter__body .card-body,
+.category__body .card-body {
+  padding: 0 !important;
+}
+.category__list,
+.category__list li {
+  list-style: none !important;
+}
+.category__item {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid $muted__color;
+  cursor: pointer;
+}
 .filter__title {
   color: $primary__color;
   font-weight: bold;
@@ -51,7 +664,7 @@
   width: 40%;
   height: 1px;
   border-radius: 100px;
-  background-color: $promotion__bg__color;
+  background-color: $primary__color !important;
 }
 .filter__list {
   padding-left: 0.4rem;
@@ -62,5 +675,124 @@
 }
 .filter__item {
   margin: 0.4rem 0;
+}
+.con-slot-label {
+  color: $primary__color !important;
+}
+.filter__item .vs-checkbox--check {
+  background: $primary__color !important ;
+  background-color: $primary__color !important ;
+}
+.filter__item .vs-checkbox-primary input:checked + .vs-checkbox {
+  border: 2px solid $primary__color !important;
+}
+.filter__item .vs-checkbox--input:checked + .vs-checkbox .vs-icon {
+  font-size: 16px;
+}
+.filter__block {
+  margin-bottom: 0.8rem;
+  margin-top: 0.8rem;
+}
+.collapse {
+  display: none;
+}
+.collapse.show {
+  display: block;
+}
+.product__list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.product__list__item {
+  width: 98%;
+  min-height: 250px;
+  margin: 1%;
+}
+.product__list__item__img {
+  background-image: url('/images/product/pro_01.jpg');
+  min-height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+.product__list__item__action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.border__primary {
+  border: 1px solid $primary__color;
+}
+.product__list__item__price {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.product__list__item__name {
+  color: $promotion__bg__color;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0.4rem auto;
+}
+.product__list__item__detail {
+  margin: 1.6rem 0;
+}
+.product__list__item__detail .current__price {
+  font-size: 1.3rem;
+  color: $danger__color !important;
+}
+.product__list__item__detail .discount__price {
+  color: $promotion__bg__color;
+}
+.product__list__item__detail .discount__price,
+.product__list__item__detail .current__price {
+  margin: 0 0.4rem;
+}
+.product__list__item__img--04 {
+  background-image: url('/images/product/pro_04.jpg');
+}
+.product__list__item__img--02 {
+  background-image: url('/images/product/pro_02.jpg');
+}
+.product__list__item__img--03 {
+  background-image: url('/images/product/pro_05.jpg');
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .product__list__item {
+    width: 98%;
+    min-height: 250px;
+    margin: 1%;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .product__list__item {
+    width: 48%;
+    min-height: 250px;
+    margin: 1%;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .product__list__item {
+    width: 31%;
+    min-height: 250px;
+    margin: 1%;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .product__list__item {
+    width: 31%;
+    min-height: 250px;
+    margin: 1%;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 .component__title {
   font-size: 2rem;
   font-weight: bold;
-  color: $promotion__bg__color;
+  color: $primary__color;
   position: relative;
   margin-bottom: 1.6rem;
   display: inline-block;
@@ -14,7 +14,7 @@
   width: 40%;
   height: 4px;
   border-radius: 100px;
-  background-color: $promotion__bg__color;
+  background-color: $primary__color;
 }
 
 // COMPONENT VUESAX=========
@@ -23,8 +23,4 @@
 }
 .vs-component.con-vs-checkbox.vs-checkbox-primary.vs-checkbox-default {
   margin: 0 !important;
-}
-.filter__item .vs-checkbox-primary.vs-checkbox--check {
-  background: $primary__color !important ;
-  background-color: $primary__color !important ;
 }
