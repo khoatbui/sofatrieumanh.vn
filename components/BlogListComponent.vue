@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="row mp--none">
-      <div class="col-12 col-sm-6 col-md-4 mp--none px-2">
+      <div class="col-12 col-sm-6 col-md-4 mp--none p-2">
         <div class="card border-0 mp--none p-3 blog__item">
           <div class="blog__image"></div>
           <div class="card-body">
@@ -95,7 +95,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 mp--none px-2">
+      <div class="col-12 col-sm-6 col-md-4 mp--none p-2">
         <div class="card border-0 mp--none p-3 blog__item">
           <div class="blog__image"></div>
           <div class="card-body">
@@ -177,7 +177,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 mp--none px-2">
+      <div class="col-12 col-sm-6 col-md-4 mp--none p-2">
         <div class="card border-0 mp--none p-3 blog__item">
           <div class="blog__image"></div>
           <div class="card-body">
