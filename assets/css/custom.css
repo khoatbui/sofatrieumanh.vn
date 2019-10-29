@@ -18,6 +18,12 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
 }
 /* TEXT SIZE ===================*/
+.text__size--x06 {
+  font-size: 0.6rem !important;
+}
+.text__size--x07 {
+  font-size: 0.7rem !important;
+}
 .text__size--x08 {
   font-size: 0.8rem !important;
 }
@@ -26,6 +32,9 @@ body {
 }
 .text__size--x1 {
   font-size: 1rem !important;
+}
+.text__size--x12 {
+  font-size: 1.2rem !important;
 }
 .text__size--x15 {
   font-size: 1.5rem !important;
@@ -40,7 +49,9 @@ body {
 .border__radius--none {
   border-radius: 0 !important;
 }
-
+.border__radius--100 {
+  border-radius: 100px !important;
+}
 /* SECTION MARGIN */
 .section__margin {
   margin-top: 4rem;

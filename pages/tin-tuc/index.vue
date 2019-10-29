@@ -1,9 +1,9 @@
 <template>
-  <div class="product__page">
-    <div class="section__margin">
+  <div class="blogs__page">
+    <div class="container section__margin">
       <div class="row mp--none">
         <div class="col-12 mp--none">
-          <ProductDetailComponent />
+          <BlogListComponent />
         </div>
       </div>
     </div>
@@ -15,13 +15,13 @@
 </template>
 <script>
 import RelatedProductComponent from '@/components/RelatedProductComponent.vue'
-import ProductDetailComponent from '@/components/ProductDetailComponent.vue'
+import BlogListComponent from '@/components/BlogListComponent.vue'
 import RequestAdvisorComponent from '@/components/RequestAdvisorComponent.vue'
 export default {
   layout: 'mainlayout',
   components: {
     RelatedProductComponent,
-    ProductDetailComponent,
+    BlogListComponent,
     RequestAdvisorComponent
   },
   data: () => ({})

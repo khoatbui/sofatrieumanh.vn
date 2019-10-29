@@ -1,0 +1,291 @@
+<template>
+  <div class="bloglist__component">
+    <div class="row mp--none category__component section__margin">
+      <div
+        class="col-12 col-md-10 mx-auto mp--none d-flex justify-content-center align-items-center flex-column"
+      >
+        <h1 class="category__name">Blogs</h1>
+        <p class="category__intro text-center">
+          Bài viết, kiến thức, kinh nghiệm trang trí và sử dụng nội thất đến từ
+          Triệu Mạnh. Kiến trúc sư và nhà sản xuất lâu năm trong ngành nội thất
+          gia đình và nội thất công nghiệp.
+        </p>
+      </div>
+    </div>
+    <div class="row mp--none">
+      <div class="col-12 col-sm-6 col-md-4 mp--none px-2">
+        <div class="card border-0 mp--none p-3 blog__item">
+          <div class="blog__image"></div>
+          <div class="card-body">
+            <h5 class="blog__title">Kien truc hien dai trong noi that</h5>
+            <span class="blog__createtime"
+              ><i class="material-icons mx-1 text__size--x09"> access_time </i
+              >2019-02-15</span
+            >
+            <p class="blog__intro">
+              Phòng khách có cầu thang là thiết kế phổ biến của nhà phố và biệt
+              thự hiện nay. Đây là khu vực kết nối ...
+            </p>
+            <vs-button
+              :color="'#156867'"
+              type="filled"
+              class="px-3 py-2 border__radius--100"
+              >Đọc thêm</vs-button
+            >
+          </div>
+        </div>
+        <div class="card border-0 mp--none p-3 blog__item">
+          <div class="blog__image"></div>
+          <div class="card-body">
+            <h5 class="blog__title">Kien truc hien dai trong noi that</h5>
+            <span class="blog__createtime"
+              ><i class="material-icons mx-1 text__size--x09"> access_time </i
+              >2019-02-15</span
+            >
+            <p class="blog__intro">
+              Phòng khách có cầu thang là thiết kế phổ biến của nhà phố và biệt
+              thự hiện nay. Đây là khu vực kết nối ...
+            </p>
+            <vs-button
+              :color="'#156867'"
+              type="filled"
+              class="px-3 py-2 border__radius--100"
+              >Đọc thêm</vs-button
+            >
+          </div>
+        </div>
+        <div class="card border-0 mp--none p-3 blog__item">
+          <div class="blog__image"></div>
+          <div class="card-body">
+            <h5 class="blog__title">Kien truc hien dai trong noi that</h5>
+            <span class="blog__createtime"
+              ><i class="material-icons mx-1 text__size--x09"> access_time </i
+              >2019-02-15</span
+            >
+            <p class="blog__intro">
+              Phòng khách có cầu thang là thiết kế phổ biến của nhà phố và biệt
+              thự hiện nay. Đây là khu vực kết nối ...
+            </p>
+            <vs-button
+              :color="'#156867'"
+              type="filled"
+              class="px-3 py-2 border__radius--100"
+              >Đọc thêm</vs-button
+            >
+          </div>
+        </div>
+        <div class="card border-0 mp--none p-3 blog__item">
+          <div class="blog__image"></div>
+          <div class="card-body">
+            <h5 class="blog__title">Kien truc hien dai trong noi that</h5>
+            <span class="blog__createtime"
+              ><i class="material-icons mx-1 text__size--x09"> access_time </i
+              >2019-02-15</span
+            >
+            <p class="blog__intro">
+              Phòng khách có cầu thang là thiết kế phổ biến của nhà phố và biệt
+              thự hiện nay. Đây là khu vực kết nối ...
+            </p>
+            <vs-button
+              :color="'#156867'"
+              type="filled"
+              class="px-3 py-2 border__radius--100"
+              >Đọc thêm</vs-button
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 mp--none px-2">
+        <div class="card border-0 mp--none p-3 blog__item">
+          <div class="blog__image"></div>
+          <div class="card-body">
+            <h5 class="blog__title">Kien truc hien dai trong noi that</h5>
+            <span class="blog__createtime"
+              ><i class="material-icons mx-1 text__size--x09"> access_time </i
+              >2019-02-15</span
+            >
+            <p class="blog__intro">
+              Phòng khách có cầu thang là thiết kế phổ biến của nhà phố và biệt
+              thự hiện nay. Đây là khu vực kết nối ...
+            </p>
+            <vs-button
+              :color="'#156867'"
+              type="filled"
+              class="px-3 py-2 border__radius--100"
+              >Đọc thêm</vs-button
+            >
+          </div>
+        </div>
+        <div class="card border-0 mp--none p-3 blog__item">
+          <div class="blog__image"></div>
+          <div class="card-body">
+            <h5 class="blog__title">Kien truc hien dai trong noi that</h5>
+            <span class="blog__createtime"
+              ><i class="material-icons mx-1 text__size--x09"> access_time </i
+              >2019-02-15</span
+            >
+            <p class="blog__intro">
+              Phòng khách có cầu thang là thiết kế phổ biến của nhà phố và biệt
+              thự hiện nay. Đây là khu vực kết nối ...
+            </p>
+            <vs-button
+              :color="'#156867'"
+              type="filled"
+              class="px-3 py-2 border__radius--100"
+              >Đọc thêm</vs-button
+            >
+          </div>
+        </div>
+        <div class="card border-0 mp--none p-3 blog__item">
+          <div class="blog__image"></div>
+          <div class="card-body">
+            <h5 class="blog__title">Kien truc hien dai trong noi that</h5>
+            <span class="blog__createtime"
+              ><i class="material-icons mx-1 text__size--x09"> access_time </i
+              >2019-02-15</span
+            >
+            <p class="blog__intro">
+              Phòng khách có cầu thang là thiết kế phổ biến của nhà phố và biệt
+              thự hiện nay. Đây là khu vực kết nối ...
+            </p>
+            <vs-button
+              :color="'#156867'"
+              type="filled"
+              class="px-3 py-2 border__radius--100"
+              >Đọc thêm</vs-button
+            >
+          </div>
+        </div>
+        <div class="card border-0 mp--none p-3 blog__item">
+          <div class="blog__image"></div>
+          <div class="card-body">
+            <h5 class="blog__title">Kien truc hien dai trong noi that</h5>
+            <span class="blog__createtime"
+              ><i class="material-icons mx-1 text__size--x09"> access_time </i
+              >2019-02-15</span
+            >
+            <p class="blog__intro">
+              Phòng khách có cầu thang là thiết kế phổ biến của nhà phố và biệt
+              thự hiện nay. Đây là khu vực kết nối ...
+            </p>
+            <vs-button
+              :color="'#156867'"
+              type="filled"
+              class="px-3 py-2 border__radius--100"
+              >Đọc thêm</vs-button
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 mp--none px-2">
+        <div class="card border-0 mp--none p-3 blog__item">
+          <div class="blog__image"></div>
+          <div class="card-body">
+            <h5 class="blog__title">Kien truc hien dai trong noi that</h5>
+            <span class="blog__createtime"
+              ><i class="material-icons mx-1 text__size--x09"> access_time </i
+              >2019-02-15</span
+            >
+            <p class="blog__intro">
+              Phòng khách có cầu thang là thiết kế phổ biến của nhà phố và biệt
+              thự hiện nay. Đây là khu vực kết nối ...
+            </p>
+            <vs-button
+              :color="'#156867'"
+              type="filled"
+              class="px-3 py-2 border__radius--100"
+              >Đọc thêm</vs-button
+            >
+          </div>
+        </div>
+        <div class="card border-0 mp--none p-3 blog__item">
+          <div class="blog__image"></div>
+          <div class="card-body">
+            <h5 class="blog__title">Kien truc hien dai trong noi that</h5>
+            <span class="blog__createtime"
+              ><i class="material-icons mx-1 text__size--x09"> access_time </i
+              >2019-02-15</span
+            >
+            <p class="blog__intro">
+              Phòng khách có cầu thang là thiết kế phổ biến của nhà phố và biệt
+              thự hiện nay. Đây là khu vực kết nối ...
+            </p>
+            <vs-button
+              :color="'#156867'"
+              type="filled"
+              class="px-3 py-2 border__radius--100"
+              >Đọc thêm</vs-button
+            >
+          </div>
+        </div>
+        <div class="card border-0 mp--none p-3 blog__item">
+          <div class="blog__image"></div>
+          <div class="card-body">
+            <h5 class="blog__title">Kien truc hien dai trong noi that</h5>
+            <span class="blog__createtime"
+              ><i class="material-icons mx-1 text__size--x09"> access_time </i
+              >2019-02-15</span
+            >
+            <p class="blog__intro">
+              Phòng khách có cầu thang là thiết kế phổ biến của nhà phố và biệt
+              thự hiện nay. Đây là khu vực kết nối ...
+            </p>
+            <vs-button
+              :color="'#156867'"
+              type="filled"
+              class="px-3 py-2 border__radius--100"
+              >Đọc thêm</vs-button
+            >
+          </div>
+        </div>
+        <div class="card border-0 mp--none p-3 blog__item">
+          <div class="blog__image"></div>
+          <div class="card-body">
+            <h5 class="blog__title">Kien truc hien dai trong noi that</h5>
+            <span class="blog__createtime"
+              ><i class="material-icons mx-1 text__size--x09"> access_time </i
+              >2019-02-15</span
+            >
+            <p class="blog__intro">
+              Phòng khách có cầu thang là thiết kế phổ biến của nhà phố và biệt
+              thự hiện nay. Đây là khu vực kết nối ...
+            </p>
+            <vs-button
+              :color="'#156867'"
+              type="filled"
+              class="px-3 py-2 border__radius--100"
+              >Đọc thêm</vs-button
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<style lang="scss">
+.blog__image {
+  background-image: url('/images/blogs/blog_01.jpg');
+  background-size: cover;
+  min-height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.blog__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $primary__color;
+  margin-bottom: 0.8rem;
+}
+.blog__createtime {
+  font-size: 0.8rem;
+  color: $muted__color;
+  margin-bottom: 0.8rem;
+}
+.blog__intro {
+  font-size: 0.9rem;
+  color: $three__color;
+}
+.blog__item:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+</style>
