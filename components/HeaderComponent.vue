@@ -57,19 +57,31 @@
           class="row mp--none d-flex justify-content-between align-items-center"
         >
           <div class="bottom__menu__left">
-            <nuxt-link to="/ghe-sofa" href="" class="bottom__menu__item"
+            <nuxt-link
+              to="/danh-muc/ghe-sofa"
+              href=""
+              class="bottom__menu__item"
               >Ghế sofa</nuxt-link
             >
-            <nuxt-link to="/ban" href="" class="bottom__menu__item"
+            <nuxt-link to="/danh-muc/ban" href="" class="bottom__menu__item"
               >Bàn +</nuxt-link
             >
-            <nuxt-link to="/sofa-khuyen-mai" href="" class="bottom__menu__item"
+            <nuxt-link
+              to="/danh-muc/sofa-khuyen-mai"
+              href=""
+              class="bottom__menu__item"
               >Sofa khuyến mãi</nuxt-link
             >
-            <nuxt-link to="/noi-that" href="" class="bottom__menu__item"
+            <nuxt-link
+              to="/danh-muc/noi-that"
+              href=""
+              class="bottom__menu__item"
               >Nội thất</nuxt-link
             >
-            <nuxt-link to="/sofa-thanh-ly" href="" class="bottom__menu__item"
+            <nuxt-link
+              to="/danh-muc/sofa-thanh-ly"
+              href=""
+              class="bottom__menu__item"
               >Sofa thanh lý</nuxt-link
             >
             <nuxt-link to="/tin-tuc" href="" class="bottom__menu__item"
