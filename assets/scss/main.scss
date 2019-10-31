@@ -1,6 +1,9 @@
 body {
   color: $promotion__bg__color;
 }
+.secondary__background {
+  background-color: $secondary__bg__color;
+}
 .component__title {
   font-size: 2rem;
   font-weight: bold;

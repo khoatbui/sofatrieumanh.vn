@@ -16,7 +16,7 @@
               <li>
                 <a href="#" class="top__menu__item">
                   <fa :icon="['fas', 'phone-alt']" />
-                  <span class="secondary__font text__size--x08 "
+                  <span class="secondary__font text__size--x09 "
                     >030-927-998</span
                   >
                 </a>
