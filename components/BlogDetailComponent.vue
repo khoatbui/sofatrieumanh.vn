@@ -212,6 +212,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: $primary__color;
 }
 .tintuc__info {
   margin: 0 0 3.2rem 0;
@@ -219,6 +220,7 @@ export default {
 .tintuc__info .creator {
   color: $muted__color;
   font-size: 0.8rem;
+  display: none;
 }
 .tintuc__info .creator .material-icons {
   font-size: 01rem !important;
@@ -235,7 +237,7 @@ export default {
 .tintuc__title::before {
   position: absolute;
   content: '';
-  bottom: -0.4rem;
+  bottom: -1.6rem;
   left: 0;
   width: 40%;
   height: 4px;

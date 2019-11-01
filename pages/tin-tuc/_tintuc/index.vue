@@ -1,7 +1,7 @@
 <template>
   <div class="tintuc__page">
     <div class="container section__padding">
-      <BlogDetailComponent class="mb-4" />
+      <BlogDetailComponent class="mb-4 border-bottom" />
       <SlideProductComponent class="mt-4" />
     </div>
   </div>

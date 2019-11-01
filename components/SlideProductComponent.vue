@@ -2,6 +2,11 @@
   <div class="sliderproduct__component">
     <div class="row mp--none">
       <div class="col-12 mp--none">
+        <h3 class="slider__title">San pham hap dan</h3>
+      </div>
+    </div>
+    <div class="row mp--none">
+      <div class="col-12 mp--none">
         <no-ssr>
           <!-- important to add no-ssr-->
 
@@ -72,6 +77,13 @@
   </div>
 </template>
 <style lang="scss">
+.slider__title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: $primary__color;
+  padding-bottom: 2rem;
+  text-align: center;
+}
 .slideproduct__item {
   margin: 0 0.8rem;
 }
