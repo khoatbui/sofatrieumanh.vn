@@ -78,7 +78,7 @@
       <vs-popup fullscreen :title="selected.blogName" :active.sync="editPopup">
         <div class="popup_body">
           <div class="row mp--none mb-3">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <vs-input
                 v-model="editedItem.blogName"
                 label="Tên bài viết"
@@ -86,7 +86,7 @@
                 class="w-100"
               />
             </div>
-            <div class="col-2 d-flex align-items-end">
+            <div class="col-12 col-md-2 d-flex align-items-end">
               <vs-input
                 v-model="editedItem.source"
                 label="Nguồn"
@@ -94,15 +94,15 @@
                 class="w-100"
               />
             </div>
-            <div class="col-2 d-flex align-items-end">
+            <div class="col-6 col-md-2 my-4 my-md-0 d-flex align-items-end">
               <vs-checkbox v-model="editedItem.isActive">Public ?</vs-checkbox>
             </div>
-            <div class="col-2 d-flex align-items-end">
+            <div class="col-6 col-md-2 my-4 my-md-0 d-flex align-items-end">
               <vs-checkbox v-model="editedItem.isHot">Hot ?</vs-checkbox>
             </div>
           </div>
           <div class="row mp--none mb-3">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <vs-input
                 v-model="editedItem.url"
                 label="URL bài viết"
@@ -110,7 +110,7 @@
                 class="w-100"
               />
             </div>
-            <div class="col-6 d-flex align-items-end">
+            <div class="col-12 col-md-6 my-4 my-md-0 d-flex align-items-end">
               <vs-chips
                 v-model="editedItem.tags"
                 color="rgb(145, 32, 159)"
@@ -151,7 +151,10 @@
           </div>
           <div class="row mp--none mb-3">
             <div class="col-12">
-              <AdminTipTapComponent />
+              <AdminTipTapComponent
+                :data-parent="editedItem.content"
+                @childtoparent="editedItem.content = $event"
+              />
             </div>
           </div>
           <div class="row mp--none margin__top--4 border-top">
@@ -196,7 +199,8 @@ export default {
       createBy: 'trieumanh',
       source: '',
       tags: [],
-      url: ''
+      url: '',
+      content: ''
     },
     counterDanger: false,
     users: [
@@ -295,7 +299,8 @@ export default {
     },
     removeTag(item) {
       this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1)
-    }
+    },
+    getBlogById(id) {}
   }
 }
 </script>
