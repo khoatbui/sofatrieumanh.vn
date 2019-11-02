@@ -3,6 +3,6 @@
 </template>
 <script>
 export default {
-  layout: 'adminlayout.vue'
+  layout: 'adminlayout'
 }
 </script>

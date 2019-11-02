@@ -114,23 +114,34 @@
       </div>
 
       <vs-navbar-item index="0">
-        <nuxt-link to="/danh-muc/ghe-sofa">Ghế sofa</nuxt-link>
+        <nuxt-link to="/danh-muc/ghe-sofa" @click.native="selectNavItem"
+          >Ghế sofa</nuxt-link
+        >
       </vs-navbar-item>
       <vs-navbar-item index="1">
-        <nuxt-link to="/danh-muc/ban">Bàn +</nuxt-link>
+        <nuxt-link to="/danh-muc/ban" @click.native="selectNavItem"
+          >Bàn +</nuxt-link
+        >
       </vs-navbar-item>
       <vs-navbar-item index="2">
-        <nuxt-link to="/danh-muc/sofa-khuyen-mai">Sofa khuyến mãi</nuxt-link>
+        <nuxt-link to="/danh-muc/sofa-khuyen-mai" @click.native="selectNavItem"
+          >Sofa khuyến mãi</nuxt-link
+        >
       </vs-navbar-item>
       <vs-navbar-item index="3">
-        <nuxt-link to="/danh-muc/noi-that">Nội thất</nuxt-link>
+        <nuxt-link to="/danh-muc/noi-that" @click.native="selectNavItem"
+          >Nội thất</nuxt-link
+        >
       </vs-navbar-item>
       <vs-navbar-item index="4">
-        <nuxt-link to="/danh-muc/sofa-thanh-ly">Sofa thanh lý</nuxt-link>
-        <a href="#">Sofa thanh lý</a>
+        <nuxt-link to="/danh-muc/sofa-thanh-ly" @click.native="selectNavItem"
+          >Sofa thanh lý</nuxt-link
+        >
       </vs-navbar-item>
       <vs-navbar-item index="5">
-        <nuxt-link to="/tin-tuc">Tin tức</nuxt-link>
+        <nuxt-link to="/tin-tuc" @click.native="selectNavItem"
+          >Tin tức</nuxt-link
+        >
       </vs-navbar-item>
     </vs-navbar>
   </div>
@@ -139,7 +150,17 @@
 export default {
   data: () => ({
     activeItem: 0
-  })
+  }),
+  methods: {
+    selectNavItem() {
+      document
+        .querySelector('.vs-con-items')
+        .classList.remove('activeMenuResponsive')
+      document
+        .querySelector('.vs-navbar--btn-responsive')
+        .classList.remove('active-menu')
+    }
+  }
 }
 </script>
 <style lang="scss">

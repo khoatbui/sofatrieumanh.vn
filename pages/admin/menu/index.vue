@@ -1,5 +1,5 @@
 <template>
-  <div class="admin__product__component"></div>
+  <div class="admin__menu__page"></div>
 </template>
 <script>
 export default {
