@@ -318,8 +318,8 @@ export default {
             this.$vs.loading.close()
             this.$vs.notify({
               color: 'success',
-              title: 'Create Success',
-              text: 'Tạo bài viết thành công'
+              title: 'Update Success',
+              text: 'Sửa bài viết thành công'
             })
 
             this.getBlogList()

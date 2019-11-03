@@ -198,34 +198,34 @@
             <div class="col-6 col-md-3">
               <vs-select
                 v-model="editedItem.category"
-                placeholder="Ghế sofa"
+                placeholder="Select..."
                 multiple
                 autocomplete
                 class="w-100"
                 label="Category"
               >
                 <vs-select-item
-                  v-for="(item, index) in categorys"
+                  v-for="(item, index) in categoryList"
                   :key="index"
-                  :value="item.value"
-                  :text="item.text"
+                  :value="item._id"
+                  :text="item.menuName"
                 />
               </vs-select>
             </div>
             <div class="col-6 col-md-3">
               <vs-select
                 v-model="editedItem.characteristics"
-                placeholder="Đặc điểm"
+                placeholder="Select..."
                 multiple
                 autocomplete
                 class="w-100"
-                label="Category"
+                label="Đặc điểm"
               >
                 <vs-select-item
-                  v-for="(item, index) in charactery"
+                  v-for="(item, index) in characteryList"
                   :key="index"
-                  :value="item.value"
-                  :text="item.text"
+                  :value="item._id"
+                  :text="item.characteryName"
                 />
               </vs-select>
             </div>
@@ -282,6 +282,8 @@ export default {
   data: () => ({
     editPopup: false,
     editedDataLoaded: false,
+    categoryList: [],
+    characteryList: [],
     selected: [],
     editedIndex: -1,
     editedItem: {
@@ -319,38 +321,12 @@ export default {
       characteristics: []
     },
     counterDanger: false,
-    productList: [],
-    categorys: [
-      { text: 'Square', value: 1 },
-      { text: 'Rectangle', value: 2 },
-      { text: 'Rombo', value: 3 },
-      { text: 'Romboid', value: 4 },
-      { text: 'Trapeze', value: 5 },
-      { text: 'Triangle', value: 6 },
-      { text: 'Polygon', value: 7 },
-      { text: 'Regular polygon', value: 8 },
-      { text: 'Circumference', value: 9 },
-      { text: 'Circle', value: 10 },
-      { text: 'Circular sector', value: 11 },
-      { text: 'Circular trapeze', value: 12 }
-    ],
-    charactery: [
-      { text: 'Square', value: 1 },
-      { text: 'Rectangle', value: 2 },
-      { text: 'Rombo', value: 3 },
-      { text: 'Romboid', value: 4 },
-      { text: 'Trapeze', value: 5 },
-      { text: 'Triangle', value: 6 },
-      { text: 'Polygon', value: 7 },
-      { text: 'Regular polygon', value: 8 },
-      { text: 'Circumference', value: 9 },
-      { text: 'Circle', value: 10 },
-      { text: 'Circular sector', value: 11 },
-      { text: 'Circular trapeze', value: 12 }
-    ]
+    productList: []
   }),
   mounted() {
     this.getProductList()
+    this.getCategoryList()
+    this.getCharacteryList()
     document.querySelector('.con-input-upload input').name = 'imagesx'
   },
   methods: {
@@ -366,6 +342,44 @@ export default {
       this.editedItem = this.defaultItem
       this.editedIndex = -1
       this.editedItem.createDate = this.$moment().format('YYYY-MM-DD')
+    },
+    getCategoryList() {
+      this.$vs.loading()
+      this.$axios
+        .get('/api/menuapi/')
+        .then((response) => {
+          this.categoryList = response.data
+          this.$vs.loading.close()
+        })
+        .catch((error) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error
+          })
+        })
+        .finally(() => {
+          this.$vs.loading.close()
+        })
+    },
+    getCharacteryList() {
+      this.$vs.loading()
+      this.$axios
+        .get('/api/characteryapi/')
+        .then((response) => {
+          this.characteryList = response.data
+          this.$vs.loading.close()
+        })
+        .catch((error) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error
+          })
+        })
+        .finally(() => {
+          this.$vs.loading.close()
+        })
     },
     successUpload(e) {
       const image = JSON.parse(e.srcElement.response)
@@ -445,8 +459,8 @@ export default {
             this.$vs.loading.close()
             this.$vs.notify({
               color: 'success',
-              title: 'Create Success',
-              text: 'Tạo sản phẩm thành công'
+              title: 'Update Success',
+              text: 'Sửa sản phẩm thành công'
             })
 
             this.getProductList()

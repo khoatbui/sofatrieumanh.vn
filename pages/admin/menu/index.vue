@@ -90,7 +90,7 @@
             <div class="col-12 col-md-6">
               <vs-select
                 v-model="editedItem.parentMenu"
-                placeholder="Ghế sofa"
+                placeholder="Select..."
                 multiple
                 autocomplete
                 class="w-100"
@@ -99,8 +99,8 @@
                 <vs-select-item
                   v-for="(item, index) in parentMenuList"
                   :key="index"
-                  :value="item.value"
-                  :text="item.text"
+                  :value="item._id"
+                  :text="item.menuName"
                 />
               </vs-select>
             </div>
@@ -186,6 +186,7 @@ export default {
   }),
   mounted() {
     this.getMenuList()
+    this.getParentMenuList()
   },
   methods: {
     editMenuClick(index) {
@@ -241,6 +242,25 @@ export default {
           this.$vs.loading.close()
         })
     },
+    getParentMenuList() {
+      this.$vs.loading()
+      this.$axios
+        .get('/api/menuapi/')
+        .then((response) => {
+          this.parentMenuList = response.data
+          this.$vs.loading.close()
+        })
+        .catch((error) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error
+          })
+        })
+        .finally(() => {
+          this.$vs.loading.close()
+        })
+    },
     saveMenu() {
       this.$vs.loading()
       if (this.editedIndex === -1) {
@@ -254,6 +274,7 @@ export default {
               text: 'Tạo menu thành công'
             })
             this.getMenuList()
+            this.parentMenuList()
           })
       } else {
         this.$axios
@@ -262,11 +283,12 @@ export default {
             this.$vs.loading.close()
             this.$vs.notify({
               color: 'success',
-              title: 'Create Success',
-              text: 'Tạo menu thành công'
+              title: 'Update Success',
+              text: 'Sửa menu thành công'
             })
 
             this.getMenuList()
+            this.parentMenuList()
           })
       }
     }

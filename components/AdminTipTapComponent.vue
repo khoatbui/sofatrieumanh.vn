@@ -256,7 +256,6 @@ export default {
   watch: {
     isAsyncCompleted(newVal, oldVal) {
       // watch it
-      console.log('Prop changed: ', newVal, ' | was: ', oldVal)
       this.editor.setContent(this.dataParent)
     }
   },

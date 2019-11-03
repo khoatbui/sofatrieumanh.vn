@@ -86,7 +86,7 @@
             <div class="col-12 col-md-6">
               <vs-input
                 v-model="editedItem.characteryName"
-                label="Tên đặc tính sản phẩm"
+                label="Tên đặc điểm sản phẩm"
                 placeholder="Chân sắt"
                 class="w-100"
               />
@@ -208,7 +208,7 @@ export default {
             this.$vs.notify({
               color: 'success',
               title: 'Create Success',
-              text: 'Tạo đặc tính sản phẩm thành công'
+              text: 'Tạo đặc điểm sản phẩm thành công'
             })
             this.getCharacteryList()
           })
@@ -222,8 +222,8 @@ export default {
             this.$vs.loading.close()
             this.$vs.notify({
               color: 'success',
-              title: 'Create Success',
-              text: 'Tạo đặc tính sản phẩm thành công'
+              title: 'Update Success',
+              text: 'Sửa đặc điểm sản phẩm thành công'
             })
 
             this.getCharacteryList()
