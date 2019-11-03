@@ -19,6 +19,9 @@
       <vs-navbar-item index="1">
         <nuxt-link to="/admin/menu">Menus</nuxt-link>
       </vs-navbar-item>
+      <vs-navbar-item index="1">
+        <nuxt-link to="/admin/charactery">Đặc điểm</nuxt-link>
+      </vs-navbar-item>
       <vs-navbar-item index="2">
         <nuxt-link to="/admin/blog">Blog / News</nuxt-link>
       </vs-navbar-item>

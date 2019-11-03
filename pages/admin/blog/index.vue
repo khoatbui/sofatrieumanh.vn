@@ -8,13 +8,14 @@
               color="primary"
               type="filled"
               class="py-2 px-3 border__radius--none border-right"
+              @click="newBlogClick"
               >Add new</vs-button
             >
             <vs-button
               color="primary"
               type="filled"
               class="py-2 px-3 border__radius--none"
-              @click="editBlog"
+              @click="editBlogClick"
               >Edit</vs-button
             >
           </div>
@@ -26,7 +27,7 @@
         <div class="card border-0 shadow">
           <vs-table
             v-model="selected"
-            :data="users"
+            :data="blogList"
             pagination
             max-items="7"
             search
@@ -58,11 +59,11 @@
                 </vs-td>
 
                 <vs-td :data="data[indextr].createDate">
-                  {{ data[indextr].createDate }}
+                  {{ $moment(data[indextr].createDate).format('YYYY-MM-DD') }}
                 </vs-td>
 
                 <vs-td :data="data[indextr].modifyDate">
-                  {{ data[indextr].modifyDate }}
+                  {{ $moment(data[indextr].modifyDate).format('YYYY-MM-DD') }}
                 </vs-td>
 
                 <vs-td :data="data[indextr].isActive">
@@ -133,8 +134,8 @@
             <div class="col-12">
               <vs-textarea
                 v-model="editedItem.blogIntro"
-                counter="100"
-                label="Mô tả tóm tắt"
+                counter="200"
+                label="Mô tả tóm tắt(SEO)"
                 :counter-danger.sync="counterDanger"
               />
             </div>
@@ -144,7 +145,7 @@
               <vs-upload
                 multiple
                 text="Ảnh bài viết"
-                action="https://jsonplaceholder.typicode.com/posts/"
+                action="/api/uploadapi/upload-blog-img"
                 @on-success="successUpload"
               />
             </div>
@@ -153,6 +154,7 @@
             <div class="col-12">
               <AdminTipTapComponent
                 :data-parent="editedItem.content"
+                :is-async-completed="editedDataLoaded"
                 @childtoparent="editedItem.content = $event"
               />
             </div>
@@ -169,6 +171,7 @@
                 color="primary"
                 type="filled"
                 class="py-2 px-3 border__radius--none"
+                @click="saveBlog"
                 >Lưu bài viết</vs-button
               >
             </div>
@@ -188,7 +191,9 @@ export default {
   layout: 'adminlayout',
   data: () => ({
     editPopup: false,
+    editedDataLoaded: false,
     selected: [],
+    editedIndex: -1,
     editedItem: {
       blogName: '',
       blogIntro: '',
@@ -200,97 +205,49 @@ export default {
       source: '',
       tags: [],
       url: '',
-      content: ''
+      content: '',
+      images: []
+    },
+    defaultItem: {
+      blogName: '',
+      blogIntro: '',
+      isHot: false,
+      isActive: true,
+      createDate: '',
+      modifyDate: '',
+      createBy: 'trieumanh',
+      source: '',
+      tags: [],
+      url: '',
+      content: '',
+      images: []
     },
     counterDanger: false,
-    users: [
-      {
-        id: 1,
-        blogName: 'Leanne Graham Samuel',
-        createDate: 'Bret',
-        modifyDate: 'Sincere@april.biz',
-        isActive: true,
-        source: 'kenh14.vn'
-      },
-      {
-        id: 2,
-        blogName: 'Leanne Graham Gosure',
-        createDate: 'Bret',
-        modifyDate: 'Sincere@april.biz',
-        isActive: true,
-        source: 'kenh14.vn'
-      },
-      {
-        id: 3,
-        blogName: 'Cam Leanne Graham',
-        createDate: 'Bret',
-        modifyDate: 'Sincere@april.biz',
-        isActive: true,
-        source: 'kenh14.vn'
-      },
-      {
-        id: 4,
-        blogName: 'Marco Leanne Graham',
-        createDate: 'Bret',
-        modifyDate: 'Sincere@april.biz',
-        isActive: true,
-        source: 'kenh14.vn'
-      },
-      {
-        id: 5,
-        blogName: 'Leanne Graham Alex',
-        createDate: 'Bret',
-        modifyDate: 'Sincere@april.biz',
-        isActive: true,
-        source: 'kenh14.vn'
-      },
-      {
-        id: 6,
-        blogName: 'Leanne FillJohn Graham',
-        createDate: 'Bret',
-        modifyDate: 'Sincere@april.biz',
-        isActive: true,
-        source: 'kenh14.vn'
-      },
-      {
-        id: 7,
-        blogName: 'Leanne Graham',
-        createDate: 'Bret',
-        modifyDate: 'Sincere@april.biz',
-        isActive: true,
-        source: 'kenh14.vn'
-      },
-      {
-        id: 8,
-        blogName: 'Leanne Graham',
-        createDate: 'Bret',
-        modifyDate: 'Sincere@april.biz',
-        isActive: true,
-        source: 'kenh14.vn'
-      },
-      {
-        id: 9,
-        blogName: 'Leanne Graham',
-        createDate: 'Bret',
-        modifyDate: 'Sincere@april.biz',
-        isActive: true,
-        source: 'kenh14.vn'
-      },
-      {
-        id: 10,
-        blogName: 'Leanne Graham',
-        createDate: 'Bret',
-        modifyDate: 'Sincere@april.biz',
-        isActive: true,
-        source: 'kenh14.vn'
-      }
-    ]
+    blogList: []
   }),
+  mounted() {
+    this.getBlogList()
+    document.querySelector('.con-input-upload input').name = 'imagesx'
+  },
   methods: {
-    editBlog() {
+    editBlogClick(index) {
+      this.editedIndex = this.selected._id
+      this.getBlogById(this.selected._id).then(() => {
+        this.editedItem.modifyDate = this.$moment().format('YYYY-MM-DD')
+      })
       this.editPopup = true
     },
-    successUpload() {
+    newBlogClick() {
+      this.editPopup = true
+      this.editedItem = this.defaultItem
+      this.editedIndex = -1
+      this.editedItem.createDate = this.$moment().format('YYYY-MM-DD')
+    },
+    successUpload(e) {
+      const image = JSON.parse(e.srcElement.response)
+      image.forEach((element) => {
+        this.editedItem.images.push(element)
+      })
       this.$vs.notify({
         color: 'success',
         title: 'Upload Success',
@@ -300,7 +257,75 @@ export default {
     removeTag(item) {
       this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1)
     },
-    getBlogById(id) {}
+    async getBlogById(id) {
+      this.$vs.loading()
+      this.editedDataLoaded = false
+      await this.$axios
+        .get(`/api/blogapi/single-blog/${id}`)
+        .then((response) => {
+          this.editedItem = response.data
+          this.editedDataLoaded = true
+          this.$vs.loading.close()
+        })
+        .catch((error) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error
+          })
+        })
+        .finally(() => {
+          this.$vs.loading.close()
+        })
+    },
+    getBlogList() {
+      this.$vs.loading()
+      this.$axios
+        .get('/api/blogapi/')
+        .then((response) => {
+          this.blogList = response.data
+          this.$vs.loading.close()
+        })
+        .catch((error) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error
+          })
+        })
+        .finally(() => {
+          this.$vs.loading.close()
+        })
+    },
+    saveBlog() {
+      this.$vs.loading()
+      if (this.editedIndex === -1) {
+        this.$axios
+          .post('/api/blogapi/register-blog', this.editedItem)
+          .then((result) => {
+            this.$vs.loading.close()
+            this.$vs.notify({
+              color: 'success',
+              title: 'Create Success',
+              text: 'Tạo bài viết thành công'
+            })
+            this.getBlogList()
+          })
+      } else {
+        this.$axios
+          .put(`/api/blogapi/update-blog/${this.editedIndex}`, this.editedItem)
+          .then((result) => {
+            this.$vs.loading.close()
+            this.$vs.notify({
+              color: 'success',
+              title: 'Create Success',
+              text: 'Tạo bài viết thành công'
+            })
+
+            this.getBlogList()
+          })
+      }
+    }
   }
 }
 </script>
@@ -323,7 +348,15 @@ export default {
   border: 1px solid rgba(0, 0, 0, 0.2);
   height: 31px;
 }
+.con-vs-chip {
+  margin: 0 !important;
+}
 .con-chips--input {
   padding: 0 9px !important;
+  margin: 0 !important;
+  min-height: 25px !important;
+}
+.vs-checkbox--check i {
+  font-size: 1rem !important;
 }
 </style>

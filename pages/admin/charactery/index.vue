@@ -1,5 +1,5 @@
 <template>
-  <div class="admin__menu__page">
+  <div class="admin__charactery__page">
     <div class="row mp--none my-2">
       <div class="col-12 mp--none">
         <div class="card border-0 shadow">
@@ -8,14 +8,14 @@
               color="primary"
               type="filled"
               class="py-2 px-3 border__radius--none border-right"
-              @click="newMenuClick"
+              @click="newCharacteryClick"
               >Add new</vs-button
             >
             <vs-button
               color="primary"
               type="filled"
               class="py-2 px-3 border__radius--none"
-              @click="editMenuClick"
+              @click="editCharacteryClick"
               >Edit</vs-button
             >
           </div>
@@ -27,19 +27,19 @@
         <div class="card border-0 shadow">
           <vs-table
             v-model="selected"
-            :data="menuList"
+            :data="characteryList"
             pagination
             max-items="7"
             search
           >
             <template slot="header">
               <h3 class="p-2">
-                Menu / News
+                Charactery / News
               </h3>
             </template>
             <template slot="thead">
               <vs-th>
-                Menu name
+                Charactery name
               </vs-th>
               <vs-th>
                 CreateDate
@@ -54,8 +54,8 @@
 
             <template slot-scope="{ data }">
               <vs-tr v-for="(tr, indextr) in data" :key="indextr" :data="tr">
-                <vs-td :data="data[indextr].menuName">
-                  {{ data[indextr].menuName }}
+                <vs-td :data="data[indextr].characteryName">
+                  {{ data[indextr].characteryName }}
                 </vs-td>
 
                 <vs-td :data="data[indextr].createDate">
@@ -76,54 +76,23 @@
       </div>
     </div>
     <div class="popup">
-      <vs-popup fullscreen :title="selected.menuName" :active.sync="editPopup">
+      <vs-popup
+        fullscreen
+        :title="selected.characteryName"
+        :active.sync="editPopup"
+      >
         <div class="popup_body">
           <div class="row mp--none mb-3">
             <div class="col-12 col-md-6">
               <vs-input
-                v-model="editedItem.menuName"
-                label="Tên menu"
-                placeholder="Ghế sofa"
-                class="w-100"
-              />
-            </div>
-            <div class="col-12 col-md-6">
-              <vs-select
-                v-model="editedItem.parentMenu"
-                placeholder="Ghế sofa"
-                multiple
-                autocomplete
-                class="w-100"
-                label="Parent Menu"
-              >
-                <vs-select-item
-                  v-for="(item, index) in parentMenuList"
-                  :key="index"
-                  :value="item.value"
-                  :text="item.text"
-                />
-              </vs-select>
-            </div>
-            <div class="col-12 col-md-6">
-              <vs-input
-                v-model="editedItem.url"
-                label="URL"
-                placeholder="ghe-sofa"
+                v-model="editedItem.characteryName"
+                label="Tên đặc tính sản phẩm"
+                placeholder="Chân sắt"
                 class="w-100"
               />
             </div>
             <div class="col-6 col-md-2 my-4 my-md-0 d-flex align-items-end">
               <vs-checkbox v-model="editedItem.isActive">Public ?</vs-checkbox>
-            </div>
-          </div>
-          <div class="row mp--none mb-3">
-            <div class="col-12">
-              <vs-textarea
-                v-model="editedItem.productIntro"
-                counter="200"
-                label="Mô tả tóm tắt (SEO)"
-                :counter-danger.sync="counterDanger"
-              />
             </div>
           </div>
           <div class="row mp--none margin__top--4 border-top">
@@ -138,7 +107,7 @@
                 color="primary"
                 type="filled"
                 class="py-2 px-3 border__radius--none"
-                @click="saveMenu"
+                @click="saveCharactery"
                 >Lưu bài viết</vs-button
               >
             </div>
@@ -154,30 +123,18 @@ export default {
   data: () => ({
     editPopup: false,
     editedDataLoaded: false,
-    counterDanger: false,
-    menuList: [],
+    characteryList: [],
     selected: [],
     editedIndex: -1,
-    parentMenuList: [
-      { text: 'IT', value: 0 },
-      { text: 'Blade Runner', value: 2 },
-      { text: 'Thor Ragnarok', value: 3 }
-    ],
     editedItem: {
-      menuName: '',
-      url: '',
-      menuIntro: '',
-      parentMenu: [],
+      characteryName: '',
       isActive: true,
       createDate: '',
       modifyDate: '',
       createBy: 'trieumanh'
     },
     defaultItem: {
-      menuName: '',
-      menuIntro: '',
-      parentMenu: [],
-      url: '',
+      characteryName: '',
       isActive: true,
       createDate: '',
       modifyDate: '',
@@ -185,27 +142,27 @@ export default {
     }
   }),
   mounted() {
-    this.getMenuList()
+    this.getCharacteryList()
   },
   methods: {
-    editMenuClick(index) {
+    editCharacteryClick(index) {
       this.editedIndex = this.selected._id
-      this.getMenuById(this.selected._id).then(() => {
+      this.getCharacteryById(this.selected._id).then(() => {
         this.editedItem.modifyDate = this.$moment().format('YYYY-MM-DD')
       })
       this.editPopup = true
     },
-    newMenuClick() {
+    newCharacteryClick() {
       this.editPopup = true
       this.editedItem = this.defaultItem
       this.editedIndex = -1
       this.editedItem.createDate = this.$moment().format('YYYY-MM-DD')
     },
-    async getMenuById(id) {
+    async getCharacteryById(id) {
       this.$vs.loading()
       this.editedDataLoaded = false
       await this.$axios
-        .get(`/api/menuapi/single-menu/${id}`)
+        .get(`/api/characteryapi/single-charactery/${id}`)
         .then((response) => {
           this.editedItem = response.data
           this.editedDataLoaded = true
@@ -222,12 +179,12 @@ export default {
           this.$vs.loading.close()
         })
     },
-    getMenuList() {
+    getCharacteryList() {
       this.$vs.loading()
       this.$axios
-        .get('/api/menuapi/')
+        .get('/api/characteryapi/')
         .then((response) => {
-          this.menuList = response.data
+          this.characteryList = response.data
           this.$vs.loading.close()
         })
         .catch((error) => {
@@ -241,32 +198,35 @@ export default {
           this.$vs.loading.close()
         })
     },
-    saveMenu() {
+    saveCharactery() {
       this.$vs.loading()
       if (this.editedIndex === -1) {
         this.$axios
-          .post('/api/menuapi/register-menu', this.editedItem)
+          .post('/api/characteryapi/register-charactery', this.editedItem)
           .then((result) => {
             this.$vs.loading.close()
             this.$vs.notify({
               color: 'success',
               title: 'Create Success',
-              text: 'Tạo menu thành công'
+              text: 'Tạo đặc tính sản phẩm thành công'
             })
-            this.getMenuList()
+            this.getCharacteryList()
           })
       } else {
         this.$axios
-          .put(`/api/menuapi/update-menu/${this.editedIndex}`, this.editedItem)
+          .put(
+            `/api/characteryapi/update-charactery/${this.editedIndex}`,
+            this.editedItem
+          )
           .then((result) => {
             this.$vs.loading.close()
             this.$vs.notify({
               color: 'success',
               title: 'Create Success',
-              text: 'Tạo menu thành công'
+              text: 'Tạo đặc tính sản phẩm thành công'
             })
 
-            this.getMenuList()
+            this.getCharacteryList()
           })
       }
     }
@@ -274,7 +234,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.admin__menu__page {
+.admin__charactery__page {
   padding: 0.8rem;
 }
 .vs-pagination--ul {

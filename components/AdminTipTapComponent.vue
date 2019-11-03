@@ -242,11 +242,22 @@ export default {
     dataParent: {
       type: String,
       default: '<p>Push your content here</p>'
+    },
+    isAsyncCompleted: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
       editor: null
+    }
+  },
+  watch: {
+    isAsyncCompleted(newVal, oldVal) {
+      // watch it
+      console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+      this.editor.setContent(this.dataParent)
     }
   },
   beforeDestroy() {
@@ -275,7 +286,7 @@ export default {
         new Paragraph(),
         new Image()
       ],
-      content: `<h6>Nội dung bài viết</h6>`,
+      content: this.dataParent,
       onUpdate: ({ getHTML }) => {
         this.$emit('childtoparent', getHTML())
       }
