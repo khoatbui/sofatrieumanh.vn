@@ -292,7 +292,6 @@ export default {
     previewFile(commands) {
       // const preview = document.querySelector('img')
       getBase64(document.getElementById('imgupload').files[0]).then((data) => {
-        console.log(data)
         commands({ src: data })
       })
     }
