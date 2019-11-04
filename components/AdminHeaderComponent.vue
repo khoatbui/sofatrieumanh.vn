@@ -14,21 +14,24 @@
       </div>
 
       <vs-navbar-item index="0">
-        <nuxt-link to="/admin/product">Product</nuxt-link>
-      </vs-navbar-item>
-      <vs-navbar-item index="1">
         <nuxt-link to="/admin/menu">Menus</nuxt-link>
       </vs-navbar-item>
       <vs-navbar-item index="1">
-        <nuxt-link to="/admin/charactery">Đặc điểm</nuxt-link>
+        <nuxt-link to="/admin/product">Product</nuxt-link>
       </vs-navbar-item>
       <vs-navbar-item index="2">
-        <nuxt-link to="/admin/blog">Blog / News</nuxt-link>
+        <nuxt-link to="/admin/charactery">Đặc điểm</nuxt-link>
       </vs-navbar-item>
       <vs-navbar-item index="3">
-        <nuxt-link to="/admin/order">Order</nuxt-link>
+        <nuxt-link to="/admin/blog">Blog / News</nuxt-link>
       </vs-navbar-item>
       <vs-navbar-item index="4">
+        <nuxt-link to="/admin/promotion">Promotion</nuxt-link>
+      </vs-navbar-item>
+      <vs-navbar-item index="5">
+        <nuxt-link to="/admin/order">Order</nuxt-link>
+      </vs-navbar-item>
+      <vs-navbar-item index="6">
         <nuxt-link to="/admin/issues">Issues</nuxt-link>
       </vs-navbar-item>
     </vs-navbar>

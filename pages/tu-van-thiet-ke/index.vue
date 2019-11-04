@@ -26,8 +26,8 @@
                 Địa chỉ</span
               >
               <span
-                >36/6 Đường TTH15, Khu Phố 3A, Phường Tân Thới Hiệp, Quận 12, TP
-                .HCM</span
+                >Ngã 3 Cái Lân - Số 432 - Tổ 4 - Khu 10 - P. Bãi Cháy, TP. Hạ
+                Long, Quảng Ninh</span
               >
             </div>
             <div

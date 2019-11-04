@@ -12,7 +12,7 @@ router.post(
     check('menuName')
       .not()
       .isEmpty()
-      .isLength({ min: 3 })
+      .isLength({ min: 2 })
       .withMessage('MenuName must be atleast 3 characters long')
   ],
   controller.insertMenu

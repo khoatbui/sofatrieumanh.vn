@@ -15,8 +15,8 @@
             <ul class="footer__top__menu">
               <li class="footer__top__item">
                 <i class="material-icons text__size--x1 pr-1"> storefront </i>
-                Địa Chỉ: 36/6 Đường TTH15, Khu Phố 3A, Phường Tân Thới Hiệp,
-                Quận 12, TP .HCM
+                Địa Chỉ: Ngã 3 Cái Lân - Số 432 - Tổ 4 - Khu 10 - P. Bãi Cháy,
+                TP. Hạ Long, Quảng Ninh
               </li>
               <li class="footer__top__item">
                 <i class="material-icons text__size--x1 pr-1 ">
@@ -26,7 +26,7 @@
               </li>
               <li class="footer__top__item">
                 <i class="material-icons text__size--x1 pr-1 "> mail </i> Email:
-                sofatrieumanh@sofa.com
+                care@sofatrieumanh.com / trieumanh@gmail.com
               </li>
             </ul>
           </div>
@@ -147,7 +147,7 @@
   content: '';
   border-bottom: 3px solid $white__color;
   position: absolute;
-  top: 1.5rem;
+  top: 2.5rem;
   width: 40%;
 }
 .subscribe__input {
@@ -156,6 +156,8 @@
   border: 0;
   padding: 0.4rem 0.8rem;
   margin: 0;
+  background-color: $white__color !important;
+  color: $primary__color !important;
 }
 .subscribe__btn {
   border-top-right-radius: 100px;

@@ -2,22 +2,18 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const uniqueValidator = require('mongoose-unique-validator')
 mongoose.set('useCreateIndex', true)
-let blogSchema = new Schema({
-  blogName: {
+let promotionSchema = new Schema({
+  promotionName: {
     type: String,
     unique: true
   },
-  blogIntro: {
+  promotionIntro: {
     type: String,
     require: true
   },
   content: {
     type: String,
     require: true
-  },
-  source: {
-    type: String,
-    require: false
   },
   isHot: {
     type: Boolean
@@ -47,7 +43,11 @@ let blogSchema = new Schema({
   images: {
     type: Array,
     require: false
+  },
+  validDate: {
+    type: Date,
+    require: true
   }
 })
-blogSchema.plugin(uniqueValidator, { message: 'Url already in use.' })
-module.exports = mongoose.model('Blog', blogSchema, 'blog')
+promotionSchema.plugin(uniqueValidator, { message: 'Url already in use.' })
+module.exports = mongoose.model('Promotion', promotionSchema, 'promotion')

@@ -29,6 +29,7 @@ const uploadRouter = require('./routers/upload.router')
 const productRouter = require('./routers/product.router')
 const characteryRouter = require('./routers/charactery.router')
 const menuRouter = require('./routers/menu.router')
+const promotionRouter = require('./routers/promotion.router')
 // const auth = require('./router/auth.routes')
 
 // app.set('view engine', 'pug')
@@ -40,6 +41,7 @@ app.use('/uploadapi', uploadRouter)
 app.use('/productapi', productRouter)
 app.use('/characteryapi', characteryRouter)
 app.use('/menuapi', menuRouter)
+app.use('/promotionapi', promotionRouter)
 
 // ↥↥↥↥↥↥↥ ****************ROUTER****************
 app.use(function(req, res, next) {

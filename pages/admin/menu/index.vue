@@ -85,6 +85,8 @@
                 label="Tên menu"
                 placeholder="Ghế sofa"
                 class="w-100"
+                :danger="errorCheck.dangerFiel === 'menuName'"
+                :danger-text="errorCheck.dangerText"
               />
             </div>
             <div class="col-12 col-md-6">
@@ -110,6 +112,8 @@
                 label="URL"
                 placeholder="ghe-sofa"
                 class="w-100"
+                :danger="errorCheck.dangerFiel === 'url'"
+                :danger-text="errorCheck.dangerText"
               />
             </div>
             <div class="col-6 col-md-2 my-4 my-md-0 d-flex align-items-end">
@@ -119,10 +123,15 @@
           <div class="row mp--none mb-3">
             <div class="col-12">
               <vs-textarea
-                v-model="editedItem.productIntro"
+                v-model="editedItem.menuIntro"
                 counter="200"
                 label="Mô tả tóm tắt (SEO)"
                 :counter-danger.sync="counterDanger"
+                :danger="errorCheck.dangerFiel === 'menuIntro'"
+                :danger-text="errorCheck.dangerText"
+                :class="{
+                  'border-danger': errorCheck.dangerFiel === 'menuIntro'
+                }"
               />
             </div>
           </div>
@@ -158,11 +167,11 @@ export default {
     menuList: [],
     selected: [],
     editedIndex: -1,
-    parentMenuList: [
-      { text: 'IT', value: 0 },
-      { text: 'Blade Runner', value: 2 },
-      { text: 'Thor Ragnarok', value: 3 }
-    ],
+    parentMenuList: [],
+    errorCheck: {
+      dangerFiel: '',
+      dangerText: ''
+    },
     editedItem: {
       menuName: '',
       url: '',
@@ -262,6 +271,9 @@ export default {
         })
     },
     saveMenu() {
+      if (!this.validation()) {
+        return
+      }
       this.$vs.loading()
       if (this.editedIndex === -1) {
         this.$axios
@@ -274,7 +286,7 @@ export default {
               text: 'Tạo menu thành công'
             })
             this.getMenuList()
-            this.parentMenuList()
+            this.getParentMenuList()
           })
       } else {
         this.$axios
@@ -291,6 +303,31 @@ export default {
             this.parentMenuList()
           })
       }
+    },
+    validation() {
+      if (this.editedItem.menuName.length === 0) {
+        this.errorCheck = {
+          dangerFiel: 'menuName',
+          dangerText: 'Menu không để trống'
+        }
+      } else if (this.editedItem.menuIntro.length === 0) {
+        this.errorCheck = {
+          dangerFiel: 'menuIntro',
+          dangerText: 'Mô tả menu không để trống'
+        }
+      } else if (this.editedItem.url.length === 0) {
+        this.errorCheck = {
+          dangerFiel: 'url',
+          dangerText: 'Url không để trống'
+        }
+      } else {
+        this.errorCheck = {
+          dangerFiel: '',
+          dangerText: ''
+        }
+        return true
+      }
+      return false
     }
   }
 }
@@ -324,5 +361,8 @@ export default {
 }
 .vs-checkbox--check i {
   font-size: 1rem !important;
+}
+.border-danger {
+  border: 1px solid rgba(255, 71, 87, 1) !important;
 }
 </style>

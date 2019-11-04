@@ -26,10 +26,28 @@ var blogtStorage = multer.diskStorage({
 })
 
 var uploadBlog = multer({ storage: blogtStorage })
+
+// SET PROMOTION
+var promotionStorage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'static/images/promotion')
+  },
+  filename: function(req, file, cb) {
+    console.log(file)
+    cb(null, file.originalname)
+  }
+})
+
+var uploadPromotion = multer({ storage: promotionStorage })
 router.post(
   '/upload-product-img',
   uploadProduct.any(),
   controller.uploadMultiImages
 )
 router.post('/upload-blog-img', uploadBlog.any(), controller.uploadMultiImages)
+router.post(
+  '/upload-promotion-img',
+  uploadPromotion.any(),
+  controller.uploadMultiImages
+)
 module.exports = router

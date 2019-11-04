@@ -1,16 +1,17 @@
-const Menu = require('../models/menu.model')
+const Promotion = require('../models/promotion.model')
 const mongoose = require('mongoose')
 const { check, validationResult } = require('express-validator')
 
-module.exports.getAllMenus = function(req, res) {
-  Menu.find()
+module.exports.getAllPromotions = function(req, res) {
+  Promotion.find()
     .select({
-      menuName: 1,
+      promotionName: 1,
       _id: 1,
       createDate: 1,
       modifyDate: 1,
       isHot: 1,
-      isActive: 1
+      isActive: 1,
+      validDate: 1
     })
     .exec((error, response) => {
       if (error) {
@@ -21,8 +22,8 @@ module.exports.getAllMenus = function(req, res) {
     })
 }
 
-module.exports.getSingleMenu = function(req, res, next) {
-  Menu.findById(req.params.id, (error, data) => {
+module.exports.getSinglePromotion = function(req, res, next) {
+  Promotion.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -31,22 +32,22 @@ module.exports.getSingleMenu = function(req, res, next) {
   })
 }
 
-module.exports.insertMenu = function(req, res, next) {
+module.exports.insertPromotion = function(req, res, next) {
   const errors = validationResult(req)
+
   if (!errors.isEmpty()) {
     return res.status(422).jsonp(errors.array())
   } else {
-    const menu = new Menu(req.body)
-    menu
+    const promotion = new Promotion(req.body)
+    promotion
       .save()
       .then((response) => {
         res.status(201).json({
-          message: 'Menu successfully created!',
+          message: 'Promotion successfully created!',
           result: response
         })
       })
       .catch((error) => {
-        console.log(error)
         res.status(500).json({
           error: error
         })
@@ -54,8 +55,8 @@ module.exports.insertMenu = function(req, res, next) {
   }
 }
 
-module.exports.updateMenu = function(req, res, next) {
-  Menu.findByIdAndUpdate(
+module.exports.updatePromotion = function(req, res, next) {
+  Promotion.findByIdAndUpdate(
     req.params.id,
     {
       $set: req.body
@@ -70,8 +71,8 @@ module.exports.updateMenu = function(req, res, next) {
   )
 }
 
-module.exports.deleteMenu = function(req, res, next) {
-  Menu.findByIdAndRemove(req.params.id, (error, data) => {
+module.exports.deletePromotion = function(req, res, next) {
+  Promotion.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error)
     } else {
