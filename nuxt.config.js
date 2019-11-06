@@ -38,6 +38,7 @@ module.exports = {
     '@nuxtjs/moment',
     '@nuxtjs/vuetify'
   ],
+  devModules: ['@nuxtjs/eslint-module'],
   /*
    ** Nuxt.js modules
    */
