@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/8575f66a-eab1-4073-9299-bdeb976a926f/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/sofatrieumanh",
+    "appService.deploySubpath": ""
+}
