@@ -236,10 +236,13 @@ export default {
   align-items: center;
 }
 .bottom__menu__item {
-  padding: 0px 0.5rem;
+  padding: 0px 1rem;
   text-decoration: none;
   color: $primary__color;
   font-weight: 500;
+}
+.bottom__menu__item:hover {
+  font-weight: bold;
 }
 .bottom__menu__right {
   display: flex;

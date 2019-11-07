@@ -1,9 +1,11 @@
 <template>
-  <div class="productlist__component">
+  <div v-if="productList.length > 0" class="productlist__component">
     <div class="row mp--none">
       <div class="col-12 mp--none mt-4 mb-2">
         <h5 class="list__title">
-          <strong class="list__title__style"> Sofa co dien</strong>
+          <strong class="list__title__style">
+            {{ categoryDetail.menuName }}</strong
+          >
         </h5>
       </div>
     </div>
@@ -11,16 +13,42 @@
       <div
         class="col-12 mp--none d-flex justify-content-start align-items-center flex-wrap"
       >
-        <div class="card border-0 product__item">
+        <div
+          v-for="(product, index) in productList"
+          :key="index + 'pro'"
+          class="card border-0 product__item"
+        >
           <div class="card-body p-1">
-            <div class="product__item__img">
+            <div
+              class="product__item__img"
+              :style="
+                `background-image: url('${
+                  typeof product.images !== 'undefined' &&
+                  product.images.length > 0
+                    ? product.images[0].path
+                    : '/images/product/pro_01.jpg'
+                }')`
+              "
+            >
               <div class="discount__tag"></div>
             </div>
             <div class="product__item__detail">
-              <h6 class="product__item__name">SOFA GÓC CỔ ĐIỂN MÃ 1468</h6>
+              <h6 class="product__item__name">{{ product.productName }}</h6>
               <div class="product__item__price">
-                <span class="current__price">2,560,270</span>
-                <span class="discount__price">3,900,000</span>
+                <span class="current__price">{{
+                  new Intl.NumberFormat('vi-VN', {
+                    style: 'currency',
+                    currency: 'VND',
+                    minimumFractionDigits: 0
+                  }).format(product.price)
+                }}</span>
+                <span class="discount__price">{{
+                  new Intl.NumberFormat('vi-VN', {
+                    style: 'currency',
+                    currency: 'VND',
+                    minimumFractionDigits: 0
+                  }).format(product.oldPrice)
+                }}</span>
               </div>
               <div class="product__item__action">
                 <vs-button
@@ -34,187 +62,7 @@
                   :color="'#156867'"
                   type="filled"
                   class="border__radius--none px-2 py-1 m-1 border__primary"
-                  @click="redirectToProductPage"
-                  >Mua ngay</vs-button
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card border-0 product__item">
-          <div class="card-body p-1">
-            <div class="product__item__img">
-              <div class="discount__tag"></div>
-            </div>
-            <div class="product__item__detail">
-              <h6 class="product__item__name">SOFA GÓC CỔ ĐIỂN MÃ 1468</h6>
-              <div class="product__item__price">
-                <span class="current__price">2,560,270</span>
-                <span class="discount__price">3,900,000</span>
-              </div>
-              <div class="product__item__action">
-                <vs-button
-                  :color="'#156867'"
-                  type="border"
-                  class="border__radius--none px-2 py-1 m-1"
-                  @click="redirectToComparePage"
-                  >So sánh</vs-button
-                >
-                <vs-button
-                  :color="'#156867'"
-                  type="filled"
-                  class="border__radius--none px-2 py-1 m-1 border__primary"
-                  @click="redirectToProductPage"
-                  >Mua ngay</vs-button
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card border-0 product__item">
-          <div class="card-body p-1">
-            <div class="product__item__img">
-              <div class="discount__tag"></div>
-            </div>
-            <div class="product__item__detail">
-              <h6 class="product__item__name">SOFA GÓC CỔ ĐIỂN MÃ 1468</h6>
-              <div class="product__item__price">
-                <span class="current__price">2,560,270</span>
-                <span class="discount__price">3,900,000</span>
-              </div>
-              <div class="product__item__action">
-                <vs-button
-                  :color="'#156867'"
-                  type="border"
-                  class="border__radius--none px-2 py-1 m-1"
-                  @click="redirectToComparePage"
-                  >So sánh</vs-button
-                >
-                <vs-button
-                  :color="'#156867'"
-                  type="filled"
-                  class="border__radius--none px-2 py-1 m-1 border__primary"
-                  @click="redirectToProductPage"
-                  >Mua ngay</vs-button
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card border-0 product__item">
-          <div class="card-body p-1">
-            <div class="product__item__img">
-              <div class="discount__tag"></div>
-            </div>
-            <div class="product__item__detail">
-              <h6 class="product__item__name">SOFA GÓC CỔ ĐIỂN MÃ 1468</h6>
-              <div class="product__item__price">
-                <span class="current__price">2,560,270</span>
-                <span class="discount__price">3,900,000</span>
-              </div>
-              <div class="product__item__action">
-                <vs-button
-                  :color="'#156867'"
-                  type="border"
-                  class="border__radius--none px-2 py-1 m-1"
-                  @click="redirectToComparePage"
-                  >So sánh</vs-button
-                >
-                <vs-button
-                  :color="'#156867'"
-                  type="filled"
-                  class="border__radius--none px-2 py-1 m-1 border__primary"
-                  @click="redirectToProductPage"
-                  >Mua ngay</vs-button
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card border-0 product__item">
-          <div class="card-body p-1">
-            <div class="product__item__img">
-              <div class="discount__tag"></div>
-            </div>
-            <div class="product__item__detail">
-              <h6 class="product__item__name">SOFA GÓC CỔ ĐIỂN MÃ 1468</h6>
-              <div class="product__item__price">
-                <span class="current__price">2,560,270</span>
-                <span class="discount__price">3,900,000</span>
-              </div>
-              <div class="product__item__action">
-                <vs-button
-                  :color="'#156867'"
-                  type="border"
-                  class="border__radius--none px-2 py-1 m-1"
-                  @click="redirectToComparePage"
-                  >So sánh</vs-button
-                >
-                <vs-button
-                  :color="'#156867'"
-                  type="filled"
-                  class="border__radius--none px-2 py-1 m-1 border__primary"
-                  @click="redirectToProductPage"
-                  >Mua ngay</vs-button
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card border-0 product__item">
-          <div class="card-body p-1">
-            <div class="product__item__img">
-              <div class="discount__tag"></div>
-            </div>
-            <div class="product__item__detail">
-              <h6 class="product__item__name">SOFA GÓC CỔ ĐIỂN MÃ 1468</h6>
-              <div class="product__item__price">
-                <span class="current__price">2,560,270</span>
-                <span class="discount__price">3,900,000</span>
-              </div>
-              <div class="product__item__action">
-                <vs-button
-                  :color="'#156867'"
-                  type="border"
-                  class="border__radius--none px-2 py-1 m-1"
-                  @click="redirectToComparePage"
-                  >So sánh</vs-button
-                >
-                <vs-button
-                  :color="'#156867'"
-                  type="filled"
-                  class="border__radius--none px-2 py-1 m-1 border__primary"
-                  @click="redirectToProductPage"
-                  >Mua ngay</vs-button
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card border-0 product__item">
-          <div class="card-body p-1">
-            <div class="product__item__img">
-              <div class="discount__tag"></div>
-            </div>
-            <div class="product__item__detail">
-              <h6 class="product__item__name">SOFA GÓC CỔ ĐIỂN MÃ 1468</h6>
-              <div class="product__item__price">
-                <span class="current__price">2,560,270</span>
-                <span class="discount__price">3,900,000</span>
-              </div>
-              <div class="product__item__action">
-                <vs-button
-                  :color="'#156867'"
-                  type="border"
-                  class="border__radius--none px-2 py-1 m-1"
-                  @click="redirectToComparePage"
-                  >So sánh</vs-button
-                >
-                <vs-button
-                  :color="'#156867'"
-                  type="filled"
-                  class="border__radius--none px-2 py-1 m-1 border__primary"
-                  @click="redirectToProductPage"
+                  @click="redirectToProductPage(product.url)"
                   >Mua ngay</vs-button
                 >
               </div>
@@ -245,12 +93,68 @@
 </template>
 <script>
 export default {
+  props: {
+    productTypeUrl: {
+      type: String,
+      default: ''
+    }
+  },
+  data: () => ({
+    productList: [],
+    categoryDetail: {}
+  }),
+  mounted() {
+    this.getProductListByType()
+    this.getCategoryByUrl()
+  },
   methods: {
-    redirectToProductPage() {
-      this.$router.replace('/san-pham')
+    redirectToProductPage(url) {
+      this.$router.replace(`/san-pham/${url}`)
     },
-    redirectToComparePage() {
-      this.$router.replace('/so-sanh')
+    redirectToComparePage(url) {
+      this.$router.replace(`/so-sanh/${url}`)
+    },
+    getProductListByType() {
+      this.$vs.loading()
+      this.$axios
+        .get(
+          `${process.env.API_HTTP}/api/productapi/product-list-by-category/${this.productTypeUrl}`
+        )
+        .then((response) => {
+          this.productList = response.data
+          this.$vs.loading.close()
+        })
+        .catch((error) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error
+          })
+        })
+        .finally(() => {
+          this.$vs.loading.close()
+        })
+    },
+    getCategoryByUrl() {
+      this.$vs.loading()
+      this.$axios
+        .get(
+          `${process.env.API_HTTP}/api/menuapi/single-menu-with-url/${this.productTypeUrl}`
+        )
+        .then((response) => {
+          this.categoryDetail = response.data
+          this.$vs.loading.close()
+        })
+        .catch((error) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error
+          })
+        })
+        .finally(() => {
+          this.$vs.loading.close()
+        })
     }
   }
 }
@@ -288,8 +192,7 @@ export default {
   margin: 1%;
 }
 .product__item__img {
-  background-image: url('/images/product/pro_01.jpg');
-  min-height: 100px;
+  min-height: 150px;
   background-size: cover;
   background-position: center;
 }

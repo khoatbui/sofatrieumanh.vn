@@ -21,6 +21,8 @@ router.post(
 
 // Get Single  Users
 router.get('/single-menu/:id', controller.getSingleMenu)
+// Get Single  Users
+router.get('/single-menu-with-url/:id', controller.getSingleMenuWithURL)
 
 // Update User
 router.put('/update-menu/:id', controller.updateMenu)

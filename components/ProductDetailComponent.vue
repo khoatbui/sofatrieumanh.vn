@@ -25,14 +25,29 @@
         <div class="col-12 col-md-6 mp--none">
           <div class="row mp--none px-4">
             <div class="col-12 mp--none my-2">
-              <h4 class="data__title">Bàn camerl</h4>
+              <h4 class="data__title">{{ productDetail.productName }}</h4>
             </div>
             <div class="col-12 mp--none my-2">
-              <h4 class="data__price">2,389,920</h4>
+              <h4 class="data__price">
+                {{
+                  new Intl.NumberFormat('vi-VN', {
+                    style: 'currency',
+                    currency: 'VND',
+                    minimumFractionDigits: 0
+                  }).format(productDetail.price)
+                }}
+              </h4>
+              <span class="discount__price">{{
+                new Intl.NumberFormat('vi-VN', {
+                  style: 'currency',
+                  currency: 'VND',
+                  minimumFractionDigits: 0
+                }).format(productDetail.oldPrice)
+              }}</span>
             </div>
             <div class="col-12 mp--none my-2">
               <span class="label__overview">Kích thước</span>
-              <span class="data__overview mx-2">2 x 10 x 15cm</span>
+              <span class="data__overview mx-2">{{ productDetail.size }}</span>
             </div>
             <div class="col-12 mp--none my-2 d-flex align-items-center">
               <span class=" d-flex align-items-center">
@@ -58,8 +73,11 @@
               >
             </div>
             <div class="col-12 mp--none my-2">
-              <span class="label__overview">Danh mục</span>
-              <span class="data__overview mx-2">Ban sofa</span>
+              <span class="label__overview">Chất liệu</span>
+              <span class="data__overview mx-2"
+                >{{ productDetail.productFrameMaterial }} /
+                {{ productDetail.productFrontMaterial }}</span
+              >
             </div>
             <div class="col-12 mp--none my-2">
               <span class="label__overview">Chia sẻ</span>
@@ -109,22 +127,10 @@
             <vs-tabs :color="'#156867'">
               <vs-tab label="Mô tả">
                 <div class="con-tab-ejemplo">
-                  <div>
-                    <p>Bàn Camel</p>
-                    <p>
-                      – Kích Thước : 100 x 60 x 40 (cm)<br />
-                      – Chất liệu:
-                    </p>
-                    <ul style="font-family: 'Fira Sans', sans-serif;">
-                      <li>Mặt bàn: kính cường lực 8mm</li>
-                      <li>Hộc kéo: gỗ MDF An Cường phủ melamine</li>
-                      <li>Chân bàn: sắt sơn tĩnh điện chống gỉ sét</li>
-                    </ul>
-                    <p>
-                      – Màu sắc (tùy chọn): nâu đen<br />
-                      – Bảo hành: 1 năm
-                    </p>
-                  </div>
+                  <div
+                    class="product__content"
+                    v-html="productDetail.content"
+                  ></div>
                 </div>
               </vs-tab>
               <vs-tab label="Đánh giá">
@@ -161,8 +167,7 @@
                             2019-26-07
                           </p>
                           <p class="mp--none px-2 text__size--x09">
-                            San pham cua cac ban rat tot, chung toi ung ho cac
-                            ban. Cam on cac ban rat nhieu
+                            Mẫu mã đẹp, giao hàng và lắp ráp cẩn thận
                           </p>
                           <p class="mp--none px-2 text__size--x07 text-muted">
                             Minh Lanh
@@ -180,8 +185,7 @@
                             2019-26-07
                           </p>
                           <p class="mp--none px-2 text__size--x09">
-                            San pham cua cac ban rat tot, chung toi ung ho cac
-                            ban. Cam on cac ban rat nhieu
+                            Sản phẩm khá chất lượng, tư vấn nhiệt tình
                           </p>
                           <p class="mp--none px-2 text__size--x07 text-muted">
                             Nguyen THi My
@@ -199,8 +203,7 @@
                             2019-26-07
                           </p>
                           <p class="mp--none px-2 text__size--x09">
-                            San pham cua cac ban rat tot, chung toi ung ho cac
-                            ban. Cam on cac ban rat nhieu
+                            Giá cả tốt
                           </p>
                           <p class="mp--none px-2 text__size--x07 text-muted">
                             Sam
@@ -261,8 +264,54 @@ export default {
       fullName: '',
       email: '',
       phoneNumber: ''
+    },
+    productDetail: {}
+  }),
+  mounted() {
+    this.getProductDetail()
+  },
+  methods: {
+    getProductDetail() {
+      this.$vs.loading()
+      if (this.$route.params.id.length > 0) {
+        this.$axios
+          .get(
+            `${process.env.API_HTTP}/api/productapi/single-product-by-url/${this.$route.params.id}`
+          )
+          .then((response) => {
+            this.productDetail = response.data
+            this.$vs.loading.close()
+          })
+          .catch((error) => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Opps!',
+              text: error
+            })
+          })
+          .finally(() => {
+            this.$vs.loading.close()
+          })
+      } else {
+        this.$axios
+          .get(`${process.env.API_HTTP}/api/productapi/single-product-by-url`)
+          .then((response) => {
+            this.productDetail = response.data
+            this.$vs.loading.close()
+          })
+          .catch((error) => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Opps!',
+              text: error
+            })
+          })
+          .finally(() => {
+            this.$vs.loading.close()
+          })
+      }
     }
-  })
+  }
 }
 </script>
 <style lang="scss">
@@ -304,7 +353,7 @@ export default {
 .product__detail {
   margin-top: 4rem;
   padding: 4rem 0;
-  background-color: $muted__color;
+  background-color: $vote__bg__color;
 }
 .product__detail .vs-tabs--ul {
   box-shadow: none;
@@ -355,6 +404,9 @@ export default {
 .custom__input {
   margin: 0.4rem 0;
 }
+.custom__input input {
+  background-color: $white__color;
+}
 .comment__logo {
   height: 50px;
 }
@@ -375,5 +427,13 @@ export default {
 }
 .share__img {
   height: 25px;
+}
+.product__detail__component .discount__price {
+  color: $promotion__bg__color;
+}
+.product__detail__component .discount__price {
+  margin: 0 0.4rem;
+  text-decoration: line-through;
+  font-weight: bold;
 }
 </style>

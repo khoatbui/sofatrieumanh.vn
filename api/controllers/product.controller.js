@@ -58,7 +58,8 @@ module.exports.getAllProductsListByCategory = function(req, res) {
         _id: 1,
         createDate: 1,
         isHot: 1,
-        url: 1
+        url: 1,
+        images: 1
       })
       .exec((error, response) => {
         if (error) {
@@ -81,7 +82,15 @@ module.exports.getSingleProduct = function(req, res, next) {
     }
   })
 }
-
+module.exports.getSingleProductByUrl = function(req, res, next) {
+  Product.findOne({ url: req.params.id }, (error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      res.status(200).json(data)
+    }
+  })
+}
 module.exports.insertProduct = function(req, res, next) {
   const errors = validationResult(req)
 

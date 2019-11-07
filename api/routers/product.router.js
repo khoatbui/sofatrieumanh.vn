@@ -25,7 +25,8 @@ router.post(
 
 // Get Single  Users
 router.get('/single-product/:id', controller.getSingleProduct)
-
+// Get Single  Product by URL
+router.get('/single-product-by-url/:id', controller.getSingleProductByUrl)
 // Update User
 router.put('/update-product/:id', controller.updateProduct)
 

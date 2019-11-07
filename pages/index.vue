@@ -5,7 +5,7 @@
     <div class="container section__margin">
       <div class="row mp--none my-2">
         <div class="col-12 mp--none">
-          <ProductByTypeComponent />
+          <ProductByTypeComponent :product-type-url="'ghe-sofa'" />
         </div>
       </div>
     </div>
@@ -13,12 +13,12 @@
     <div class="container section__margin">
       <div class="row mp--none my-2">
         <div class="col-12 mp--none">
-          <ProductByTypeComponent />
+          <ProductByTypeComponent :product-type-url="'ban'" />
         </div>
       </div>
       <div class="row mp--none my-2">
         <div class="col-12 mp--none">
-          <ProductByTypeComponent />
+          <ProductByTypeComponent :product-type-url="'noi-that'" />
         </div>
       </div>
     </div>
@@ -26,7 +26,12 @@
     <div class="container section__margin">
       <div class="row mp--none my-2">
         <div class="col-12 mp--none">
-          <ProductByTypeComponent />
+          <ProductByTypeComponent :product-type-url="'sofa-khuyen-mai'" />
+        </div>
+      </div>
+      <div class="row mp--none my-2">
+        <div class="col-12 mp--none">
+          <ProductByTypeComponent :product-type-url="'sofa-thanh-ly'" />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
-const Menu = require('../models/menu.model')
 const mongoose = require('mongoose')
 const { check, validationResult } = require('express-validator')
+const Menu = require('../models/menu.model')
 
 module.exports.getAllMenus = function(req, res) {
   Menu.find()
@@ -44,7 +44,15 @@ module.exports.getSingleMenu = function(req, res, next) {
     }
   })
 }
-
+module.exports.getSingleMenuWithURL = function(req, res, next) {
+  Menu.findOne({ url: req.params.id }, (error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      res.status(200).json(data)
+    }
+  })
+}
 module.exports.insertMenu = function(req, res, next) {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
@@ -62,7 +70,7 @@ module.exports.insertMenu = function(req, res, next) {
       .catch((error) => {
         console.log(error)
         res.status(500).json({
-          error: error
+          error
         })
       })
   }
