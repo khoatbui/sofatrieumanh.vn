@@ -346,7 +346,7 @@ export default {
     getCategoryList() {
       this.$vs.loading()
       this.$axios
-        .get('/api/menuapi/')
+        .get(`${process.env.API_HTTP}/api/menuapi/`)
         .then((response) => {
           this.categoryList = response.data
           this.$vs.loading.close()
@@ -365,7 +365,7 @@ export default {
     getCharacteryList() {
       this.$vs.loading()
       this.$axios
-        .get('/api/characteryapi/')
+        .get(`${process.env.API_HTTP}/api/characteryapi/`)
         .then((response) => {
           this.characteryList = response.data
           this.$vs.loading.close()
@@ -399,7 +399,7 @@ export default {
       this.$vs.loading()
       this.editedDataLoaded = false
       await this.$axios
-        .get(`/api/productapi/single-product/${id}`)
+        .get(`${process.env.API_HTTP}/api/productapi/single-product/${id}`)
         .then((response) => {
           this.editedItem = response.data
           this.editedDataLoaded = true
@@ -419,7 +419,7 @@ export default {
     getProductList() {
       this.$vs.loading()
       this.$axios
-        .get('/api/productapi/')
+        .get(`${process.env.API_HTTP}/api/productapi/`)
         .then((response) => {
           this.productList = response.data
           this.$vs.loading.close()
@@ -439,7 +439,10 @@ export default {
       this.$vs.loading()
       if (this.editedIndex === -1) {
         this.$axios
-          .post('/api/productapi/register-product', this.editedItem)
+          .post(
+            `${process.env.API_HTTP}/api/productapi/register-product`,
+            this.editedItem
+          )
           .then((result) => {
             this.$vs.loading.close()
             this.$vs.notify({
@@ -452,7 +455,7 @@ export default {
       } else {
         this.$axios
           .put(
-            `/api/productapi/update-product/${this.editedIndex}`,
+            `${process.env.API_HTTP}/api/productapi/update-product/${this.editedIndex}`,
             this.editedItem
           )
           .then((result) => {
