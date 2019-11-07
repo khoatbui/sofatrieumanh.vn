@@ -1,10 +1,11 @@
 const express = require('express')
-const controller = require('../controllers/menu.controller')
 const { check, validationResult } = require('express-validator')
+const controller = require('../controllers/menu.controller')
 
 const router = express.Router()
 
 router.get('/', controller.getAllMenus)
+router.get('/get-category-withurl', controller.getAllMenusWithURL)
 
 router.post(
   '/register-menu',

@@ -1,10 +1,15 @@
 const express = require('express')
-const controller = require('../controllers/product.controller')
 const { check, validationResult } = require('express-validator')
+const controller = require('../controllers/product.controller')
 
 const router = express.Router()
 
 router.get('/', controller.getAllProducts)
+router.get('/product-list', controller.getAllProductsList)
+router.get(
+  '/product-list-by-category/:id',
+  controller.getAllProductsListByCategory
+)
 
 router.post(
   '/register-product',

@@ -1,6 +1,6 @@
-const Blog = require('../models/blog.model')
 const mongoose = require('mongoose')
 const { check, validationResult } = require('express-validator')
+const Blog = require('../models/blog.model')
 
 module.exports.getAllBlogs = function(req, res) {
   Blog.find()
@@ -10,7 +10,9 @@ module.exports.getAllBlogs = function(req, res) {
       createDate: 1,
       modifyDate: 1,
       isHot: 1,
-      isActive: 1
+      isActive: 1,
+      url: 1,
+      blogIntro: 1
     })
     .exec((error, response) => {
       if (error) {
@@ -22,15 +24,31 @@ module.exports.getAllBlogs = function(req, res) {
 }
 
 module.exports.getSingleBlog = function(req, res, next) {
-  Blog.findById(req.params.id, (error, data) => {
-    if (error) {
-      return next(error)
-    } else {
-      res.status(200).json(data)
-    }
-  })
+  try {
+    Blog.findById(req.params.id, (error, data) => {
+      if (error) {
+        return next(error)
+      } else {
+        res.status(200).json(data)
+      }
+    })
+  } catch (error) {
+    console.log(error)
+  }
 }
-
+module.exports.getSingleBlogByUrl = function(req, res, next) {
+  try {
+    Blog.findOne({ url: req.params.id }, (error, data) => {
+      if (error) {
+        return next(error)
+      } else {
+        res.status(200).json(data)
+      }
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
 module.exports.insertBlog = function(req, res, next) {
   const errors = validationResult(req)
 
@@ -48,7 +66,7 @@ module.exports.insertBlog = function(req, res, next) {
       })
       .catch((error) => {
         res.status(500).json({
-          error: error
+          error
         })
       })
   }

@@ -1,6 +1,6 @@
 const express = require('express')
-const controller = require('../controllers/blog.controller')
 const { check, validationResult } = require('express-validator')
+const controller = require('../controllers/blog.controller')
 
 const router = express.Router()
 
@@ -20,6 +20,8 @@ router.post(
 
 // Get Single  Users
 router.get('/single-blog/:id', controller.getSingleBlog)
+// Get Single  Blog By URL
+router.get('/single-blog-url/:id', controller.getSingleBlogByUrl)
 
 // Update User
 router.put('/update-blog/:id', controller.updateBlog)

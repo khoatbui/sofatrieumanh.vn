@@ -57,6 +57,9 @@
           class="row mp--none d-flex justify-content-between align-items-center"
         >
           <div class="bottom__menu__left">
+            <nuxt-link to="/" href="" class="bottom__menu__item"
+              >Home</nuxt-link
+            >
             <nuxt-link
               to="/danh-muc/ghe-sofa"
               href=""

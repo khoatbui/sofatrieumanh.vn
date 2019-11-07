@@ -11,10 +11,11 @@ module.exports.uploadMultiImages = (req, res, next) => {
       file.forEach(function(element) {
         returnImages.push({
           fileName: element.filename,
-          path: element.path.replace(new RegExp('\\\\', 'g'), '/'),
+          path: element.path.replace(new RegExp('\\\\', 'g'), '/').substring(6),
           size: element.size
         })
       })
+      console.log(returnImages)
       res.status(200).json(returnImages)
     }
   } catch (error) {

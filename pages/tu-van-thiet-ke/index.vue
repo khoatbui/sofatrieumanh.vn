@@ -41,7 +41,7 @@
                 </i>
                 Hotline</span
               >
-              <span>093-236-5436</span>
+              <span>098-844-2886 / 091-902-5915 (Mr. Manh)</span>
             </div>
             <div
               class="contact__item d-flex flex-column justify-content-center align-items-start"
@@ -54,7 +54,7 @@
                 </i>
                 Email</span
               >
-              <span>cs@sofatrieumanh.com</span>
+              <span>care@sofatrieumanh.com / sofatrieumanh@gmail.com</span>
             </div>
           </div>
           <div class="col-12 col-md-6 mp--none tuvan__form">
@@ -106,7 +106,20 @@ export default {
       email: '',
       phoneNumber: ''
     }
-  })
+  }),
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'My custom description'
+        }
+      ]
+    }
+  }
 }
 </script>
 <style lang="scss">

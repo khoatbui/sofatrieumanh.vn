@@ -1,6 +1,6 @@
-const Product = require('../models/product.model')
 const mongoose = require('mongoose')
 const { check, validationResult } = require('express-validator')
+const Product = require('../models/product.model')
 
 module.exports.getAllProducts = function(req, res) {
   Product.find()
@@ -19,6 +19,57 @@ module.exports.getAllProducts = function(req, res) {
         res.status(200).json(response)
       }
     })
+}
+
+module.exports.getAllProductsList = function(req, res) {
+  try {
+    Product.find({ isActive: true })
+      .select({
+        productName: 1,
+        price: 1,
+        oldPrice: 1,
+        _id: 1,
+        createDate: 1,
+        isHot: 1,
+        url: 1
+      })
+      .exec((error, response) => {
+        if (error) {
+          return next(error)
+        } else {
+          res.status(200).json(response)
+        }
+      })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+module.exports.getAllProductsListByCategory = function(req, res) {
+  try {
+    Product.find({
+      isActive: true,
+      category: { $elemMatch: { url: req.params.id } }
+    })
+      .select({
+        productName: 1,
+        price: 1,
+        oldPrice: 1,
+        _id: 1,
+        createDate: 1,
+        isHot: 1,
+        url: 1
+      })
+      .exec((error, response) => {
+        if (error) {
+          return next(error)
+        } else {
+          res.status(200).json(response)
+        }
+      })
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 module.exports.getSingleProduct = function(req, res, next) {
@@ -48,7 +99,7 @@ module.exports.insertProduct = function(req, res, next) {
       })
       .catch((error) => {
         res.status(500).json({
-          error: error
+          error
         })
       })
   }

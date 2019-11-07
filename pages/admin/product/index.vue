@@ -9,14 +9,14 @@
               type="filled"
               class="py-2 px-3 border__radius--none border-right"
               @click="newProductClick"
-              >Add new</vs-button
+              >Tạo mới sản phẩm</vs-button
             >
             <vs-button
               color="primary"
               type="filled"
               class="py-2 px-3 border__radius--none"
               @click="editProductClick"
-              >Edit</vs-button
+              >Sửa sản phẩm</vs-button
             >
           </div>
         </div>
@@ -34,21 +34,21 @@
           >
             <template slot="header">
               <h3 class="p-2">
-                Product / News
+                Sản phẩm
               </h3>
             </template>
             <template slot="thead">
               <vs-th>
-                Product name
+                Tên sản phẩm
               </vs-th>
               <vs-th>
-                CreateDate
+                Ngày tạo
               </vs-th>
               <vs-th>
-                ModifyDate
+                Ngày sửa
               </vs-th>
               <vs-th>
-                IsActive
+                Có public?
               </vs-th>
             </template>
 
@@ -94,8 +94,8 @@
             <div class="col-12 col-md-2 d-flex align-items-end">
               <vs-input
                 v-model="editedItem.source"
-                label="Nguồn"
-                placeholder="kenh14.vn"
+                label="Xuất sứ"
+                placeholder="Việt Nam"
                 class="w-100"
               />
             </div>
@@ -103,7 +103,9 @@
               <vs-checkbox v-model="editedItem.isActive">Public ?</vs-checkbox>
             </div>
             <div class="col-6 col-md-2 my-4 my-md-0 d-flex align-items-end">
-              <vs-checkbox v-model="editedItem.isHot">Hot ?</vs-checkbox>
+              <vs-checkbox v-model="editedItem.isHot"
+                >Sản phẩm hot ?</vs-checkbox
+              >
             </div>
           </div>
           <div class="row mp--none mb-3">
@@ -207,7 +209,7 @@
                 <vs-select-item
                   v-for="(item, index) in categoryList"
                   :key="index"
-                  :value="item._id"
+                  :value="item"
                   :text="item.menuName"
                 />
               </vs-select>
@@ -346,7 +348,7 @@ export default {
     getCategoryList() {
       this.$vs.loading()
       this.$axios
-        .get(`${process.env.API_HTTP}/api/menuapi/`)
+        .get(`${process.env.API_HTTP}/api/menuapi/get-category-withurl`)
         .then((response) => {
           this.categoryList = response.data
           this.$vs.loading.close()
@@ -389,7 +391,7 @@ export default {
       this.$vs.notify({
         color: 'success',
         title: 'Upload Success',
-        text: 'Lorem ipsum dolor sit amet, consectetur'
+        text: 'Upload ảnh thành công'
       })
     },
     removeTag(item) {

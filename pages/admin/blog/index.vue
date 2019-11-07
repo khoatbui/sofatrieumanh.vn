@@ -9,14 +9,14 @@
               type="filled"
               class="py-2 px-3 border__radius--none border-right"
               @click="newBlogClick"
-              >Add new</vs-button
+              >Tạo mới bài viết</vs-button
             >
             <vs-button
               color="primary"
               type="filled"
               class="py-2 px-3 border__radius--none"
               @click="editBlogClick"
-              >Edit</vs-button
+              >Sửa bài viết</vs-button
             >
           </div>
         </div>
@@ -34,21 +34,21 @@
           >
             <template slot="header">
               <h3 class="p-2">
-                Blog / News
+                Blog / Tin tức/ Hướng dẫn
               </h3>
             </template>
             <template slot="thead">
               <vs-th>
-                Blog name
+                Tên bài viết
               </vs-th>
               <vs-th>
-                CreateDate
+                Ngày tạo
               </vs-th>
               <vs-th>
-                ModifyDate
+                Ngày sửa
               </vs-th>
               <vs-th>
-                IsActive
+                Có public?
               </vs-th>
             </template>
 
@@ -251,7 +251,7 @@ export default {
       this.$vs.notify({
         color: 'success',
         title: 'Upload Success',
-        text: 'Lorem ipsum dolor sit amet, consectetur'
+        text: 'Upload ảnh thành công'
       })
     },
     removeTag(item) {

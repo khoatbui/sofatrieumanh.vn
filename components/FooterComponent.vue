@@ -5,7 +5,7 @@
         <div class="row mp--none">
           <div class="col-12 col-md-6 col-lg-5 mp--none pr-4">
             <h6 class="footer__top__title">
-              Cong ty TNHH San xuat Noi that Trieu Manh
+              Công ty TNHH Sản xuất nội thất Triệu Mạnh
             </h6>
             <p>
               Thiết kế, sản xuất, nhập khẩu, bàn ghế, sofa, gia đình, nhà hàng,
@@ -22,28 +22,36 @@
                 <i class="material-icons text__size--x1 pr-1 ">
                   phone_in_talk
                 </i>
-                Điện Thoại: 0961717979 - 0901611919 (Mr. Manh)
+                Điện Thoại: 098-844-2886 / 091-902-5915 (Mr. Manh)
               </li>
               <li class="footer__top__item">
                 <i class="material-icons text__size--x1 pr-1 "> mail </i> Email:
-                care@sofatrieumanh.com / trieumanh@gmail.com
+                care@sofatrieumanh.com / sofatrieumanh@gmail.com
               </li>
             </ul>
           </div>
           <div class="col-12 col-md-6 col-lg-2 mp--none pr-2">
-            <h6 class="footer__top__title">San pham</h6>
+            <h6 class="footer__top__title">Sản phẩm</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item">
-                Sofa
+                <nuxt-link to="danh-muc/sofa">
+                  Sofa
+                </nuxt-link>
               </li>
               <li class="footer__top__item">
-                Ban sofa
+                <nuxt-link to="danh-muc/ban-sofa">
+                  Bàn sofa
+                </nuxt-link>
               </li>
               <li class="footer__top__item">
-                Noi that
+                <nuxt-link to="danh-muc/noi-that">
+                  Nội thất
+                </nuxt-link>
               </li>
               <li class="footer__top__item">
-                Sofa thanh ly
+                <nuxt-link to="danh-muc/sofa-thanh-ly">
+                  Sofa thanh lý
+                </nuxt-link>
               </li>
             </ul>
           </div>
@@ -51,42 +59,60 @@
             <h6 class="footer__top__title">Quicklink</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item">
-                Khuyen mai
+                <nuxt-link to="about/khuyen-mai">
+                  Khuyến mại
+                </nuxt-link>
               </li>
               <li class="footer__top__item">
-                Huong dan dat hang
+                <nuxt-link to="about/huong-dan-dat-hang">
+                  Hướng dẫn đặt hàng
+                </nuxt-link>
               </li>
               <li class="footer__top__item">
-                Ve chung toi
+                <nuxt-link to="about/ve-chung-toi">
+                  Về chúng tôi
+                </nuxt-link>
               </li>
               <li class="footer__top__item">
-                Lien he
+                <nuxt-link to="about/lien-he">
+                  Liên hệ
+                </nuxt-link>
               </li>
               <li class="footer__top__item">
-                Doi tac
+                <nuxt-link to="about/doi-tac">
+                  Đối tác
+                </nuxt-link>
               </li>
             </ul>
           </div>
           <div class="col-12 col-md-6 col-lg-3 mp--none">
-            <h6 class="footer__top__title">Dang ky</h6>
+            <h6 class="footer__top__title">Đăng kí</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item footer__top__item__subscribe">
                 <input type="text" class="subscribe__input" />
-                <button class="subscribe__btn">subscribe</button>
+                <button class="subscribe__btn">Nhận tin mới</button>
               </li>
               <li
                 class="footer__top__item pt-2 footer__bottom__item__subscribe"
               >
-                <img
-                  src="/images/icon/facebook.png"
-                  alt=""
-                  class="footer__social mx-1"
-                />
-                <img
-                  src="/images/icon/youtube.png"
-                  alt=""
-                  class="footer__social mx-1"
-                />
+                <a
+                  href="https://www.facebook.com/SANXUATSOFA.TM/?modal=admin_todo_tour"
+                  target="_blank"
+                >
+                  <img
+                    src="/images/icon/facebook.png"
+                    alt=""
+                    class="footer__social mx-1"
+                /></a>
+                <a
+                  href="https://www.youtube.com/channel/UCVnlQw0YUdwnTdLxEXz05tg?view_as=subscriber"
+                  target="_blank"
+                >
+                  <img
+                    src="/images/icon/youtube.png"
+                    alt=""
+                    class="footer__social mx-1"
+                /></a>
                 <img
                   src="/images/icon/zalo.png"
                   alt=""
@@ -109,13 +135,17 @@
           class="row mp--none d-flex flex-wrap justify-content-between align-items-center"
         >
           <div class="footer__bottom__left">
-            <span>Copyright © by sofatrieumanh, 2019</span>
+            <span>Bản quyền © thuộc về sofatrieumanh, 2019</span>
           </div>
           <div class="footer__bottom__right">
-            <nuxt-link to="/privatepolicy">Private policy</nuxt-link>
-            <nuxt-link to="/privatepolicy">Term of use</nuxt-link>
-            <nuxt-link to="/privatepolicy">Help</nuxt-link>
-            <nuxt-link to="/privatepolicy">Contact us</nuxt-link>
+            <nuxt-link to="about/chinh-sach-rieng-tu"
+              >Chính sách riêng tư</nuxt-link
+            >
+            <nuxt-link to="about/dieu-khoan-su-dun"
+              >Điều khoản sử dụng</nuxt-link
+            >
+            <nuxt-link to="about/tro-giup">Trợ giúp</nuxt-link>
+            <nuxt-link to="about/lien-he">Liên hệ</nuxt-link>
           </div>
         </div>
       </div>
@@ -142,6 +172,10 @@
 }
 .footer__top__item {
   font-size: 0.9rem;
+}
+.footer__top__item a {
+  color: $white__color;
+  text-decoration: none !important;
 }
 .footer__top__title::before {
   content: '';

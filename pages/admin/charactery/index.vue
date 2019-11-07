@@ -9,14 +9,14 @@
               type="filled"
               class="py-2 px-3 border__radius--none border-right"
               @click="newCharacteryClick"
-              >Add new</vs-button
+              >Tạo mới đặc điểm</vs-button
             >
             <vs-button
               color="primary"
               type="filled"
               class="py-2 px-3 border__radius--none"
               @click="editCharacteryClick"
-              >Edit</vs-button
+              >Sửa đặc điểm</vs-button
             >
           </div>
         </div>
@@ -34,21 +34,21 @@
           >
             <template slot="header">
               <h3 class="p-2">
-                Charactery / News
+                Đặc điểm/ cấu tạo sản phẩm
               </h3>
             </template>
             <template slot="thead">
               <vs-th>
-                Charactery name
+                Tên đặc điểm
               </vs-th>
               <vs-th>
-                CreateDate
+                Ngày tạo
               </vs-th>
               <vs-th>
-                ModifyDate
+                Ngày sửa
               </vs-th>
               <vs-th>
-                IsActive
+                Có public?
               </vs-th>
             </template>
 

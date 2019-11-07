@@ -20,7 +20,21 @@ module.exports.getAllMenus = function(req, res) {
       }
     })
 }
-
+module.exports.getAllMenusWithURL = function(req, res) {
+  Menu.find()
+    .select({
+      menuName: 1,
+      _id: 1,
+      url: 1
+    })
+    .exec((error, response) => {
+      if (error) {
+        return next(error)
+      } else {
+        res.status(200).json(response)
+      }
+    })
+}
 module.exports.getSingleMenu = function(req, res, next) {
   Menu.findById(req.params.id, (error, data) => {
     if (error) {

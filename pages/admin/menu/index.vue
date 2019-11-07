@@ -9,14 +9,14 @@
               type="filled"
               class="py-2 px-3 border__radius--none border-right"
               @click="newMenuClick"
-              >Add new</vs-button
+              >Tạo mới menu</vs-button
             >
             <vs-button
               color="primary"
               type="filled"
               class="py-2 px-3 border__radius--none"
               @click="editMenuClick"
-              >Edit</vs-button
+              >Sửa menu</vs-button
             >
           </div>
         </div>
@@ -34,21 +34,21 @@
           >
             <template slot="header">
               <h3 class="p-2">
-                Menu / News
+                Menu
               </h3>
             </template>
             <template slot="thead">
               <vs-th>
-                Menu name
+                Tên menu
               </vs-th>
               <vs-th>
-                CreateDate
+                Ngày tạo
               </vs-th>
               <vs-th>
-                ModifyDate
+                Ngày sửa
               </vs-th>
               <vs-th>
-                IsActive
+                Có public?
               </vs-th>
             </template>
 
@@ -92,11 +92,11 @@
             <div class="col-12 col-md-6">
               <vs-select
                 v-model="editedItem.parentMenu"
-                placeholder="Select..."
+                placeholder="Chọn..."
                 multiple
                 autocomplete
                 class="w-100"
-                label="Parent Menu"
+                label="Menu cha"
               >
                 <vs-select-item
                   v-for="(item, index) in parentMenuList"
