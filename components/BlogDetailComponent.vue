@@ -105,7 +105,6 @@ export default {
     randomBlogs() {
       if (this.blogList.length > 0) {
         const ramdom = getMeRandomElements(this.blogList, 4)
-        console.log(ramdom)
         return ramdom
       } else return []
     }

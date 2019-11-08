@@ -264,7 +264,6 @@ export default {
     },
     removeImagesItem(value) {
       this.editedItem.images = value
-      console.log(this.editedItem.images)
     },
     removeTag(item) {
       this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1)

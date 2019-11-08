@@ -404,15 +404,12 @@ export default {
       })
     },
     deleteUpload(e) {
-      console.log(e)
       this.editedItem.images = this.editedItem.images.filter(function(obj) {
         return obj.fileName !== e.name
       })
-      console.log(this.editedItem.images)
     },
     removeImagesItem(value) {
       this.editedItem.images = value
-      console.log(this.editedItem.images)
     },
     removeTag(item) {
       this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1)
