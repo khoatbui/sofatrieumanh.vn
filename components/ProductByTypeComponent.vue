@@ -192,7 +192,8 @@ export default {
   margin: 1%;
 }
 .product__item__img {
-  min-height: 150px;
+  min-height: 200px;
+  max-height: 300px;
   background-size: cover;
   background-position: center;
 }

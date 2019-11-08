@@ -57,7 +57,8 @@
   border-bottom: 3px solid $white__color;
 }
 .promotion__slide__image {
-  height: 150px;
+  min-height: 250px;
+  max-height: 400px;
 }
 .promotion__slide {
   display: none;

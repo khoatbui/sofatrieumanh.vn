@@ -4,19 +4,75 @@
       <div class="row mp--none">
         <div class="col-12 col-md-6 mp--none">
           <div class="row mp--none">
-            <div class="col-4 mp--none image__list">
-              <div class="image__list__item"></div>
-              <div class="image__list__item"></div>
-              <div class="image__list__item"></div>
-            </div>
-            <div class="col-8 mp--none main__image">
-              <div class="image__item"></div>
+            <!-- <div class="col-4 mp--none image__list">
+              <div
+                v-for="(img, i) in productDetail.images"
+                :key="i + 'subimage'"
+              >
+                <div
+                  :style="
+                    `background-image: url('${
+                      typeof img.path !== 'undefined'
+                        ? img.path
+                        : '/images/product/pro_01.jpg'
+                    }')`
+                  "
+                  class="image__list__item"
+                ></div>
+              </div>
+            </div> -->
+            <div class="col-12 mp--none main__image">
+              <!-- <Carousel3d
+                :autoplay="true"
+                :autoplay-timeout="5000"
+                :controls-visible="true"
+                :controls-prev-html="'&#10092;'"
+                :controls-next-html="'&#10093;'"
+                :controls-width="30"
+                :controls-height="60"
+                :clickable="false"
+                class="product__carousel3d"
+              >
+                <Slide
+                  v-for="(slide, i) in productDetail.images"
+                  :key="i"
+                  :index="i"
+                >
+                  <figure>
+                    <img :src="slide.path" />
+                  </figure>
+                </Slide>
+              </Carousel3d> -->
+              <!-- <div
+                class="image__item"
+                :style="
+                  `background-image: url('${
+                    typeof productDetail.images !== 'undefined' &&
+                    productDetail.images.length > 0
+                      ? productDetail.images[0].path
+                      : '/images/product/pro_01.jpg'
+                  }')`
+                "
+              ></div> -->
+              <div class="pic-box">
+                <pic-zoom
+                  :url="
+                    typeof productDetail.images !== 'undefined' &&
+                    productDetail.images.length > 0
+                      ? productDetail.images[0].path
+                      : '/images/product/pro_01.jpg'
+                  "
+                  :scale="3"
+                ></pic-zoom>
+              </div>
               <div class="image__action">
                 <vs-button
+                  v-b-modal.modal-1
                   :color="'#156867'"
                   type="fill"
                   icon="aspect_ratio"
                   class="border__radius--none"
+                  @click="popupActivo4 = true"
                 ></vs-button>
               </div>
             </div>
@@ -71,6 +127,26 @@
                 class="border__radius--none"
                 >Thêm vào giỏ hàng</vs-button
               >
+            </div>
+            <div
+              class="col-12 mp--none d-flex justify-content-start align-items-center py-4"
+            >
+              <div class="product__step__item">
+                <img src="/images/steps/confirm.png" alt="" class="step__img" />
+                <span class="step__title">Đặt hàng</span>
+              </div>
+              <div class="product__step__item">
+                <img src="/images/steps/package.png" alt="" class="step__img" />
+                <span class="step__title">Đóng gói</span>
+              </div>
+              <div class="product__step__item">
+                <img
+                  src="/images/steps/delivered.png"
+                  alt=""
+                  class="step__img"
+                />
+                <span class="step__title">Giao hàng</span>
+              </div>
             </div>
             <div class="col-12 mp--none my-2">
               <span class="label__overview">Chất liệu</span>
@@ -255,22 +331,57 @@
         </div>
       </div>
     </div>
+    <div class="popup">
+      <vs-popup fullscreen title="fullscreen" :active.sync="popupActivo4">
+        <Carousel3d
+          :controls-visible="true"
+          :controls-prev-html="'&#10092;'"
+          :controls-next-html="'&#10093;'"
+          :controls-width="30"
+          :controls-height="60"
+          :clickable="false"
+          class="product__carousel3d"
+        >
+          <Slide v-for="(slide, i) in productDetail.images" :key="i" :index="i">
+            <figure>
+              <img :src="slide.path" />
+            </figure>
+          </Slide>
+        </Carousel3d>
+      </vs-popup>
+    </div>
   </div>
 </template>
 <script>
+import PicZoom from 'vue-piczoom'
+import { Carousel3d, Slide } from 'vue-carousel-3d'
 export default {
+  components: {
+    PicZoom,
+    Carousel3d,
+    Slide
+  },
   data: () => ({
     comment: {
       fullName: '',
       email: '',
       phoneNumber: ''
     },
-    productDetail: {}
+    productDetail: {},
+    completedGetData: false,
+    popupActivo4: false
   }),
+  computed: {},
   mounted() {
     this.getProductDetail()
   },
   methods: {
+    showCarousel3d() {
+      this.$vs.loading()
+      setTimeout(() => {
+        this.$vs.loading.close()
+      }, 2000)
+    },
     getProductDetail() {
       this.$vs.loading()
       if (this.$route.params.id.length > 0) {
@@ -281,6 +392,7 @@ export default {
           .then((response) => {
             this.productDetail = response.data
             this.$vs.loading.close()
+            this.completedGetData = true
           })
           .catch((error) => {
             this.$vs.notify({
@@ -390,6 +502,7 @@ export default {
 .data__overview {
   font-size: 1rem;
   color: $primary__color;
+  display: flex;
 }
 .data__title {
   font-size: 1.5rem;
@@ -435,5 +548,30 @@ export default {
   margin: 0 0.4rem;
   text-decoration: line-through;
   font-weight: bold;
+}
+.pic-box {
+  width: 100%;
+}
+.mouse-cover-canvas {
+  position: fixed !important;
+  left: 50%;
+  top: 50%;
+  transform: translate(10%, 10%);
+}
+.product__carousel3d img {
+  width: 200%;
+}
+.carousel-3d-slide.current {
+  visibility: visible !important;
+}
+.carousel-3d-slide {
+  min-width: 300px !important;
+}
+.product__step__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.2rem;
 }
 </style>
