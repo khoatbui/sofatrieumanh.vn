@@ -210,7 +210,8 @@ export default {
 <style lang="scss">
 .product__item__img {
   background-image: url('/images/product/pro_01.jpg');
-  min-height: 100px;
+  min-height: 200px;
+  max-height: 300px;
   background-size: cover;
   background-position: center;
 }
