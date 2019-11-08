@@ -149,6 +149,12 @@
                 @on-success="successUpload"
               />
             </div>
+            <div class="col-12">
+              <FileListComponent
+                :file-list="editedItem.images"
+                @deleteditem="removeImagesItem"
+              />
+            </div>
           </div>
           <div class="row mp--none mb-3">
             <div class="col-12">
@@ -165,6 +171,7 @@
                 color="danger"
                 type="filled"
                 class="py-2 px-3 border__radius--none mr-2"
+                @click="resetPopup"
                 >Reset</vs-button
               >
               <vs-button
@@ -183,10 +190,11 @@
 </template>
 <script>
 import AdminTipTapComponent from '@/components/AdminTipTapComponent.vue'
-
+import FileListComponent from '@/components/FileListComponent'
 export default {
   components: {
-    AdminTipTapComponent
+    AdminTipTapComponent,
+    FileListComponent
   },
   layout: 'adminlayout',
   data: () => ({
@@ -253,6 +261,10 @@ export default {
         title: 'Upload Success',
         text: 'Upload ảnh thành công'
       })
+    },
+    removeImagesItem(value) {
+      this.editedItem.images = value
+      console.log(this.editedItem.images)
     },
     removeTag(item) {
       this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1)
@@ -331,7 +343,12 @@ export default {
             this.getBlogList()
           })
       }
-    }
+    },
+    resetProperty() {
+      this.editedItem = this.defaultItem
+      this.editedItem.images = []
+    },
+    resetPopup() {}
   }
 }
 </script>

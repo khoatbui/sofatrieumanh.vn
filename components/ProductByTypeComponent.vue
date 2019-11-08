@@ -30,6 +30,10 @@
                 }')`
               "
             >
+              <!-- <ZoomOnHoverComponent
+                img-normal="/images/product/TM - SPK-001.jpg"
+                :scale="1"
+              ></ZoomOnHoverComponent> -->
               <div class="discount__tag"></div>
             </div>
             <div class="product__item__detail">
@@ -92,7 +96,11 @@
   </div>
 </template>
 <script>
+// import ZoomOnHoverComponent from '@/components/ZoomOnHoverComponent'
 export default {
+  components: {
+    // ZoomOnHoverComponent
+  },
   props: {
     productTypeUrl: {
       type: String,
