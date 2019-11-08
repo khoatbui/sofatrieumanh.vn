@@ -64,3 +64,13 @@ body {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
+
+
+
+
+/* RESET */
+@media (min-width: 1904px){
+.container {
+    max-width: 1185px !important;
+}
+}
