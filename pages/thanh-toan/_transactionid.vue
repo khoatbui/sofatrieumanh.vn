@@ -139,20 +139,24 @@
                 </div>
               </div>
               <div class="row mp--none border-bottom my-3">
-                <vs-radio
-                  v-model="order.paymentType"
-                  :color="'#156867'"
-                  vs-value="Success"
-                  >Chuyển khoản ngân hàng</vs-radio
-                >
+                <div class="col-12 mp--none">
+                  <vs-radio
+                    v-model="order.paymentType"
+                    :color="'#156867'"
+                    vs-value="Success"
+                    >Chuyển khoản ngân hàng</vs-radio
+                  >
+                </div>
               </div>
-              <div>
-                <vs-radio
-                  v-model="order.paymentType"
-                  :color="'#156867'"
-                  vs-value="Success"
-                  >Thanh toán khi giao hàng</vs-radio
-                >
+              <div class="row mp--none border-bottom my-3">
+                <div class="col-12 mp--none">
+                  <vs-radio
+                    v-model="order.paymentType"
+                    :color="'#156867'"
+                    vs-value="Success"
+                    >Thanh toán khi giao hàng</vs-radio
+                  >
+                </div>
               </div>
               <div class="row mp--none thanhtoan__section">
                 <div class="col-12 mp--none">

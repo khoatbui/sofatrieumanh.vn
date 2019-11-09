@@ -7,23 +7,23 @@
         >
           <div class="step__item">
             <img src="/images/steps/shopping.png" alt="" class="step__img" />
-            <span class="step__title">Shopping</span>
+            <span class="step__title">Chọn sản phẩm</span>
           </div>
           <div class="step__item">
             <img src="/images/steps/confirm.png" alt="" class="step__img" />
-            <span class="step__title">Confirm</span>
+            <span class="step__title">Đặt hàng</span>
           </div>
           <div class="step__item">
             <img src="/images/steps/package.png" alt="" class="step__img" />
-            <span class="step__title">Package</span>
+            <span class="step__title">Đóng gói</span>
           </div>
           <div class="step__item">
             <img src="/images/steps/delivered.png" alt="" class="step__img" />
-            <span class="step__title">Delivery</span>
+            <span class="step__title">Giao hàng</span>
           </div>
           <div class="step__item">
             <img src="/images/steps/payment.png" alt="" class="step__img" />
-            <span class="step__title">Cash</span>
+            <span class="step__title">Thanh toán</span>
           </div>
         </div>
       </div>

@@ -215,7 +215,15 @@
           >
             <div class="card-body p-1">
               <div
-                class="product__list__item__img product__list__item__img--03"
+                class="product__list__item__img"
+                :style="
+                  `background-image: url('${
+                    typeof product.images !== 'undefined' &&
+                    product.images.length > 0
+                      ? product.images[0].path
+                      : '/images/product/pro_01.jpg'
+                  }')`
+                "
               >
                 <div class="discount__tag"></div>
               </div>

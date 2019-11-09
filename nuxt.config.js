@@ -28,7 +28,10 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: 'plugins/owl.js', ssr: false }],
+  plugins: [
+    { src: 'plugins/owl.js', ssr: false },
+    { src: '~/plugins/vue-product-zoomer.js', mode: 'client' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -71,6 +74,13 @@ module.exports = {
   styleResources: {
     scss: ['./assets/scss/vars/*.scss', './assets/scss/abstracts/_mixins.scss']
   },
+  script: [
+    { src: '/js/jquery.elevatezoom.js' },
+    {
+      src:
+        'https://cdn.jsdelivr.net/gh/elPoeta/zoom-hover-image@v1.1/components/zoom-hover.js'
+    }
+  ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -83,6 +93,7 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
+    vendor: ['vue-product-zoomer'],
     extend(config, ctx) {
       config.module.rules.push({
         enforce: 'pre',

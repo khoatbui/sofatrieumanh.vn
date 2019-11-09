@@ -4,6 +4,14 @@
       <div class="row mp--none">
         <div class="col-12 col-md-6 mp--none">
           <div class="row mp--none">
+            <div style="width:400px" class="container">
+              <!-- <client-only>
+                <ProductZoomer
+                  :base-images="images"
+                  :base-zoomer-options="zoomerOptions"
+                ></ProductZoomer>
+              </client-only> -->
+            </div>
             <!-- <div class="col-4 mp--none image__list">
               <div
                 v-for="(img, i) in productDetail.images"
@@ -54,7 +62,7 @@
                   }')`
                 "
               ></div> -->
-              <div class="pic-box">
+              <!-- <div class="pic-box">
                 <pic-zoom
                   :url="
                     typeof productDetail.images !== 'undefined' &&
@@ -64,7 +72,7 @@
                   "
                   :scale="3"
                 ></pic-zoom>
-              </div>
+              </div> -->
               <div class="image__action">
                 <vs-button
                   v-b-modal.modal-1
@@ -353,11 +361,11 @@
   </div>
 </template>
 <script>
-import PicZoom from 'vue-piczoom'
+// import PicZoom from 'vue-piczoom'
 import { Carousel3d, Slide } from 'vue-carousel-3d'
 export default {
   components: {
-    PicZoom,
+    // PicZoom,
     Carousel3d,
     Slide
   },
@@ -369,7 +377,51 @@ export default {
     },
     productDetail: {},
     completedGetData: false,
-    popupActivo4: false
+    popupActivo4: false,
+    images: {
+      thumbs: [
+        {
+          id: 1,
+          url: '/images/blogs/blog_01.jpg'
+        },
+        {
+          id: 2,
+          url: '/images/blogs/blog_02.jpg'
+        }
+      ],
+      normal_size: [
+        {
+          id: 1,
+          url: '/images/blogs/blog_01.jpg'
+        },
+        {
+          id: 2,
+          url: '/images/blogs/blog_02.jpg'
+        }
+      ],
+      large_size: [
+        {
+          id: 1,
+          url: '/images/blogs/blog_01.jpg'
+        },
+        {
+          id: 2,
+          url: '/images/blogs/blog_02.jpg'
+        }
+      ]
+    },
+    zoomerOptions: {
+      zoomFactor: 3, // scale for zoomer
+      pane: 'pane', // three type of pane ['pane', 'container-round', 'container']
+      hoverDelay: 300, // how long after the zoomer take effect
+      namespace: 'zoomer', // add a namespace for zoomer component, useful when on page have mutiple zoomer
+      move_by_click: false, // move image by click thumb image or by mouseover
+      scroll_items: 5, // thumbs for scroll
+      choosed_thumb_border_color: '#bbdefb', // choosed thumb border color
+      scroller_button_style: 'line',
+      scroller_position: 'left',
+      zoomer_pane_position: 'right'
+    }
   }),
   computed: {},
   mounted() {

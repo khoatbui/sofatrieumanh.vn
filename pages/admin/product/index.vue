@@ -17,6 +17,12 @@
               class="py-2 px-3 border__radius--none"
               @click="editProductClick"
               >Sửa sản phẩm</vs-button
+            ><vs-button
+              color="danger"
+              type="filled"
+              class="py-2 px-3 border__radius--none"
+              @click="deleteProductClick"
+              >Xoá sản phẩm</vs-button
             >
           </div>
         </div>
@@ -489,6 +495,41 @@ export default {
             this.resetProperty()
           })
       }
+    },
+    deleteProductClick() {
+      this.$vs.dialog({
+        color: 'primary',
+        title: `Xác nhận xóa sản phẩm`,
+        text:
+          'Bạn không thể khôi phục lại sản phẩm sau khi xóa, nên chỉnh sửa sản phẩm hoặc unpublic nếu không muốn sử dụng',
+        accept: this.deleteProduct
+      })
+    },
+    deleteProduct() {
+      this.$vs.loading()
+      this.$axios
+        .delete(
+          `${process.env.API_HTTP}/api/productapi/delete-product/${this.selected._id}`
+        )
+        .then((response) => {
+          this.$vs.notify({
+            color: 'success',
+            title: 'Xóa thành công',
+            text: `${response}`
+          })
+          this.$vs.loading.close()
+          this.getProductList()
+        })
+        .catch((error) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error
+          })
+        })
+        .finally(() => {
+          this.$vs.loading.close()
+        })
     },
     resetProperty() {
       this.editedItem = this.defaultItem

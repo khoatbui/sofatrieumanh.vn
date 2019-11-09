@@ -27,7 +27,7 @@
                     type="border"
                     class="border__radius--none px-2 py-1 m-1"
                     @click="redirectToComparePage"
-                    >So sánh</vs-button
+                    >Xem nhanh</vs-button
                   >
                   <vs-button
                     :color="'#156867'"
@@ -57,7 +57,7 @@
                     type="border"
                     class="border__radius--none px-2 py-1 m-1"
                     @click="redirectToComparePage"
-                    >So sánh</vs-button
+                    >Xem nhanh</vs-button
                   >
                   <vs-button
                     :color="'#156867'"
@@ -87,7 +87,7 @@
                     type="border"
                     class="border__radius--none px-2 py-1 m-1"
                     @click="redirectToComparePage"
-                    >So sánh</vs-button
+                    >Xem nhanh</vs-button
                   >
                   <vs-button
                     :color="'#156867'"
@@ -117,7 +117,7 @@
                     type="border"
                     class="border__radius--none px-2 py-1 m-1"
                     @click="redirectToComparePage"
-                    >So sánh</vs-button
+                    >Xem nhanh</vs-button
                   >
                   <vs-button
                     :color="'#156867'"
@@ -147,7 +147,7 @@
                     type="border"
                     class="border__radius--none px-2 py-1 m-1"
                     @click="redirectToComparePage"
-                    >So sánh</vs-button
+                    >Xem nhanh</vs-button
                   >
                   <vs-button
                     :color="'#156867'"
@@ -177,7 +177,7 @@
                     type="border"
                     class="border__radius--none px-2 py-1 m-1"
                     @click="redirectToComparePage"
-                    >So sánh</vs-button
+                    >Xem nhanh</vs-button
                   >
                   <vs-button
                     :color="'#156867'"

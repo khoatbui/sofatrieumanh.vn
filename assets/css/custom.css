@@ -20,6 +20,9 @@ body {
 .cursor--pointer {
   cursor: pointer;
 }
+.vs-dropdown--item {
+  border-radius: 0 !important;
+}
 /* TEXT SIZE ===================*/
 .text__size--x06 {
   font-size: 0.6rem !important;
@@ -65,12 +68,9 @@ body {
   padding-bottom: 4rem;
 }
 
-
-
-
 /* RESET */
-@media (min-width: 1904px){
-.container {
+@media (min-width: 1904px) {
+  .container {
     max-width: 1185px !important;
-}
+  }
 }

@@ -29,15 +29,17 @@
                     : '/images/product/pro_01.jpg'
                 }')`
               "
+              @click="redirectToProductPage(product.url)"
             >
-              <!-- <ZoomOnHoverComponent
-                img-normal="/images/product/TM - SPK-001.jpg"
-                :scale="1"
-              ></ZoomOnHoverComponent> -->
               <div class="discount__tag"></div>
             </div>
             <div class="product__item__detail">
-              <h6 class="product__item__name">{{ product.productName }}</h6>
+              <h6
+                class="product__item__name"
+                @click="redirectToProductPage(product.url)"
+              >
+                {{ product.productName }}
+              </h6>
               <div class="product__item__price">
                 <span class="current__price">{{
                   new Intl.NumberFormat('vi-VN', {
@@ -60,7 +62,7 @@
                   type="border"
                   class="border__radius--none px-2 py-1 m-1"
                   @click="redirectToComparePage"
-                  >So sánh</vs-button
+                  >Xem nhanh</vs-button
                 >
                 <vs-button
                   :color="'#156867'"

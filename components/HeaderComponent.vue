@@ -60,27 +60,334 @@
             <nuxt-link to="/" href="" class="bottom__menu__item"
               >Home</nuxt-link
             >
-            <nuxt-link
-              to="/danh-muc/ghe-sofa"
-              href=""
-              class="bottom__menu__item"
-              >Ghế sofa</nuxt-link
-            >
-            <nuxt-link to="/danh-muc/ban" href="" class="bottom__menu__item"
-              >Bàn +</nuxt-link
-            >
+            <vs-dropdown>
+              <nuxt-link
+                to="/danh-muc/ghe-sofa"
+                class="a-icon bottom__dropdown__title bottom__menu__item"
+                href=""
+              >
+                Ghế sofa
+                <vs-icon
+                  class="bottom__menu__expand__icon"
+                  icon="add"
+                ></vs-icon>
+              </nuxt-link>
+
+              <vs-dropdown-menu>
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-don"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa đơn</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-giuong"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa giường</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-gia-re"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa giá rẻ</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-phong-khach"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa phòng khách</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-nhap-khau"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa nhập khẩu</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-cao-cap"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa cao cấp</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-co-dien"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa cổ điển</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-goc"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa góc</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-van-phong"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa văn phòng</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-bang"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa băng(văng)</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-can-ho"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa căn hộ</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-han-quoc"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa hàn quốc</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-karaoke"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa karaoke</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-coffe"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa cafe</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-da"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa da</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-vai"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa vải</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-12 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-can-ho"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa nỉ</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+              </vs-dropdown-menu>
+            </vs-dropdown>
+            <vs-dropdown>
+              <nuxt-link
+                to="/danh-muc/ban"
+                class="a-icon bottom__dropdown__title bottom__menu__item"
+                href=""
+              >
+                Bàn
+                <vs-icon
+                  class="bottom__menu__expand__icon"
+                  icon="add"
+                ></vs-icon>
+              </nuxt-link>
+
+              <vs-dropdown-menu>
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/ban-sofa"
+                          href=""
+                          class="bottom__menu__item"
+                          >Bàn sofa</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/ban-an"
+                          href=""
+                          class="bottom__menu__item"
+                          >Bàn ăn</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+              </vs-dropdown-menu>
+            </vs-dropdown>
             <nuxt-link
               to="/danh-muc/sofa-khuyen-mai"
               href=""
               class="bottom__menu__item"
               >Sofa khuyến mãi</nuxt-link
             >
-            <nuxt-link
-              to="/danh-muc/noi-that"
-              href=""
-              class="bottom__menu__item"
-              >Nội thất</nuxt-link
-            >
+            <vs-dropdown>
+              <nuxt-link
+                to="/danh-muc/noi-that"
+                class="a-icon bottom__dropdown__title bottom__menu__item"
+                href=""
+              >
+                Nội thất
+                <vs-icon
+                  class="bottom__menu__expand__icon"
+                  icon="add"
+                ></vs-icon>
+              </nuxt-link>
+
+              <vs-dropdown-menu>
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/noi-that-phong-khach"
+                          href=""
+                          class="bottom__menu__item"
+                          >Nội thất phòng khách</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/noi-that-phong-an"
+                          href=""
+                          class="bottom__menu__item"
+                          >Nội thất phòng ăn</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-12 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/noi-that-phong-ngu"
+                          href=""
+                          class="bottom__menu__item"
+                          >Nội thất phòng ngủ</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+              </vs-dropdown-menu>
+            </vs-dropdown>
             <nuxt-link
               to="/danh-muc/sofa-thanh-ly"
               href=""
@@ -241,9 +548,6 @@ export default {
   color: $primary__color;
   font-weight: 500;
 }
-.bottom__menu__item:hover {
-  font-weight: bold;
-}
 .bottom__menu__right {
   display: flex;
   justify-content: flex-end;
@@ -292,6 +596,18 @@ export default {
 }
 .bottom__menu__item:hover {
   color: $primary__color;
+}
+.dropdown__2col {
+  width: 300px;
+}
+.bottom__menu__expand__icon {
+  font-size: 14px !important;
+}
+.bottom__menu__left .a-icon.bottom__dropdown__title.bottom__menu__item {
+  color: $primary__color;
+}
+.bottom__menu__left .vs-dropdown--item-link {
+  padding: 0 10px !important;
 }
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {

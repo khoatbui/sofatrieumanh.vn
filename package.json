@@ -32,6 +32,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.2.0",
+    "jquery": "^3.4.1",
+    "magnificent": "^2.2.4",
     "material-icons": "^0.3.1",
     "mongodb": "^3.3.3",
     "mongoose": "^5.7.7",
@@ -46,7 +48,8 @@
     "vue-moment": "^4.0.0",
     "vue-piczoom": "^1.0.6",
     "vue-product-zoomer": "^3.0.0",
-    "vuesax": "^3.10.6"
+    "vuesax": "^3.10.6",
+    "zoom-hover": "^1.1.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",

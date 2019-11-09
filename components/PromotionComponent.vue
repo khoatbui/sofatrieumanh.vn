@@ -42,7 +42,7 @@
 <style lang="scss">
 .promotion__component {
   background-color: $promotion__bg__color;
-  min-height: 200px;
+  min-height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,7 +57,7 @@
   border-bottom: 3px solid $white__color;
 }
 .promotion__slide__image {
-  min-height: 250px;
+  min-height: 270px;
   max-height: 400px;
 }
 .promotion__slide {
@@ -80,7 +80,7 @@
     min-height: 200px;
   }
   .promotion__slide__image {
-    height: 150px;
+    height: 270px;
   }
   .promotion__slide {
     display: none;
@@ -93,7 +93,7 @@
     min-height: 250px;
   }
   .promotion__slide__image {
-    height: 180px;
+    height: 280px;
   }
   .promotion__slide {
     display: flex;
@@ -108,7 +108,7 @@
     min-height: 300px;
   }
   .promotion__slide__image {
-    height: 200px;
+    height: 300px;
   }
   .promotion__slide {
     display: flex;
@@ -123,7 +123,7 @@
     min-height: 300px;
   }
   .promotion__slide__image {
-    height: 200px;
+    height: 350px;
   }
   .promotion__slide {
     display: flex;
