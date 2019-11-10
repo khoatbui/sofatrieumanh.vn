@@ -4,14 +4,6 @@
       <div class="row mp--none">
         <div class="col-12 col-md-6 mp--none">
           <div class="row mp--none">
-            <div style="width:400px" class="container">
-              <!-- <client-only>
-                <ProductZoomer
-                  :base-images="images"
-                  :base-zoomer-options="zoomerOptions"
-                ></ProductZoomer>
-              </client-only> -->
-            </div>
             <!-- <div class="col-4 mp--none image__list">
               <div
                 v-for="(img, i) in productDetail.images"
@@ -30,28 +22,7 @@
               </div>
             </div> -->
             <div class="col-12 mp--none main__image">
-              <!-- <Carousel3d
-                :autoplay="true"
-                :autoplay-timeout="5000"
-                :controls-visible="true"
-                :controls-prev-html="'&#10092;'"
-                :controls-next-html="'&#10093;'"
-                :controls-width="30"
-                :controls-height="60"
-                :clickable="false"
-                class="product__carousel3d"
-              >
-                <Slide
-                  v-for="(slide, i) in productDetail.images"
-                  :key="i"
-                  :index="i"
-                >
-                  <figure>
-                    <img :src="slide.path" />
-                  </figure>
-                </Slide>
-              </Carousel3d> -->
-              <!-- <div
+              <div
                 class="image__item"
                 :style="
                   `background-image: url('${
@@ -61,7 +32,7 @@
                       : '/images/product/pro_01.jpg'
                   }')`
                 "
-              ></div> -->
+              ></div>
               <!-- <div class="pic-box">
                 <pic-zoom
                   :url="
@@ -84,8 +55,37 @@
                 ></vs-button>
               </div>
             </div>
+            <div class="col-12 mp--none">
+              <div class="image__list">
+                <div
+                  v-for="(img, i) in 5"
+                  :key="i + 'subimage'"
+                  :style="
+                    `background-image: url('${
+                      typeof img.path !== 'undefined'
+                        ? '/images/product/alexander-mcqueen_200x260.jpg'
+                        : '/images/product/alexander-mcqueen_200x260.jpg'
+                    }')`
+                  "
+                  class="image__list__item"
+                ></div>
+              </div>
+            </div>
           </div>
         </div>
+        <!-- <div class="row">
+          <video width="320" height="240" controls>
+            <source
+              src="https://www.youtube.com/watch?v=psgdsIdECjA"
+              type="video/mp4"
+            />
+            <source
+              src="https://www.youtube.com/watch?v=psgdsIdECjA"
+              type="video/ogg"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div> -->
         <div class="col-12 col-md-6 mp--none">
           <div class="row mp--none px-4">
             <div class="col-12 mp--none my-2">
@@ -339,7 +339,7 @@
         </div>
       </div>
     </div>
-    <div class="popup">
+    <!-- <div class="popup">
       <vs-popup fullscreen title="fullscreen" :active.sync="popupActivo4">
         <Carousel3d
           :controls-visible="true"
@@ -357,17 +357,17 @@
           </Slide>
         </Carousel3d>
       </vs-popup>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
 // import PicZoom from 'vue-piczoom'
-import { Carousel3d, Slide } from 'vue-carousel-3d'
+// import { Carousel3d, Slide } from 'vue-carousel-3d'
 export default {
   components: {
     // PicZoom,
-    Carousel3d,
-    Slide
+    // Carousel3d,
+    // Slide
   },
   data: () => ({
     comment: {
@@ -625,5 +625,21 @@ export default {
   align-items: center;
   justify-content: center;
   margin-right: 1.2rem;
+}
+.image__list {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+.image__list__item {
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+}
+.image__list__item:hover {
+  border: 1px solid $danger__color;
 }
 </style>

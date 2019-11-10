@@ -79,6 +79,10 @@ let productSchema = new Schema({
   characteristics: {
     type: Array,
     require: true
+  },
+  video: {
+    type: String,
+    require: false
   }
 })
 productSchema.plugin(uniqueValidator, { message: 'Url already in use.' })

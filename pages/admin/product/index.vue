@@ -143,6 +143,16 @@
             </div>
           </div>
           <div class="row mp--none mb-3">
+            <div class="col-12 col-md-6">
+              <vs-input
+                v-model="editedItem.video"
+                label="Video sản phẩm"
+                placeholder="https://www.youtube.com/watch?v=psgdsIdECjA"
+                class="w-100"
+              />
+            </div>
+          </div>
+          <div class="row mp--none mb-3">
             <div class="col-12">
               <vs-textarea
                 v-model="editedItem.productIntro"
@@ -318,7 +328,8 @@ export default {
       category: [],
       images: [],
       productCode: '',
-      characteristics: []
+      characteristics: [],
+      video: ''
     },
     defaultItem: {
       productName: '',
@@ -335,7 +346,8 @@ export default {
       category: [],
       images: [],
       productCode: '',
-      characteristics: []
+      characteristics: [],
+      video: ''
     },
     counterDanger: false,
     productList: []
