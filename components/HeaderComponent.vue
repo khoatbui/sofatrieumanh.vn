@@ -64,7 +64,7 @@
               <nuxt-link
                 to="/danh-muc/ghe-sofa"
                 class="a-icon bottom__dropdown__title bottom__menu__item"
-                href=""
+                href="#"
               >
                 Ghế sofa
                 <vs-icon
@@ -72,7 +72,6 @@
                   icon="add"
                 ></vs-icon>
               </nuxt-link>
-
               <vs-dropdown-menu>
                 <vs-dropdown-item divider>
                   <div class="row m-0 p-0">
@@ -503,6 +502,10 @@ export default {
       document
         .querySelector('.vs-navbar--btn-responsive')
         .classList.remove('active-menu')
+    },
+    redirectTo(url) {
+      console.log(url)
+      this.$router.replace(url)
     }
   }
 }

@@ -9,13 +9,18 @@ const urlencodedParser = bodyParser.urlencoded({
   extended: true
 })
 
-const uri =
-  'mongodb+srv://sofatrieumanh:trieumanh@sofatrieumanh-48lnm.mongodb.net/test?retryWrites=true&w=majority'
-var mongoose = require('mongoose')
-mongoose.connect(uri, {
+// const uri =
+//   'mongodb+srv://sofatrieumanh:trieumanh@sofatrieumanh-48lnm.mongodb.net/test?retryWrites=true&w=majority'
+// var mongoose = require('mongoose')
+// mongoose.connect(uri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   dbName: 'sofatrieumanh_db'
+// })
+const mongoose = require('mongoose')
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
-  dbName: 'sofatrieumanh_db'
+  connectTimeoutMS: 3000000
 })
 const app = express()
 app.use(cookieParser())

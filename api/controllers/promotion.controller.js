@@ -22,6 +22,23 @@ module.exports.getAllPromotions = function(req, res) {
     })
 }
 
+module.exports.getAllPromotionsByActive = function(req, res) {
+  Promotion.find({ isActive: true })
+    .select({
+      promotionName: 1,
+      _id: 1,
+      url: 1,
+      validDate: 1,
+      images: 1
+    })
+    .exec((error, response) => {
+      if (error) {
+        return next(error)
+      } else {
+        res.status(200).json(response)
+      }
+    })
+}
 module.exports.getSinglePromotion = function(req, res, next) {
   Promotion.findById(req.params.id, (error, data) => {
     if (error) {

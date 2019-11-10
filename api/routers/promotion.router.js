@@ -5,7 +5,7 @@ const { check, validationResult } = require('express-validator')
 const router = express.Router()
 
 router.get('/', controller.getAllPromotions)
-
+router.get('/active', controller.getAllPromotionsByActive)
 router.post(
   '/register-promotion',
   [

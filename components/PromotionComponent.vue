@@ -2,33 +2,29 @@
   <div class="promotion__component">
     <div class="container">
       <carousel :items="1" :autoplay="true" :nav="false" :loop="true">
-        <div class="row mp--none h-100">
+        <div
+          v-for="(pro, index) in promotionList"
+          :key="index + 'saspro'"
+          class="row mp--none h-100"
+        >
           <div
             class="col-12 col-md-6 mp--none promotion__content d-flex flex-column justify-content-center align-items-center"
           >
-            <h6 class="promotion__content__title">Twist sofa of 50%</h6>
-            <p>Handcrafted sofas for exceptional homes</p>
-            <button class="btn btn__promo_view">View more</button>
+            <h6 class="promotion__content__title">{{ pro.promotionName }}</h6>
+            <p>{{ pro.promotionIntro }}</p>
+            <button class="btn btn__promo_view" @click="redirectTo(pro.url)">
+              View more
+            </button>
           </div>
           <div class="col-6 mp--none promotion__slide">
             <img
-              src="/images/promotion/pro_01.jpg"
-              alt=""
-              class="promotion__slide__image"
-            />
-          </div>
-        </div>
-        <div class="row mp--none h-100">
-          <div
-            class="col-12 col-md-6 mp--none promotion__content d-flex flex-column justify-content-center align-items-center"
-          >
-            <h6 class="promotion__content__title">Single sofa of 80%</h6>
-            <p>Handcrafted sofas for exceptional homes</p>
-            <button class="btn btn__promo_view">View more</button>
-          </div>
-          <div class="col-6 mp--none promotion__slide">
-            <img
-              src="/images/promotion/pro_01.jpg"
+              :style="
+                `background-image: url('${
+                  typeof pro.images !== 'undefined' && pro.images.length > 0
+                    ? pro.images[0].path
+                    : '/images/product/pro_01.jpg'
+                }')`
+              "
               alt=""
               class="promotion__slide__image"
             />
@@ -38,7 +34,40 @@
     </div>
   </div>
 </template>
-
+<script>
+export default {
+  data: () => ({
+    promotionList: []
+  }),
+  mounted() {
+    this.getPromotionList()
+  },
+  methods: {
+    getPromotionList() {
+      this.$vs.loading()
+      this.$axios
+        .get(`${process.env.API_HTTP}/api/promotionapi/active`)
+        .then((response) => {
+          this.promotionList = response.data
+          this.$vs.loading.close()
+        })
+        .catch((error) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error
+          })
+        })
+        .finally(() => {
+          this.$vs.loading.close()
+        })
+    },
+    redirectTo(url) {
+      this.$router.replace(`/khuyen-mai/${url}`)
+    }
+  }
+}
+</script>
 <style lang="scss">
 .promotion__component {
   background-color: $promotion__bg__color;
@@ -57,6 +86,9 @@
   border-bottom: 3px solid $white__color;
 }
 .promotion__slide__image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   min-height: 270px;
   max-height: 400px;
 }
