@@ -151,6 +151,24 @@
                 class="w-100"
               />
             </div>
+            <div class="col-12 col-md-6 my-4 my-md-0 d-flex align-items-end">
+              <vs-chips
+                v-model="editedItem.buletPoint"
+                color="rgb(145, 32, 159)"
+                placeholder="Đặc điêm nổi bật"
+                class="w-100"
+              >
+                <vs-chip
+                  v-for="tag in editedItem.buletPoint"
+                  :key="tag"
+                  closable
+                  color="primary"
+                  @click="removeBuletPoint(tag)"
+                >
+                  {{ tag }}
+                </vs-chip>
+              </vs-chips>
+            </div>
           </div>
           <div class="row mp--none mb-3">
             <div class="col-12">
@@ -323,6 +341,7 @@ export default {
       createBy: 'trieumanh',
       source: '',
       tags: [],
+      buletPoint: [],
       url: '',
       content: '',
       category: [],
@@ -341,6 +360,7 @@ export default {
       createBy: 'trieumanh',
       source: '',
       tags: [],
+      buletPoint: [],
       url: '',
       content: '',
       category: [],
@@ -431,6 +451,12 @@ export default {
     },
     removeTag(item) {
       this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1)
+    },
+    removeBuletPoint(item) {
+      this.editedItem.buletPoint.splice(
+        this.editedItem.buletPoint.indexOf(item),
+        1
+      )
     },
     async getProductById(id) {
       this.$vs.loading()

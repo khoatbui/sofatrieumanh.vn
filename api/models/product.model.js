@@ -83,6 +83,10 @@ let productSchema = new Schema({
   video: {
     type: String,
     require: false
+  },
+  buletPoint: {
+    type: Array,
+    require: false
   }
 })
 productSchema.plugin(uniqueValidator, { message: 'Url already in use.' })

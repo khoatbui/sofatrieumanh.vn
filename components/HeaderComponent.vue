@@ -274,13 +274,23 @@
 
                 <vs-dropdown-item divider>
                   <div class="row m-0 p-0">
-                    <div class="col-12 m-0 p-0">
+                    <div class="col-6 m-0 p-0">
                       <vs-dropdown-item>
                         <nuxt-link
                           to="/danh-muc/sofa-can-ho"
                           href=""
                           class="bottom__menu__item"
                           >Sofa nỉ</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/sofa-tan-co-dien"
+                          href=""
+                          class="bottom__menu__item"
+                          >Sofa tân cổ điển</nuxt-link
                         >
                       </vs-dropdown-item>
                     </div>
@@ -321,6 +331,30 @@
                           href=""
                           class="bottom__menu__item"
                           >Bàn ăn</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+                <vs-dropdown-item divider>
+                  <div class="row m-0 p-0">
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/ban-go"
+                          href=""
+                          class="bottom__menu__item"
+                          >Bàn gỗ</nuxt-link
+                        >
+                      </vs-dropdown-item>
+                    </div>
+                    <div class="col-6 m-0 p-0">
+                      <vs-dropdown-item>
+                        <nuxt-link
+                          to="/danh-muc/ban-da"
+                          href=""
+                          class="bottom__menu__item"
+                          >Bàn đá</nuxt-link
                         >
                       </vs-dropdown-item>
                     </div>
