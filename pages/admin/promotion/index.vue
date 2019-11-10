@@ -186,6 +186,13 @@
                 text="Ảnh khuyến mãi"
                 action="/api/uploadapi/upload-promotion-img"
                 @on-success="successUpload"
+                @on-delete="deleteUpload"
+              />
+            </div>
+            <div class="col-12">
+              <FileListComponent
+                :file-list="editedItem.images"
+                @deleteditem="removeImagesItem"
               />
             </div>
           </div>
@@ -223,9 +230,11 @@
 <script>
 import moment from 'moment'
 import AdminTipTapComponent from '@/components/AdminTipTapComponent.vue'
+import FileListComponent from '@/components/FileListComponent'
 export default {
   components: {
-    AdminTipTapComponent
+    AdminTipTapComponent,
+    FileListComponent
   },
   layout: 'adminlayout',
   data: () => ({
@@ -294,6 +303,14 @@ export default {
         title: 'Upload Success',
         text: 'Upload ảnh thành công'
       })
+    },
+    deleteUpload(e) {
+      this.editedItem.images = this.editedItem.images.filter(function(obj) {
+        return obj.fileName !== e.name
+      })
+    },
+    removeImagesItem(value) {
+      this.editedItem.images = value
     },
     removeTag(item) {
       this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1)
