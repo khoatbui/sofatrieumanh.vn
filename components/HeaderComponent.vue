@@ -504,7 +504,6 @@ export default {
         .classList.remove('active-menu');
     },
     redirectTo(url) {
-      console.log(url);
       this.$router.replace(url);
     },
   },
