@@ -7,13 +7,13 @@
   </div>
 </template>
 <script>
-import BlogDetailComponent from '@/components/BlogDetailComponent'
-import SlideProductComponent from '@/components/SlideProductComponent'
+import BlogDetailComponent from '@/components/BlogDetailComponent';
+import SlideProductComponent from '@/components/SlideProductComponent';
 export default {
   layout: 'mainlayout',
   components: {
     BlogDetailComponent,
-    SlideProductComponent
+    SlideProductComponent,
   },
   head() {
     return {
@@ -23,12 +23,12 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'My custom description'
-        }
-      ]
-    }
-  }
-}
+          content: 'My custom description',
+        },
+      ],
+    };
+  },
+};
 </script>
 <style lang="scss">
 .tintuc__page {

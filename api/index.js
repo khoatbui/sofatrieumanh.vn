@@ -1,62 +1,62 @@
-require('dotenv').config()
-const express = require('express')
-const cookieParser = require('cookie-parser')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const jsonParser = bodyParser.json({ limit: '50mb', extended: true })
+require('dotenv').config();
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const jsonParser = bodyParser.json({ limit: '50mb', extended: true });
 const urlencodedParser = bodyParser.urlencoded({
   limit: '50mb',
-  extended: true
-})
+  extended: true,
+});
 
-const uri =
-  'mongodb+srv://sofatrieumanh:trieumanh@sofatrieumanh-48lnm.mongodb.net/test?retryWrites=true&w=majority'
-let mongoose = require('mongoose')
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  dbName: 'sofatrieumanh_db'
-})
-// const mongoose = require('mongoose')
-// mongoose.connect(process.env.MONGO_URL, {
+// const uri =
+//   'mongodb+srv://sofatrieumanh:trieumanh@sofatrieumanh-48lnm.mongodb.net/test?retryWrites=true&w=majority'
+// let mongoose = require('mongoose')
+// mongoose.connect(uri, {
 //   useNewUrlParser: true,
-//   connectTimeoutMS: 3000000
+//   useUnifiedTopology: true,
+//   dbName: 'sofatrieumanh_db'
 // })
-const app = express()
-app.use(cookieParser())
-app.use(express.static('public'))
-app.use(express.static('uploads'))
-app.use(cors())
-app.use(jsonParser)
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  connectTimeoutMS: 3000000,
+});
+const app = express();
+app.use(cookieParser());
+app.use(express.static('public'));
+app.use(express.static('uploads'));
+app.use(cors());
+app.use(jsonParser);
 
-const blogRouter = require('./routers/blog.router')
-const uploadRouter = require('./routers/upload.router')
-const productRouter = require('./routers/product.router')
-const characteryRouter = require('./routers/charactery.router')
-const menuRouter = require('./routers/menu.router')
-const promotionRouter = require('./routers/promotion.router')
+const blogRouter = require('./routers/blog.router');
+const uploadRouter = require('./routers/upload.router');
+const productRouter = require('./routers/product.router');
+const characteryRouter = require('./routers/charactery.router');
+const menuRouter = require('./routers/menu.router');
+const promotionRouter = require('./routers/promotion.router');
 // const auth = require('./router/auth.routes')
 
 // app.set('view engine', 'pug')
 // app.set('views', './views')
 
 // ↧↧↧↧↧↧↧ ****************ROUTER****************
-app.use('/blogapi', blogRouter)
-app.use('/uploadapi', uploadRouter)
-app.use('/productapi', productRouter)
-app.use('/characteryapi', characteryRouter)
-app.use('/menuapi', menuRouter)
-app.use('/promotionapi', promotionRouter)
+app.use('/blogapi', blogRouter);
+app.use('/uploadapi', uploadRouter);
+app.use('/productapi', productRouter);
+app.use('/characteryapi', characteryRouter);
+app.use('/menuapi', menuRouter);
+app.use('/promotionapi', promotionRouter);
 
 // ↥↥↥↥↥↥↥ ****************ROUTER****************
 app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Origin', '*');
   res.header(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
-  )
-  next()
-})
+  );
+  next();
+});
 app.get('/', (req, res) => {
   res.send(`<h1 style="
     position: relative;
@@ -73,10 +73,10 @@ app.get('/', (req, res) => {
     align-items: center;
     border: 2px dashed;
     transform: translate(-50%, -50%);
-">Dabook.vn system</h1>`)
-})
+">Dabook.vn system</h1>`);
+});
 
 module.exports = {
   path: '/api/',
-  handler: app
-}
+  handler: app,
+};

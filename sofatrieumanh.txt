@@ -1,0 +1,25 @@
+CLOUD SERVER
+
+IP: 103.15.50.155
+User: root
+Pass: weXDW54L8b6Q
+-----------------------
+
+
+
+
+
+
+DATABASE
+
+user: "admin",
+pwd: "k5101990",
+{ role: "userAdminAnyDatabase", db: "admin" },
+{ role: "readWriteAnyDatabase", db: "admin" },
+{ role: "dbAdminAnyDatabase",   db: "admin" }
+
+user: "sofatrieumanh",
+pwd: "sofatrieumanh119"
+{ role: "userAdmin", db: "sofatrieumanh" },
+{ role: "dbAdmin",   db: "sofatrieumanh" },
+{ role: "readWrite", db: "sofatrieumanh" }

@@ -104,8 +104,8 @@ export default {
     comment: {
       fullName: '',
       email: '',
-      phoneNumber: ''
-    }
+      phoneNumber: '',
+    },
   }),
   head() {
     return {
@@ -115,12 +115,12 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'My custom description'
-        }
-      ]
-    }
-  }
-}
+          content: 'My custom description',
+        },
+      ],
+    };
+  },
+};
 </script>
 <style lang="scss">
 .tuvan__img {

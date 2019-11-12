@@ -6,20 +6,20 @@
   </div>
 </template>
 <script>
-import Vue from 'vue'
-import Vuesax from 'vuesax'
-import HeaderComponent from '@/components/HeaderComponent.vue'
-import FooterComponent from '@/components/FooterComponent.vue'
+import Vue from 'vue';
+import Vuesax from 'vuesax';
+import HeaderComponent from '@/components/HeaderComponent.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
-import 'vuesax/dist/vuesax.css' // Vuesax styles
-import 'material-icons/iconfont/material-icons.css'
-Vue.use(Vuesax)
+import 'vuesax/dist/vuesax.css'; // Vuesax styles
+import 'material-icons/iconfont/material-icons.css';
+Vue.use(Vuesax);
 export default {
   components: {
     HeaderComponent,
-    FooterComponent
-  }
-}
+    FooterComponent,
+  },
+};
 </script>
 <style>
 html {

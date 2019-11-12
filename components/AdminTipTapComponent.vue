@@ -203,7 +203,7 @@
 </template>
 
 <script>
-import { Editor, EditorContent, EditorMenuBar } from 'tiptap'
+import { Editor, EditorContent, EditorMenuBar } from 'tiptap';
 import {
   Blockquote,
   CodeBlock,
@@ -222,45 +222,45 @@ import {
   Strike,
   Underline,
   History,
-  Image
-} from 'tiptap-extensions'
-import Paragraph from '@/extentions/paragraph.js'
+  Image,
+} from 'tiptap-extensions';
+import Paragraph from '@/extentions/paragraph.js';
 function getBase64(file) {
   return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onload = () => resolve(reader.result)
-    reader.onerror = (error) => reject(error)
-  })
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
 }
 export default {
   components: {
     EditorContent,
-    EditorMenuBar
+    EditorMenuBar,
   },
   props: {
     dataParent: {
       type: String,
-      default: '<p>Push your content here</p>'
+      default: '<p>Push your content here</p>',
     },
     isAsyncCompleted: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
-      editor: null
-    }
+      editor: null,
+    };
   },
   watch: {
     isAsyncCompleted(newVal, oldVal) {
       // watch it
-      this.editor.setContent(this.dataParent)
-    }
+      this.editor.setContent(this.dataParent);
+    },
   },
   beforeDestroy() {
-    this.editor.destroy()
+    this.editor.destroy();
   },
   mounted() {
     this.editor = new Editor({
@@ -283,30 +283,30 @@ export default {
         new Underline(),
         new History(),
         new Paragraph(),
-        new Image()
+        new Image(),
       ],
       content: this.dataParent,
       onUpdate: ({ getHTML }) => {
-        this.$emit('childtoparent', getHTML())
-      }
-    })
+        this.$emit('childtoparent', getHTML());
+      },
+    });
   },
   methods: {
     openDialog() {
-      window.document.getElementById('imgupload').click()
-      return false
+      window.document.getElementById('imgupload').click();
+      return false;
     },
     showImageModal(command) {
-      this.$refs.imageModal.showModal({ command })
+      this.$refs.imageModal.showModal({ command });
     },
     previewFile(commands) {
       // const preview = document.querySelector('img')
-      getBase64(document.getElementById('imgupload').files[0]).then((data) => {
-        commands({ src: data })
-      })
-    }
-  }
-}
+      getBase64(document.getElementById('imgupload').files[0]).then(data => {
+        commands({ src: data });
+      });
+    },
+  },
+};
 </script>
 <style lang="scss">
 .editor {

@@ -11,13 +11,13 @@
   </div>
 </template>
 <script>
-import RelatedProductComponent from '@/components/RelatedProductComponent.vue'
-import ProductListComponent from '@/components/ProductListComponent.vue'
+import RelatedProductComponent from '@/components/RelatedProductComponent.vue';
+import ProductListComponent from '@/components/ProductListComponent.vue';
 export default {
   layout: 'mainlayout',
   components: {
     RelatedProductComponent,
-    ProductListComponent
+    ProductListComponent,
   },
   data: () => ({}),
   head() {
@@ -28,12 +28,12 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'My custom description'
-        }
-      ]
-    }
+          content: 'My custom description',
+        },
+      ],
+    };
   },
-  methods: {}
-}
+  methods: {},
+};
 </script>
 <style lang="scss"></style>

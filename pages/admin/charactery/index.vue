@@ -131,112 +131,112 @@ export default {
       isActive: true,
       createDate: '',
       modifyDate: '',
-      createBy: 'trieumanh'
+      createBy: 'trieumanh',
     },
     defaultItem: {
       characteryName: '',
       isActive: true,
       createDate: '',
       modifyDate: '',
-      createBy: 'trieumanh'
-    }
+      createBy: 'trieumanh',
+    },
   }),
   mounted() {
-    this.getCharacteryList()
+    this.getCharacteryList();
   },
   methods: {
     editCharacteryClick(index) {
-      this.editedIndex = this.selected._id
+      this.editedIndex = this.selected._id;
       this.getCharacteryById(this.selected._id).then(() => {
-        this.editedItem.modifyDate = this.$moment().format('YYYY-MM-DD')
-      })
-      this.editPopup = true
+        this.editedItem.modifyDate = this.$moment().format('YYYY-MM-DD');
+      });
+      this.editPopup = true;
     },
     newCharacteryClick() {
-      this.editPopup = true
-      this.editedItem = this.defaultItem
-      this.editedIndex = -1
-      this.editedItem.createDate = this.$moment().format('YYYY-MM-DD')
+      this.editPopup = true;
+      this.editedItem = this.defaultItem;
+      this.editedIndex = -1;
+      this.editedItem.createDate = this.$moment().format('YYYY-MM-DD');
     },
     async getCharacteryById(id) {
-      this.$vs.loading()
-      this.editedDataLoaded = false
+      this.$vs.loading();
+      this.editedDataLoaded = false;
       await this.$axios
         .get(
           `${process.env.API_HTTP}/api/characteryapi/single-charactery/${id}`
         )
-        .then((response) => {
-          this.editedItem = response.data
-          this.editedDataLoaded = true
-          this.$vs.loading.close()
+        .then(response => {
+          this.editedItem = response.data;
+          this.editedDataLoaded = true;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     getCharacteryList() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(`${process.env.API_HTTP}/api/characteryapi/`)
-        .then((response) => {
-          this.characteryList = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.characteryList = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     saveCharactery() {
-      this.$vs.loading()
+      this.$vs.loading();
       if (this.editedIndex === -1) {
         this.$axios
           .post(
             `${process.env.API_HTTP}/api/characteryapi/register-charactery`,
             this.editedItem
           )
-          .then((result) => {
-            this.$vs.loading.close()
+          .then(result => {
+            this.$vs.loading.close();
             this.$vs.notify({
               color: 'success',
               title: 'Create Success',
-              text: 'Tạo đặc điểm sản phẩm thành công'
-            })
-            this.getCharacteryList()
-          })
+              text: 'Tạo đặc điểm sản phẩm thành công',
+            });
+            this.getCharacteryList();
+          });
       } else {
         this.$axios
           .put(
             `${process.env.API_HTTP}/api/characteryapi/update-charactery/${this.editedIndex}`,
             this.editedItem
           )
-          .then((result) => {
-            this.$vs.loading.close()
+          .then(result => {
+            this.$vs.loading.close();
             this.$vs.notify({
               color: 'success',
               title: 'Update Success',
-              text: 'Sửa đặc điểm sản phẩm thành công'
-            })
+              text: 'Sửa đặc điểm sản phẩm thành công',
+            });
 
-            this.getCharacteryList()
-          })
+            this.getCharacteryList();
+          });
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style lang="scss">
 .admin__charactery__page {

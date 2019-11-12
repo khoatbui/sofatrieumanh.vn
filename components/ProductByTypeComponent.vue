@@ -45,14 +45,14 @@
                   new Intl.NumberFormat('vi-VN', {
                     style: 'currency',
                     currency: 'VND',
-                    minimumFractionDigits: 0
+                    minimumFractionDigits: 0,
                   }).format(product.price)
                 }}</span>
                 <span class="discount__price">{{
                   new Intl.NumberFormat('vi-VN', {
                     style: 'currency',
                     currency: 'VND',
-                    minimumFractionDigits: 0
+                    minimumFractionDigits: 0,
                   }).format(product.oldPrice)
                 }}</span>
               </div>
@@ -106,68 +106,68 @@ export default {
   props: {
     productTypeUrl: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data: () => ({
     productList: [],
-    categoryDetail: {}
+    categoryDetail: {},
   }),
   mounted() {
-    this.getProductListByType()
-    this.getCategoryByUrl()
+    this.getProductListByType();
+    this.getCategoryByUrl();
   },
   methods: {
     redirectToProductPage(url) {
-      this.$router.replace(`/san-pham/${url}`)
+      this.$router.replace(`/san-pham/${url}`);
     },
     redirectToComparePage(url) {
-      this.$router.replace(`/so-sanh/${url}`)
+      this.$router.replace(`/so-sanh/${url}`);
     },
     getProductListByType() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(
           `${process.env.API_HTTP}/api/productapi/product-list-by-category/${this.productTypeUrl}`
         )
-        .then((response) => {
-          this.productList = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.productList = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     getCategoryByUrl() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(
           `${process.env.API_HTTP}/api/menuapi/single-menu-with-url/${this.productTypeUrl}`
         )
-        .then((response) => {
-          this.categoryDetail = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.categoryDetail = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
-    }
-  }
-}
+          this.$vs.loading.close();
+        });
+    },
+  },
+};
 </script>
 <style lang="scss">
 .list__title {

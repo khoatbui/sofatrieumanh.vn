@@ -22,18 +22,18 @@ export default {
   props: {
     fileList: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   methods: {
     deleteItem(item) {
       const list = this.fileList.filter(function(value, index, arr) {
-        return value.fileName !== item.fileName
-      })
-      this.$emit('deleteditem', list)
-    }
-  }
-}
+        return value.fileName !== item.fileName;
+      });
+      this.$emit('deleteditem', list);
+    },
+  },
+};
 </script>
 <style lang="scss">
 .filelist__component {

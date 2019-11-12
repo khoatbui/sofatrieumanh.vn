@@ -236,14 +236,14 @@
                     new Intl.NumberFormat('vi-VN', {
                       style: 'currency',
                       currency: 'VND',
-                      minimumFractionDigits: 0
+                      minimumFractionDigits: 0,
                     }).format(product.price)
                   }}</span>
                   <span class="discount__price">{{
                     new Intl.NumberFormat('vi-VN', {
                       style: 'currency',
                       currency: 'VND',
-                      minimumFractionDigits: 0
+                      minimumFractionDigits: 0,
                     }).format(product.oldPrice)
                   }}</span>
                 </div>
@@ -488,63 +488,63 @@
 export default {
   data: () => ({
     checkBox1: false,
-    productList: []
+    productList: [],
   }),
   mounted() {
-    this.getProductList()
+    this.getProductList();
   },
   methods: {
     hideCategoryModal() {
-      this.$refs['modal-category'].hide()
+      this.$refs['modal-category'].hide();
     },
     hideFilterModal() {
-      this.$refs['modal-filter'].hide()
+      this.$refs['modal-filter'].hide();
     },
     getProductList() {
-      this.$vs.loading()
+      this.$vs.loading();
       if (this.$route.params.id.length > 0) {
         this.$axios
           .get(
             `${process.env.API_HTTP}/api/productapi/product-list-by-category/${this.$route.params.id}`
           )
-          .then((response) => {
-            this.productList = response.data
-            this.$vs.loading.close()
+          .then(response => {
+            this.productList = response.data;
+            this.$vs.loading.close();
           })
-          .catch((error) => {
+          .catch(error => {
             this.$vs.notify({
               color: 'danger',
               title: 'Opps!',
-              text: error
-            })
+              text: error,
+            });
           })
           .finally(() => {
-            this.$vs.loading.close()
-          })
+            this.$vs.loading.close();
+          });
       } else {
         this.$axios
           .get(`${process.env.API_HTTP}/api/productapi/product-list`)
-          .then((response) => {
-            this.productList = response.data
-            this.$vs.loading.close()
+          .then(response => {
+            this.productList = response.data;
+            this.$vs.loading.close();
           })
-          .catch((error) => {
+          .catch(error => {
             this.$vs.notify({
               color: 'danger',
               title: 'Opps!',
-              text: error
-            })
+              text: error,
+            });
           })
           .finally(() => {
-            this.$vs.loading.close()
-          })
+            this.$vs.loading.close();
+          });
       }
     },
     redirectTo(url) {
-      this.$router.replace(`/san-pham/${url}`)
-    }
-  }
-}
+      this.$router.replace(`/san-pham/${url}`);
+    },
+  },
+};
 </script>
 <style lang="scss">
 // .category__component {

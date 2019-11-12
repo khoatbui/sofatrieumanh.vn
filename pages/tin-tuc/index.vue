@@ -14,15 +14,15 @@
   </div>
 </template>
 <script>
-import RelatedProductComponent from '@/components/RelatedProductComponent.vue'
-import BlogListComponent from '@/components/BlogListComponent.vue'
-import RequestAdvisorComponent from '@/components/RequestAdvisorComponent.vue'
+import RelatedProductComponent from '@/components/RelatedProductComponent.vue';
+import BlogListComponent from '@/components/BlogListComponent.vue';
+import RequestAdvisorComponent from '@/components/RequestAdvisorComponent.vue';
 export default {
   layout: 'mainlayout',
   components: {
     RelatedProductComponent,
     BlogListComponent,
-    RequestAdvisorComponent
+    RequestAdvisorComponent,
   },
   data: () => ({}),
   head() {
@@ -33,11 +33,11 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'My custom description'
-        }
-      ]
-    }
-  }
-}
+          content: 'My custom description',
+        },
+      ],
+    };
+  },
+};
 </script>
 <style lang="scss"></style>

@@ -189,12 +189,12 @@
   </div>
 </template>
 <script>
-import AdminTipTapComponent from '@/components/AdminTipTapComponent.vue'
-import FileListComponent from '@/components/FileListComponent'
+import AdminTipTapComponent from '@/components/AdminTipTapComponent.vue';
+import FileListComponent from '@/components/FileListComponent';
 export default {
   components: {
     AdminTipTapComponent,
-    FileListComponent
+    FileListComponent,
   },
   layout: 'adminlayout',
   data: () => ({
@@ -214,7 +214,7 @@ export default {
       tags: [],
       url: '',
       content: '',
-      images: []
+      images: [],
     },
     defaultItem: {
       blogName: '',
@@ -228,128 +228,128 @@ export default {
       tags: [],
       url: '',
       content: '',
-      images: []
+      images: [],
     },
     counterDanger: false,
-    blogList: []
+    blogList: [],
   }),
   mounted() {
-    this.getBlogList()
-    document.querySelector('.con-input-upload input').name = 'imagesx'
+    this.getBlogList();
+    document.querySelector('.con-input-upload input').name = 'imagesx';
   },
   methods: {
     editBlogClick(index) {
-      this.editedIndex = this.selected._id
+      this.editedIndex = this.selected._id;
       this.getBlogById(this.selected._id).then(() => {
-        this.editedItem.modifyDate = this.$moment().format('YYYY-MM-DD')
-      })
-      this.editPopup = true
+        this.editedItem.modifyDate = this.$moment().format('YYYY-MM-DD');
+      });
+      this.editPopup = true;
     },
     newBlogClick() {
-      this.editPopup = true
-      this.editedItem = this.defaultItem
-      this.editedIndex = -1
-      this.editedItem.createDate = this.$moment().format('YYYY-MM-DD')
+      this.editPopup = true;
+      this.editedItem = this.defaultItem;
+      this.editedIndex = -1;
+      this.editedItem.createDate = this.$moment().format('YYYY-MM-DD');
     },
     successUpload(e) {
-      const image = JSON.parse(e.srcElement.response)
-      image.forEach((element) => {
-        this.editedItem.images.push(element)
-      })
+      const image = JSON.parse(e.srcElement.response);
+      image.forEach(element => {
+        this.editedItem.images.push(element);
+      });
       this.$vs.notify({
         color: 'success',
         title: 'Upload Success',
-        text: 'Upload ảnh thành công'
-      })
+        text: 'Upload ảnh thành công',
+      });
     },
     removeImagesItem(value) {
-      this.editedItem.images = value
+      this.editedItem.images = value;
     },
     removeTag(item) {
-      this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1)
+      this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1);
     },
     async getBlogById(id) {
-      this.$vs.loading()
-      this.editedDataLoaded = false
+      this.$vs.loading();
+      this.editedDataLoaded = false;
       await this.$axios
         .get(`${process.env.API_HTTP}/api/blogapi/single-blog/${id}`)
-        .then((response) => {
-          this.editedItem = response.data
-          this.editedDataLoaded = true
-          this.$vs.loading.close()
+        .then(response => {
+          this.editedItem = response.data;
+          this.editedDataLoaded = true;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     getBlogList() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(`${process.env.API_HTTP}/api/blogapi/`)
-        .then((response) => {
-          this.blogList = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.blogList = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     saveBlog() {
-      this.$vs.loading()
+      this.$vs.loading();
       if (this.editedIndex === -1) {
         this.$axios
           .post(
             `${process.env.API_HTTP}/api/blogapi/register-blog`,
             this.editedItem
           )
-          .then((result) => {
-            this.$vs.loading.close()
+          .then(result => {
+            this.$vs.loading.close();
             this.$vs.notify({
               color: 'success',
               title: 'Create Success',
-              text: 'Tạo bài viết thành công'
-            })
-            this.getBlogList()
-          })
+              text: 'Tạo bài viết thành công',
+            });
+            this.getBlogList();
+          });
       } else {
         this.$axios
           .put(
             `${process.env.API_HTTP}/api/blogapi/update-blog/${this.editedIndex}`,
             this.editedItem
           )
-          .then((result) => {
-            this.$vs.loading.close()
+          .then(result => {
+            this.$vs.loading.close();
             this.$vs.notify({
               color: 'success',
               title: 'Update Success',
-              text: 'Sửa bài viết thành công'
-            })
+              text: 'Sửa bài viết thành công',
+            });
 
-            this.getBlogList()
-          })
+            this.getBlogList();
+          });
       }
     },
     resetProperty() {
-      this.editedItem = this.defaultItem
-      this.editedItem.images = []
+      this.editedItem = this.defaultItem;
+      this.editedItem.images = [];
     },
-    resetPopup() {}
-  }
-}
+    resetPopup() {},
+  },
+};
 </script>
 <style lang="scss">
 .admin__blog__page {

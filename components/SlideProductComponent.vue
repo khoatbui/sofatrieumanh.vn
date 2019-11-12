@@ -14,7 +14,7 @@
             :responsive="{
               0: { items: 1, nav: true },
               600: { items: 3, nav: true },
-              900: { items: 4, nav: true }
+              900: { items: 4, nav: true },
             }"
             :dots="false"
             :autoplay="true"

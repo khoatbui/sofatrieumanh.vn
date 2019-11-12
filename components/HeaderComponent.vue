@@ -492,23 +492,23 @@
 <script>
 export default {
   data: () => ({
-    activeItem: 0
+    activeItem: 0,
   }),
   methods: {
     selectNavItem() {
       document
         .querySelector('.vs-con-items')
-        .classList.remove('activeMenuResponsive')
+        .classList.remove('activeMenuResponsive');
       document
         .querySelector('.vs-navbar--btn-responsive')
-        .classList.remove('active-menu')
+        .classList.remove('active-menu');
     },
     redirectTo(url) {
-      console.log(url)
-      this.$router.replace(url)
-    }
-  }
-}
+      console.log(url);
+      this.$router.replace(url);
+    },
+  },
+};
 </script>
 <style lang="scss">
 .header__component a,

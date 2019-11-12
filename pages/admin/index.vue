@@ -3,6 +3,6 @@
 </template>
 <script>
 export default {
-  layout: 'adminlayout'
-}
+  layout: 'adminlayout',
+};
 </script>

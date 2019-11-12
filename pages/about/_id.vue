@@ -6,8 +6,8 @@ export default {
   layout: '',
   data() {
     return {
-      about: ''
-    }
+      about: '',
+    };
   },
   head() {
     return {
@@ -17,10 +17,10 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'My custom description'
-        }
-      ]
-    }
-  }
-}
+          content: 'My custom description',
+        },
+      ],
+    };
+  },
+};
 </script>

@@ -177,8 +177,8 @@ export default {
   layout: 'mainlayout',
   data: () => ({
     order: {
-      paymentType: ''
-    }
+      paymentType: '',
+    },
   }),
   head() {
     return {
@@ -188,12 +188,12 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'My custom description'
-        }
-      ]
-    }
-  }
-}
+          content: 'My custom description',
+        },
+      ],
+    };
+  },
+};
 </script>
 <style lang="scss">
 .delivery__section .vs-input--label {

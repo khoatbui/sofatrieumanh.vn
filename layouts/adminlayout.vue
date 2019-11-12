@@ -6,14 +6,14 @@
   </div>
 </template>
 <script>
-import AdminHeaderComponent from '@/components/AdminHeaderComponent.vue'
-import AdminFooterComponent from '@/components/AdminFooterComponent.vue'
+import AdminHeaderComponent from '@/components/AdminHeaderComponent.vue';
+import AdminFooterComponent from '@/components/AdminFooterComponent.vue';
 export default {
   components: {
     AdminHeaderComponent,
-    AdminFooterComponent
-  }
-}
+    AdminFooterComponent,
+  },
+};
 </script>
 <style lang="scss">
 .admin__layout {

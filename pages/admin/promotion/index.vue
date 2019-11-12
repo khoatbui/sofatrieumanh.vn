@@ -104,8 +104,8 @@
                 placeholder="2019-09-19"
                 class="w-100"
                 @click="
-                  datePopup = true
-                  pickerBirthday = editedItem.validDate
+                  datePopup = true;
+                  pickerBirthday = editedItem.validDate;
                 "
               />
               <vs-popup
@@ -124,8 +124,8 @@
                         text
                         color="primary"
                         @click="
-                          editedItem.validDate = pickerBirthday
-                          datePopup = false
+                          editedItem.validDate = pickerBirthday;
+                          datePopup = false;
                         "
                         >OK</v-btn
                       >
@@ -228,13 +228,13 @@
   </div>
 </template>
 <script>
-import moment from 'moment'
-import AdminTipTapComponent from '@/components/AdminTipTapComponent.vue'
-import FileListComponent from '@/components/FileListComponent'
+import moment from 'moment';
+import AdminTipTapComponent from '@/components/AdminTipTapComponent.vue';
+import FileListComponent from '@/components/FileListComponent';
 export default {
   components: {
     AdminTipTapComponent,
-    FileListComponent
+    FileListComponent,
   },
   layout: 'adminlayout',
   data: () => ({
@@ -256,7 +256,7 @@ export default {
       tags: [],
       url: '',
       content: '',
-      images: []
+      images: [],
     },
     defaultItem: {
       promotionName: '',
@@ -270,125 +270,125 @@ export default {
       tags: [],
       url: '',
       content: '',
-      images: []
+      images: [],
     },
     counterDanger: false,
-    promotionList: []
+    promotionList: [],
   }),
   mounted() {
-    this.getPromotionList()
-    document.querySelector('.con-input-upload input').name = 'imagesx'
+    this.getPromotionList();
+    document.querySelector('.con-input-upload input').name = 'imagesx';
   },
   methods: {
     editPromotionClick(index) {
-      this.editedIndex = this.selected._id
+      this.editedIndex = this.selected._id;
       this.getPromotionById(this.selected._id).then(() => {
-        this.editedItem.modifyDate = this.$moment().format('YYYY-MM-DD')
-      })
-      this.editPopup = true
+        this.editedItem.modifyDate = this.$moment().format('YYYY-MM-DD');
+      });
+      this.editPopup = true;
     },
     newPromotionClick() {
-      this.editPopup = true
-      this.editedItem = this.defaultItem
-      this.editedIndex = -1
-      this.editedItem.createDate = this.$moment().format('YYYY-MM-DD')
+      this.editPopup = true;
+      this.editedItem = this.defaultItem;
+      this.editedIndex = -1;
+      this.editedItem.createDate = this.$moment().format('YYYY-MM-DD');
     },
     successUpload(e) {
-      const image = JSON.parse(e.srcElement.response)
-      image.forEach((element) => {
-        this.editedItem.images.push(element)
-      })
+      const image = JSON.parse(e.srcElement.response);
+      image.forEach(element => {
+        this.editedItem.images.push(element);
+      });
       this.$vs.notify({
         color: 'success',
         title: 'Upload Success',
-        text: 'Upload ảnh thành công'
-      })
+        text: 'Upload ảnh thành công',
+      });
     },
     deleteUpload(e) {
       this.editedItem.images = this.editedItem.images.filter(function(obj) {
-        return obj.fileName !== e.name
-      })
+        return obj.fileName !== e.name;
+      });
     },
     removeImagesItem(value) {
-      this.editedItem.images = value
+      this.editedItem.images = value;
     },
     removeTag(item) {
-      this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1)
+      this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1);
     },
     async getPromotionById(id) {
-      this.$vs.loading()
-      this.editedDataLoaded = false
+      this.$vs.loading();
+      this.editedDataLoaded = false;
       await this.$axios
         .get(`/api/promotionapi/single-promotion/${id}`)
-        .then((response) => {
-          this.editedItem = response.data
-          this.editedDataLoaded = true
-          this.$vs.loading.close()
+        .then(response => {
+          this.editedItem = response.data;
+          this.editedDataLoaded = true;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     getPromotionList() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get('/api/promotionapi/')
-        .then((response) => {
-          this.promotionList = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.promotionList = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     savePromotion() {
-      this.$vs.loading()
+      this.$vs.loading();
       if (this.editedIndex === -1) {
         this.$axios
           .post('/api/promotionapi/register-promotion', this.editedItem)
-          .then((result) => {
-            this.$vs.loading.close()
+          .then(result => {
+            this.$vs.loading.close();
             this.$vs.notify({
               color: 'success',
               title: 'Create Success',
-              text: 'Tạo khuyến mãi thành công'
-            })
-            this.getPromotionList()
-          })
+              text: 'Tạo khuyến mãi thành công',
+            });
+            this.getPromotionList();
+          });
       } else {
         this.$axios
           .put(
             `/api/promotionapi/update-promotion/${this.editedIndex}`,
             this.editedItem
           )
-          .then((result) => {
-            this.$vs.loading.close()
+          .then(result => {
+            this.$vs.loading.close();
             this.$vs.notify({
               color: 'success',
               title: 'Update Success',
-              text: 'Sửa khuyến mãi thành công'
-            })
+              text: 'Sửa khuyến mãi thành công',
+            });
 
-            this.getPromotionList()
-          })
+            this.getPromotionList();
+          });
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style lang="scss">
 .admin__promotion__page {

@@ -41,9 +41,9 @@
 export default {
   data: () => ({
     colorx: '#1F74FF',
-    indexActive: 0
-  })
-}
+    indexActive: 0,
+  }),
+};
 </script>
 <style lang="scss">
 .admin__header__component .vs-navbar--item a {

@@ -84,81 +84,81 @@
   </div>
 </template>
 <script>
-import RequestAdvisorComponent from '@/components/RequestAdvisorComponent'
+import RequestAdvisorComponent from '@/components/RequestAdvisorComponent';
 const getMeRandomElements = function(sourceArray, neededElements) {
-  const result = []
+  const result = [];
   for (let i = 0; i < neededElements; i++) {
-    result.push(sourceArray[Math.floor(Math.random() * sourceArray.length)])
+    result.push(sourceArray[Math.floor(Math.random() * sourceArray.length)]);
   }
-  return result
-}
+  return result;
+};
 export default {
   components: {
-    RequestAdvisorComponent
+    RequestAdvisorComponent,
   },
   data: () => ({
     blogDetail: {},
     blogList: [],
-    search: ''
+    search: '',
   }),
   computed: {
     randomBlogs() {
       if (this.blogList.length > 0) {
-        const ramdom = getMeRandomElements(this.blogList, 4)
-        return ramdom
-      } else return []
-    }
+        const ramdom = getMeRandomElements(this.blogList, 4);
+        return ramdom;
+      } else return [];
+    },
   },
   mounted() {
-    this.getBlogDetail()
-    this.getBlogList()
+    this.getBlogDetail();
+    this.getBlogList();
   },
   methods: {
     getBlogDetail() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(
           `${process.env.API_HTTP}/api/blogapi/single-blog-url/${this.$route.params.tintuc}`
         )
-        .then((response) => {
-          this.blogDetail = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.blogDetail = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     getBlogList() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(`${process.env.API_HTTP}/api/blogapi/`)
-        .then((response) => {
-          this.blogList = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.blogList = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     redirectTo(url) {
-      this.$router.replace(`/tin-tuc/${url}`)
-    }
-  }
-}
+      this.$router.replace(`/tin-tuc/${url}`);
+    },
+  },
+};
 </script>
 <style lang="scss">
 .tintuc {

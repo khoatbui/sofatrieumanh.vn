@@ -46,36 +46,36 @@
 export default {
   name: 'BlogListComponent',
   data: () => ({
-    blogList: []
+    blogList: [],
   }),
   mounted() {
-    this.getBlogList()
+    this.getBlogList();
   },
   methods: {
     getBlogList() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(`${process.env.API_HTTP}/api/blogapi/`)
-        .then((response) => {
-          this.blogList = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.blogList = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     redirectTo(url) {
-      this.$router.replace(`/tin-tuc/${url}`)
-    }
-  }
-}
+      this.$router.replace(`/tin-tuc/${url}`);
+    },
+  },
+};
 </script>
 <style lang="scss">
 .blog__image {

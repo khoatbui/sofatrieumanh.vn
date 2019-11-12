@@ -37,36 +37,36 @@
 <script>
 export default {
   data: () => ({
-    promotionList: []
+    promotionList: [],
   }),
   mounted() {
-    this.getPromotionList()
+    this.getPromotionList();
   },
   methods: {
     getPromotionList() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(`${process.env.API_HTTP}/api/promotionapi/active`)
-        .then((response) => {
-          this.promotionList = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.promotionList = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     redirectTo(url) {
-      this.$router.replace(`/khuyen-mai/${url}`)
-    }
-  }
-}
+      this.$router.replace(`/khuyen-mai/${url}`);
+    },
+  },
+};
 </script>
 <style lang="scss">
 .promotion__component {

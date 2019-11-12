@@ -199,13 +199,13 @@
 export default {
   methods: {
     redirectToProductPage() {
-      this.$router.replace('/san-pham')
+      this.$router.replace('/san-pham');
     },
     redirectToComparePage() {
-      this.$router.replace('/so-sanh')
-    }
-  }
-}
+      this.$router.replace('/so-sanh');
+    },
+  },
+};
 </script>
 <style lang="scss">
 .product__item__img {

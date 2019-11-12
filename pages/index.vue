@@ -39,11 +39,11 @@
 </template>
 
 <script>
-import PromotionComponent from '@/components/PromotionComponent.vue'
-import InstructionStepComponent from '@/components/InstructionStepComponent.vue'
-import ProductByTypeComponent from '@/components/ProductByTypeComponent.vue'
-import RequestAdvisorComponent from '@/components/RequestAdvisorComponent.vue'
-import BestSellerProductComponent from '@/components/BestSellerProductComponent.vue'
+import PromotionComponent from '@/components/PromotionComponent.vue';
+import InstructionStepComponent from '@/components/InstructionStepComponent.vue';
+import ProductByTypeComponent from '@/components/ProductByTypeComponent.vue';
+import RequestAdvisorComponent from '@/components/RequestAdvisorComponent.vue';
+import BestSellerProductComponent from '@/components/BestSellerProductComponent.vue';
 export default {
   layout: 'mainlayout',
   components: {
@@ -51,7 +51,7 @@ export default {
     PromotionComponent,
     ProductByTypeComponent,
     RequestAdvisorComponent,
-    BestSellerProductComponent
+    BestSellerProductComponent,
   },
   head() {
     return {
@@ -61,12 +61,12 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'My custom description'
-        }
-      ]
-    }
-  }
-}
+          content: 'My custom description',
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style>

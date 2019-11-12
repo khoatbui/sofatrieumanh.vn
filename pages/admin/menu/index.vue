@@ -130,7 +130,7 @@
                 :danger="errorCheck.dangerFiel === 'menuIntro'"
                 :danger-text="errorCheck.dangerText"
                 :class="{
-                  'border-danger': errorCheck.dangerFiel === 'menuIntro'
+                  'border-danger': errorCheck.dangerFiel === 'menuIntro',
                 }"
               />
             </div>
@@ -170,7 +170,7 @@ export default {
     parentMenuList: [],
     errorCheck: {
       dangerFiel: '',
-      dangerText: ''
+      dangerText: '',
     },
     editedItem: {
       menuName: '',
@@ -180,7 +180,7 @@ export default {
       isActive: true,
       createDate: '',
       modifyDate: '',
-      createBy: 'trieumanh'
+      createBy: 'trieumanh',
     },
     defaultItem: {
       menuName: '',
@@ -190,153 +190,153 @@ export default {
       isActive: true,
       createDate: '',
       modifyDate: '',
-      createBy: 'trieumanh'
-    }
+      createBy: 'trieumanh',
+    },
   }),
   mounted() {
-    this.getMenuList()
-    this.getParentMenuList()
+    this.getMenuList();
+    this.getParentMenuList();
   },
   methods: {
     editMenuClick(index) {
-      this.editedIndex = this.selected._id
+      this.editedIndex = this.selected._id;
       this.getMenuById(this.selected._id).then(() => {
-        this.editedItem.modifyDate = this.$moment().format('YYYY-MM-DD')
-      })
-      this.editPopup = true
+        this.editedItem.modifyDate = this.$moment().format('YYYY-MM-DD');
+      });
+      this.editPopup = true;
     },
     newMenuClick() {
-      this.editPopup = true
-      this.editedItem = this.defaultItem
-      this.editedIndex = -1
-      this.editedItem.createDate = this.$moment().format('YYYY-MM-DD')
+      this.editPopup = true;
+      this.editedItem = this.defaultItem;
+      this.editedIndex = -1;
+      this.editedItem.createDate = this.$moment().format('YYYY-MM-DD');
     },
     async getMenuById(id) {
-      this.$vs.loading()
-      this.editedDataLoaded = false
+      this.$vs.loading();
+      this.editedDataLoaded = false;
       await this.$axios
         .get(`${process.env.API_HTTP}/api/menuapi/single-menu/${id}`)
-        .then((response) => {
-          this.editedItem = response.data
-          this.editedDataLoaded = true
-          this.$vs.loading.close()
+        .then(response => {
+          this.editedItem = response.data;
+          this.editedDataLoaded = true;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     getMenuList() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(`${process.env.API_HTTP}/api/menuapi/`)
-        .then((response) => {
-          this.menuList = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.menuList = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     getParentMenuList() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(`${process.env.API_HTTP}/api/menuapi/`)
-        .then((response) => {
-          this.parentMenuList = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.parentMenuList = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     saveMenu() {
       if (!this.validation()) {
-        return
+        return;
       }
-      this.$vs.loading()
+      this.$vs.loading();
       if (this.editedIndex === -1) {
         this.$axios
           .post(
             `${process.env.API_HTTP}/api/menuapi/register-menu`,
             this.editedItem
           )
-          .then((result) => {
-            this.$vs.loading.close()
+          .then(result => {
+            this.$vs.loading.close();
             this.$vs.notify({
               color: 'success',
               title: 'Create Success',
-              text: 'Tạo menu thành công'
-            })
-            this.getMenuList()
-            this.getParentMenuList()
-          })
+              text: 'Tạo menu thành công',
+            });
+            this.getMenuList();
+            this.getParentMenuList();
+          });
       } else {
         this.$axios
           .put(
             `${process.env.API_HTTP}/api/menuapi/update-menu/${this.editedIndex}`,
             this.editedItem
           )
-          .then((result) => {
-            this.$vs.loading.close()
+          .then(result => {
+            this.$vs.loading.close();
             this.$vs.notify({
               color: 'success',
               title: 'Update Success',
-              text: 'Sửa menu thành công'
-            })
+              text: 'Sửa menu thành công',
+            });
 
-            this.getMenuList()
-            this.parentMenuList()
-          })
+            this.getMenuList();
+            this.parentMenuList();
+          });
       }
     },
     validation() {
       if (this.editedItem.menuName.length === 0) {
         this.errorCheck = {
           dangerFiel: 'menuName',
-          dangerText: 'Menu không để trống'
-        }
+          dangerText: 'Menu không để trống',
+        };
       } else if (this.editedItem.menuIntro.length === 0) {
         this.errorCheck = {
           dangerFiel: 'menuIntro',
-          dangerText: 'Mô tả menu không để trống'
-        }
+          dangerText: 'Mô tả menu không để trống',
+        };
       } else if (this.editedItem.url.length === 0) {
         this.errorCheck = {
           dangerFiel: 'url',
-          dangerText: 'Url không để trống'
-        }
+          dangerText: 'Url không để trống',
+        };
       } else {
         this.errorCheck = {
           dangerFiel: '',
-          dangerText: ''
-        }
-        return true
+          dangerText: '',
+        };
+        return true;
       }
-      return false
-    }
-  }
-}
+      return false;
+    },
+  },
+};
 </script>
 <style lang="scss">
 .admin__menu__page {

@@ -97,7 +97,7 @@
                   new Intl.NumberFormat('vi-VN', {
                     style: 'currency',
                     currency: 'VND',
-                    minimumFractionDigits: 0
+                    minimumFractionDigits: 0,
                   }).format(productDetail.price)
                 }}
               </h4>
@@ -105,7 +105,7 @@
                 new Intl.NumberFormat('vi-VN', {
                   style: 'currency',
                   currency: 'VND',
-                  minimumFractionDigits: 0
+                  minimumFractionDigits: 0,
                 }).format(productDetail.oldPrice)
               }}</span>
             </div>
@@ -373,7 +373,7 @@ export default {
     comment: {
       fullName: '',
       email: '',
-      phoneNumber: ''
+      phoneNumber: '',
     },
     productDetail: {},
     completedGetData: false,
@@ -382,33 +382,33 @@ export default {
       thumbs: [
         {
           id: 1,
-          url: '/images/blogs/blog_01.jpg'
+          url: '/images/blogs/blog_01.jpg',
         },
         {
           id: 2,
-          url: '/images/blogs/blog_02.jpg'
-        }
+          url: '/images/blogs/blog_02.jpg',
+        },
       ],
       normal_size: [
         {
           id: 1,
-          url: '/images/blogs/blog_01.jpg'
+          url: '/images/blogs/blog_01.jpg',
         },
         {
           id: 2,
-          url: '/images/blogs/blog_02.jpg'
-        }
+          url: '/images/blogs/blog_02.jpg',
+        },
       ],
       large_size: [
         {
           id: 1,
-          url: '/images/blogs/blog_01.jpg'
+          url: '/images/blogs/blog_01.jpg',
         },
         {
           id: 2,
-          url: '/images/blogs/blog_02.jpg'
-        }
-      ]
+          url: '/images/blogs/blog_02.jpg',
+        },
+      ],
     },
     zoomerOptions: {
       zoomFactor: 3, // scale for zoomer
@@ -420,63 +420,63 @@ export default {
       choosed_thumb_border_color: '#bbdefb', // choosed thumb border color
       scroller_button_style: 'line',
       scroller_position: 'left',
-      zoomer_pane_position: 'right'
-    }
+      zoomer_pane_position: 'right',
+    },
   }),
   computed: {},
   mounted() {
-    this.getProductDetail()
+    this.getProductDetail();
   },
   methods: {
     showCarousel3d() {
-      this.$vs.loading()
+      this.$vs.loading();
       setTimeout(() => {
-        this.$vs.loading.close()
-      }, 2000)
+        this.$vs.loading.close();
+      }, 2000);
     },
     getProductDetail() {
-      this.$vs.loading()
+      this.$vs.loading();
       if (this.$route.params.id.length > 0) {
         this.$axios
           .get(
             `${process.env.API_HTTP}/api/productapi/single-product-by-url/${this.$route.params.id}`
           )
-          .then((response) => {
-            this.productDetail = response.data
-            this.$vs.loading.close()
-            this.completedGetData = true
+          .then(response => {
+            this.productDetail = response.data;
+            this.$vs.loading.close();
+            this.completedGetData = true;
           })
-          .catch((error) => {
+          .catch(error => {
             this.$vs.notify({
               color: 'danger',
               title: 'Opps!',
-              text: error
-            })
+              text: error,
+            });
           })
           .finally(() => {
-            this.$vs.loading.close()
-          })
+            this.$vs.loading.close();
+          });
       } else {
         this.$axios
           .get(`${process.env.API_HTTP}/api/productapi/single-product-by-url`)
-          .then((response) => {
-            this.productDetail = response.data
-            this.$vs.loading.close()
+          .then(response => {
+            this.productDetail = response.data;
+            this.$vs.loading.close();
           })
-          .catch((error) => {
+          .catch(error => {
             this.$vs.notify({
               color: 'danger',
               title: 'Opps!',
-              text: error
-            })
+              text: error,
+            });
           })
           .finally(() => {
-            this.$vs.loading.close()
-          })
+            this.$vs.loading.close();
+          });
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style lang="scss">
 .image__item {

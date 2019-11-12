@@ -316,12 +316,12 @@
   </div>
 </template>
 <script>
-import AdminTipTapComponent from '@/components/AdminTipTapComponent.vue'
-import FileListComponent from '@/components/FileListComponent'
+import AdminTipTapComponent from '@/components/AdminTipTapComponent.vue';
+import FileListComponent from '@/components/FileListComponent';
 export default {
   components: {
     AdminTipTapComponent,
-    FileListComponent
+    FileListComponent,
   },
   layout: 'adminlayout',
   data: () => ({
@@ -348,7 +348,7 @@ export default {
       images: [],
       productCode: '',
       characteristics: [],
-      video: ''
+      video: '',
     },
     defaultItem: {
       productName: '',
@@ -367,171 +367,171 @@ export default {
       images: [],
       productCode: '',
       characteristics: [],
-      video: ''
+      video: '',
     },
     counterDanger: false,
-    productList: []
+    productList: [],
   }),
   mounted() {
-    this.getProductList()
-    this.getCategoryList()
-    this.getCharacteryList()
-    document.querySelector('.con-input-upload input').name = 'imagesx'
+    this.getProductList();
+    this.getCategoryList();
+    this.getCharacteryList();
+    document.querySelector('.con-input-upload input').name = 'imagesx';
   },
   methods: {
     editProductClick(index) {
-      this.editedIndex = this.selected._id
+      this.editedIndex = this.selected._id;
       this.getProductById(this.selected._id).then(() => {
-        this.editedItem.modifyDate = this.$moment().format('YYYY-MM-DD')
-      })
-      this.editPopup = true
+        this.editedItem.modifyDate = this.$moment().format('YYYY-MM-DD');
+      });
+      this.editPopup = true;
     },
     newProductClick() {
-      this.editPopup = true
-      this.editedItem = this.defaultItem
-      this.editedIndex = -1
-      this.editedItem.createDate = this.$moment().format('YYYY-MM-DD')
+      this.editPopup = true;
+      this.editedItem = this.defaultItem;
+      this.editedIndex = -1;
+      this.editedItem.createDate = this.$moment().format('YYYY-MM-DD');
     },
     getCategoryList() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(`${process.env.API_HTTP}/api/menuapi/get-category-withurl`)
-        .then((response) => {
-          this.categoryList = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.categoryList = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     getCharacteryList() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(`${process.env.API_HTTP}/api/characteryapi/`)
-        .then((response) => {
-          this.characteryList = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.characteryList = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     successUpload(e) {
-      const image = JSON.parse(e.srcElement.response)
-      image.forEach((element) => {
-        this.editedItem.images.push(element)
-      })
+      const image = JSON.parse(e.srcElement.response);
+      image.forEach(element => {
+        this.editedItem.images.push(element);
+      });
       this.$vs.notify({
         color: 'success',
         title: 'Upload Success',
-        text: 'Upload ảnh thành công'
-      })
+        text: 'Upload ảnh thành công',
+      });
     },
     deleteUpload(e) {
       this.editedItem.images = this.editedItem.images.filter(function(obj) {
-        return obj.fileName !== e.name
-      })
+        return obj.fileName !== e.name;
+      });
     },
     removeImagesItem(value) {
-      this.editedItem.images = value
+      this.editedItem.images = value;
     },
     removeTag(item) {
-      this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1)
+      this.editedItem.tags.splice(this.editedItem.tags.indexOf(item), 1);
     },
     removeBuletPoint(item) {
       this.editedItem.buletPoint.splice(
         this.editedItem.buletPoint.indexOf(item),
         1
-      )
+      );
     },
     async getProductById(id) {
-      this.$vs.loading()
-      this.editedDataLoaded = false
+      this.$vs.loading();
+      this.editedDataLoaded = false;
       await this.$axios
         .get(`${process.env.API_HTTP}/api/productapi/single-product/${id}`)
-        .then((response) => {
-          this.editedItem = response.data
-          this.editedDataLoaded = true
-          this.$vs.loading.close()
+        .then(response => {
+          this.editedItem = response.data;
+          this.editedDataLoaded = true;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     getProductList() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .get(`${process.env.API_HTTP}/api/productapi/`)
-        .then((response) => {
-          this.productList = response.data
-          this.$vs.loading.close()
+        .then(response => {
+          this.productList = response.data;
+          this.$vs.loading.close();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     saveProduct() {
-      this.$vs.loading()
+      this.$vs.loading();
       if (this.editedIndex === -1) {
         this.$axios
           .post(
             `${process.env.API_HTTP}/api/productapi/register-product`,
             this.editedItem
           )
-          .then((result) => {
-            this.$vs.loading.close()
+          .then(result => {
+            this.$vs.loading.close();
             this.$vs.notify({
               color: 'success',
               title: 'Create Success',
-              text: 'Tạo sản phẩm thành công'
-            })
-            this.getProductList()
-          })
+              text: 'Tạo sản phẩm thành công',
+            });
+            this.getProductList();
+          });
       } else {
         this.$axios
           .put(
             `${process.env.API_HTTP}/api/productapi/update-product/${this.editedIndex}`,
             this.editedItem
           )
-          .then((result) => {
-            this.$vs.loading.close()
+          .then(result => {
+            this.$vs.loading.close();
             this.$vs.notify({
               color: 'success',
               title: 'Update Success',
-              text: 'Sửa sản phẩm thành công'
-            })
+              text: 'Sửa sản phẩm thành công',
+            });
 
-            this.getProductList()
-            this.resetProperty()
-          })
+            this.getProductList();
+            this.resetProperty();
+          });
       }
     },
     deleteProductClick() {
@@ -540,42 +540,42 @@ export default {
         title: `Xác nhận xóa sản phẩm`,
         text:
           'Bạn không thể khôi phục lại sản phẩm sau khi xóa, nên chỉnh sửa sản phẩm hoặc unpublic nếu không muốn sử dụng',
-        accept: this.deleteProduct
-      })
+        accept: this.deleteProduct,
+      });
     },
     deleteProduct() {
-      this.$vs.loading()
+      this.$vs.loading();
       this.$axios
         .delete(
           `${process.env.API_HTTP}/api/productapi/delete-product/${this.selected._id}`
         )
-        .then((response) => {
+        .then(response => {
           this.$vs.notify({
             color: 'success',
             title: 'Xóa thành công',
-            text: `${response}`
-          })
-          this.$vs.loading.close()
-          this.getProductList()
+            text: `${response}`,
+          });
+          this.$vs.loading.close();
+          this.getProductList();
         })
-        .catch((error) => {
+        .catch(error => {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error
-          })
+            text: error,
+          });
         })
         .finally(() => {
-          this.$vs.loading.close()
-        })
+          this.$vs.loading.close();
+        });
     },
     resetProperty() {
-      this.editedItem = this.defaultItem
-      this.editedItem.images = []
+      this.editedItem = this.defaultItem;
+      this.editedItem.images = [];
     },
-    resetPopup() {}
-  }
-}
+    resetPopup() {},
+  },
+};
 </script>
 <style lang="scss">
 .admin__product__page {
