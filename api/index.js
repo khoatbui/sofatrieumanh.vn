@@ -1,4 +1,6 @@
 require('dotenv').config();
+const httpProxy = require('http-proxy');
+const proxy = httpProxy.createProxyServer();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -49,6 +51,8 @@ app.use('/menuapi', menuRouter);
 app.use('/promotionapi', promotionRouter);
 
 // ↥↥↥↥↥↥↥ ****************ROUTER****************
+
+const API_HTTP = process.env.API_HTTP || 'https://sofatrieumanh.com';
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
@@ -75,8 +79,8 @@ app.get('/', (req, res) => {
     transform: translate(-50%, -50%);
 ">Dabook.vn system</h1>`);
 });
-
-module.exports = {
-  path: '/api/',
-  handler: app,
-};
+export default function(req, res, next) {
+  proxy.web(req, res, {
+    target: API_HTTP,
+  });
+}

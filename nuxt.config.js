@@ -5,7 +5,12 @@ module.exports = {
     host: 'localhost', // default: localhost,
     timing: false,
   },
-  serverMiddleware: ['~/api/index'],
+  serverMiddleware: [
+    {
+      path: '/api/',
+      handler: '~/api/index.js',
+    },
+  ],
   /*
    ** Headers of the page
    */
