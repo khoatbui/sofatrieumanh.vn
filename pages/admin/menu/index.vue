@@ -215,7 +215,7 @@ export default {
       this.$vs.loading();
       this.editedDataLoaded = false;
       await this.$axios
-        .get(`${process.env.API_HTTP}/api/menuapi/single-menu/${id}`)
+        .get(`/api/menuapi/single-menu/${id}`)
         .then(response => {
           this.editedItem = response.data;
           this.editedDataLoaded = true;
@@ -235,7 +235,7 @@ export default {
     getMenuList() {
       this.$vs.loading();
       this.$axios
-        .get(`${process.env.API_HTTP}/api/menuapi/`)
+        .get(`/api/menuapi/`)
         .then(response => {
           this.menuList = response.data;
           this.$vs.loading.close();
@@ -254,7 +254,7 @@ export default {
     getParentMenuList() {
       this.$vs.loading();
       this.$axios
-        .get(`${process.env.API_HTTP}/api/menuapi/`)
+        .get(`/api/menuapi/`)
         .then(response => {
           this.parentMenuList = response.data;
           this.$vs.loading.close();
@@ -277,10 +277,7 @@ export default {
       this.$vs.loading();
       if (this.editedIndex === -1) {
         this.$axios
-          .post(
-            `${process.env.API_HTTP}/api/menuapi/register-menu`,
-            this.editedItem
-          )
+          .post(`/api/menuapi/register-menu`, this.editedItem)
           .then(result => {
             this.$vs.loading.close();
             this.$vs.notify({
@@ -293,10 +290,7 @@ export default {
           });
       } else {
         this.$axios
-          .put(
-            `${process.env.API_HTTP}/api/menuapi/update-menu/${this.editedIndex}`,
-            this.editedItem
-          )
+          .put(`/api/menuapi/update-menu/${this.editedIndex}`, this.editedItem)
           .then(result => {
             this.$vs.loading.close();
             this.$vs.notify({

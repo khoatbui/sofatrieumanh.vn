@@ -272,7 +272,7 @@ export default {
       this.$vs.loading();
       this.editedDataLoaded = false;
       await this.$axios
-        .get(`${process.env.API_HTTP}/api/blogapi/single-blog/${id}`)
+        .get(`/api/blogapi/single-blog/${id}`)
         .then(response => {
           this.editedItem = response.data;
           this.editedDataLoaded = true;
@@ -292,7 +292,7 @@ export default {
     getBlogList() {
       this.$vs.loading();
       this.$axios
-        .get(`${process.env.API_HTTP}/api/blogapi/`)
+        .get(`/api/blogapi/`)
         .then(response => {
           this.blogList = response.data;
           this.$vs.loading.close();
@@ -312,10 +312,7 @@ export default {
       this.$vs.loading();
       if (this.editedIndex === -1) {
         this.$axios
-          .post(
-            `${process.env.API_HTTP}/api/blogapi/register-blog`,
-            this.editedItem
-          )
+          .post(`/api/blogapi/register-blog`, this.editedItem)
           .then(result => {
             this.$vs.loading.close();
             this.$vs.notify({
@@ -327,10 +324,7 @@ export default {
           });
       } else {
         this.$axios
-          .put(
-            `${process.env.API_HTTP}/api/blogapi/update-blog/${this.editedIndex}`,
-            this.editedItem
-          )
+          .put(`/api/blogapi/update-blog/${this.editedIndex}`, this.editedItem)
           .then(result => {
             this.$vs.loading.close();
             this.$vs.notify({
