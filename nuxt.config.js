@@ -1,5 +1,10 @@
 module.exports = {
   mode: 'universal',
+  server: {
+    port: 8000, // default: 3000
+    host: '0.0.0.0', // default: localhost,
+    timing: false,
+  },
   serverMiddleware: ['~/api/index'],
   /*
    ** Headers of the page
@@ -12,8 +17,8 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
@@ -32,10 +37,10 @@ module.exports = {
       </script>
       <!--End of Tawk.to Script-->`,
         type: 'text/javascript',
-        charset: 'utf-8'
-      }
+        charset: 'utf-8',
+      },
     ],
-    __dangerouslyDisableSanitizers: ['script']
+    __dangerouslyDisableSanitizers: ['script'],
   },
   /*
    ** Customize the progress-bar color
@@ -50,7 +55,7 @@ module.exports = {
    */
   plugins: [
     { src: 'plugins/owl.js', ssr: false },
-    { src: '~/plugins/vue-product-zoomer.js', mode: 'client' }
+    { src: '~/plugins/vue-product-zoomer.js', mode: 'client' },
   ],
   /*
    ** Nuxt.js dev-modules
@@ -60,7 +65,7 @@ module.exports = {
     '@nuxtjs/eslint-module',
     '@nuxtjs/moment',
     '@nuxtjs/vuetify',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
   ],
   devModules: ['@nuxtjs/eslint-module'],
   /*
@@ -84,22 +89,22 @@ module.exports = {
               'faCouch',
               'faMapMarkerAlt',
               'faPhoneAlt',
-              'faShoppingBasket'
-            ]
-          }
-        ]
-      }
-    ]
+              'faShoppingBasket',
+            ],
+          },
+        ],
+      },
+    ],
   ],
   styleResources: {
-    scss: ['./assets/scss/vars/*.scss', './assets/scss/abstracts/_mixins.scss']
+    scss: ['./assets/scss/vars/*.scss', './assets/scss/abstracts/_mixins.scss'],
   },
   script: [
     { src: '/js/jquery.elevatezoom.js' },
     {
       src:
-        'https://cdn.jsdelivr.net/gh/elPoeta/zoom-hover-image@v1.1/components/zoom-hover.js'
-    }
+        'https://cdn.jsdelivr.net/gh/elPoeta/zoom-hover-image@v1.1/components/zoom-hover.js',
+    },
   ],
   /*
    ** Axios module configuration
@@ -121,9 +126,9 @@ module.exports = {
         loader: 'eslint-loader',
         exclude: /(node_modules)/,
         options: {
-          fix: true
-        }
-      })
-    }
-  }
-}
+          fix: true,
+        },
+      });
+    },
+  },
+};
