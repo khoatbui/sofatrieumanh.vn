@@ -7,7 +7,7 @@ module.exports = {
   },
   serverMiddleware: [
     {
-      path: '/api/',
+      path: '/',
       handler: '~/api/index.js',
     },
   ],

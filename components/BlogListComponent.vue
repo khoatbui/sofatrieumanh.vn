@@ -55,7 +55,7 @@ export default {
     getBlogList() {
       this.$vs.loading();
       this.$axios
-        .get(`${process.env.API_HTTP}/api/blogapi/`)
+        .get(`${process.env.API_HTTP}/blogapi/`)
         .then(response => {
           this.blogList = response.data;
           this.$vs.loading.close();

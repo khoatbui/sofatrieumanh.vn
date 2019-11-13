@@ -46,7 +46,7 @@ export default {
     getPromotionList() {
       this.$vs.loading();
       this.$axios
-        .get(`${process.env.API_HTTP}/api/promotionapi/active`)
+        .get(`${process.env.API_HTTP}/promotionapi/active`)
         .then(response => {
           this.promotionList = response.data;
           this.$vs.loading.close();

@@ -439,7 +439,7 @@ export default {
       if (this.$route.params.id.length > 0) {
         this.$axios
           .get(
-            `${process.env.API_HTTP}/api/productapi/single-product-by-url/${this.$route.params.id}`
+            `${process.env.API_HTTP}/productapi/single-product-by-url/${this.$route.params.id}`
           )
           .then(response => {
             this.productDetail = response.data;
@@ -458,7 +458,7 @@ export default {
           });
       } else {
         this.$axios
-          .get(`${process.env.API_HTTP}/api/productapi/single-product-by-url`)
+          .get(`${process.env.API_HTTP}/productapi/single-product-by-url`)
           .then(response => {
             this.productDetail = response.data;
             this.$vs.loading.close();
