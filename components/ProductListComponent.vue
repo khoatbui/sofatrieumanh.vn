@@ -505,7 +505,7 @@ export default {
       if (this.$route.params.id.length > 0) {
         this.$axios
           .get(
-            `${process.env.API_HTTP}/api/productapi/product-list-by-category/${this.$route.params.id}`
+            `${process.env.API_HTTP}/productapi/product-list-by-category/${this.$route.params.id}`
           )
           .then(response => {
             this.productList = response.data;
@@ -523,7 +523,7 @@ export default {
           });
       } else {
         this.$axios
-          .get(`${process.env.API_HTTP}/api/productapi/product-list`)
+          .get(`${process.env.API_HTTP}/productapi/product-list`)
           .then(response => {
             this.productList = response.data;
             this.$vs.loading.close();

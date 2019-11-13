@@ -184,7 +184,7 @@
               <vs-upload
                 multiple
                 text="Ảnh khuyến mãi"
-                action="/api/uploadapi/upload-promotion-img"
+                :action="`${api}/uploadapi/upload-promotion-img`"
                 @on-success="successUpload"
                 @on-delete="deleteUpload"
               />
@@ -238,6 +238,7 @@ export default {
   },
   layout: 'adminlayout',
   data: () => ({
+    api: process.env.API_HTTP,
     pickerBirthday: moment().format('YYYY-MM-DD'),
     datePopup: false,
     editPopup: false,
@@ -319,7 +320,7 @@ export default {
       this.$vs.loading();
       this.editedDataLoaded = false;
       await this.$axios
-        .get(`/api/promotionapi/single-promotion/${id}`)
+        .get(`${process.env.API_HTTP}/promotionapi/single-promotion/${id}`)
         .then(response => {
           this.editedItem = response.data;
           this.editedDataLoaded = true;
@@ -372,7 +373,7 @@ export default {
       } else {
         this.$axios
           .put(
-            `/api/promotionapi/update-promotion/${this.editedIndex}`,
+            `${process.env.API_HTTP}/promotionapi/update-promotion/${this.editedIndex}`,
             this.editedItem
           )
           .then(result => {

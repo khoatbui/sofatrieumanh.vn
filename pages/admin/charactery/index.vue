@@ -162,7 +162,7 @@ export default {
       this.$vs.loading();
       this.editedDataLoaded = false;
       await this.$axios
-        .get(`/api/characteryapi/single-charactery/${id}`)
+        .get(`${process.env.API_HTTP}/characteryapi/single-charactery/${id}`)
         .then(response => {
           this.editedItem = response.data;
           this.editedDataLoaded = true;
@@ -182,7 +182,7 @@ export default {
     getCharacteryList() {
       this.$vs.loading();
       this.$axios
-        .get(`/api/characteryapi/`)
+        .get(`${process.env.API_HTTP}/characteryapi/`)
         .then(response => {
           this.characteryList = response.data;
           this.$vs.loading.close();
@@ -202,7 +202,10 @@ export default {
       this.$vs.loading();
       if (this.editedIndex === -1) {
         this.$axios
-          .post(`/api/characteryapi/register-charactery`, this.editedItem)
+          .post(
+            `${process.env.API_HTTP}/characteryapi/register-charactery`,
+            this.editedItem
+          )
           .then(result => {
             this.$vs.loading.close();
             this.$vs.notify({
@@ -215,7 +218,7 @@ export default {
       } else {
         this.$axios
           .put(
-            `/api/characteryapi/update-charactery/${this.editedIndex}`,
+            `${process.env.API_HTTP}/characteryapi/update-charactery/${this.editedIndex}`,
             this.editedItem
           )
           .then(result => {

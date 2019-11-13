@@ -10,25 +10,21 @@ const urlencodedParser = bodyParser.urlencoded({
   limit: '50mb',
   extended: true,
 });
-
-// const uri =
-//   'mongodb+srv://sofatrieumanh:trieumanh@sofatrieumanh-48lnm.mongodb.net/test?retryWrites=true&w=majority'
-// let mongoose = require('mongoose')
-// mongoose.connect(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   dbName: 'sofatrieumanh_db'
-// })
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   connectTimeoutMS: 3000000,
+  useUnifiedTopology: true,
 });
 const app = express();
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true,
+};
 app.use(cookieParser());
 app.use(express.static('public'));
 app.use(express.static('uploads'));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(jsonParser);
 
 const blogRouter = require('./routers/blog.router');
@@ -43,6 +39,9 @@ const promotionRouter = require('./routers/promotion.router');
 // app.set('views', './views')
 
 // ↧↧↧↧↧↧↧ ****************ROUTER****************
+
+const host = process.env.API_HOST || '127.0.0.1';
+const port = process.env.API_PORT || 3001;
 app.use('/blogapi', blogRouter);
 app.use('/uploadapi', uploadRouter);
 app.use('/productapi', productRouter);
@@ -52,9 +51,8 @@ app.use('/promotionapi', promotionRouter);
 
 // ↥↥↥↥↥↥↥ ****************ROUTER****************
 
-const API_HTTP = process.env.API_HTTP || 'https://sofatrieumanh.com';
 app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Origin', req.header('origin'));
   res.header(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
@@ -79,8 +77,9 @@ app.get('/', (req, res) => {
     transform: translate(-50%, -50%);
 ">Dabook.vn system</h1>`);
 });
-export default function(req, res, next) {
-  proxy.web(req, res, {
-    target: API_HTTP,
-  });
-}
+// Listen the server
+app.listen(port, host);
+consola.ready({
+  message: `Server listening on http://${host}:${port}`,
+  badge: true,
+});

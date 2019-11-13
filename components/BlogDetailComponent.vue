@@ -118,7 +118,7 @@ export default {
       this.$vs.loading();
       this.$axios
         .get(
-          `${process.env.API_HTTP}/api/blogapi/single-blog-url/${this.$route.params.tintuc}`
+          `${process.env.API_HTTP}/blogapi/single-blog-url/${this.$route.params.tintuc}`
         )
         .then(response => {
           this.blogDetail = response.data;
@@ -138,7 +138,7 @@ export default {
     getBlogList() {
       this.$vs.loading();
       this.$axios
-        .get(`${process.env.API_HTTP}/api/blogapi/`)
+        .get(`${process.env.API_HTTP}/blogapi/`)
         .then(response => {
           this.blogList = response.data;
           this.$vs.loading.close();
