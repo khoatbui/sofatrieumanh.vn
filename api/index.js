@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URL, {
 });
 const app = express();
 const corsOptions = {
-  origin: 'http://103.15.50.155:3000',
+  origin: 'http://103.15.50.155',
   credentials: true,
 };
 app.use(cookieParser());
