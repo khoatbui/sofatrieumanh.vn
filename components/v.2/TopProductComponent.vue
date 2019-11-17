@@ -19,8 +19,8 @@
           <vs-tab label="Gần đây">
             <div class="row mp--none">
               <div
-                v-for="(pro, i) in productList"
-                :key="i + 'prod'"
+                v-for="(pro, ist) in productList"
+                :key="ist + 'prod'"
                 class="col-12 col-sm-6 col-md-3 col-lg-3"
               >
                 <div class="card border-0 product__card">
