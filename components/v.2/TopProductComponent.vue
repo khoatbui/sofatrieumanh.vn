@@ -167,7 +167,6 @@ export default {
   }),
   methods: {
     getTopProductComponent(category) {
-      console.log('get call');
       this.$vs.loading();
       this.$axios
         .get(

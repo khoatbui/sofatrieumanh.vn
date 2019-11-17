@@ -335,7 +335,6 @@ export default {
       // }
       this.showNavbar = false;
 
-      console.log(this.showNavbar);
       // this.showNavbar = currentScrollPosition < this.lastScrollPosition;
       // this.lastScrollPosition = currentScrollPosition;
     },
