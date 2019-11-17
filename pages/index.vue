@@ -1,76 +1,23 @@
 <template>
   <div class="home__page">
-    <InstructionStepComponent />
-    <PromotionComponent />
-    <div class="container section__margin">
-      <div class="row mp--none my-2">
-        <div class="col-12 mp--none">
-          <ProductByTypeComponent :product-type-url="'ghe-sofa'" />
-        </div>
-      </div>
-    </div>
-    <BestSellerProductComponent class="section__margin" />
-    <div class="container section__margin">
-      <div class="row mp--none my-2">
-        <div class="col-12 mp--none">
-          <ProductByTypeComponent :product-type-url="'ban'" />
-        </div>
-      </div>
-      <div class="row mp--none my-2">
-        <div class="col-12 mp--none">
-          <ProductByTypeComponent :product-type-url="'noi-that'" />
-        </div>
-      </div>
-    </div>
-    <RequestAdvisorComponent class="section__margin" />
-    <div class="container section__margin">
-      <div class="row mp--none my-2">
-        <div class="col-12 mp--none">
-          <ProductByTypeComponent :product-type-url="'sofa-khuyen-mai'" />
-        </div>
-      </div>
-      <div class="row mp--none my-2">
-        <div class="col-12 mp--none">
-          <ProductByTypeComponent :product-type-url="'sofa-thanh-ly'" />
-        </div>
-      </div>
-    </div>
+    <section>
+      <NewCategory />
+    </section>
+    <section>
+      <HotPromotion />
+    </section>
+    <section>
+      <TopProductComponent />
+    </section>
   </div>
 </template>
-
 <script>
-import PromotionComponent from '@/components/PromotionComponent.vue';
-import InstructionStepComponent from '@/components/InstructionStepComponent.vue';
-import ProductByTypeComponent from '@/components/ProductByTypeComponent.vue';
-import RequestAdvisorComponent from '@/components/RequestAdvisorComponent.vue';
-import BestSellerProductComponent from '@/components/BestSellerProductComponent.vue';
 export default {
-  layout: 'mainlayout',
+  layout: 'homelayout',
   components: {
-    InstructionStepComponent,
-    PromotionComponent,
-    ProductByTypeComponent,
-    RequestAdvisorComponent,
-    BestSellerProductComponent,
-  },
-  head() {
-    return {
-      title: this.title,
-      meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'My custom description',
-        },
-      ],
-    };
+    NewCategory: () => import('@/components/v.2/NewCategory'),
+    HotPromotion: () => import('@/components/v.2/HotPromotion'),
+    TopProductComponent: () => import('@/components/v.2/TopProductComponent'),
   },
 };
 </script>
-
-<style>
-.requestadvisor__card {
-  margin: 1%;
-}
-</style>

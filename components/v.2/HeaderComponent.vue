@@ -1,0 +1,451 @@
+<template>
+  <div class="newheader__component">
+    <div class="desktop__img">
+      <client-only>
+        <carousel
+          items="1"
+          :nav="false"
+          :autoplay="true"
+          :dots="false"
+          :loop="true"
+        >
+          <div v-for="(pic, i) in headerPicture" :key="i + 'pic'">
+            <div
+              :style="`background-image:url('${pic.image}')`"
+              class="desktop__image__src"
+            >
+              <div class="promotion__header__content">
+                <h6>{{ pic.promotionName }}</h6>
+                <p>{{ pic.promotionIntro }}</p>
+                <button>Xem ngay</button>
+              </div>
+            </div>
+          </div>
+        </carousel>
+      </client-only>
+    </div>
+    <div class="desktop__header">
+      <div class="desktop__header_top">
+        <span>Miễn phí :Giao hàng miễn phí bán kính 70km</span>
+      </div>
+      <div class="desktop__header_bottom p-2">
+        <div class="leftside__header">
+          <nuxt-link to="/">
+            <h1>TM.</h1>
+          </nuxt-link>
+          <vs-dropdown vs-custom-content>
+            <a class="a-icon drop__head" href.prevent>
+              Ghế sofa<i class="material-icons">
+                add
+              </i>
+            </a>
+
+            <vs-dropdown-menu class="menu__dropdown">
+              <vs-dropdown-item divider>
+                <div class="row mp--none">
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-don">Sofa đơn</nuxt-link>
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-giuong"
+                      >Sofa giường</nuxt-link
+                    >
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-van-phong"
+                      >Sofa văn phòng</nuxt-link
+                    >
+                  </div>
+                </div>
+              </vs-dropdown-item>
+              <vs-dropdown-item divider>
+                <div class="row mp--none">
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-gia-re"
+                      >Sofa giá rẻ</nuxt-link
+                    >
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-phong-khach"
+                      >Sofa phòng khách</nuxt-link
+                    >
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-bang"
+                      >Sofa băng(văng)</nuxt-link
+                    >
+                  </div>
+                </div>
+              </vs-dropdown-item>
+              <vs-dropdown-item divider>
+                <div class="row mp--none">
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-nhap-khau"
+                      >Sofa nhập khẩu</nuxt-link
+                    >
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-cao-cap"
+                      >Sofa cao cấp</nuxt-link
+                    >
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-can-ho"
+                      >Sofa căn hộ</nuxt-link
+                    >
+                  </div>
+                </div>
+              </vs-dropdown-item>
+              <vs-dropdown-item divider>
+                <div class="row mp--none">
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-don">Sofa cổ điển</nuxt-link>
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-giuong">Sofa góc</nuxt-link>
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-han-quoc"
+                      >Sofa Hàn Quốc</nuxt-link
+                    >
+                  </div>
+                </div>
+              </vs-dropdown-item>
+              <vs-dropdown-item divider>
+                <div class="row mp--none">
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-karaoke"
+                      >Sofa kakaoke</nuxt-link
+                    >
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-cafe">Sofa cafe</nuxt-link>
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-ni">Sofa nỉ</nuxt-link>
+                  </div>
+                </div>
+              </vs-dropdown-item>
+              <vs-dropdown-item divider>
+                <div class="row mp--none">
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-da">Sofa da</nuxt-link>
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-vai">Sofa vải</nuxt-link>
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/sofa-tan-co-dien"
+                      >Sofa tân cổ điển</nuxt-link
+                    >
+                  </div>
+                </div>
+              </vs-dropdown-item>
+            </vs-dropdown-menu>
+          </vs-dropdown>
+          <vs-dropdown vs-custom-content>
+            <a class="a-icon drop__head" href.prevent>
+              Bàn sofa<i class="material-icons">
+                add
+              </i>
+            </a>
+
+            <vs-dropdown-menu class="menu__dropdown">
+              <vs-dropdown-item divider>
+                <div class="row mp--none">
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/ban-sofa">Bàn sofa</nuxt-link>
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/ban-an">Bàn ăn</nuxt-link>
+                  </div>
+                </div>
+              </vs-dropdown-item>
+              <vs-dropdown-item divider>
+                <div class="row mp--none">
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/ban-go">Bàn gỗ</nuxt-link>
+                  </div>
+                  <div class="col-4 py-1 px-4">
+                    <nuxt-link to="/danh-muc/ban-da">Bàn đá</nuxt-link>
+                  </div>
+                </div>
+              </vs-dropdown-item>
+            </vs-dropdown-menu>
+          </vs-dropdown>
+          <nuxt-link to="/danh-muc/sofa-khuyenmai"> Sofa khuyến mãi</nuxt-link>
+
+          <vs-dropdown vs-custom-content>
+            <a class="a-icon drop__head" href.prevent>
+              Nội thất<i class="material-icons">
+                add
+              </i>
+            </a>
+
+            <vs-dropdown-menu class="menu__dropdown">
+              <vs-dropdown-item divider>
+                <div class="row mp--none">
+                  <div class="col-6 py-1 px-4">
+                    <nuxt-link to="/danh-muc/noi-that-phong-khach"
+                      >Nội thất phòng khách</nuxt-link
+                    >
+                  </div>
+                  <div class="col-6 py-1 px-4">
+                    <nuxt-link to="/danh-muc/noi-that-phong-an"
+                      >Nội thất phòng ăn</nuxt-link
+                    >
+                  </div>
+                </div>
+              </vs-dropdown-item>
+              <vs-dropdown-item divider>
+                <div class="row mp--none">
+                  <div class="col-6 py-1 px-4">
+                    <nuxt-link to="/danh-muc/noi-that-phong-ngu"
+                      >Nội thất phòng ngủ</nuxt-link
+                    >
+                  </div>
+                </div>
+              </vs-dropdown-item>
+            </vs-dropdown-menu>
+          </vs-dropdown>
+          <nuxt-link to="/danh-muc/sofa-thanh-ly">Sofa thanh lý</nuxt-link>
+          <nuxt-link to="/tin-tuc">Tin tức</nuxt-link>
+          <nuxt-link to="/tu-van-thiet-ke">Tư vấn thiết kế</nuxt-link>
+        </div>
+        <div class="rightside__header">
+          <div class="header__search">
+            <vs-input
+              v-model="search"
+              color="#FFFFFF"
+              icon="search"
+              placeholder="Search"
+              class="input__search"
+            />
+          </div>
+          <div class="header__favorite">
+            <nuxt-link to="/favorite">
+              <i class="material-icons header__icon">
+                favorite_border
+              </i>
+            </nuxt-link>
+          </div>
+          <div class="header__cart">
+            <nuxt-link to="/cart">
+              <i class="material-icons header__icon">
+                shopping_cart
+              </i>
+            </nuxt-link>
+          </div>
+          <div class="header__account">
+            <vs-dropdown vs-custom-content>
+              <a class="a-icon" href.prevent>
+                <i class="material-icons header__icon">
+                  menu
+                </i>
+              </a>
+
+              <vs-dropdown-menu class="account__dropdown">
+                <vs-dropdown-item divider>
+                  <nuxt-link to="/gio-hang">Giỏ hàng</nuxt-link>
+                </vs-dropdown-item>
+                <vs-dropdown-item divider>
+                  <nuxt-link to="/favorite">Sản phẩm yêu thích</nuxt-link>
+                </vs-dropdown-item>
+                <vs-dropdown-item divider>
+                  <nuxt-link to="/thanh-toan">Thanh toán</nuxt-link>
+                </vs-dropdown-item>
+                <vs-dropdown-item divider>
+                  <nuxt-link to="/tai-khoan">Tài khoản</nuxt-link>
+                </vs-dropdown-item>
+              </vs-dropdown-menu>
+            </vs-dropdown>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mobile__header"></div>
+  </div>
+</template>
+<script>
+export default {
+  data: () => ({
+    search: '',
+    headerPicture: [
+      {
+        image: '/images/banner/banner_01.jpg',
+        promotionName: 'Bộ sưu tập mới',
+        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+      },
+      {
+        image: '/images/banner/banner_02.jpg',
+        promotionName: 'Bộ sưu tập mới',
+        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+      },
+      {
+        image: '/images/banner/banner_03.jpg',
+        promotionName: 'Giao diện mới, giảm giá mới',
+        promotionIntro: 'Giảm giá 10% cho các đơn hàng trên 5 triệu',
+      },
+      {
+        image: '/images/banner/banner_04.jpg',
+        promotionName: 'Bộ sưu tập mới',
+        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+      },
+      {
+        image: '/images/banner/banner_05.jpg',
+        promotionName: 'Bộ sưu tập mới',
+        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+      },
+      {
+        image: '/images/banner/banner_06.jpg',
+        promotionName: 'Bộ sưu tập mới',
+        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+      },
+      {
+        image: '/images/banner/banner_07.jpg',
+        promotionName: 'Bộ sưu tập mới',
+        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+      },
+    ],
+  }),
+};
+</script>
+<style lang="scss">
+.desktop__image__src {
+  background-image: url('/images/banner/banner_01.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 100%;
+  position: relative;
+}
+.desktop__header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.desktop__header.sticky {
+  background-color: $secondary__color;
+}
+.desktop__header_top {
+  text-align: center;
+  color: $white__color;
+  font-size: 0.8rem;
+  padding: 0.4rem;
+  border-bottom: 1px solid $muted__color;
+}
+.desktop__header_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 0.8rem 0;
+  background-color: transparent;
+}
+.leftside__header,
+.rightside__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: $white__color;
+}
+.leftside__header {
+  justify-content: flex-start;
+}
+.rightside__header {
+  justify-content: flex-end;
+}
+.leftside__header a {
+  color: $white__color;
+  margin: 0 1.2rem 0 0;
+  text-decoration: none;
+}
+.rightside__header a {
+  color: $white__color;
+  margin: 0 1.2rem 0 0;
+  text-decoration: none;
+}
+.leftside__header a:hover,
+.rightside__header a:hover {
+  color: $primary__color;
+}
+.drop__head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0 !important;
+  outline: 0 !important;
+}
+.drop__head .material-icons {
+  font-size: 0.9rem;
+}
+.header__icon {
+  color: $white__color;
+}
+.newheader__component {
+  width: 100%;
+}
+.vs-component.vs-dropdown--item.divider a {
+  white-space: nowrap !important;
+  color: $primary__text__color;
+  text-decoration: none;
+}
+.vs-component.vs-dropdown--item.divider a:hover {
+  color: $primary__color;
+}
+.input__search {
+  border: 0;
+  color: $white__color;
+}
+.input__search .vs-inputx {
+  border: 0 !important;
+  padding-left: 2.4rem;
+}
+.input__search .vs-input-primary .vs-input--input:focus {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.input__search .vs-input--input:focus {
+  box-shadow: none !important;
+}
+.input__search .vs-icon {
+  color: $white__color !important;
+  border-right-color: $white__color !important;
+}
+.input__search .input-span-placeholder {
+  color: $primary__text__color !important;
+  padding-left: 2.4rem !important;
+  top: 3px !important;
+}
+.menu__dropdown .vs-dropdown--menu {
+  border-radius: 0 !important;
+}
+.menu__dropdown a {
+  font-size: 0.8rem !important;
+}
+.promotion__header__content {
+  position: absolute;
+  color: $white__color;
+  bottom: 30%;
+  left: 30%;
+  transform: translate(-50%, 50%);
+}
+.promotion__header__content h6 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.promotion__header__content p {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.promotion__header__content button {
+  border: 2px solid $white__color;
+  padding: 0.8rem 1.6rem;
+  background-color: transparent;
+}
+</style>
