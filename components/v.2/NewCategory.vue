@@ -1,7 +1,7 @@
 <template>
   <div class="newcategory__component">
     <div class="container">
-      <div class="row mp--none">
+      <div class="row mp--none py-4">
         <div class="col-12 col-sm-6 col-md-2 topcategory__left">
           <h6 class="topcategory__title">Top danh mục trong tuần</h6>
           <p class="topcategory__intro">
@@ -78,8 +78,9 @@ export default {
 .topcategory__btn {
   border: 2px solid $five__color;
   padding: 0.4rem 0.8rem;
-  color: $five__color;
+  color: $five__color !important;
   display: inline-block;
+  text-decoration: none !important;
 }
 .topcategory__intro {
   font-size: 0.8rem;

@@ -54,7 +54,11 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/custom.css', '@/assets/scss/main.scss'],
+  css: [
+    '@/assets/css/custom.css',
+    '@/assets/scss/main.scss',
+    { src: 'animate.css/animate.min.css', lang: 'css' },
+  ],
   /*
    ** Plugins to load before mounting the App
    */

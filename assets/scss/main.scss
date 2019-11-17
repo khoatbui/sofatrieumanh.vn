@@ -13,9 +13,9 @@ body {
 .component__title {
   font-size: 2rem;
   font-weight: bold;
-  color: $primary__color;
+  color: $secondary__color;
   position: relative;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.2rem;
   display: inline-block;
 }
 .component__title::before {
@@ -23,12 +23,16 @@ body {
   content: '';
   bottom: -0.4rem;
   left: 0;
-  width: 40%;
-  height: 4px;
+  width: 100%;
+  height: 3px;
   border-radius: 100px;
-  background-color: $primary__color;
+  background-color: $secondary__color;
 }
 
+.component__intro {
+  color: $muted__text;
+  font-size: 0.9rem;
+}
 // COMPONENT VUESAX=========
 .con-vs-checkbox {
   justify-content: flex-start !important;
@@ -38,4 +42,38 @@ body {
 }
 .fill__border {
   border: 1px solid $primary__color !important;
+}
+
+// SECTION
+.section__margin--y {
+  margin: 4rem 0;
+}
+.section__margin {
+  margin: 4rem;
+}
+.section__margin--b {
+  margin-bottom: 4rem;
+}
+.section__padding--y {
+  padding: 4rem 0;
+}
+.section__padding {
+  padding: 4rem;
+}
+.section__padding--b {
+  padding-bottom: 4rem;
+}
+
+// BADEG
+.custom__badge {
+  padding: 0.4rem 0.6rem;
+  background-color: $warning__color;
+  color: $secondary__color;
+  font-size: 0.7rem;
+  border-radius: 5px;
+}
+
+// TEXT PRIMARY
+.text__primary {
+  color: $primary__color !important;
 }

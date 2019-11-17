@@ -3,11 +3,21 @@
     <section>
       <NewCategory />
     </section>
-    <section>
+    <section class="section__margin--b">
       <HotPromotion />
     </section>
-    <section>
-      <TopProductComponent />
+    <section class="section__margin-y">
+      <div class="container">
+        <TopProductComponent />
+      </div>
+    </section>
+    <section class="section__margin-y">
+      <div class="container">
+        <HotBlogComponent />
+      </div>
+    </section>
+    <section class="section__margin-y">
+      <FollowUsComponent />
     </section>
   </div>
 </template>
@@ -18,6 +28,8 @@ export default {
     NewCategory: () => import('@/components/v.2/NewCategory'),
     HotPromotion: () => import('@/components/v.2/HotPromotion'),
     TopProductComponent: () => import('@/components/v.2/TopProductComponent'),
+    HotBlogComponent: () => import('@/components/v.2/HotBlogComponent'),
+    FollowUsComponent: () => import('@/components/v.2/FollowUsComponent'),
   },
 };
 </script>

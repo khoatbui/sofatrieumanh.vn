@@ -93,7 +93,7 @@ export default {
 }
 .blog__createtime {
   font-size: 0.8rem;
-  color: $muted__color;
+  color: $muted__text;
   margin-bottom: 0.8rem;
 }
 .blog__intro {

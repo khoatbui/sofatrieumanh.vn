@@ -24,7 +24,7 @@
         </carousel>
       </client-only>
     </div>
-    <div class="desktop__header">
+    <div class="desktop__header" :class="{ sticky: !showNavbar }">
       <div class="desktop__header_top">
         <span>Miễn phí :Giao hàng miễn phí bán kính 70km</span>
       </div>
@@ -307,7 +307,39 @@ export default {
         promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
       },
     ],
+    showNavbar: true,
+    lastScrollPosition: 0,
   }),
+  mounted() {
+    window.addEventListener('scroll', this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.onScroll);
+  },
+  methods: {
+    onScroll() {
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScrollPosition < 0) {
+        this.showNavbar = true;
+        return;
+      }
+      // Stop executing this function if the difference between
+      // current scroll position and last scroll position is less than some offset
+      if (currentScrollPosition < 60) {
+        this.showNavbar = true;
+        return;
+      }
+      // if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
+      //   return false;
+      // }
+      this.showNavbar = false;
+
+      console.log(this.showNavbar);
+      // this.showNavbar = currentScrollPosition < this.lastScrollPosition;
+      // this.lastScrollPosition = currentScrollPosition;
+    },
+  },
 };
 </script>
 <style lang="scss">
@@ -329,13 +361,14 @@ export default {
 }
 .desktop__header.sticky {
   background-color: $secondary__color;
+  transition-duration: 1s;
 }
 .desktop__header_top {
   text-align: center;
   color: $white__color;
   font-size: 0.8rem;
   padding: 0.4rem;
-  border-bottom: 1px solid $muted__color;
+  border-bottom: 1px solid $muted__text;
 }
 .desktop__header_bottom {
   display: flex;

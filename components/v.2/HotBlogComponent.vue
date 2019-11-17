@@ -1,0 +1,118 @@
+<template>
+  <div class="hotblog__component">
+    <div class="row mp--none mb-4">
+      <div class="col-12 text-center">
+        <h6 class="component__title">TrieuManh Blogs</h6>
+        <p class="component__intro">
+          Tip, Trick, các hướng dẫn đến từ Triệu Mạnh để bạn có một căn nhà ưng
+          ý nhất
+        </p>
+      </div>
+    </div>
+    <client-only>
+      <carousel
+        :responsive="{
+          0: { items: 1, nav: false },
+          600: { items: 2, nav: false },
+          900: { items: 3, nav: false },
+        }"
+        :dots="false"
+        :autoplay="true"
+        :loop="true"
+      >
+        <div
+          v-for="(blog, i) in blogList"
+          :key="i + 'blogs'"
+          class="card border-0"
+        >
+          <div class="card-body">
+            <div
+              class="blog__card__image"
+              :style="`background-image:url('${blog.blogImage}'`"
+            ></div>
+            <div class="blog__card__detail">
+              <div class="blog__card__title my-2">{{ blog.blogName }}</div>
+              <div class="blog__card__info mb-2 mt-0">
+                <span
+                  >Đăng bởi
+                  <span class="text__primary">{{ blog.author }}</span></span
+                >
+                <span
+                  >ngày
+                  <span class="text__primary">{{ blog.publicDate }}</span></span
+                >
+              </div>
+              <div class="blog__card__intro my-2">
+                {{ blog.blogIntro }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </carousel>
+    </client-only>
+  </div>
+</template>
+<script>
+export default {
+  data: () => ({
+    blogList: [
+      {
+        blogName: 'Cach tinh dien tich mat sau noi that',
+        blogIntro:
+          'Vào nhữnig ngày mưa, nội thật của bạn sẽ thường gặp các vấn đề ẩm mốc có mùi hôi khó chịu. Triệu Mạnh sẽ giúp bạn các tip để khắc phục vấn dề này',
+        blogImage: 'images/blogs/blog_01.jpg',
+        author: 'Jony',
+        publicDate: '2019-09-22',
+      },
+      {
+        blogName: 'Cach tinh dien tich mat sau noi that',
+        blogIntro:
+          'Vào nhữnig ngày mưa, nội thật của bạn sẽ thường gặp các vấn đề ẩm mốc có mùi hôi khó chịu. Triệu Mạnh sẽ giúp bạn các tip để khắc phục vấn dề này',
+        blogImage: 'images/blogs/blog_01.jpg',
+        author: 'Jony',
+        publicDate: '2019-09-22',
+      },
+      {
+        blogName: 'Cach tinh dien tich mat sau noi that',
+        blogIntro:
+          'Vào nhữnig ngày mưa, nội thật của bạn sẽ thường gặp các vấn đề ẩm mốc có mùi hôi khó chịu. Triệu Mạnh sẽ giúp bạn các tip để khắc phục vấn dề này',
+        blogImage: 'images/blogs/blog_01.jpg',
+        author: 'Jony',
+        publicDate: '2019-09-22',
+      },
+      {
+        blogName: 'Cach tinh dien tich mat sau noi that',
+        blogIntro:
+          'Vào nhữnig ngày mưa, nội thật của bạn sẽ thường gặp các vấn đề ẩm mốc có mùi hôi khó chịu. Triệu Mạnh sẽ giúp bạn các tip để khắc phục vấn dề này',
+        blogImage: 'images/blogs/blog_01.jpg',
+        author: 'Jony',
+        publicDate: '2019-09-22',
+      },
+    ],
+  }),
+};
+</script>
+<style lang="scss">
+.blog__card__image {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.blog__card__detail {
+  margin: 1.6rem 0;
+}
+.blog__card__title {
+  color: $primary__text;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.blog__card__info {
+  font-size: 0.8rem;
+  color: $muted__text;
+}
+.blog__card__intro {
+  font-size: 0.8rem;
+  color: $primary__text;
+}
+</style>

@@ -176,7 +176,7 @@ export default {
   margin: 0 0 3.2rem 0;
 }
 .tintuc__info .creator {
-  color: $muted__color;
+  color: $muted__text;
   font-size: 0.8rem;
   display: none;
 }
@@ -213,10 +213,10 @@ export default {
 .tintuc__intro {
   font-style: italic;
   margin: 1.6rem 0;
-  color: $muted__color;
+  color: $muted__text;
   font-size: 0.9rem;
   padding: 0.8rem;
-  border-left: 4px solid $muted__color;
+  border-left: 4px solid $muted__text;
 }
 .tintuc__content img {
   width: 100% !important;
@@ -236,7 +236,7 @@ export default {
 }
 .hot__blog__createtime {
   font-size: 0.8rem;
-  color: $muted__color;
+  color: $muted__text;
   margin-bottom: 0.8rem;
 }
 .hot__blog__intro {

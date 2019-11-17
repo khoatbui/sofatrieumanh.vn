@@ -669,7 +669,7 @@ export default {
 }
 .category__item {
   padding: 0.4rem 0;
-  border-bottom: 1px solid $muted__color;
+  border-bottom: 1px solid $muted__text;
   cursor: pointer;
 }
 .filter__title {

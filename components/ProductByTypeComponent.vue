@@ -236,7 +236,7 @@ export default {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
 }
 .discount__price {
-  color: $muted__color;
+  color: $muted__text;
   font-weight: bold;
   font-size: 0.8rem;
   text-decoration: line-through;
@@ -256,7 +256,7 @@ export default {
   border-radius: 50%;
   border: none;
   color: $primary__color;
-  background-color: $muted__color;
+  background-color: $muted__text;
   font-size: 2rem;
 }
 .custom__design__btn:hover,

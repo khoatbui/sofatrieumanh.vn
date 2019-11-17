@@ -140,7 +140,7 @@
   margin: 0 0.4rem;
 }
 .slide__discount__price {
-  color: $muted__color;
+  color: $muted__text;
   font-weight: bold;
   font-size: 0.8rem;
   text-decoration: line-through;

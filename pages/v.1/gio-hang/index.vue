@@ -254,7 +254,7 @@ export default {
 .total__title {
   font-size: 1.3rem;
   font-weight: bold;
-  columns: $muted__color;
+  columns: $muted__text;
 }
 .giohang__component {
   background-color: $secondary__bg__color;
