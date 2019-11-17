@@ -128,7 +128,7 @@ export default {
       this.$vs.loading();
       this.$axios
         .get(
-          `${process.env.API_HTTP}/api/productapi/product-list-by-category/${this.productTypeUrl}`
+          `${process.env.API_HTTP}/productapi/product-list-by-category/${this.productTypeUrl}`
         )
         .then(response => {
           this.productList = response.data;
@@ -149,7 +149,7 @@ export default {
       this.$vs.loading();
       this.$axios
         .get(
-          `${process.env.API_HTTP}/api/menuapi/single-menu-with-url/${this.productTypeUrl}`
+          `${process.env.API_HTTP}/menuapi/single-menu-with-url/${this.productTypeUrl}`
         )
         .then(response => {
           this.categoryDetail = response.data;

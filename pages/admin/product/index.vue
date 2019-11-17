@@ -271,7 +271,7 @@
               <vs-upload
                 multiple
                 text="Ảnh sản phẩm"
-                action="/api/uploadapi/upload-product-img"
+                :action="`${api}/uploadapi/upload-product-img`"
                 @on-success="successUpload"
                 @on-delete="deleteUpload"
               />
@@ -325,6 +325,7 @@ export default {
   },
   layout: 'adminlayout',
   data: () => ({
+    api: process.env.API_HTTP,
     editPopup: false,
     editedDataLoaded: false,
     categoryList: [],
@@ -395,7 +396,7 @@ export default {
     getCategoryList() {
       this.$vs.loading();
       this.$axios
-        .get(`/api/menuapi/get-category-withurl`)
+        .get(`${process.env.API_HTTP}/menuapi/get-category-withurl`)
         .then(response => {
           this.categoryList = response.data;
           this.$vs.loading.close();
@@ -414,7 +415,7 @@ export default {
     getCharacteryList() {
       this.$vs.loading();
       this.$axios
-        .get(`/api/characteryapi/`)
+        .get(`${process.env.API_HTTP}/characteryapi/`)
         .then(response => {
           this.characteryList = response.data;
           this.$vs.loading.close();
@@ -462,7 +463,7 @@ export default {
       this.$vs.loading();
       this.editedDataLoaded = false;
       await this.$axios
-        .get(`/api/productapi/single-product/${id}`)
+        .get(`${process.env.API_HTTP}/productapi/single-product/${id}`)
         .then(response => {
           this.editedItem = response.data;
           this.editedDataLoaded = true;
@@ -482,7 +483,7 @@ export default {
     getProductList() {
       this.$vs.loading();
       this.$axios
-        .get(`/api/productapi/`)
+        .get(`${process.env.API_HTTP}/productapi/`)
         .then(response => {
           this.productList = response.data;
           this.$vs.loading.close();
@@ -502,7 +503,10 @@ export default {
       this.$vs.loading();
       if (this.editedIndex === -1) {
         this.$axios
-          .post(`/api/productapi/register-product`, this.editedItem)
+          .post(
+            `${process.env.API_HTTP}/productapi/register-product`,
+            this.editedItem
+          )
           .then(result => {
             this.$vs.loading.close();
             this.$vs.notify({
@@ -515,7 +519,7 @@ export default {
       } else {
         this.$axios
           .put(
-            `/api/productapi/update-product/${this.editedIndex}`,
+            `${process.env.API_HTTP}/productapi/update-product/${this.editedIndex}`,
             this.editedItem
           )
           .then(result => {
@@ -543,7 +547,9 @@ export default {
     deleteProduct() {
       this.$vs.loading();
       this.$axios
-        .delete(`/api/productapi/delete-product/${this.selected._id}`)
+        .delete(
+          `${process.env.API_HTTP}/productapi/delete-product/${this.selected._id}`
+        )
         .then(response => {
           this.$vs.notify({
             color: 'success',
