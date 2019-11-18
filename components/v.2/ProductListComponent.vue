@@ -26,7 +26,7 @@
         <div class="category__sidebar my-4">
           <div class="category__header">
             <h5 v-b-toggle.collapse-category>
-              Danh muc san pham
+              Danh mục sản phẩm
             </h5>
           </div>
           <b-collapse
@@ -73,7 +73,7 @@
         <div class="filter__sidebar mt-4">
           <div class="filter__header">
             <h5 v-b-toggle.collapse-filter>
-              Loc san pham
+              Lọc sản phẩm
 
               <i class="material-icons">
                 filter_list
@@ -89,7 +89,7 @@
               <div class="filter__block">
                 <div class="row mp--none">
                   <div class="col-12 mp--none">
-                    <h6 class="filter__title">Chat lieu</h6>
+                    <h6 class="filter__title">Chất liệu</h6>
                   </div>
                 </div>
                 <div class="row mp--none">
@@ -117,54 +117,18 @@
               <div class="filter__block">
                 <div class="row mp--none">
                   <div class="col-12 mp--none">
-                    <h6 class="filter__title">Chat lieu</h6>
+                    <h6 class="filter__title">Giá</h6>
                   </div>
                 </div>
                 <div class="row mp--none">
                   <div class="col-12 mp--none">
                     <ul class="filter__list">
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="filter__block">
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
-                    <h6 class="filter__title">Chat lieu</h6>
-                  </div>
-                </div>
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
-                    <ul class="filter__list">
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                      <li class="filter__item py-4">
+                        <vs-slider
+                          v-model="filter.price"
+                          :color="'#ffb400'"
+                          step="1"
+                        />
                       </li>
                     </ul>
                   </div>
@@ -210,69 +174,6 @@
           <div
             v-for="(product, index) in productList"
             :key="index + 'product'"
-            class="card border-0 product__card product__list__item cursor--pointer"
-          >
-            <div class="card-body mp--none p-2">
-              <div
-                class="product__image"
-                :style="`background-image:url('${product.images[0].path}')`"
-              >
-                <div class="product__property">
-                  <span class="custom__badge">{{ product.property }}</span>
-                </div>
-                <div class="product__action animated flipInX">
-                  <vs-button
-                    color="#333333"
-                    type="flat"
-                    class="py-1 px-2 addtocart__btn"
-                    to="/san-pham"
-                    >ADD TO CARD</vs-button
-                  >
-                  <div>
-                    <vs-button color="#333333" type="flat" class="py-1 px-2"
-                      ><i class="material-icons">
-                        favorite_border
-                      </i></vs-button
-                    >
-                    <vs-button color="#333333" type="flat" class="py-1 px-2"
-                      ><i class="material-icons">
-                        compare_arrows
-                      </i></vs-button
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="product__info">
-                <div class="product__name my-2">
-                  {{ product.productName }}
-                </div>
-                <div class="product__detail my-2">
-                  <strong class="product__price"
-                    >{{
-                      new Intl.NumberFormat('vi-VN', {
-                        style: 'currency',
-                        currency: 'VND',
-                        minimumFractionDigits: 0,
-                      }).format(product.price)
-                    }}
-                    vnd</strong
-                  >
-                  <span class="product__star">
-                    <i
-                      v-for="i in product.star"
-                      :key="i"
-                      class="material-icons"
-                    >
-                      star_border
-                    </i>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- <div
-            v-for="(product, index) in productList"
-            :key="index + 'product'"
             class="card border-0 product__list__item cursor--pointer"
             @click="redirectTo(product.url)"
           >
@@ -312,7 +213,7 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -552,6 +453,9 @@ export default {
   data: () => ({
     checkBox1: false,
     productList: [],
+    filter: {
+      price: [0, 3000000],
+    },
   }),
   mounted() {
     this.getProductList();
@@ -619,13 +523,13 @@ export default {
   text-transform: uppercase;
   font-weight: bold;
   text-align: center;
-  color: $primary__color;
+  color: $primary__text;
 }
 .category__intro {
   text-align: center;
 }
 .category__action {
-  color: $primary__color !important;
+  color: $primary__text !important;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -640,10 +544,12 @@ export default {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  color: $muted__text;
+  font-size: 0.9rem;
 }
 .sort__component {
   padding-bottom: 0.8rem;
-  border-bottom: 1px solid $primary__color;
+  border-bottom: 1px solid $primary__text;
   margin: 0 2%;
 }
 .sort__component {
@@ -658,7 +564,7 @@ export default {
 }
 .breadcrumb__list li {
   list-style: none;
-  color: $primary__color;
+  color: $primary__text;
   margin: 0 0.8rem;
   position: relative;
 }
@@ -667,7 +573,7 @@ export default {
   position: absolute;
   height: 70%;
   width: 1px;
-  background-color: $primary__color;
+  background-color: $primary__text;
   transform: rotate(20deg) translateY(20%);
   right: -0.8rem;
 }
@@ -682,7 +588,7 @@ export default {
 }
 .sort__right,
 .sort__right a {
-  color: $primary__color;
+  color: $primary__text;
 }
 .vs-dropdown--item-link {
   white-space: nowrap !important;
@@ -695,8 +601,8 @@ export default {
 .filter__header h5,
 .category__header,
 .category__header h5 {
-  font-size: 1.5rem;
-  color: $primary__color !important;
+  font-size: 1.2rem;
+  color: $primary__text !important;
   font-weight: bold !important;
   cursor: pointer;
 }
@@ -716,7 +622,7 @@ export default {
   width: 40%;
   height: 4px;
   border-radius: 100px;
-  background-color: $primary__color !important;
+  background-color: $primary__text !important;
 }
 .filter__body,
 .category__body {
@@ -736,9 +642,9 @@ export default {
   cursor: pointer;
 }
 .filter__title {
-  color: $primary__color;
+  color: $primary__text;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 }
 .filter__title::before {
   position: absolute;
@@ -748,7 +654,7 @@ export default {
   width: 40%;
   height: 1px;
   border-radius: 100px;
-  background-color: $primary__color !important;
+  background-color: $primary__text !important;
 }
 .filter__list {
   padding-left: 0.4rem;
@@ -761,17 +667,18 @@ export default {
   margin: 0.4rem 0;
 }
 .con-slot-label {
-  color: $primary__color !important;
+  color: $muted__text !important;
+  font-size: 0.9rem !important;
 }
 .filter__item .vs-checkbox--check {
-  background: $primary__color !important ;
-  background-color: $primary__color !important ;
+  background: $muted__text !important ;
+  background-color: $muted__text !important ;
 }
 .filter__item .vs-checkbox-primary input:checked + .vs-checkbox {
-  border: 2px solid $primary__color !important;
+  border: 2px solid $muted__text !important;
 }
 .filter__item .vs-checkbox--input:checked + .vs-checkbox .vs-icon {
-  font-size: 16px;
+  font-size: 0.9rem;
 }
 .filter__block {
   margin-bottom: 0.8rem;
@@ -806,7 +713,7 @@ export default {
   align-items: center;
 }
 .border__primary {
-  border: 1px solid $primary__color;
+  border: 1px solid $primary__text;
 }
 .product__list__item__price {
   display: flex;
