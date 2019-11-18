@@ -26,7 +26,7 @@
     </div>
     <div class="desktop__header" :class="{ sticky: !showNavbar || alwayFix }">
       <div class="desktop__header_top">
-        <span>Miễn phí :Giao hàng miễn phí bán kính 70km</span>
+        <span>Miễn phí :Giao hàng trên bán kính 70km</span>
       </div>
       <div class="desktop__header_bottom p-2">
         <div class="leftside__header">
@@ -319,6 +319,7 @@ export default {
   }),
   mounted() {
     window.addEventListener('scroll', this.onScroll);
+    this.getPromotionHome();
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.onScroll);
