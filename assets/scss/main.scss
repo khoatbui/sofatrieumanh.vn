@@ -72,7 +72,18 @@ body {
   font-size: 0.7rem;
   border-radius: 5px;
 }
-
+.custom__hot {
+  background-color: #ffc2f3;
+  color: #620c50;
+}
+.custom__new {
+  background-color: #ffe2d9;
+  color: #d23001;
+}
+.custom__saleoff {
+  background-color: #e3dbff;
+  color: #5c39d4;
+}
 // TEXT PRIMARY
 .text__primary {
   color: $primary__color !important;

@@ -182,7 +182,19 @@
                 :style="`background-image:url('${product.images[0].path}')`"
               >
                 <div class="product__property">
-                  <span class="custom__badge">{{ product.property }}</span>
+                  <span v-if="product.isHot" class="custom__badge custom__hot"
+                    >Hot</span
+                  >
+                  <span
+                    v-if="product.isNewProduct"
+                    class="custom__badge custom__new"
+                    >Sản phẩm mới</span
+                  >
+                  <span
+                    v-if="product.isSaleOff"
+                    class="custom__badgecustom__saleoff"
+                    >SaleOff</span
+                  >
                 </div>
                 <div class="product__action animated flipInX">
                   <vs-button

@@ -22,7 +22,7 @@ const productSchema = new Schema({
   isNewProduct: {
     type: Boolean,
   },
-  isSaleOf: {
+  isSaleOff: {
     type: Boolean,
   },
   isActive: {
