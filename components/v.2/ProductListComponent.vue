@@ -174,6 +174,69 @@
           <div
             v-for="(product, index) in productList"
             :key="index + 'product'"
+            class="card border-0 product__card product__list__item cursor--pointer"
+          >
+            <div class="card-body mp--none p-2">
+              <div
+                class="product__image"
+                :style="`background-image:url('${product.images[0].path}')`"
+              >
+                <div class="product__property">
+                  <span class="custom__badge">{{ product.property }}</span>
+                </div>
+                <div class="product__action animated flipInX">
+                  <vs-button
+                    color="#333333"
+                    type="flat"
+                    class="py-1 px-2 addtocart__btn"
+                    to="/san-pham"
+                    >ADD TO CARD</vs-button
+                  >
+                  <div>
+                    <vs-button color="#333333" type="flat" class="py-1 px-2"
+                      ><i class="material-icons">
+                        favorite_border
+                      </i></vs-button
+                    >
+                    <vs-button color="#333333" type="flat" class="py-1 px-2"
+                      ><i class="material-icons">
+                        compare_arrows
+                      </i></vs-button
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="product__info">
+                <div class="product__name my-2">
+                  {{ product.productName }}
+                </div>
+                <div class="product__detail my-2">
+                  <strong class="product__price"
+                    >{{
+                      new Intl.NumberFormat('vi-VN', {
+                        style: 'currency',
+                        currency: 'VND',
+                        minimumFractionDigits: 0,
+                      }).format(product.price)
+                    }}
+                    vnd</strong
+                  >
+                  <span class="product__star">
+                    <i
+                      v-for="i in product.star"
+                      :key="i"
+                      class="material-icons"
+                    >
+                      star_border
+                    </i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div
+            v-for="(product, index) in productList"
+            :key="index + 'product'"
             class="card border-0 product__list__item cursor--pointer"
             @click="redirectTo(product.url)"
           >
@@ -213,7 +276,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -561,6 +624,7 @@ export default {
 .breadcrumb__list {
   display: flex;
   margin-bottom: 0 !important;
+  font-size: 0.9rem;
 }
 .breadcrumb__list li {
   list-style: none;
@@ -589,6 +653,7 @@ export default {
 .sort__right,
 .sort__right a {
   color: $primary__text;
+  font-size: 0.9rem !important;
 }
 .vs-dropdown--item-link {
   white-space: nowrap !important;

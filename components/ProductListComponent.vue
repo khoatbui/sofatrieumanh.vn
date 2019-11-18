@@ -655,6 +655,7 @@ export default {
 .breadcrumb__list {
   display: flex;
   margin-bottom: 0 !important;
+  font-size: 0.8rem;
 }
 .breadcrumb__list li {
   list-style: none;
@@ -686,6 +687,7 @@ export default {
 }
 .vs-dropdown--item-link {
   white-space: nowrap !important;
+  font-size: 0.8rem;
 }
 .filter__header,
 .category__header {
