@@ -1,258 +1,265 @@
 <template>
   <div class="productlist__component">
-    <div class="row mp--none category__component section__margin">
-      <div
-        class="col-12 col-md-10 mx-auto mp--none d-flex justify-content-center align-items-center flex-column"
-      >
-        <h1 class="category__name">Ghe sofa</h1>
-        <p class="category__intro">
-          Ở SofaTrieuManh – bạn sẽ không thể tìm được một bộ sofa giá rẻ hay
-          những chương trình khuyến mãi hấp dẫn, thậm chí bạn cũng sẽ phải là
-          một vị khách thật khó tính để “đòi hỏi” SofaTrieuManh cung cấp những
-          thông tin hữu ích cho chiếc ghế sofa mà bạn lựa chọn… Bởi vì… ở
-          SofaTrieuManh, bạn chỉ có thể nhận được một sản phẩm thật với giá trị
-          thật mà thôi.
-        </p>
-        <nuxt-link to="/" class="category__action"
-          ><i class="material-icons">
-            keyboard_backspace
-          </i>
-          Quay lai</nuxt-link
+    <div class="row mp--none category__component">
+      <div class="desktop__image__src">
+        <div
+          class="category__info w-100 d-flex justify-content-center align-items-center flex-column"
         >
+          <h1 class="category__name">Ghe sofa</h1>
+          <nuxt-link to="/" class="category__action"
+            ><i class="material-icons">
+              keyboard_backspace
+            </i>
+            Quay lai</nuxt-link
+          >
+        </div>
       </div>
     </div>
-    <div class="row mp--none">
-      <div class="col-0 col-md-4 col-lg-3 mp--none filter__component px-2">
-        <div class="category__sidebar my-4">
-          <div class="category__header">
-            <h5 v-b-toggle.collapse-category>
-              Danh mục sản phẩm
-            </h5>
-          </div>
-          <b-collapse
-            id="collapse-category"
-            visible
-            class="category__body mp--none"
-          >
-            <b-card class="border-0">
-              <div class="category__block">
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
-                    <ul class="category__list">
-                      <li class="category__item">
-                        <span class="category__item__name">Ghe Sofa</span>
-                        <span class="category__item__qty">10</span>
-                      </li>
-                      <li class="category__item">
-                        <span class="category__item__name">Ban Sofa</span>
-                        <span class="category__item__qty">10</span>
-                      </li>
-                      <li class="category__item">
-                        <span class="category__item__name">Sofa don</span>
-                        <span class="category__item__qty">10</span>
-                      </li>
-                      <li class="category__item">
-                        <span class="category__item__name">Sofa doi</span>
-                        <span class="category__item__qty">10</span>
-                      </li>
-                      <li class="category__item">
-                        <span class="category__item__name">Sofa hien dai</span>
-                        <span class="category__item__qty">10</span>
-                      </li>
-                      <li class="category__item">
-                        <span class="category__item__name">San pham khac</span>
-                        <span class="category__item__qty">10</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </b-card>
-          </b-collapse>
-        </div>
-        <div class="filter__sidebar mt-4">
-          <div class="filter__header">
-            <h5 v-b-toggle.collapse-filter>
-              Lọc sản phẩm
-
-              <i class="material-icons">
-                filter_list
-              </i>
-            </h5>
-          </div>
-          <b-collapse
-            id="collapse-filter"
-            visible
-            class="filter__body mp--none"
-          >
-            <b-card class="border-0">
-              <div class="filter__block">
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
-                    <h6 class="filter__title">Chất liệu</h6>
-                  </div>
-                </div>
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
-                    <ul class="filter__list">
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="filter__block">
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
-                    <h6 class="filter__title">Giá</h6>
-                  </div>
-                </div>
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
-                    <ul class="filter__list">
-                      <li class="filter__item py-4">
-                        <vs-slider
-                          v-model="filter.price"
-                          :color="'#ffb400'"
-                          step="1"
-                        />
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </b-card>
-          </b-collapse>
-        </div>
-      </div>
-      <div class="col-12 col-md-8 col-lg-9 mp--none product__component px-2">
-        <div class="sort__component">
-          <div class="breadcrumb__left">
-            <ul class="breadcrumb__list">
-              <li>Home</li>
-              <li>Danh mục</li>
-            </ul>
-          </div>
-          <div class="sort__right">
-            <vs-dropdown vs-trigger-click>
-              <a class="a-icon d-flex align-items-center" href="#">
-                Sắp xếp
-                <vs-icon class="" icon="expand_more"></vs-icon>
-              </a>
-
-              <vs-dropdown-menu>
-                <vs-dropdown-item>
-                  Gía cao đến thấp
-                </vs-dropdown-item>
-                <vs-dropdown-item>
-                  Giá thấp đến cao
-                </vs-dropdown-item>
-                <vs-dropdown-item divider>
-                  Phổ biến nhất
-                </vs-dropdown-item>
-                <vs-dropdown-item divider>
-                  Đánh giá cao nhất
-                </vs-dropdown-item>
-              </vs-dropdown-menu>
-            </vs-dropdown>
-          </div>
-        </div>
-        <div class="product__list">
-          <div class="row mp--none">
-            <div
-              v-for="(product, index) in productList"
-              :key="index + 'product'"
-              class="col-12 col-sm-6 col-md-3 col-lg-3"
+    <div class="container">
+      <div class="row mp--none">
+        <div class="col-0 col-md-4 col-lg-3 mp--none filter__component px-2">
+          <div class="category__sidebar my-4">
+            <div class="category__header">
+              <h5 v-b-toggle.collapse-category>
+                Danh mục sản phẩm
+              </h5>
+            </div>
+            <b-collapse
+              id="collapse-category"
+              visible
+              class="category__body mp--none"
             >
-              <div class="card border-0 product__card cursor--pointer">
-                <div class="card-body mp--none p-2">
-                  <div
-                    class="product__image"
-                    :style="`background-image:url('${product.images[0].path}')`"
-                  >
-                    <div class="product__property">
-                      <span
-                        v-if="product.isHot"
-                        class="custom__badge custom__hot"
-                        >Hot</span
-                      >
-                      <span
-                        v-if="product.isNewProduct"
-                        class="custom__badge custom__new"
-                        >Sản phẩm mới</span
-                      >
-                      <span
-                        v-if="product.isSaleOff"
-                        class="custom__badgecustom__saleoff"
-                        >SaleOff</span
-                      >
+              <b-card class="border-0">
+                <div class="category__block">
+                  <div class="row mp--none">
+                    <div class="col-12 mp--none">
+                      <ul class="category__list">
+                        <li class="category__item">
+                          <span class="category__item__name">Ghe Sofa</span>
+                          <span class="category__item__qty">10</span>
+                        </li>
+                        <li class="category__item">
+                          <span class="category__item__name">Ban Sofa</span>
+                          <span class="category__item__qty">10</span>
+                        </li>
+                        <li class="category__item">
+                          <span class="category__item__name">Sofa don</span>
+                          <span class="category__item__qty">10</span>
+                        </li>
+                        <li class="category__item">
+                          <span class="category__item__name">Sofa doi</span>
+                          <span class="category__item__qty">10</span>
+                        </li>
+                        <li class="category__item">
+                          <span class="category__item__name"
+                            >Sofa hien dai</span
+                          >
+                          <span class="category__item__qty">10</span>
+                        </li>
+                        <li class="category__item">
+                          <span class="category__item__name"
+                            >San pham khac</span
+                          >
+                          <span class="category__item__qty">10</span>
+                        </li>
+                      </ul>
                     </div>
-                    <div class="product__action animated flipInX">
-                      <vs-button
-                        color="#333333"
-                        type="flat"
-                        class="py-1 px-2 addtocart__btn"
-                        to="/san-pham"
-                        >ADD TO CARD</vs-button
-                      >
-                      <div>
-                        <vs-button color="#333333" type="flat" class="py-1 px-2"
-                          ><i class="material-icons">
-                            favorite_border
-                          </i></vs-button
+                  </div>
+                </div>
+              </b-card>
+            </b-collapse>
+          </div>
+          <div class="filter__sidebar mt-4">
+            <div class="filter__header">
+              <h5 v-b-toggle.collapse-filter>
+                Lọc sản phẩm
+
+                <i class="material-icons">
+                  filter_list
+                </i>
+              </h5>
+            </div>
+            <b-collapse
+              id="collapse-filter"
+              visible
+              class="filter__body mp--none"
+            >
+              <b-card class="border-0">
+                <div class="filter__block">
+                  <div class="row mp--none">
+                    <div class="col-12 mp--none">
+                      <h6 class="filter__title">Chất liệu</h6>
+                    </div>
+                  </div>
+                  <div class="row mp--none">
+                    <div class="col-12 mp--none">
+                      <ul class="filter__list">
+                        <li class="filter__item">
+                          <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                        </li>
+                        <li class="filter__item">
+                          <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
+                        </li>
+                        <li class="filter__item">
+                          <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
+                        </li>
+                        <li class="filter__item">
+                          <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
+                        </li>
+                        <li class="filter__item">
+                          <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="filter__block">
+                  <div class="row mp--none">
+                    <div class="col-12 mp--none">
+                      <h6 class="filter__title">Giá</h6>
+                    </div>
+                  </div>
+                  <div class="row mp--none">
+                    <div class="col-12 mp--none">
+                      <ul class="filter__list">
+                        <li class="filter__item py-4">
+                          <vs-slider
+                            v-model="filter.price"
+                            :color="'#ffb400'"
+                            step="1"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </b-card>
+            </b-collapse>
+          </div>
+        </div>
+        <div class="col-12 col-md-8 col-lg-9 mp--none product__component px-2">
+          <div class="sort__component">
+            <div class="breadcrumb__left">
+              <ul class="breadcrumb__list">
+                <li>Home</li>
+                <li>Danh mục</li>
+              </ul>
+            </div>
+            <div class="sort__right">
+              <vs-dropdown vs-trigger-click>
+                <a class="a-icon d-flex align-items-center" href="#">
+                  Sắp xếp
+                  <vs-icon class="" icon="expand_more"></vs-icon>
+                </a>
+
+                <vs-dropdown-menu>
+                  <vs-dropdown-item>
+                    Gía cao đến thấp
+                  </vs-dropdown-item>
+                  <vs-dropdown-item>
+                    Giá thấp đến cao
+                  </vs-dropdown-item>
+                  <vs-dropdown-item divider>
+                    Phổ biến nhất
+                  </vs-dropdown-item>
+                  <vs-dropdown-item divider>
+                    Đánh giá cao nhất
+                  </vs-dropdown-item>
+                </vs-dropdown-menu>
+              </vs-dropdown>
+            </div>
+          </div>
+          <div class="product__list">
+            <div class="row mp--none w-100">
+              <div
+                v-for="(product, index) in productList"
+                :key="index + 'product'"
+                class="col-12 col-sm-6 col-md-4 col-lg-4"
+              >
+                <div class="card border-0 product__card cursor--pointer">
+                  <div class="card-body mp--none p-2">
+                    <div
+                      class="product__image"
+                      :style="
+                        `background-image:url('${product.images[0].path}')`
+                      "
+                    >
+                      <div class="product__property">
+                        <span
+                          v-if="product.isHot"
+                          class="custom__badge custom__hot"
+                          >Hot</span
                         >
-                        <vs-button color="#333333" type="flat" class="py-1 px-2"
-                          ><i class="material-icons">
-                            compare_arrows
-                          </i></vs-button
+                        <span
+                          v-if="product.isNewProduct"
+                          class="custom__badge custom__new"
+                          >Sản phẩm mới</span
+                        >
+                        <span
+                          v-if="product.isSaleOff"
+                          class="custom__badgecustom__saleoff"
+                          >SaleOff</span
                         >
                       </div>
-                    </div>
-                  </div>
-                  <div class="product__info">
-                    <div class="product__name my-2">
-                      {{ product.productName }}
-                    </div>
-                    <div class="product__detail my-2">
-                      <strong class="product__price"
-                        >{{
-                          new Intl.NumberFormat('vi-VN', {
-                            style: 'currency',
-                            currency: 'VND',
-                            minimumFractionDigits: 0,
-                          }).format(product.price)
-                        }}
-                        vnd</strong
-                      >
-                      <span class="product__star">
-                        <i
-                          v-for="i in product.star"
-                          :key="i"
-                          class="material-icons"
+                      <div class="product__action animated flipInX">
+                        <vs-button
+                          color="#333333"
+                          type="flat"
+                          class="py-1 px-2 addtocart__btn"
+                          to="/san-pham"
+                          >ADD TO CARD</vs-button
                         >
-                          star_border
-                        </i>
-                      </span>
+                        <div>
+                          <vs-button
+                            color="#333333"
+                            type="flat"
+                            class="py-1 px-2"
+                            ><i class="material-icons">
+                              favorite_border
+                            </i></vs-button
+                          >
+                          <vs-button
+                            color="#333333"
+                            type="flat"
+                            class="py-1 px-2"
+                            ><i class="material-icons">
+                              compare_arrows
+                            </i></vs-button
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product__info">
+                      <div class="product__name my-2">
+                        {{ product.productName }}
+                      </div>
+                      <div class="product__detail my-2">
+                        <strong class="product__price"
+                          >{{
+                            new Intl.NumberFormat('vi-VN', {
+                              style: 'currency',
+                              currency: 'VND',
+                              minimumFractionDigits: 0,
+                            }).format(product.price)
+                          }}
+                          vnd</strong
+                        >
+                        <span class="product__star">
+                          <i
+                            v-for="i in product.star"
+                            :key="i"
+                            class="material-icons"
+                          >
+                            star_border
+                          </i>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- <div
+            <!-- <div
             v-for="(product, index) in productList"
             :key="index + 'product'"
             class="card border-0 product__list__item cursor--pointer"
@@ -295,6 +302,7 @@
               </div>
             </div>
           </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -599,6 +607,25 @@ export default {
 //   background-color: $secondary__color;
 //   color: $white__color;
 // }
+.category__info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.category__info h1,
+.category__info a {
+  color: $white__color !important;
+}
+.desktop__image__src {
+  background-image: url('/images/banner/banner_01.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 100%;
+  position: relative;
+}
 .category__name {
   font-size: 3rem;
   text-transform: uppercase;

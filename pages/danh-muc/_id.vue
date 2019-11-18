@@ -1,9 +1,7 @@
 <template>
   <div class="danhmuc__page">
     <section>
-      <div class="container">
-        <ProductListComponent />
-      </div>
+      <ProductListComponent />
     </section>
   </div>
 </template>
