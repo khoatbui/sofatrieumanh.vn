@@ -1,93 +1,104 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-const uniqueValidator = require('mongoose-unique-validator')
-mongoose.set('useCreateIndex', true)
-let productSchema = new Schema({
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const uniqueValidator = require('mongoose-unique-validator');
+mongoose.set('useCreateIndex', true);
+const productSchema = new Schema({
   productName: {
     type: String,
-    unique: true
+    unique: true,
   },
   productIntro: {
     type: String,
-    require: true
+    require: true,
   },
   content: {
     type: String,
-    require: true
+    require: true,
   },
   isHot: {
-    type: Boolean
+    type: Boolean,
+  },
+
+  isNewProduct: {
+    type: Boolean,
+  },
+  isSaleOf: {
+    type: Boolean,
   },
   isActive: {
-    type: Boolean
+    type: Boolean,
   },
   createBy: {
-    type: String
+    type: String,
   },
   createDate: {
     type: Date,
-    require: false
+    require: false,
   },
   modifyDate: {
     type: Date,
-    require: false
+    require: false,
   },
   url: {
     type: String,
-    require: false
+    require: false,
   },
   tags: {
     type: Array,
-    require: false
+    require: false,
   },
   productFrontMaterial: {
     type: String,
-    require: false
+    require: false,
   },
   productFrameMaterial: {
     type: String,
-    require: false
+    require: false,
   },
   size: {
     type: String,
-    require: false
+    require: false,
   },
   package: {
     type: String,
-    require: false
+    require: false,
   },
   price: {
     type: Number,
-    require: false
+    require: false,
   },
   oldPrice: {
     type: Number,
-    require: false
+    require: false,
   },
   category: {
     type: Array,
-    require: false
+    require: false,
   },
   images: {
     type: Array,
-    require: false
+    require: false,
   },
   productCode: {
     type: String,
-    require: true
+    require: true,
   },
   characteristics: {
     type: Array,
-    require: true
+    require: true,
   },
   video: {
     type: String,
-    require: false
+    require: false,
+  },
+  view: {
+    type: Number,
+    require: false,
   },
   buletPoint: {
     type: Array,
-    require: false
-  }
-})
-productSchema.plugin(uniqueValidator, { message: 'Url already in use.' })
-module.exports = mongoose.model('Product', productSchema, 'product')
+    require: false,
+  },
+});
+productSchema.plugin(uniqueValidator, { message: 'Url already in use.' });
+module.exports = mongoose.model('Product', productSchema, 'product');

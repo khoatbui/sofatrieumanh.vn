@@ -17,6 +17,7 @@ mongoose.connect(process.env.MONGO_URL, {
   useUnifiedTopology: true,
 });
 const app = express();
+//  origin: 'http://sofatrieumanh.com',
 const corsOptions = {
   origin: 'http://sofatrieumanh.com',
   credentials: true,

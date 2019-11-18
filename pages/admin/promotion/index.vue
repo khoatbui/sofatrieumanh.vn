@@ -150,7 +150,7 @@
                 class="w-100"
               />
             </div>
-            <div class="col-12 col-md-6 my-4 my-md-0 d-flex align-items-end">
+            <div class="col-12 col-md-3 my-4 my-md-0 d-flex align-items-end">
               <vs-chips
                 v-model="editedItem.tags"
                 color="rgb(145, 32, 159)"
@@ -167,6 +167,22 @@
                   {{ tag }}
                 </vs-chip>
               </vs-chips>
+            </div>
+            <div class="col-6 col-md-3">
+              <vs-select
+                v-model="editedItem.promotionLocation"
+                placeholder="Select..."
+                autocomplete
+                class="w-100"
+                label="Category"
+              >
+                <vs-select-item
+                  v-for="(item, index) in promotionLocations"
+                  :key="index"
+                  :value="item.code"
+                  :text="item.name"
+                />
+              </vs-select>
             </div>
           </div>
           <div class="row mp--none mb-3">
@@ -275,6 +291,11 @@ export default {
     },
     counterDanger: false,
     promotionList: [],
+    promotionLocations: [
+      { name: 'Slide trang home', code: 'SLIDE_HOME' },
+      { name: 'Giữa trang home', code: 'MIDDLE_HOME' },
+      { name: 'Sidebar', code: 'SIDEBAR_HOME' },
+    ],
   }),
   mounted() {
     this.getPromotionList();

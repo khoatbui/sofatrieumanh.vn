@@ -6,17 +6,22 @@
     <section class="section__margin--b">
       <HotPromotion />
     </section>
-    <section class="section__margin-y">
+    <section class="section__margin--y">
       <div class="container">
         <TopProductComponent />
       </div>
     </section>
-    <section class="section__margin-y">
+    <section class="section__margin--y">
       <div class="container">
         <HotBlogComponent />
       </div>
     </section>
-    <section class="section__margin-y">
+    <section class="section__margin--y">
+      <div class="container">
+        <SubscribeComponent />
+      </div>
+    </section>
+    <section class="section__margin--y">
       <FollowUsComponent />
     </section>
   </div>
@@ -30,6 +35,7 @@ export default {
     TopProductComponent: () => import('@/components/v.2/TopProductComponent'),
     HotBlogComponent: () => import('@/components/v.2/HotBlogComponent'),
     FollowUsComponent: () => import('@/components/v.2/FollowUsComponent'),
+    SubscribeComponent: () => import('@/components/v.2/SubscribeComponent'),
   },
 };
 </script>

@@ -1,53 +1,57 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-const uniqueValidator = require('mongoose-unique-validator')
-mongoose.set('useCreateIndex', true)
-let promotionSchema = new Schema({
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const uniqueValidator = require('mongoose-unique-validator');
+mongoose.set('useCreateIndex', true);
+const promotionSchema = new Schema({
   promotionName: {
     type: String,
-    unique: true
+    unique: true,
   },
   promotionIntro: {
     type: String,
-    require: true
+    require: true,
   },
   content: {
     type: String,
-    require: true
+    require: true,
   },
   isHot: {
-    type: Boolean
+    type: Boolean,
   },
   isActive: {
-    type: Boolean
+    type: Boolean,
   },
   createBy: {
-    type: String
+    type: String,
   },
   createDate: {
     type: Date,
-    require: false
+    require: false,
   },
   modifyDate: {
     type: Date,
-    require: false
+    require: false,
   },
   url: {
     type: String,
-    require: false
+    require: false,
   },
   tags: {
     type: Array,
-    require: false
+    require: false,
   },
   images: {
     type: Array,
-    require: false
+    require: false,
   },
   validDate: {
     type: Date,
-    require: true
-  }
-})
-promotionSchema.plugin(uniqueValidator, { message: 'Url already in use.' })
-module.exports = mongoose.model('Promotion', promotionSchema, 'promotion')
+    require: true,
+  },
+  promotionLocation: {
+    type: String,
+    require: false,
+  },
+});
+promotionSchema.plugin(uniqueValidator, { message: 'Url already in use.' });
+module.exports = mongoose.model('Promotion', promotionSchema, 'promotion');

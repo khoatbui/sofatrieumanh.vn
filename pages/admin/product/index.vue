@@ -89,7 +89,7 @@
       >
         <div class="popup_body">
           <div class="row mp--none mb-3">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-4">
               <vs-input
                 v-model="editedItem.productName"
                 label="Tên sản phẩm"
@@ -111,6 +111,16 @@
             <div class="col-6 col-md-2 my-4 my-md-0 d-flex align-items-end">
               <vs-checkbox v-model="editedItem.isHot"
                 >Sản phẩm hot ?</vs-checkbox
+              >
+            </div>
+            <div class="col-6 col-md-2 my-4 my-md-0 d-flex align-items-end">
+              <vs-checkbox v-model="editedItem.isNewProduct"
+                >Sản phẩm mới ?</vs-checkbox
+              >
+            </div>
+            <div class="col-6 col-md-2 my-4 my-md-0 d-flex align-items-end">
+              <vs-checkbox v-model="editedItem.isSaleOff"
+                >Sản phẩm khuyến mãi ?</vs-checkbox
               >
             </div>
           </div>
@@ -336,6 +346,8 @@ export default {
       productName: '',
       productIntro: '',
       isHot: false,
+      isNewProduct: false,
+      isSaleOff: false,
       isActive: true,
       createDate: '',
       modifyDate: '',
@@ -355,6 +367,8 @@ export default {
       productName: '',
       productIntro: '',
       isHot: false,
+      isNewProduct: false,
+      isSaleOff: false,
       isActive: true,
       createDate: '',
       modifyDate: '',
