@@ -1,9 +1,9 @@
 <template>
   <div class="home__page">
-    <section>
+    <section class="new__category">
       <NewCategory />
     </section>
-    <section class="section__margin--b">
+    <section class="hot__promotion section__margin--b">
       <HotPromotion />
     </section>
     <section class="section__margin--y">

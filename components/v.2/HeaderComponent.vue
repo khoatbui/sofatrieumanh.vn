@@ -9,15 +9,15 @@
           :dots="false"
           :loop="true"
         >
-          <div v-for="(pic, i) in headerPicture" :key="i + 'pic'">
+          <div v-for="(pic, i) in promotionList" :key="i + 'pic'">
             <div
-              :style="`background-image:url('${pic.image}')`"
+              :style="`background-image:url('/images/banner/banner_0${i}.jpg')`"
               class="desktop__image__src"
             >
               <div class="promotion__header__content">
                 <h6>{{ pic.promotionName }}</h6>
                 <p>{{ pic.promotionIntro }}</p>
-                <button>Xem ngay</button>
+                <button :to="pic.url">Xem ngay</button>
               </div>
             </div>
           </div>
@@ -307,6 +307,7 @@ export default {
         promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
       },
     ],
+    promotionList: [],
     showNavbar: true,
     lastScrollPosition: 0,
   }),
@@ -337,6 +338,24 @@ export default {
 
       // this.showNavbar = currentScrollPosition < this.lastScrollPosition;
       // this.lastScrollPosition = currentScrollPosition;
+    },
+    getPromotionHome() {
+      this.$axios
+        .get(`${process.env.API_HTTP}/promotionapi/promotion-bytype/SLIDE_HOME`)
+        .then(response => {
+          this.promotionList = response.data;
+          this.$vs.loading.close();
+        })
+        .catch(error => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error,
+          });
+        })
+        .finally(() => {
+          this.$vs.loading.close();
+        });
     },
   },
 };
