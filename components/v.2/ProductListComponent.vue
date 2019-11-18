@@ -174,7 +174,7 @@
           <div
             v-for="(product, index) in productList"
             :key="index + 'product'"
-            class="card border-0 product__card product__list__item cursor--pointer"
+            class="card border-0 product__card cursor--pointer"
           >
             <div class="card-body mp--none p-2">
               <div
@@ -761,60 +761,8 @@ export default {
   align-items: center;
   flex-wrap: wrap;
 }
-.product__list__item {
-  width: 98%;
-  min-height: 250px;
-  margin: 1%;
-}
-.product__list__item__img {
-  background-image: url('/images/product/pro_01.jpg');
-  min-height: 150px;
-  background-size: cover;
-  background-position: center;
-}
-.product__list__item__action {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .border__primary {
   border: 1px solid $primary__text;
-}
-.product__list__item__price {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.product__list__item__name {
-  color: $promotion__bg__color;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  margin: 0.4rem auto;
-}
-.product__list__item__detail {
-  margin: 1.6rem 0;
-}
-.product__list__item__detail .current__price {
-  font-size: 1.3rem;
-  color: $danger__color !important;
-}
-.product__list__item__detail .discount__price {
-  color: $promotion__bg__color;
-}
-.product__list__item__detail .discount__price,
-.product__list__item__detail .current__price {
-  margin: 0 0.4rem;
-}
-.product__list__item__img--04 {
-  background-image: url('/images/product/pro_04.jpg');
-}
-.product__list__item__img--02 {
-  background-image: url('/images/product/pro_02.jpg');
-}
-.product__list__item__img--03 {
-  background-image: url('/images/product/pro_05.jpg');
 }
 
 .filter__component {
@@ -875,13 +823,84 @@ export default {
   border-radius: 0 !important;
   min-height: 100vh;
 }
+.product__card {
+  transition-duration: 1s;
+}
+.product__card:hover {
+  transform: translateY(-5px);
+}
+.product__card:left {
+  transform: translateY(5px);
+}
+.product__property {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+}
+.product__image:hover .product__action,
+.product__image:focus .product__action {
+  display: flex;
+}
+.product__action {
+  display: none;
+  position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $white__color !important;
+  padding: 0.8rem;
+}
+.product__action button {
+  font-size: 0.8rem;
+}
+.addtocart__btn {
+  font-weight: 600;
+  background-color: $white__color !important;
+}
+.product__action button:hover {
+  background-color: $white__color !important;
+  color: $primary__color !important;
+}
+.product__action i {
+  font-size: 1rem;
+}
+.product__info {
+  margin: 1.6rem 0;
+}
+.product__image {
+  position: relative;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.product__name {
+  color: $primary__text;
+  font-size: 0.9rem;
+}
+.product__detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.product__price {
+  color: $danger__text;
+  font-size: 0.9rem;
+}
+.product__star {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.product__star i {
+  font-size: 1rem !important;
+  color: $warning__text;
+}
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-  .product__list__item {
-    width: 98%;
-    min-height: 250px;
-    margin: 1%;
-  }
   .filter__component {
     display: none;
   }
@@ -889,11 +908,6 @@ export default {
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .product__list__item {
-    width: 48%;
-    min-height: 250px;
-    margin: 1%;
-  }
   .filter__component {
     display: block;
   }
@@ -901,11 +915,6 @@ export default {
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  .product__list__item {
-    width: 31%;
-    min-height: 250px;
-    margin: 1%;
-  }
   .filter__component {
     display: block;
   }
@@ -913,11 +922,6 @@ export default {
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  .product__list__item {
-    width: 31%;
-    min-height: 250px;
-    margin: 1%;
-  }
   .filter__component {
     display: block;
   }
