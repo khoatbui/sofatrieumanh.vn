@@ -1,6 +1,6 @@
 <template>
   <div class="newheader__component">
-    <div class="desktop__img">
+    <div v-show="!alwayFix" class="desktop__img">
       <client-only>
         <carousel
           items="1"
@@ -24,7 +24,7 @@
         </carousel>
       </client-only>
     </div>
-    <div class="desktop__header" :class="{ sticky: !showNavbar }">
+    <div class="desktop__header" :class="{ sticky: !showNavbar || alwayFix }">
       <div class="desktop__header_top">
         <span>Miễn phí :Giao hàng miễn phí bán kính 70km</span>
       </div>
@@ -268,6 +268,12 @@
 </template>
 <script>
 export default {
+  props: {
+    alwayFix: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data: () => ({
     search: '',
     headerPicture: [

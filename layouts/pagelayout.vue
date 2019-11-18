@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderComponent :alway-fix="false" />
+    <HeaderComponent :alway-fix="true" />
     <nuxt class="body__section" />
     <FooterComponent />
   </div>

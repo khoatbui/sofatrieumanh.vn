@@ -361,7 +361,7 @@ export default {
     getPromotionList() {
       this.$vs.loading();
       this.$axios
-        .get(`${process.env.API_HTTP}/api/promotionapi/`)
+        .get(`${process.env.API_HTTP}/promotionapi/`)
         .then(response => {
           this.promotionList = response.data;
           this.$vs.loading.close();
@@ -382,7 +382,7 @@ export default {
       if (this.editedIndex === -1) {
         this.$axios
           .post(
-            `${process.env.API_HTTP}/api/promotionapi/register-promotion`,
+            `${process.env.API_HTTP}/promotionapi/register-promotion`,
             this.editedItem
           )
           .then(result => {
