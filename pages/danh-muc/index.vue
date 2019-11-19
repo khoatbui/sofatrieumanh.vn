@@ -1,6 +1,6 @@
 <template>
   <div class="danhmuc__page">
-    <section>
+    <section class="section__margin--y">
       <ProductListComponent />
     </section>
   </div>

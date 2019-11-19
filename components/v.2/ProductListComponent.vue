@@ -944,6 +944,9 @@ export default {
   font-size: 1rem !important;
   color: $warning__text;
 }
+.con-vs-slider {
+  min-width: auto !important;
+}
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .filter__component {

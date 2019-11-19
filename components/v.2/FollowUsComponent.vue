@@ -21,7 +21,7 @@
     </client-only>
 
     <vs-button color="warning" type="filled" class="followus__btn">
-      <img src="/images/icon/facebook.png" alt="" />
+      <img src="/images/icon/facebook-50.png" alt="" />
       Follow us on Facebook</vs-button
     >
   </div>

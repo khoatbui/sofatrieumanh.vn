@@ -100,7 +100,7 @@
                   target="_blank"
                 >
                   <img
-                    src="/images/icon/facebook.png"
+                    src="/images/icon/facebook-50.png"
                     alt=""
                     class="footer__social mx-1"
                 /></a>
@@ -109,17 +109,17 @@
                   target="_blank"
                 >
                   <img
-                    src="/images/icon/youtube.png"
+                    src="/images/icon/youtube-50.png"
                     alt=""
                     class="footer__social mx-1"
                 /></a>
                 <img
-                  src="/images/icon/zalo.png"
+                  src="/images/icon/zalo-50.png"
                   alt=""
                   class="footer__social mx-1"
                 />
                 <img
-                  src="/images/icon/skype.png"
+                  src="/images/icon/skype-50.png"
                   alt=""
                   class="footer__social mx-1"
                 />
@@ -155,8 +155,8 @@
 
 <style lang="scss">
 .footer__component {
-  background-color: $secondary__color;
-  color: $white__color;
+  background-color: $primary__color;
+  color: $secondary__color;
 }
 .footer__top {
   padding: 2rem 0 1rem 0;
@@ -174,12 +174,12 @@
   font-size: 0.9rem;
 }
 .footer__top__item a {
-  color: $white__color;
+  color: $secondary__color;
   text-decoration: none !important;
 }
 .footer__top__title::before {
   content: '';
-  border-bottom: 3px solid $white__color;
+  border-bottom: 3px solid $secondary__color;
   position: absolute;
   top: 2.5rem;
   width: 40%;
@@ -200,7 +200,7 @@
   padding: 0.4rem 0.8rem;
   margin: 0;
   margin-left: -10px;
-  background-color: $primary__color;
+  background-color: $secondary__color;
   color: $white__color;
   font-weight: bold;
 }
@@ -212,14 +212,14 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid $white__color;
+  border-top: 1px solid $secondary__color;
   font-size: 0.9rem;
 }
 .footer__bottom__right a {
   text-decoration: none !important;
-  color: $white__color;
+  color: $secondary__color;
   padding: 0 0.4rem;
-  border-right: 1px solid $white__color;
+  border-right: 1px solid $secondary__color;
 }
 .footer__bottom__right a:last-child {
   border: none !important;
