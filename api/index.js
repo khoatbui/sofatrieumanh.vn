@@ -42,7 +42,7 @@ const promotionRouter = require('./routers/promotion.router');
 // ↧↧↧↧↧↧↧ ****************ROUTER****************
 
 const host = process.env.API_HOST || '127.0.0.1';
-const port = process.env.API_PORT || 3001;
+const port = process.env.API_PORT || 3002;
 app.use('/blogapi', blogRouter);
 app.use('/uploadapi', uploadRouter);
 app.use('/productapi', productRouter);

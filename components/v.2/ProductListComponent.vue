@@ -206,8 +206,8 @@
                           color="#333333"
                           type="flat"
                           class="py-1 px-2 addtocart__btn"
-                          to="/san-pham"
-                          >ADD TO CARD</vs-button
+                          :to="`/san-pham/${product.url}`"
+                          >CHỌN MUA</vs-button
                         >
                         <div>
                           <vs-button
@@ -235,15 +235,21 @@
                       </div>
                       <div class="product__detail my-2">
                         <strong class="product__price"
-                          >{{
+                          ><span class="current__price">{{
                             new Intl.NumberFormat('vi-VN', {
                               style: 'currency',
                               currency: 'VND',
                               minimumFractionDigits: 0,
                             }).format(product.price)
-                          }}
-                          vnd</strong
-                        >
+                          }}</span>
+                          <span class="discount__price">{{
+                            new Intl.NumberFormat('vi-VN', {
+                              style: 'currency',
+                              currency: 'VND',
+                              minimumFractionDigits: 0,
+                            }).format(product.oldPrice)
+                          }}</span>
+                        </strong>
                         <span class="product__star">
                           <i
                             v-for="i in product.star"
@@ -932,8 +938,14 @@ export default {
   font-size: 0.9rem;
 }
 .product__price {
-  color: $danger__text;
   font-size: 0.9rem;
+}
+.current__price {
+  color: $danger__text;
+}
+.discount__price {
+  color: $primary__text__color;
+  text-decoration: line-through;
 }
 .product__star {
   display: flex;

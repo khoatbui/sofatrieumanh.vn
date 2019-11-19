@@ -64,7 +64,7 @@ module.exports = {
    */
   plugins: [
     { src: 'plugins/owl.js', ssr: false },
-    { src: '~/plugins/vue-product-zoomer.js', mode: 'client' },
+    { src: '~/plugins/zoomer.js', mode: 'client' },
   ],
   /*
    ** Nuxt.js dev-modules
