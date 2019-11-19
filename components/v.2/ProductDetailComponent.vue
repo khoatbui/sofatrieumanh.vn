@@ -1,5 +1,20 @@
 <template>
   <div class="product__detail__component">
+    <div class="row mp--none category__component">
+      <div class="desktop__image__src">
+        <div
+          class="category__info w-100 d-flex justify-content-center align-items-center flex-column"
+        >
+          <h1 class="category__name">Sản phẩm</h1>
+          <nuxt-link to="/" class="category__action"
+            ><i class="material-icons">
+              keyboard_backspace
+            </i>
+            Quay lại</nuxt-link
+          >
+        </div>
+      </div>
+    </div>
     <div class="product__overview container">
       <div class="row mp--none">
         <div class="col-12 col-md-6 mp--none">
@@ -621,5 +636,44 @@ export default {
 }
 .image__list__item:hover {
   border: 1px solid $danger__color;
+}
+
+.desktop__image__src {
+  background-image: url('/images/banner/banner_03.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 100%;
+  position: relative;
+}
+.category__name {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  color: $primary__text;
+}
+.category__intro {
+  text-align: center;
+}
+.category__action {
+  color: $primary__text !important;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  font-size: 1.2rem;
+}
+.category__action:hover {
+  text-decoration: none !important;
+}
+.category__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  color: $muted__text;
+  font-size: 0.9rem;
 }
 </style>
