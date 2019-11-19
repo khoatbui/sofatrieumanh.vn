@@ -20,7 +20,6 @@ router.get(
   '/product-list-by-state/trend',
   controller.getAllProductsListByTrend
 );
-near;
 
 router.post(
   '/register-product',
