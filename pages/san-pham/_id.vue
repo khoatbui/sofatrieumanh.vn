@@ -1,10 +1,8 @@
 <template>
   <div class="product__page">
-    <div class="section__margin">
-      <div class="row mp--none">
-        <div class="col-12 mp--none">
-          <ProductDetailComponent />
-        </div>
+    <div class="row mp--none">
+      <div class="col-12 mp--none">
+        <ProductDetailComponent />
       </div>
     </div>
     <div class="section__margin">

@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="product__overview container">
+    <div class="product__overview container section__margin--y">
       <div class="row mp--none">
         <div class="col-12 col-md-6 mp--none">
           <div class="row mp--none">
