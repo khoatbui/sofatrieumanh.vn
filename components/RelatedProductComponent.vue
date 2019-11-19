@@ -23,14 +23,14 @@
                 </div>
                 <div class="product__item__action">
                   <vs-button
-                    :color="'#156867'"
+                    :color="'#2d2430'"
                     type="border"
                     class="border__radius--none px-2 py-1 m-1"
                     @click="redirectToComparePage"
                     >Xem nhanh</vs-button
                   >
                   <vs-button
-                    :color="'#156867'"
+                    :color="'#2d2430'"
                     type="filled"
                     class="border__radius--none px-2 py-1 m-1 border__primary"
                     @click="redirectToProductPage"
@@ -53,14 +53,14 @@
                 </div>
                 <div class="product__item__action">
                   <vs-button
-                    :color="'#156867'"
+                    :color="'#2d2430'"
                     type="border"
                     class="border__radius--none px-2 py-1 m-1"
                     @click="redirectToComparePage"
                     >Xem nhanh</vs-button
                   >
                   <vs-button
-                    :color="'#156867'"
+                    :color="'#2d2430'"
                     type="filled"
                     class="border__radius--none px-2 py-1 m-1 border__primary"
                     @click="redirectToProductPage"
@@ -83,14 +83,14 @@
                 </div>
                 <div class="product__item__action">
                   <vs-button
-                    :color="'#156867'"
+                    :color="'#2d2430'"
                     type="border"
                     class="border__radius--none px-2 py-1 m-1"
                     @click="redirectToComparePage"
                     >Xem nhanh</vs-button
                   >
                   <vs-button
-                    :color="'#156867'"
+                    :color="'#2d2430'"
                     type="filled"
                     class="border__radius--none px-2 py-1 m-1 border__primary"
                     @click="redirectToProductPage"
@@ -113,14 +113,14 @@
                 </div>
                 <div class="product__item__action">
                   <vs-button
-                    :color="'#156867'"
+                    :color="'#2d2430'"
                     type="border"
                     class="border__radius--none px-2 py-1 m-1"
                     @click="redirectToComparePage"
                     >Xem nhanh</vs-button
                   >
                   <vs-button
-                    :color="'#156867'"
+                    :color="'#2d2430'"
                     type="filled"
                     class="border__radius--none px-2 py-1 m-1 border__primary"
                     @click="redirectToProductPage"
@@ -143,14 +143,14 @@
                 </div>
                 <div class="product__item__action">
                   <vs-button
-                    :color="'#156867'"
+                    :color="'#2d2430'"
                     type="border"
                     class="border__radius--none px-2 py-1 m-1"
                     @click="redirectToComparePage"
                     >Xem nhanh</vs-button
                   >
                   <vs-button
-                    :color="'#156867'"
+                    :color="'#2d2430'"
                     type="filled"
                     class="border__radius--none px-2 py-1 m-1 border__primary"
                     @click="redirectToProductPage"
@@ -173,14 +173,14 @@
                 </div>
                 <div class="product__item__action">
                   <vs-button
-                    :color="'#156867'"
+                    :color="'#2d2430'"
                     type="border"
                     class="border__radius--none px-2 py-1 m-1"
                     @click="redirectToComparePage"
                     >Xem nhanh</vs-button
                   >
                   <vs-button
-                    :color="'#156867'"
+                    :color="'#2d2430'"
                     type="filled"
                     class="border__radius--none px-2 py-1 m-1 border__primary"
                     @click="redirectToProductPage"

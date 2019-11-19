@@ -45,7 +45,7 @@
                         >
                         <span
                           v-if="pro.isSaleOff"
-                          class="custom__badgecustom__saleoff"
+                          class="custom__badge custom__saleoff"
                           >SaleOff</span
                         >
                       </div>
@@ -130,7 +130,7 @@
                         >
                         <span
                           v-if="pro.isSaleOff"
-                          class="custom__badgecustom__saleoff"
+                          class="custom__badge custom__saleoff"
                           >SaleOff</span
                         >
                       </div>
@@ -215,7 +215,7 @@
                         >
                         <span
                           v-if="pro.isSaleOff"
-                          class="custom__badgecustom__saleoff"
+                          class="custom__badge custom__saleoff"
                           >SaleOff</span
                         >
                       </div>
@@ -300,7 +300,7 @@
                         >
                         <span
                           v-if="pro.isSaleOff"
-                          class="custom__badgecustom__saleoff"
+                          class="custom__badge custom__saleoff"
                           >SaleOff</span
                         >
                       </div>

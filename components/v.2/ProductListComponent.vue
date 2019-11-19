@@ -5,17 +5,17 @@
         <div
           class="category__info w-100 d-flex justify-content-center align-items-center flex-column"
         >
-          <h1 class="category__name">Ghe sofa</h1>
+          <h1 class="category__name">{{ categoryDetail.menuName }}</h1>
           <nuxt-link to="/" class="category__action"
             ><i class="material-icons">
               keyboard_backspace
             </i>
-            Quay lai</nuxt-link
+            Quay lại</nuxt-link
           >
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container mt-4 pt-4">
       <div class="row mp--none">
         <div class="col-0 col-md-4 col-lg-3 mp--none filter__component px-2">
           <div class="category__sidebar my-4">
@@ -128,6 +128,22 @@
                             :color="'#ffb400'"
                             step="1"
                           />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="filter__block">
+                  <div class="row mp--none">
+                    <div class="col-12 mp--none">
+                      <h6 class="filter__title">Tag</h6>
+                    </div>
+                  </div>
+                  <div class="row mp--none">
+                    <div class="col-12 mp--none">
+                      <ul class="filter__list">
+                        <li class="filter__item py-4">
+                          <span class="tag__badge">Sofa</span>
                         </li>
                       </ul>
                     </div>
@@ -359,28 +375,16 @@
                 <div class="row mp--none">
                   <div class="col-12 mp--none">
                     <ul class="category__list">
-                      <li class="category__item">
-                        <span class="category__item__name">Ghe Sofa</span>
-                        <span class="category__item__qty">10</span>
-                      </li>
-                      <li class="category__item">
-                        <span class="category__item__name">Ban Sofa</span>
-                        <span class="category__item__qty">10</span>
-                      </li>
-                      <li class="category__item">
-                        <span class="category__item__name">Sofa don</span>
-                        <span class="category__item__qty">10</span>
-                      </li>
-                      <li class="category__item">
-                        <span class="category__item__name">Sofa doi</span>
-                        <span class="category__item__qty">10</span>
-                      </li>
-                      <li class="category__item">
-                        <span class="category__item__name">Sofa hien dai</span>
-                        <span class="category__item__qty">10</span>
-                      </li>
-                      <li class="category__item">
-                        <span class="category__item__name">San pham khac</span>
+                      <li
+                        v-for="(cte, index) in categoryList"
+                        :key="index + 'ctae'"
+                        class="category__item"
+                      >
+                        <nuxt-link :to="`/danh-muc/${cte.url}`"
+                          ><span class="category__item__name">{{
+                            cte.menuName
+                          }}</span></nuxt-link
+                        >
                         <span class="category__item__qty">10</span>
                       </li>
                     </ul>
@@ -550,10 +554,15 @@ export default {
     productList: [],
     filter: {
       price: [0, 3000000],
+      tags: [],
+      material: [],
     },
+    categoryDetail: {},
+    categoryList: [],
   }),
   mounted() {
     this.getProductList();
+    this.GetCategoryList();
   },
   methods: {
     hideCategoryModal() {
@@ -561,6 +570,82 @@ export default {
     },
     hideFilterModal() {
       this.$refs['modal-filter'].hide();
+    },
+    GetCategoryName() {
+      if (this.$route.params.id.length > 0) {
+        this.$axios
+          .get(
+            `${process.env.API_HTTP}/menuapi/single-menu-with-url/${this.$route.params.id}`
+          )
+          .then(response => {
+            this.categoryDetail = response.data;
+            this.$vs.loading.close();
+          })
+          .catch(error => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Opps!',
+              text: error,
+            });
+          })
+          .finally(() => {
+            this.$vs.loading.close();
+          });
+      } else {
+        this.$axios
+          .get(`${process.env.API_HTTP}/productapi/product-list`)
+          .then(response => {
+            this.productList = response.data;
+            this.$vs.loading.close();
+          })
+          .catch(error => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Opps!',
+              text: error,
+            });
+          })
+          .finally(() => {
+            this.$vs.loading.close();
+          });
+      }
+    },
+    GetCategoryList() {
+      if (this.$route.params.id.length > 0) {
+        this.$axios
+          .get(`${process.env.API_HTTP}/menuapi/get-category-withurl/`)
+          .then(response => {
+            this.categoryList = response.data;
+            this.$vs.loading.close();
+          })
+          .catch(error => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Opps!',
+              text: error,
+            });
+          })
+          .finally(() => {
+            this.$vs.loading.close();
+          });
+      } else {
+        this.$axios
+          .get(`${process.env.API_HTTP}/productapi/product-list`)
+          .then(response => {
+            this.productList = response.data;
+            this.$vs.loading.close();
+          })
+          .catch(error => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Opps!',
+              text: error,
+            });
+          })
+          .finally(() => {
+            this.$vs.loading.close();
+          });
+      }
     },
     getProductList() {
       this.$vs.loading();
@@ -958,6 +1043,12 @@ export default {
 }
 .con-vs-slider {
   min-width: auto !important;
+}
+.tag__badge {
+  background-color: $white__color;
+  border: 1px solid $secondary__color;
+  border-radius: 100px;
+  padding: 0.4rem 0.8rem;
 }
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
