@@ -27,7 +27,7 @@
                   <div class="card-body mp--none p-2">
                     <div
                       class="product__image"
-                      :style="`background-image:url('${pro.productImage}')`"
+                      :style="`background-image:url('${pro.images[0].path}')`"
                     >
                       <div class="product__property">
                         <span v-if="pro.isHot" class="custom__badge custom__hot"
@@ -107,7 +107,7 @@
                   <div class="card-body mp--none p-2">
                     <div
                       class="product__image"
-                      :style="`background-image:url('${pro.productImage}')`"
+                      :style="`background-image:url('${pro.images[0].path}')`"
                     >
                       <div class="product__property">
                         <span v-if="pro.isHot" class="custom__badge custom__hot"
@@ -187,7 +187,7 @@
                   <div class="card-body mp--none p-2">
                     <div
                       class="product__image"
-                      :style="`background-image:url('${pro.productImage}')`"
+                      :style="`background-image:url('${pro.images[0].path}')`"
                     >
                       <div class="product__property">
                         <span v-if="pro.isHot" class="custom__badge custom__hot"
@@ -267,7 +267,7 @@
                   <div class="card-body mp--none p-2">
                     <div
                       class="product__image"
-                      :style="`background-image:url('${pro.productImage}')`"
+                      :style="`background-image:url('${pro.images[0].path}')`"
                     >
                       <div class="product__property">
                         <span v-if="pro.isHot" class="custom__badge custom__hot"
