@@ -438,7 +438,6 @@ export default {
   }),
   watch: {
     activeTab(newVal) {
-      console.log(newVal);
       if (newVal === 0) {
         this.getTopProductComponent('hot');
       } else if (newVal === 1) {
@@ -452,7 +451,6 @@ export default {
   },
   methods: {
     getTopProductComponent(category) {
-      console.log('a');
       this.$vs.loading();
       this.$axios
         .get(
