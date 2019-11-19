@@ -267,7 +267,12 @@
                   <div class="card-body mp--none p-2">
                     <div
                       class="product__image"
-                      :style="`background-image:url('${pro.images[0].path}')`"
+                      :style="
+                        typeof pro.images[0] === 'undefined' ||
+                        pro.images.length === 0
+                          ? `background-image:url('${pro.images[0].path}')`
+                          : `background-image:url('/images/product/1-01.jpg')`
+                      "
                     >
                       <div class="product__property">
                         <span v-if="pro.isHot" class="custom__badge custom__hot"
@@ -448,6 +453,9 @@ export default {
         this.getTopProductComponent('trend');
       }
     },
+  },
+  mounted() {
+    this.getTopProductComponent('hot');
   },
   methods: {
     getTopProductComponent(category) {
