@@ -29,6 +29,9 @@ module.exports.getAllProductsList = function(req, res) {
         price: 1,
         oldPrice: 1,
         _id: 1,
+        images:1,
+        isNewProduct: 1,
+        isSaleOff: 1,
         createDate: 1,
         isHot: 1,
         url: 1,
@@ -54,6 +57,7 @@ module.exports.getAllProductsListByNew = function(req, res) {
         _id: 1,
         createDate: 1,
         isHot: 1,
+        images:1,
         isNewProduct: 1,
         isSaleOff: 1,
         url: 1,
@@ -80,6 +84,7 @@ module.exports.getAllProductsListBySaleOff = function(req, res) {
         createDate: 1,
         isHot: 1,
         isNewProduct: 1,
+        images:1,
         isSaleOff: 1,
         url: 1,
       })
@@ -105,6 +110,7 @@ module.exports.getAllProductsListByHot = function(req, res) {
         createDate: 1,
         isHot: 1,
         isNewProduct: 1,
+        images:1,
         isSaleOff: 1,
         url: 1,
       })
@@ -130,7 +136,7 @@ module.exports.getAllProductsListByTrend = function(req, res) {
         createDate: 1,
         isHot: 1,
         isNewProduct: 1,
-        isSaleOff: 1,
+        isSaleOff: 1,images
         url: 1,
       })
       .exec((error, response) => {
