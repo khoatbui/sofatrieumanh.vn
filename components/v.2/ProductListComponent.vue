@@ -281,49 +281,6 @@
                 </div>
               </div>
             </div>
-            <!-- <div
-            v-for="(product, index) in productList"
-            :key="index + 'product'"
-            class="card border-0 product__list__item cursor--pointer"
-            @click="redirectTo(product.url)"
-          >
-            <div class="card-body p-1">
-              <div
-                class="product__list__item__img"
-                :style="
-                  `background-image: url('${
-                    typeof product.images !== 'undefined' &&
-                    product.images.length > 0
-                      ? product.images[0].path
-                      : '/images/product/pro_01.jpg'
-                  }')`
-                "
-              >
-                <div class="discount__tag"></div>
-              </div>
-              <div class="product__list__item__detail">
-                <h6 class="product__list__item__name">
-                  {{ product.productName }}
-                </h6>
-                <div class="product__list__item__price">
-                  <span class="current__price">{{
-                    new Intl.NumberFormat('vi-VN', {
-                      style: 'currency',
-                      currency: 'VND',
-                      minimumFractionDigits: 0,
-                    }).format(product.price)
-                  }}</span>
-                  <span class="discount__price">{{
-                    new Intl.NumberFormat('vi-VN', {
-                      style: 'currency',
-                      currency: 'VND',
-                      minimumFractionDigits: 0,
-                    }).format(product.oldPrice)
-                  }}</span>
-                </div>
-              </div>
-            </div>
-          </div> -->
           </div>
         </div>
       </div>
