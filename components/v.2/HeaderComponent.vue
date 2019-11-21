@@ -141,6 +141,15 @@
                   </div>
                 </div>
               </vs-dropdown-item>
+              <vs-dropdown-item divider>
+                <div class="row mp--none">
+                  <div class="col-12 py-1 px-4">
+                    <nuxt-link to="/danh-muc/ghe-sofa" class="view__all__btn"
+                      >Xem tất cả</nuxt-link
+                    >
+                  </div>
+                </div>
+              </vs-dropdown-item>
             </vs-dropdown-menu>
           </vs-dropdown>
           <vs-dropdown vs-custom-content>
@@ -168,6 +177,16 @@
                   </div>
                   <div class="col-4 py-1 px-4">
                     <nuxt-link to="/danh-muc/ban-da">Bàn đá</nuxt-link>
+                  </div>
+                </div>
+              </vs-dropdown-item>
+
+              <vs-dropdown-item divider>
+                <div class="row mp--none">
+                  <div class="col-12 py-1 px-4">
+                    <nuxt-link to="/danh-muc/ban-sofa" class="view__all__btn"
+                      >Xem tất cả</nuxt-link
+                    >
                   </div>
                 </div>
               </vs-dropdown-item>
@@ -202,6 +221,11 @@
                   <div class="col-6 py-1 px-4">
                     <nuxt-link to="/danh-muc/noi-that-phong-ngu"
                       >Nội thất phòng ngủ</nuxt-link
+                    >
+                  </div>
+                  <div class="col-6 p-0">
+                    <nuxt-link to="/danh-muc/noi-that" class="view__all__btn"
+                      >Xem tất cả</nuxt-link
                     >
                   </div>
                 </div>
@@ -263,7 +287,50 @@
         </div>
       </div>
     </div>
-    <div class="mobile__header"></div>
+    <div class="mobile__header">
+      <vs-navbar v-model="activeItem" class="nabarx py-2 mobile__menu">
+        <div slot="title">
+          <nuxt-link to="/"
+            ><vs-navbar-title class="text__size--x2 mp--none header__logo">
+              Sofa <fa :icon="['fas', 'couch']" />
+            </vs-navbar-title>
+          </nuxt-link>
+        </div>
+
+        <vs-navbar-item index="0">
+          <nuxt-link to="/danh-muc/ghe-sofa" @click.native="selectNavItem"
+            >Ghế sofa</nuxt-link
+          >
+        </vs-navbar-item>
+        <vs-navbar-item index="1">
+          <nuxt-link to="/danh-muc/ban" @click.native="selectNavItem"
+            >Bàn +</nuxt-link
+          >
+        </vs-navbar-item>
+        <vs-navbar-item index="2">
+          <nuxt-link
+            to="/danh-muc/sofa-khuyen-mai"
+            @click.native="selectNavItem"
+            >Sofa khuyến mãi</nuxt-link
+          >
+        </vs-navbar-item>
+        <vs-navbar-item index="3">
+          <nuxt-link to="/danh-muc/noi-that" @click.native="selectNavItem"
+            >Nội thất</nuxt-link
+          >
+        </vs-navbar-item>
+        <vs-navbar-item index="4">
+          <nuxt-link to="/danh-muc/sofa-thanh-ly" @click.native="selectNavItem"
+            >Sofa thanh lý</nuxt-link
+          >
+        </vs-navbar-item>
+        <vs-navbar-item index="5">
+          <nuxt-link to="/tin-tuc" @click.native="selectNavItem"
+            >Tin tức</nuxt-link
+          >
+        </vs-navbar-item>
+      </vs-navbar>
+    </div>
   </div>
 </template>
 <script>
@@ -276,6 +343,7 @@ export default {
   },
   data: () => ({
     search: '',
+    activeItem: 0,
     headerPicture: [
       {
         image: '/images/banner/banner_01.jpg',
@@ -363,6 +431,17 @@ export default {
         .finally(() => {
           this.$vs.loading.close();
         });
+    },
+    selectNavItem() {
+      document
+        .querySelector('.vs-con-items')
+        .classList.remove('activeMenuResponsive');
+      document
+        .querySelector('.vs-navbar--btn-responsive')
+        .classList.remove('active-menu');
+    },
+    redirectTo(url) {
+      this.$router.replace(url);
     },
   },
 };
@@ -505,5 +584,95 @@ export default {
   border: 2px solid $white__color;
   padding: 0.8rem 1.6rem;
   background-color: transparent;
+}
+.view__all__btn {
+  background-color: $primary__color !important;
+  color: $secondary__color !important;
+  width: 100%;
+  padding: 0.4rem 0.8rem;
+  margin: 0 !important;
+  display: inline-block;
+}
+.view__all__btn a {
+  display: inline-block;
+}
+// MOBILE
+.header__logo {
+  color: $primary__color;
+  font-weight: 700;
+}
+.vs-navbar--btn-responsive {
+  background-color: #fff !important;
+  color: $primary__color;
+}
+.vs-navbar--btn-responsive span {
+  background-color: $primary__color;
+}
+.vs-navbar--btn-responsive:hover {
+  background-color: #fff !important;
+  outline: none !important;
+  color: $primary__color;
+}
+.vs-navbar--item a {
+  font-size: 1.2rem !important;
+  color: $primary__color;
+  font-weight: 600;
+}
+.mobile__menu {
+  display: flex;
+  color: $primary__color;
+}
+.desktop__img,
+.desktop__header {
+  display: none !important;
+}
+.mobile__menu a {
+  color: $primary__color !important;
+}
+.mobile__menu .vs-navbar--btn-responsive .btn-responsive-line {
+  background-color: $primary__color !important;
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .mobile__menu {
+    display: flex !important;
+  }
+  .desktop__img,
+  .desktop__header {
+    display: none !important;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .mobile__menu {
+    display: flex !important;
+  }
+  .desktop__img,
+  .desktop__header {
+    display: none !important;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .mobile__menu {
+    display: none !important;
+  }
+  .desktop__img,
+  .desktop__header {
+    display: block !important;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .mobile__menu {
+    display: none !important;
+  }
+  .desktop__img,
+  .desktop__header {
+    display: block !important;
+  }
 }
 </style>
