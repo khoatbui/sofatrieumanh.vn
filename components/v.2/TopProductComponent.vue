@@ -54,7 +54,7 @@
                           color="#333333"
                           type="flat"
                           class="py-1 px-2 addtocart__btn"
-                          to="/san-pham"
+                          :to="`/san-pham/${pro.url}`"
                           >CHỌN MUA</vs-button
                         >
                         <div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="hotblog__component">
+  <div v-if="blogList.length > 0" class="hotblog__component">
     <div class="row mp--none mb-4">
       <div class="col-12 text-center">
         <h6 class="component__title">TrieuManh Blogs</h6>
@@ -65,40 +65,7 @@
 <script>
 export default {
   data: () => ({
-    blogList: [
-      {
-        blogName: 'Cach tinh dien tich mat sau noi that',
-        blogIntro:
-          'Vào nhữnig ngày mưa, nội thật của bạn sẽ thường gặp các vấn đề ẩm mốc có mùi hôi khó chịu. Triệu Mạnh sẽ giúp bạn các tip để khắc phục vấn dề này',
-        blogImage: 'images/blogs/blog_01.jpg',
-        author: 'Jony',
-        publicDate: '2019-09-22',
-      },
-      {
-        blogName: 'Cach tinh dien tich mat sau noi that',
-        blogIntro:
-          'Vào nhữnig ngày mưa, nội thật của bạn sẽ thường gặp các vấn đề ẩm mốc có mùi hôi khó chịu. Triệu Mạnh sẽ giúp bạn các tip để khắc phục vấn dề này',
-        blogImage: 'images/blogs/blog_01.jpg',
-        author: 'Jony',
-        publicDate: '2019-09-22',
-      },
-      {
-        blogName: 'Cach tinh dien tich mat sau noi that',
-        blogIntro:
-          'Vào nhữnig ngày mưa, nội thật của bạn sẽ thường gặp các vấn đề ẩm mốc có mùi hôi khó chịu. Triệu Mạnh sẽ giúp bạn các tip để khắc phục vấn dề này',
-        blogImage: 'images/blogs/blog_01.jpg',
-        author: 'Jony',
-        publicDate: '2019-09-22',
-      },
-      {
-        blogName: 'Cach tinh dien tich mat sau noi that',
-        blogIntro:
-          'Vào nhữnig ngày mưa, nội thật của bạn sẽ thường gặp các vấn đề ẩm mốc có mùi hôi khó chịu. Triệu Mạnh sẽ giúp bạn các tip để khắc phục vấn dề này',
-        blogImage: 'images/blogs/blog_01.jpg',
-        author: 'Jony',
-        publicDate: '2019-09-22',
-      },
-    ],
+    blogList: [],
   }),
   mounted() {
     this.getBlogList();
