@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderComponent :alway-fix="true" />
+    <FixedHeaderComponent />
     <nuxt class="body__section" />
     <FooterComponent />
   </div>
@@ -8,7 +8,7 @@
 <script>
 export default {
   components: {
-    HeaderComponent: () => import('@/components/v.2/HeaderComponent'),
+    FixedHeaderComponent: () => import('@/components/v.2/FixedHeaderComponent'),
     FooterComponent: () => import('@/components/v.2/FooterComponent'),
   },
 };

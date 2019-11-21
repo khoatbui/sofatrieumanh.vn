@@ -1,6 +1,6 @@
 <template>
   <div class="product__detail__component">
-    <div class="row mp--none category__component">
+    <div class="row m-0 p-0 category__component">
       <div class="desktop__image__src">
         <div
           class="category__info w-100 d-flex justify-content-center align-items-center flex-column"
@@ -16,62 +16,28 @@
       </div>
     </div>
     <div class="product__overview container section__margin--y">
-      <div class="row mp--none">
-        <div class="col-12 col-md-6 mp--none">
-          <div class="row mp--none">
-            <div class="col-12 mp--none main__image">
-              <!-- <div
-                class="image__item"
-                :style="
-                  `background-image: url('${
-                    typeof productDetail.images !== 'undefined' &&
-                    productDetail.images.length > 0
-                      ? productDetail.images[0].path
-                      : '/images/product/pro_01.jpg'
-                  }')`
-                "
-              ></div>
-              <div class="image__action">
-                <vs-button
-                  v-b-modal.modal-1
-                  :color="'#156867'"
-                  type="fill"
-                  icon="aspect_ratio"
-                  class="border__radius--none"
-                  @click="popupActivo4 = true"
-                ></vs-button>
-              </div> -->
-              <client-only>
+      <div class="row m-0 p-0">
+        <div class="col-12 col-md-6 m-0 p-0">
+          <div class="row m-0 p-0">
+            <div class="col-12 m-0 p-0 main__image">
+              <!-- <client-only>
                 <ProductZoomer
                   :base-images="images"
                   :base-zoomer-options="zoomerOptions"
-              /></client-only>
+              /></client-only> -->
+              <client-only v-if="completedGetData">
+                <GalleryImagesComponent :images="productDetail.images" />
+              </client-only>
             </div>
-            <!-- <div class="col-12 mp--none">
-              <div class="image__list">
-                <div
-                  v-for="(img, i) in 5"
-                  :key="i + 'subimage'"
-                  :style="
-                    `background-image: url('${
-                      typeof img.path !== 'undefined'
-                        ? '/images/product/alexander-mcqueen_200x260.jpg'
-                        : '/images/product/alexander-mcqueen_200x260.jpg'
-                    }')`
-                  "
-                  class="image__list__item"
-                ></div>
-              </div>
-            </div> -->
           </div>
         </div>
-        <div class="col-12 col-md-6 mp--none">
-          <div class="row mp--none px-4">
-            <div class="col-12 mp--none my-2">
+        <div class="col-12 col-md-6 m-0 p-0">
+          <div class="row m-0 p-0 px-4">
+            <div class="col-12 m-0 p-0 my-2">
               <h4 class="data__title">{{ productDetail.productName }}</h4>
             </div>
             <div
-              class="col-12 mp--none my-2  d-flex justify-content-start align-items-center"
+              class="col-12 m-0 p-0 my-2 mb-4 pb-4 d-flex justify-content-start align-items-center border-bottom"
             >
               <h4 class="data__price">
                 {{
@@ -90,35 +56,62 @@
                 }).format(productDetail.oldPrice)
               }}</span>
             </div>
-            <div class="col-12 mp--none my-2">
-              <span class="label__overview">Kích thước</span>
-              <span class="data__overview mx-2">{{ productDetail.size }}</span>
+            <div class="col-12">
+              <div class="row mp--none">
+                <div class="col-5 col-md-3 m-0 p-0">
+                  <span class="label__overview">Kích thước :</span>
+                </div>
+                <div class="col-7 col-md-9 m-0 p-0">
+                  <span class="data__overview mx-2">{{
+                    productDetail.size
+                  }}</span>
+                </div>
+                <div class="col-5 col-md-3 m-0 p-0">
+                  <span class="label__overview">Bề mặt :</span>
+                </div>
+                <div class="col-7 col-md-9 m-0 p-0">
+                  <span class="data__overview mx-2">{{
+                    productDetail.productFrontMaterial
+                  }}</span>
+                </div>
+                <div class="col-5 col-md-3 m-0 p-0">
+                  <span class="label__overview">Khung :</span>
+                </div>
+                <div class="col-7 col-md-9 m-0 p-0">
+                  <span class="data__overview mx-2">{{
+                    productDetail.productFrameMaterial
+                  }}</span>
+                </div>
+                <div class="col-5 col-md-3 m-0 p-0">
+                  <span class="label__overview">Sản phẩm gồm :</span>
+                </div>
+                <div class="col-7 col-md-9 m-0 p-0">
+                  <span class="data__overview mx-2">{{
+                    productDetail.package
+                  }}</span>
+                </div>
+              </div>
             </div>
-            <div class="col-12 mp--none my-2 d-flex align-items-center">
-              <span class=" d-flex align-items-center">
-                <vs-button
-                  :color="'#333333'"
-                  type="flat"
-                  icon="remove"
-                  class="plus__btn"
-                ></vs-button>
+
+            <div class="col-12 m-0 p-0 my-4 d-flex align-items-center">
+              <span class=" d-flex align-items-center mr-4">
+                <button class="plus__btn">
+                  <i class="material-icons">remove</i>
+                </button>
                 <span class="px-2 font-weight-bold text__size--x12">1</span>
-                <vs-button
-                  :color="'#333333'"
-                  type="flat"
-                  icon="add"
-                  class="plus__btn"
-                ></vs-button>
+                <button class="plus__btn">
+                  <i class="material-icons">add</i>
+                </button>
               </span>
               <vs-button
                 :color="'#ffb400'"
                 type="filled"
-                class="border__radius--none"
+                class="border__radius--none addtocard__btn"
                 >Thêm vào giỏ hàng</vs-button
               >
             </div>
-            <div
-              class="col-12 mp--none d-flex justify-content-start align-items-center py-4"
+            <!-- <div
+              class="col-12 m-0 p-0 d-flex justify-content-start align-items-center border-bottom"
             >
               <div class="product__step__item">
                 <img
@@ -144,15 +137,8 @@
                 />
                 <span class="step__title">Giao hàng</span>
               </div>
-            </div>
-            <div class="col-12 mp--none my-2">
-              <span class="label__overview">Chất liệu</span>
-              <span class="data__overview mx-2"
-                >{{ productDetail.productFrameMaterial }} /
-                {{ productDetail.productFrontMaterial }}</span
-              >
-            </div>
-            <div class="col-12 mp--none my-2">
+            </div> -->
+            <div class="col-12 m-0 p-0 my-2 border-top">
               <span class="label__overview">Chia sẻ</span>
               <div class="data__overview mx-2">
                 <vs-button
@@ -195,8 +181,8 @@
     </div>
     <div class="product__detail">
       <div class="container">
-        <div class="row mp--none">
-          <div class="col-12 mp--none">
+        <div class="row m-0 p-0">
+          <div class="col-12 m-0 p-0">
             <vs-tabs class="product__tab" color="#333333">
               <vs-tab label="Mô tả">
                 <div class="con-tab-ejemplo">
@@ -208,8 +194,8 @@
               </vs-tab>
               <vs-tab label="Đánh giá">
                 <div class="con-tab-ejemplo">
-                  <div class="row mp--none">
-                    <div class="col-12 col-md-6 mp--none p-2 comment__list">
+                  <div class="row m-0 p-0">
+                    <div class="col-12 col-md-6 m-0 p-0 p-2 comment__list">
                       <div class="my-4 comment__item">
                         <img
                           src="/images/user.png"
@@ -217,14 +203,14 @@
                           class="comment__logo"
                         />
                         <div class="comment__content">
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             2019-26-07
                           </p>
-                          <p class="mp--none px-2 text__size--x09">
+                          <p class="m-0 p-0 px-2 text__size--x09">
                             San pham cua cac ban rat tot, chung toi ung ho cac
                             ban
                           </p>
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             Huy dung
                           </p>
                         </div>
@@ -236,13 +222,13 @@
                           class="comment__logo"
                         />
                         <div class="comment__content">
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             2019-26-07
                           </p>
-                          <p class="mp--none px-2 text__size--x09">
+                          <p class="m-0 p-0 px-2 text__size--x09">
                             Mẫu mã đẹp, giao hàng và lắp ráp cẩn thận
                           </p>
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             Minh Lanh
                           </p>
                         </div>
@@ -254,13 +240,13 @@
                           class="comment__logo"
                         />
                         <div class="comment__content">
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             2019-26-07
                           </p>
-                          <p class="mp--none px-2 text__size--x09">
+                          <p class="m-0 p-0 px-2 text__size--x09">
                             Sản phẩm khá chất lượng, tư vấn nhiệt tình
                           </p>
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             Nguyen THi My
                           </p>
                         </div>
@@ -272,19 +258,19 @@
                           class="comment__logo"
                         />
                         <div class="comment__content">
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             2019-26-07
                           </p>
-                          <p class="mp--none px-2 text__size--x09">
+                          <p class="m-0 p-0 px-2 text__size--x09">
                             Giá cả tốt
                           </p>
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             Sam
                           </p>
                         </div>
                       </div>
                     </div>
-                    <div class="col-12 col-md-6 mp--none comment__form  p-2">
+                    <div class="col-12 col-md-6 m-0 p-0 comment__form  p-2">
                       <vs-input
                         v-model="comment.fullName"
                         label="Name"
@@ -328,35 +314,13 @@
         </div>
       </div>
     </div>
-    <!-- <div class="popup">
-      <vs-popup fullscreen title="fullscreen" :active.sync="popupActivo4">
-        <Carousel3d
-          :controls-visible="true"
-          :controls-prev-html="'&#10092;'"
-          :controls-next-html="'&#10093;'"
-          :controls-width="30"
-          :controls-height="60"
-          :clickable="false"
-          class="product__carousel3d"
-        >
-          <Slide v-for="(slide, i) in productDetail.images" :key="i" :index="i">
-            <figure>
-              <img :src="slide.path" />
-            </figure>
-          </Slide>
-        </Carousel3d>
-      </vs-popup>
-    </div> -->
   </div>
 </template>
 <script>
-// import PicZoom from 'vue-piczoom'
-// import { Carousel3d, Slide } from 'vue-carousel-3d'
 export default {
   components: {
-    // PicZoom,
-    // Carousel3d,
-    // Slide
+    GalleryImagesComponent: () =>
+      import('@/components/v.2/GalleryImagesComponent'),
   },
   data: () => ({
     comment: {
@@ -417,6 +381,20 @@ export default {
     this.getProductDetail();
   },
   methods: {
+    imageDetail(product) {
+      const imageItem = [];
+      product.images.forEach((element, index) => {
+        imageItem.push({
+          id: index,
+          url: element.path,
+        });
+      });
+      return {
+        thumbs: imageItem,
+        normal_size: imageItem,
+        large_size: imageItem,
+      };
+    },
     showCarousel3d() {
       this.$vs.loading();
       setTimeout(() => {
@@ -470,7 +448,7 @@ export default {
 <style lang="scss">
 .product__tab .vs-tabs--li {
   font-weight: bold;
-  margin: 0 0.8rem;
+  margin: 0 0.85rem;
 }
 .product__tab .vs-tabs--li.activeChild {
   color: $primary__text !important;
@@ -513,11 +491,6 @@ export default {
   color: $primary__color;
   margin-bottom: 0 !important;
 }
-.product__detail {
-  margin-top: 4rem;
-  padding: 4rem 0;
-  background-color: $vote__bg__color;
-}
 .product__detail .vs-tabs--ul {
   box-shadow: none;
 }
@@ -549,7 +522,6 @@ export default {
 .label__overview {
   font-size: 0.85rem;
   color: $muted__text;
-  font-weight: bold;
 }
 .data__overview {
   font-size: 0.85rem;
@@ -584,6 +556,17 @@ export default {
 .plus__btn button {
   display: flex;
   align-items: center;
+  background-color: $white__color;
+  border: none;
+  color: $primary__text !important;
+}
+.plus__btn:hover,
+.plus__btn:active,
+.plus__btn:focus {
+  background-color: $white__color !important;
+  color: $primary__text !important;
+  border: none !important;
+  outline: none !important;
 }
 .share__btn {
   margin: 0;
@@ -685,6 +668,22 @@ export default {
   height: 30px;
 }
 .step__title {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  font-size: $muted__text;
+}
+.zoomer-control.responsive-image {
+  width: 30px !important;
+  height: 30px !important;
+}
+.product__content,
+.product__content p,
+.product__content span,
+.product__content ul li,
+.product__content ol li {
+  font-size: 0.85rem;
+  color: $muted__text;
+}
+.addtocard__btn {
+  color: $primary__text;
 }
 </style>
