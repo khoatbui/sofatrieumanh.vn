@@ -81,7 +81,7 @@
                       <div class="product__name my-2">
                         {{ pro.productName }}
                       </div>
-                      <div class="product__detail my-2">
+                      <div class="product__item__detail my-2">
                         <strong class="product__price"
                           >{{ pro.price }} vnd</strong
                         >
@@ -166,7 +166,7 @@
                       <div class="product__name my-2">
                         {{ pro.productName }}
                       </div>
-                      <div class="product__detail my-2">
+                      <div class="product__item__detail my-2">
                         <strong class="product__price"
                           >{{ pro.price }} vnd</strong
                         >
@@ -251,7 +251,7 @@
                       <div class="product__name my-2">
                         {{ pro.productName }}
                       </div>
-                      <div class="product__detail my-2">
+                      <div class="product__item__detail my-2">
                         <strong class="product__price"
                           >{{ pro.price }} vnd</strong
                         >
@@ -336,7 +336,7 @@
                       <div class="product__name my-2">
                         {{ pro.productName }}
                       </div>
-                      <div class="product__detail my-2">
+                      <div class="product__item__detail my-2">
                         <strong class="product__price"
                           >{{ pro.price }} vnd</strong
                         >
@@ -507,81 +507,5 @@ export default {
 }
 .product__tab .vs-tabs--li.activeChild button {
   outline: none !important;
-}
-.product__card {
-  transition-duration: 1s;
-}
-.product__card:hover {
-  transform: translateY(-5px);
-}
-.product__card:left {
-  transform: translateY(5px);
-}
-.product__property {
-  position: absolute;
-  top: 0.8rem;
-  left: 0.8rem;
-}
-.product__image:hover .product__action,
-.product__image:focus .product__action {
-  display: flex;
-}
-.product__action {
-  display: none;
-  position: absolute;
-  justify-content: space-between;
-  align-items: center;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: $white__color !important;
-  padding: 0.8rem;
-}
-.product__action button {
-  font-size: 0.8rem;
-}
-.addtocart__btn {
-  font-weight: 600;
-  background-color: $white__color !important;
-}
-.product__action button:hover {
-  background-color: $white__color !important;
-  color: $primary__color !important;
-}
-.product__action i {
-  font-size: 1rem;
-}
-.product__info {
-  margin: 1.6rem 0;
-}
-.product__image {
-  position: relative;
-  height: 250px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.product__name {
-  color: $primary__text;
-  font-size: 0.9rem;
-}
-.product__detail {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-}
-.product__price {
-  color: $danger__text;
-  font-size: 0.9rem;
-}
-.product__star {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-.product__star i {
-  font-size: 1rem !important;
-  color: $warning__text;
 }
 </style>

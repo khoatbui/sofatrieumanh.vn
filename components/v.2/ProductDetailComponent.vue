@@ -20,7 +20,7 @@
         <div class="col-12 col-md-6 mp--none">
           <div class="row mp--none">
             <div class="col-12 mp--none main__image">
-              <div
+              <!-- <div
                 class="image__item"
                 :style="
                   `background-image: url('${
@@ -31,17 +31,6 @@
                   }')`
                 "
               ></div>
-              <!-- <div class="pic-box">
-                <pic-zoom
-                  :url="
-                    typeof productDetail.images !== 'undefined' &&
-                    productDetail.images.length > 0
-                      ? productDetail.images[0].path
-                      : '/images/product/pro_01.jpg'
-                  "
-                  :scale="3"
-                ></pic-zoom>
-              </div> -->
               <div class="image__action">
                 <vs-button
                   v-b-modal.modal-1
@@ -51,9 +40,14 @@
                   class="border__radius--none"
                   @click="popupActivo4 = true"
                 ></vs-button>
-              </div>
+              </div> -->
+              <client-only>
+                <ProductZoomer
+                  :base-images="images"
+                  :base-zoomer-options="zoomerOptions"
+              /></client-only>
             </div>
-            <div class="col-12 mp--none">
+            <!-- <div class="col-12 mp--none">
               <div class="image__list">
                 <div
                   v-for="(img, i) in 5"
@@ -68,7 +62,7 @@
                   class="image__list__item"
                 ></div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="col-12 col-md-6 mp--none">
@@ -76,7 +70,9 @@
             <div class="col-12 mp--none my-2">
               <h4 class="data__title">{{ productDetail.productName }}</h4>
             </div>
-            <div class="col-12 mp--none my-2">
+            <div
+              class="col-12 mp--none my-2  d-flex justify-content-start align-items-center"
+            >
               <h4 class="data__price">
                 {{
                   new Intl.NumberFormat('vi-VN', {
@@ -101,14 +97,14 @@
             <div class="col-12 mp--none my-2 d-flex align-items-center">
               <span class=" d-flex align-items-center">
                 <vs-button
-                  :color="'#ffb400'"
+                  :color="'#333333'"
                   type="flat"
                   icon="remove"
                   class="plus__btn"
                 ></vs-button>
                 <span class="px-2 font-weight-bold text__size--x12">1</span>
                 <vs-button
-                  :color="'#ffb400'"
+                  :color="'#333333'"
                   type="flat"
                   icon="add"
                   class="plus__btn"
@@ -125,16 +121,24 @@
               class="col-12 mp--none d-flex justify-content-start align-items-center py-4"
             >
               <div class="product__step__item">
-                <img src="/images/steps/confirm.png" alt="" class="step__img" />
+                <img
+                  src="/images/icon/icons8-shopping-bag-80.png"
+                  alt=""
+                  class="step__img"
+                />
                 <span class="step__title">Đặt hàng</span>
               </div>
               <div class="product__step__item">
-                <img src="/images/steps/package.png" alt="" class="step__img" />
+                <img
+                  src="/images/icon/icons8-empty-box-64.png"
+                  alt=""
+                  class="step__img"
+                />
                 <span class="step__title">Đóng gói</span>
               </div>
               <div class="product__step__item">
                 <img
-                  src="/images/steps/delivered.png"
+                  src="/images/icon/icons8-shipped-80.png"
                   alt=""
                   class="step__img"
                 />
@@ -469,7 +473,7 @@ export default {
   margin: 0 0.8rem;
 }
 .product__tab .vs-tabs--li.activeChild {
-  color: $primary__color !important;
+  color: $primary__text !important;
 }
 .product__tab .vs-tabs--li.activeChild button {
   outline: none !important;
@@ -520,8 +524,9 @@ export default {
 .product__detail .vs-tabs--li span {
   font-weight: bold;
 }
-.product__detail .vs-tabs--li.activeChild span {
-  color: $primary__color;
+.product__detail .vs-tabs--li.activeChild span,
+.vs-tabs--btn span {
+  color: $primary__text;
 }
 .product__detail .vs-tabs--btn {
   outline: none;
@@ -538,22 +543,22 @@ export default {
 }
 .label__input {
   font-size: 0.85rem;
-  color: rgba(0, 0, 0, 0.7);
+  color: $muted__text;
   font-weight: bold;
 }
 .label__overview {
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.85rem;
+  color: $muted__text;
   font-weight: bold;
 }
 .data__overview {
-  font-size: 1rem;
-  color: $primary__color;
+  font-size: 0.85rem;
+  color: $muted__text;
   display: flex;
 }
 .data__title {
   font-size: 1.5rem;
-  color: $primary__color;
+  color: $primary__text;
   font-weight: bold;
 }
 .data__price {
@@ -675,5 +680,11 @@ export default {
   flex-direction: row;
   color: $muted__text;
   font-size: 0.9rem;
+}
+.step__img {
+  height: 30px;
+}
+.step__title {
+  font-size: 0.8rem;
 }
 </style>
