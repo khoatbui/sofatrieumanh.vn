@@ -27,19 +27,29 @@
         >
           <div class="card-body">
             <div
-              class="blog__card__image"
-              :style="`background-image:url('${blog.blogImage}'`"
+              class="blog__card__image cursor__pointer"
+              :style="
+                typeof blog.images === 'undefined' || blog.images.length === 0
+                  ? `background-image:url('/images/blogs/blog_04.jpg')`
+                  : `background-image:url('${blog.images[0].path}')`
+              "
+              @click="redirectTo(blog.url)"
             ></div>
             <div class="blog__card__detail">
-              <div class="blog__card__title my-2">{{ blog.blogName }}</div>
+              <div
+                class="blog__card__title my-2 cursor__pointer"
+                @click="redirectTo(blog.url)"
+              >
+                {{ blog.blogName }}
+              </div>
               <div class="blog__card__info mb-2 mt-0">
                 <span
                   >Đăng bởi
-                  <span class="text__primary">{{ blog.author }}</span></span
+                  <span class="text__primary">sofa.trieumanh</span></span
                 >
                 <span
                   >ngày
-                  <span class="text__primary">{{ blog.publicDate }}</span></span
+                  <span class="text__primary">{{ blog.createDate }}</span></span
                 >
               </div>
               <div class="blog__card__intro my-2">
@@ -90,6 +100,33 @@ export default {
       },
     ],
   }),
+  mounted() {
+    this.getBlogList();
+  },
+  methods: {
+    getBlogList() {
+      this.$vs.loading();
+      this.$axios
+        .get(`${process.env.API_HTTP}/blogapi/hot-blog`)
+        .then(response => {
+          this.blogList = response.data;
+          this.$vs.loading.close();
+        })
+        .catch(error => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error,
+          });
+        })
+        .finally(() => {
+          this.$vs.loading.close();
+        });
+    },
+    redirectTo(url) {
+      this.$router.replace(`/tin-tuc/${url}`);
+    },
+  },
 };
 </script>
 <style lang="scss">
