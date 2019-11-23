@@ -26,12 +26,15 @@
         <nuxt-link to="/admin/blog">Bài viết/ Tin tức</nuxt-link>
       </vs-navbar-item>
       <vs-navbar-item index="4">
-        <nuxt-link to="/admin/promotion">Khuyến mại</nuxt-link>
+        <nuxt-link to="/admin/dictionary">Từ điển</nuxt-link>
       </vs-navbar-item>
       <vs-navbar-item index="5">
-        <nuxt-link to="/admin/order">Đơn hàng</nuxt-link>
+        <nuxt-link to="/admin/promotion">Khuyến mại</nuxt-link>
       </vs-navbar-item>
       <vs-navbar-item index="6">
+        <nuxt-link to="/admin/order">Đơn hàng</nuxt-link>
+      </vs-navbar-item>
+      <vs-navbar-item index="7">
         <nuxt-link to="/admin/issues">Yêu cầu</nuxt-link>
       </vs-navbar-item>
     </vs-navbar>
@@ -52,5 +55,8 @@ export default {
 }
 .logo__admin {
   color: $white__color !important;
+}
+.admin__header__component .vs-navbar--item a {
+  color: #fff !important;
 }
 </style>

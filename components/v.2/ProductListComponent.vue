@@ -1,7 +1,7 @@
 <template>
   <div class="productlist__component">
     <div class="row mp--none category__component">
-      <div class="desktop__image__src">
+      <div class="product__list__image__src">
         <div
           class="category__info w-100 d-flex justify-content-center align-items-center flex-column"
         >
@@ -95,19 +95,39 @@
                     <div class="col-12 mp--none">
                       <ul class="filter__list">
                         <li class="filter__item">
-                          <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                          <vs-checkbox
+                            v-model="filter.material"
+                            :vs-value="'GO'"
+                            >Gỗ</vs-checkbox
+                          >
                         </li>
                         <li class="filter__item">
-                          <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
+                          <vs-checkbox
+                            v-model="filter.material"
+                            :vs-value="'DA'"
+                            >Da</vs-checkbox
+                          >
                         </li>
                         <li class="filter__item">
-                          <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
+                          <vs-checkbox
+                            v-model="filter.material"
+                            :vs-value="'GOEP'"
+                            >Gỗ ép</vs-checkbox
+                          >
                         </li>
                         <li class="filter__item">
-                          <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
+                          <vs-checkbox
+                            v-model="filter.material"
+                            :vs-value="'SAT'"
+                            >Sắt</vs-checkbox
+                          >
                         </li>
                         <li class="filter__item">
-                          <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                          <vs-checkbox
+                            v-model="filter.material"
+                            :vs-value="'KINH'"
+                            >Gỗ</vs-checkbox
+                          >
                         </li>
                       </ul>
                     </div>
@@ -418,47 +438,21 @@
                   <div class="col-12 mp--none">
                     <ul class="filter__list">
                       <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                        <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
                       </li>
                       <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
+                        <vs-checkbox v-model="filter.material">Da</vs-checkbox>
                       </li>
                       <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
+                        <vs-checkbox v-model="filter.material"
+                          >Gỗ ép</vs-checkbox
+                        >
                       </li>
                       <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
+                        <vs-checkbox v-model="filter.material">Sắt</vs-checkbox>
                       </li>
                       <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="filter__block">
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
-                    <h6 class="filter__title">Chat lieu</h6>
-                  </div>
-                </div>
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
-                    <ul class="filter__list">
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                        <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
                       </li>
                     </ul>
                   </div>
@@ -474,19 +468,51 @@
                   <div class="col-12 mp--none">
                     <ul class="filter__list">
                       <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                        <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
                       </li>
                       <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Da</vs-checkbox>
+                        <vs-checkbox v-model="filter.material">Da</vs-checkbox>
                       </li>
                       <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ ép</vs-checkbox>
+                        <vs-checkbox v-model="filter.material"
+                          >Gỗ ép</vs-checkbox
+                        >
                       </li>
                       <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Sắt</vs-checkbox>
+                        <vs-checkbox v-model="filter.material">Sắt</vs-checkbox>
                       </li>
                       <li class="filter__item">
-                        <vs-checkbox v-model="checkBox1">Gỗ</vs-checkbox>
+                        <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="filter__block">
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <h6 class="filter__title">Chat lieu</h6>
+                  </div>
+                </div>
+                <div class="row mp--none">
+                  <div class="col-12 mp--none">
+                    <ul class="filter__list">
+                      <li class="filter__item">
+                        <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="filter.material">Da</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="filter.material"
+                          >Gỗ ép</vs-checkbox
+                        >
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="filter.material">Sắt</vs-checkbox>
+                      </li>
+                      <li class="filter__item">
+                        <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
                       </li>
                     </ul>
                   </div>
@@ -522,7 +548,6 @@
 <script>
 export default {
   data: () => ({
-    checkBox1: false,
     productList: [],
     filter: {
       price: [0, 3000000],
@@ -680,7 +705,7 @@ export default {
 .category__info a {
   color: $white__color !important;
 }
-.desktop__image__src {
+.product__list__image__src {
   background-image: url('/images/banner/banner_01.jpg');
   background-position: center;
   background-size: cover;

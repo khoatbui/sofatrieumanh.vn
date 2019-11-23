@@ -26,13 +26,14 @@
                 <div class="card border-0 product__card">
                   <div class="card-body mp--none p-2">
                     <div
-                      class="product__image"
+                      class="product__image cursor__pointer"
                       :style="
                         typeof pro.images === 'undefined' ||
                         pro.images.length === 0
                           ? `background-image:url('/images/product/1-01.jpg')`
                           : `background-image:url('${pro.images[0].path}')`
                       "
+                      @click="redirectTo(pro.url)"
                     >
                       <div class="product__property">
                         <span v-if="pro.isHot" class="custom__badge custom__hot"
@@ -78,11 +79,16 @@
                       </div>
                     </div>
                     <div class="product__info">
-                      <div class="product__name my-2">
+                      <div
+                        class="product__name my-2 cursor__pointer"
+                        @click="redirectTo(pro.url)"
+                      >
                         {{ pro.productName }}
                       </div>
                       <div class="product__item__detail my-2">
-                        <strong class="product__price"
+                        <strong
+                          class="product__price cursor__pointer"
+                          @click="redirectTo(pro.url)"
                           ><span class="current__price">{{
                             pro.price == '' || typeof pro.price == 'undefined'
                               ? 'Liên hệ'
@@ -116,18 +122,19 @@
               <div
                 v-for="(pro, ist) in productList"
                 :key="ist + 'prod'"
-                class="col-12 col-sm-6 col-md-3 col-lg-3"
+                class="col-12 col-sm-6 col-md-3 col-lg-3 p-0"
               >
                 <div class="card border-0 product__card">
                   <div class="card-body mp--none p-2">
                     <div
-                      class="product__image"
+                      class="product__image cursor__pointer"
                       :style="
                         typeof pro.images === 'undefined' ||
                         pro.images.length === 0
                           ? `background-image:url('/images/product/1-01.jpg')`
                           : `background-image:url('${pro.images[0].path}')`
                       "
+                      @click="redirectTo(pro.url)"
                     >
                       <div class="product__property">
                         <span v-if="pro.isHot" class="custom__badge custom__hot"
@@ -173,11 +180,16 @@
                       </div>
                     </div>
                     <div class="product__info">
-                      <div class="product__name my-2">
+                      <div
+                        class="product__name my-2 cursor__pointer"
+                        @click="redirectTo(pro.url)"
+                      >
                         {{ pro.productName }}
                       </div>
                       <div class="product__item__detail my-2">
-                        <strong class="product__price"
+                        <strong
+                          class="product__price cursor__pointer"
+                          @click="redirectTo(pro.url)"
                           ><span class="current__price">{{
                             pro.price == '' || typeof pro.price == 'undefined'
                               ? 'Liên hệ'
@@ -232,13 +244,14 @@
                 <div class="card border-0 product__card">
                   <div class="card-body mp--none p-2">
                     <div
-                      class="product__image"
+                      class="product__image cursor__pointer"
                       :style="
                         typeof pro.images === 'undefined' ||
                         pro.images.length === 0
                           ? `background-image:url('/images/product/1-01.jpg')`
                           : `background-image:url('${pro.images[0].path}')`
                       "
+                      @click="redirectTo(pro.url)"
                     >
                       <div class="product__property">
                         <span v-if="pro.isHot" class="custom__badge custom__hot"
@@ -284,11 +297,16 @@
                       </div>
                     </div>
                     <div class="product__info">
-                      <div class="product__name my-2">
+                      <div
+                        class="product__name my-2 cursor__pointer"
+                        @click="redirectTo(pro.url)"
+                      >
                         {{ pro.productName }}
                       </div>
                       <div class="product__item__detail my-2">
-                        <strong class="product__price"
+                        <strong
+                          class="product__price cursor__pointer"
+                          @click="redirectTo(pro.url)"
                           ><span class="current__price">{{
                             pro.price == '' || typeof pro.price == 'undefined'
                               ? 'Liên hệ'
@@ -343,13 +361,14 @@
                 <div class="card border-0 product__card">
                   <div class="card-body mp--none p-2">
                     <div
-                      class="product__image"
+                      class="product__image cursor__pointer"
                       :style="
                         typeof pro.images === 'undefined' ||
                         pro.images.length === 0
                           ? `background-image:url('/images/product/1-01.jpg')`
                           : `background-image:url('${pro.images[0].path}')`
                       "
+                      @click="redirectTo(pro.url)"
                     >
                       <div class="product__property">
                         <span v-if="pro.isHot" class="custom__badge custom__hot"
@@ -395,11 +414,16 @@
                       </div>
                     </div>
                     <div class="product__info">
-                      <div class="product__name my-2">
+                      <div
+                        class="product__name my-2 cursor__pointer"
+                        @click="redirectTo(pro.url)"
+                      >
                         {{ pro.productName }}
                       </div>
                       <div class="product__item__detail my-2">
-                        <strong class="product__price"
+                        <strong
+                          class="product__price cursor__pointer"
+                          @click="redirectTo(pro.url)"
                           ><span class="current__price">{{
                             pro.price == '' || typeof pro.price == 'undefined'
                               ? 'Liên hệ'
@@ -582,10 +606,19 @@ export default {
           this.$vs.loading.close();
         });
     },
+    redirectTo(url) {
+      this.$router.replace(`/san-pham/${url}`);
+    },
   },
 };
 </script>
 <style lang="scss">
+.ul-tabs.vs-tabs--ul.ul-tabs-center {
+  flex-wrap: wrap;
+}
+.product__tab .vs-tabs--li {
+  white-space: nowrap;
+}
 .product__tab .vs-tabs--li {
   font-weight: bold;
   margin: 0 0.8rem;

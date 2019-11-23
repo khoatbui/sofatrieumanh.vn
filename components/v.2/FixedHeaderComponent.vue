@@ -417,15 +417,6 @@ export default {
 };
 </script>
 <style lang="scss">
-.desktop__image__src {
-  background-image: url('/images/banner/banner_01.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 500px;
-  width: 100%;
-  position: relative;
-}
 .desktop__header {
   position: fixed;
   width: 100%;

@@ -39,5 +39,21 @@ export default {
     FollowUsComponent: () => import('@/components/v.2/FollowUsComponent'),
     SubscribeComponent: () => import('@/components/v.2/SubscribeComponent'),
   },
+  fetch({ store, params, $axios }) {
+    return $axios
+      .get(`${process.env.API_HTTP}/dictionaryapi/used`)
+      .then(res => {
+        store.commit(
+          'dictionary/setDictionary',
+          res.data.reduce(
+            (acc, cur) => ({
+              ...acc,
+              [cur.dictionaryCode]: cur.dictionaryName,
+            }),
+            {}
+          )
+        );
+      });
+  },
 };
 </script>

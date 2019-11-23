@@ -7,8 +7,8 @@
     </div>
     <div class="row mp--none">
       <div class="col-12 mp--none">
-        <no-ssr>
-          <!-- important to add no-ssr-->
+        <client-only>
+          <!-- important to add client-only-->
 
           <carousel
             :responsive="{
@@ -71,7 +71,7 @@
               </div>
             </div>
           </carousel>
-        </no-ssr>
+        </client-only>
       </div>
     </div>
   </div>

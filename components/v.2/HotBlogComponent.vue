@@ -49,7 +49,9 @@
                 >
                 <span
                   >ngày
-                  <span class="text__primary">{{ blog.createDate }}</span></span
+                  <span class="text__primary">{{
+                    $moment(blog.createDate).format('YYYY-MM-DD')
+                  }}</span></span
                 >
               </div>
               <div class="blog__card__intro my-2">
@@ -118,5 +120,7 @@ export default {
 .blog__card__intro {
   font-size: 0.8rem;
   color: $primary__text;
+  height: 3.4rem;
+  overflow: hidden;
 }
 </style>

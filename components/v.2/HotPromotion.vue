@@ -53,7 +53,7 @@ export default {
   position: absolute;
   color: $white__color;
   background-color: $three__color;
-  bottom: 30%;
+  bottom: 50%;
   right: 30%;
   transform: translate(50%, 50%);
   padding: 1.6rem;

@@ -18,7 +18,7 @@
           <div class="card border-0 product__card">
             <div class="card-body mp--none p-2">
               <div
-                class="product__image"
+                class="product__image cursor__pointer"
                 :style="
                   typeof pro.images === 'undefined' || pro.images.length === 0
                     ? `background-image:url('/images/product/1-01.jpg')`
@@ -64,11 +64,16 @@
                 </div>
               </div>
               <div class="product__info">
-                <div class="product__name my-2">
+                <div
+                  class="product__name my-2 cursor__pointer"
+                  @click="redirectToProductPage(pro.url)"
+                >
                   {{ pro.productName }}
                 </div>
                 <div class="product__item__detail my-2">
-                  <strong class="product__price"
+                  <strong
+                    class="product__price cursor__pointer"
+                    @click="redirectToProductPage(pro.url)"
                     ><span class="current__price">{{
                       pro.price == '' || typeof pro.price == 'undefined'
                         ? 'Liên hệ'

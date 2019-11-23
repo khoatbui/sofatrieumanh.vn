@@ -1,24 +1,24 @@
 <template>
   <div class="newheader__component">
-    <div v-show="!alwayFix" class="desktop__img">
+    <div v-if="promotionList.length > 0" class="desktop__img">
       <client-only>
         <carousel
-          items="1"
-          :nav="false"
+          :items="1"
+          :dots="true"
+          :nav="true"
           :autoplay="true"
-          :dots="false"
           :loop="true"
         >
-          <div v-for="(pic, i) in promotionList" :key="i + 'pic'">
-            <div
-              :style="`background-image:url('/images/banner/banner_0${i}.jpg')`"
-              class="desktop__image__src"
-            >
-              <div class="promotion__header__content">
-                <h6>{{ pic.promotionName }}</h6>
-                <p>{{ pic.promotionIntro }}</p>
-                <button :to="pic.url">Xem ngay</button>
-              </div>
+          <div
+            v-for="(pic, i) in promotionList"
+            :key="i + 'pic'"
+            :style="`background-image:url('/images/banner/banner_0${i}.jpg')`"
+            class="desktop__image__src"
+          >
+            <div class="promotion__header__content">
+              <h6>{{ pic.promotionName }}</h6>
+              <p>{{ pic.promotionIntro }}</p>
+              <button :to="pic.url">Xem ngay</button>
             </div>
           </div>
         </carousel>
@@ -26,7 +26,7 @@
     </div>
     <div class="desktop__header" :class="{ sticky: !showNavbar || alwayFix }">
       <div class="desktop__header_top">
-        <span>Miễn phí :Giao hàng trên bán kính 70km</span>
+        <span>{{ diction.promotion_topheader }}</span>
       </div>
       <div class="desktop__header_bottom p-2">
         <div class="leftside__header">
@@ -334,7 +334,9 @@
   </div>
 </template>
 <script>
+import globalMixin from '@/mixin/global';
 export default {
+  mixins: [globalMixin],
   props: {
     alwayFix: {
       type: Boolean,
@@ -461,7 +463,7 @@ export default {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 10000;
 }
 .desktop__header.sticky {
   background-color: $secondary__color;
@@ -569,7 +571,8 @@ export default {
   position: absolute;
   color: $white__color;
   bottom: 30%;
-  left: 30%;
+  left: 50%;
+  width: 70%;
   transform: translate(-50%, 50%);
 }
 .promotion__header__content h6 {
@@ -598,39 +601,39 @@ export default {
 }
 // MOBILE
 .header__logo {
-  color: $primary__color;
+  color: $secondary__color;
   font-weight: 700;
 }
 .vs-navbar--btn-responsive {
   background-color: #fff !important;
-  color: $primary__color;
+  color: $secondary__color;
 }
 .vs-navbar--btn-responsive span {
-  background-color: $primary__color;
+  background-color: $secondary__color;
 }
 .vs-navbar--btn-responsive:hover {
   background-color: #fff !important;
   outline: none !important;
-  color: $primary__color;
+  color: $secondary__color;
 }
 .vs-navbar--item a {
   font-size: 1.2rem !important;
-  color: $primary__color;
+  color: $secondary__color;
   font-weight: 600;
 }
 .mobile__menu {
   display: flex;
-  color: $primary__color;
+  color: $secondary__color;
 }
 .desktop__img,
 .desktop__header {
   display: none !important;
 }
 .mobile__menu a {
-  color: $primary__color !important;
+  color: $secondary__color !important;
 }
 .mobile__menu .vs-navbar--btn-responsive .btn-responsive-line {
-  background-color: $primary__color !important;
+  background-color: $secondary__color !important;
 }
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {

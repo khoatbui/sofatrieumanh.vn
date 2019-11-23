@@ -1,7 +1,7 @@
 <template>
   <div class="product__detail__component">
     <div class="row m-0 p-0 category__component">
-      <div class="desktop__image__src">
+      <div class="product__detail__image__src">
         <div
           class="category__info w-100 d-flex justify-content-center align-items-center flex-column"
         >
@@ -20,11 +20,6 @@
         <div class="col-12 col-md-6 m-0 p-0">
           <div class="row m-0 p-0">
             <div class="col-12 m-0 p-0 main__image">
-              <!-- <client-only>
-                <ProductZoomer
-                  :base-images="images"
-                  :base-zoomer-options="zoomerOptions"
-              /></client-only> -->
               <client-only v-if="completedGetData">
                 <GalleryImagesComponent :images="productDetail.images" />
               </client-only>
@@ -124,34 +119,6 @@
                 >Thêm vào giỏ hàng</vs-button
               >
             </div>
-            <!-- <div
-              class="col-12 m-0 p-0 d-flex justify-content-start align-items-center border-bottom"
-            >
-              <div class="product__step__item">
-                <img
-                  src="/images/icon/icons8-shopping-bag-80.png"
-                  alt=""
-                  class="step__img"
-                />
-                <span class="step__title">Đặt hàng</span>
-              </div>
-              <div class="product__step__item">
-                <img
-                  src="/images/icon/icons8-empty-box-64.png"
-                  alt=""
-                  class="step__img"
-                />
-                <span class="step__title">Đóng gói</span>
-              </div>
-              <div class="product__step__item">
-                <img
-                  src="/images/icon/icons8-shipped-80.png"
-                  alt=""
-                  class="step__img"
-                />
-                <span class="step__title">Giao hàng</span>
-              </div>
-            </div> -->
             <div class="col-12 m-0 p-0 my-2 border-top">
               <span class="label__overview">Chia sẻ</span>
               <div class="data__overview mx-2">
@@ -641,7 +608,7 @@ export default {
   border: 1px solid $danger__color;
 }
 
-.desktop__image__src {
+.product__detail__image__src {
   background-image: url('/images/banner/banner_03.jpg');
   background-position: center;
   background-size: cover;

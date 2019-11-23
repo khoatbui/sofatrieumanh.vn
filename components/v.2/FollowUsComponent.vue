@@ -5,7 +5,7 @@
         :responsive="{
           0: { items: 1, nav: false },
           600: { items: 4, nav: false },
-          900: { items: 6, nav: false },
+          900: { items: 5, nav: false },
         }"
         :dots="false"
         :autoplay="true"

@@ -2,29 +2,43 @@
   <div class="newcategory__component">
     <div class="container">
       <div class="row mp--none py-4">
-        <div class="col-12 col-sm-6 col-md-2 topcategory__left">
-          <h6 class="topcategory__title">Top danh mục trong tuần</h6>
-          <p class="topcategory__intro">
-            Các danh mục được chọn mua nhiều nhất từ SofaTrieuManh
-          </p>
-          <nuxt-link class="topcategory__btn" to="/danh-muc"
-            >Xem tất cả</nuxt-link
-          >
-        </div>
-        <div
-          v-for="(cat, i) in category"
-          :key="i + 'cat'"
-          class="col-12 col-sm-6 col-md-2"
-        >
-          <div class="topcategory__item">
-            <nuxt-link :to="`${cat.categoryUrl}`">
-              <div
-                class="topcategory__img"
-                :style="`background-image:url('${cat.categoryImage}')`"
-              ></div>
-              <p class="topcategory__name">{{ cat.categoryName }}</p>
-            </nuxt-link>
-          </div>
+        <div class="col-12">
+          <client-only>
+            <!-- important to add client-only-->
+
+            <carousel
+              :responsive="{
+                0: { items: 1, nav: false },
+                600: { items: 3, nav: false },
+                900: { items: 6, nav: false },
+              }"
+              :dots="false"
+              :nav="false"
+              :autoplay="true"
+              :loop="true"
+            >
+              <div class="topcategory__left">
+                <h6 class="topcategory__title">Top danh mục trong tuần</h6>
+                <p class="topcategory__intro">
+                  Các danh mục được chọn mua nhiều nhất từ SofaTrieuManh
+                </p>
+                <nuxt-link class="topcategory__btn" to="/danh-muc"
+                  >Xem tất cả</nuxt-link
+                >
+              </div>
+              <div v-for="(cat, i) in category" :key="i + 'cat'">
+                <div class="topcategory__item">
+                  <nuxt-link :to="`${cat.categoryUrl}`">
+                    <div
+                      class="topcategory__img"
+                      :style="`background-image:url('${cat.categoryImage}')`"
+                    ></div>
+                    <p class="topcategory__name">{{ cat.categoryName }}</p>
+                  </nuxt-link>
+                </div>
+              </div>
+            </carousel>
+          </client-only>
         </div>
       </div>
     </div>

@@ -113,7 +113,7 @@
                 :button-close-hidden="false"
                 :active.sync="datePopup"
               >
-                <no-ssr>
+                <client-only>
                   <v-app>
                     <v-date-picker v-model="pickerBirthday" class="mt-4">
                       <v-spacer></v-spacer>
@@ -131,7 +131,7 @@
                       >
                     </v-date-picker>
                   </v-app>
-                </no-ssr>
+                </client-only>
               </vs-popup>
             </div>
             <div class="col-6 col-md-2 my-4 my-md-0 d-flex align-items-end">
