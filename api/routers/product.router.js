@@ -10,6 +10,10 @@ router.get(
   '/product-list-by-category/:id',
   controller.getAllProductsListByCategory
 );
+router.get(
+  '/product-list-by-category-id/:id',
+  controller.getAllProductsListByCategoryId
+);
 router.get('/product-list-by-state/new', controller.getAllProductsListByNew);
 router.get(
   '/product-list-by-state/saleoff',

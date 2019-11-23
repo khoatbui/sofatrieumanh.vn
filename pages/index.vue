@@ -22,7 +22,9 @@
       </div>
     </section>
     <section class="section__margin--y">
-      <FollowUsComponent />
+      <div class="container">
+        <FollowUsComponent />
+      </div>
     </section>
   </div>
 </template>

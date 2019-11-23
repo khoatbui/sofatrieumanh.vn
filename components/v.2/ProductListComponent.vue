@@ -199,6 +199,7 @@
                       :style="
                         `background-image:url('${product.images[0].path}')`
                       "
+                      @click="redirectTo(product.url)"
                     >
                       <div class="product__property">
                         <span
@@ -252,19 +253,33 @@
                       <div class="product__detail my-2">
                         <strong class="product__price"
                           ><span class="current__price">{{
-                            new Intl.NumberFormat('vi-VN', {
-                              style: 'currency',
-                              currency: 'VND',
-                              minimumFractionDigits: 0,
-                            }).format(product.price)
+                            product.price == '' ||
+                            typeof product.price == 'undefined'
+                              ? 'Liên hệ'
+                              : new Intl.NumberFormat('vi-VN', {
+                                  style: 'currency',
+                                  currency: 'VND',
+                                  minimumFractionDigits: 0,
+                                })
+                                  .format(product.price)
+                                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
                           }}</span>
-                          <span class="discount__price">{{
-                            new Intl.NumberFormat('vi-VN', {
-                              style: 'currency',
-                              currency: 'VND',
-                              minimumFractionDigits: 0,
-                            }).format(product.oldPrice)
-                          }}</span>
+                          <span
+                            v-if="
+                              product.oldPrice !== '' &&
+                                typeof product.oldPrice !== 'undefined'
+                            "
+                            class="discount__price"
+                            >{{
+                              new Intl.NumberFormat('vi-VN', {
+                                style: 'currency',
+                                currency: 'VND',
+                                minimumFractionDigits: 0,
+                              })
+                                .format(product.oldPrice)
+                                .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                            }}</span
+                          >
                         </strong>
                         <span class="product__star">
                           <i

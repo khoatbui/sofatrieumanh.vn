@@ -1,14 +1,14 @@
 <template>
   <div class="product__page">
     <div class="row mp--none">
-      <div class="col-12 mp--none">
-        <ProductDetailComponent />
+      <div class="col-12 mp--none p-0">
+        <ProductDetailComponent @categoryDate="updateCategory" />
       </div>
     </div>
     <div class="section__margin">
       <RequestAdvisorComponent />
     </div>
-    <RelatedProductComponent class="section__margin" />
+    <RelatedProductComponent class="section__margin" :category="categoryList" />
   </div>
 </template>
 <script>
@@ -22,7 +22,9 @@ export default {
     ProductDetailComponent,
     RequestAdvisorComponent,
   },
-  data: () => ({}),
+  data: () => ({
+    categoryList: [],
+  }),
   head() {
     return {
       title: this.title,
@@ -35,6 +37,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    updateCategory(variable) {
+      this.categoryList = variable;
+    },
   },
 };
 </script>

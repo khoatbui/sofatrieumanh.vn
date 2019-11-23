@@ -83,7 +83,17 @@
                       </div>
                       <div class="product__item__detail my-2">
                         <strong class="product__price"
-                          >{{ pro.price }} vnd</strong
+                          ><span class="current__price">{{
+                            pro.price == '' || typeof pro.price == 'undefined'
+                              ? 'Liên hệ'
+                              : new Intl.NumberFormat('vi-VN', {
+                                  style: 'currency',
+                                  currency: 'VND',
+                                  minimumFractionDigits: 0,
+                                })
+                                  .format(pro.price)
+                                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                          }}</span></strong
                         >
                         <span class="product__star">
                           <i
@@ -168,7 +178,33 @@
                       </div>
                       <div class="product__item__detail my-2">
                         <strong class="product__price"
-                          >{{ pro.price }} vnd</strong
+                          ><span class="current__price">{{
+                            pro.price == '' || typeof pro.price == 'undefined'
+                              ? 'Liên hệ'
+                              : new Intl.NumberFormat('vi-VN', {
+                                  style: 'currency',
+                                  currency: 'VND',
+                                  minimumFractionDigits: 0,
+                                })
+                                  .format(pro.price)
+                                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                          }}</span
+                          ><span
+                            v-if="
+                              pro.oldPrice !== '' &&
+                                typeof pro.oldPrice !== 'undefined'
+                            "
+                            class="discount__price"
+                            >{{
+                              new Intl.NumberFormat('vi-VN', {
+                                style: 'currency',
+                                currency: 'VND',
+                                minimumFractionDigits: 0,
+                              })
+                                .format(pro.oldPrice)
+                                .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                            }}</span
+                          ></strong
                         >
                         <span class="product__star">
                           <i
@@ -253,7 +289,33 @@
                       </div>
                       <div class="product__item__detail my-2">
                         <strong class="product__price"
-                          >{{ pro.price }} vnd</strong
+                          ><span class="current__price">{{
+                            pro.price == '' || typeof pro.price == 'undefined'
+                              ? 'Liên hệ'
+                              : new Intl.NumberFormat('vi-VN', {
+                                  style: 'currency',
+                                  currency: 'VND',
+                                  minimumFractionDigits: 0,
+                                })
+                                  .format(pro.price)
+                                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                          }}</span
+                          ><span
+                            v-if="
+                              pro.oldPrice !== '' &&
+                                typeof pro.oldPrice !== 'undefined'
+                            "
+                            class="discount__price"
+                            >{{
+                              new Intl.NumberFormat('vi-VN', {
+                                style: 'currency',
+                                currency: 'VND',
+                                minimumFractionDigits: 0,
+                              })
+                                .format(pro.oldPrice)
+                                .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                            }}</span
+                          ></strong
                         >
                         <span class="product__star">
                           <i
@@ -338,7 +400,33 @@
                       </div>
                       <div class="product__item__detail my-2">
                         <strong class="product__price"
-                          >{{ pro.price }} vnd</strong
+                          ><span class="current__price">{{
+                            pro.price == '' || typeof pro.price == 'undefined'
+                              ? 'Liên hệ'
+                              : new Intl.NumberFormat('vi-VN', {
+                                  style: 'currency',
+                                  currency: 'VND',
+                                  minimumFractionDigits: 0,
+                                })
+                                  .format(pro.price)
+                                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                          }}</span
+                          ><span
+                            v-if="
+                              pro.oldPrice !== '' &&
+                                typeof pro.oldPrice !== 'undefined'
+                            "
+                            class="discount__price"
+                            >{{
+                              new Intl.NumberFormat('vi-VN', {
+                                style: 'currency',
+                                currency: 'VND',
+                                minimumFractionDigits: 0,
+                              })
+                                .format(pro.oldPrice)
+                                .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                            }}</span
+                          ></strong
                         >
                         <span class="product__star">
                           <i

@@ -1,5 +1,8 @@
 <template>
-  <div class="related__component">
+  <div
+    v-if="completedGetData == true || productList.length > 0"
+    class="related__component"
+  >
     <div class="container">
       <div class="row mp--none">
         <div class="col-12 mp--none">
@@ -8,7 +11,7 @@
       </div>
       <div class="row mp--none">
         <div
-          v-for="(pro, ist) in productList"
+          v-for="(pro, ist) in getTop8Product"
           :key="ist + 'prod'"
           class="col-12 col-sm-6 col-md-3 col-lg-3"
         >
@@ -21,6 +24,7 @@
                     ? `background-image:url('/images/product/1-01.jpg')`
                     : `background-image:url('${pro.images[0].path}')`
                 "
+                @click="redirectToProductPage(pro.url)"
               >
                 <div class="product__property">
                   <span v-if="pro.isHot" class="custom__badge custom__hot"
@@ -66,19 +70,32 @@
                 <div class="product__item__detail my-2">
                   <strong class="product__price"
                     ><span class="current__price">{{
-                      new Intl.NumberFormat('vi-VN', {
-                        style: 'currency',
-                        currency: 'VND',
-                        minimumFractionDigits: 0,
-                      }).format(pro.price)
+                      pro.price == '' || typeof pro.price == 'undefined'
+                        ? 'Liên hệ'
+                        : new Intl.NumberFormat('vi-VN', {
+                            style: 'currency',
+                            currency: 'VND',
+                            minimumFractionDigits: 0,
+                          })
+                            .format(pro.price)
+                            .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
                     }}</span>
-                    <span class="discount__price">{{
-                      new Intl.NumberFormat('vi-VN', {
-                        style: 'currency',
-                        currency: 'VND',
-                        minimumFractionDigits: 0,
-                      }).format(pro.oldPrice)
-                    }}</span>
+                    <span
+                      v-if="
+                        pro.oldPrice !== '' &&
+                          typeof pro.oldPrice !== 'undefined'
+                      "
+                      class="discount__price"
+                      >{{
+                        new Intl.NumberFormat('vi-VN', {
+                          style: 'currency',
+                          currency: 'VND',
+                          minimumFractionDigits: 0,
+                        })
+                          .format(pro.oldPrice)
+                          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                      }}</span
+                    >
                   </strong>
                   <span class="product__star">
                     <i v-for="i in pro.star" :key="i" class="material-icons">
@@ -96,104 +113,76 @@
 </template>
 <script>
 export default {
+  props: {
+    category: {
+      type: Array,
+      default: null,
+    },
+  },
   data: () => ({
-    productList: [
-      {
-        productName: 'Sofa cao cap TBK001',
-        productImage: '/images/product/1-01.jpg',
-        price: 23000000,
-        star: 4,
-        property: 'Saleoff',
-        isHot: true,
-        isSaleOff: false,
-        isNewProduct: true,
-      },
-      {
-        productName: 'Sofa cao cap TBK001',
-        productImage: '/images/product/1-01.jpg',
-        price: 23000000,
-        star: 4,
-        property: 'New',
-        isHot: true,
-        isSaleOff: false,
-        isNewProduct: true,
-      },
-      {
-        productName: 'Sofa cao cap TBK001',
-        productImage: '/images/product/1-01.jpg',
-        price: 23000000,
-        star: 4,
-        property: 'Saleoff',
-        isHot: true,
-        isSaleOff: false,
-        isNewProduct: true,
-      },
-      {
-        productName: 'Sofa cao cap TBK001',
-        productImage: '/images/product/1-01.jpg',
-        price: 23000000,
-        star: 4,
-        property: 'Hot',
-        isHot: true,
-        isSaleOff: false,
-        isNewProduct: true,
-      },
-      {
-        productName: 'Sofa cao cap TBK001',
-        productImage: '/images/product/1-01.jpg',
-        price: 23000000,
-        star: 4,
-        property: 'Saleoff',
-        isHot: true,
-        isSaleOff: false,
-        isNewProduct: true,
-      },
-      {
-        productName: 'Sofa cao cap TBK001',
-        productImage: '/images/product/1-01.jpg',
-        price: 23000000,
-        star: 4,
-        isHot: true,
-        isSaleOff: false,
-        isNewProduct: true,
-      },
-      {
-        productName: 'Sofa cao cap TBK001',
-        productImage: '/images/product/1-01.jpg',
-        price: 23000000,
-        star: 4,
-        property: 'Saleoff',
-        isHot: true,
-        isSaleOff: false,
-        isNewProduct: true,
-      },
-      {
-        productName: 'Sofa cao cap TBK001',
-        productImage: '/images/product/1-01.jpg',
-        price: 23000000,
-        star: 4,
-        property: 'Hot',
-        isHot: true,
-        isSaleOff: false,
-        isNewProduct: true,
-      },
-      {
-        productName: 'Sofa cao cap TBK001',
-        productImage: '/images/product/1-01.jpg',
-        price: 23000000,
-        star: 4,
-        isHot: true,
-        isSaleOff: false,
-        isNewProduct: true,
-      },
-    ],
+    productList: [],
+    completedGetData: false,
   }),
+  computed: {
+    getTop8Product() {
+      if (this.productList.length > 0) {
+        return this.productList.filter((product, index) => {
+          console.log(index);
+          return index < 8;
+        });
+      }
+      return [];
+    },
+  },
+  mounted() {
+    this.getProductByCategory();
+  },
   methods: {
-    redirectToProductPage() {
-      this.$router.replace('/san-pham');
+    redirectToProductPage(url) {
+      this.$router.replace(`/san-pham/${url}`);
     },
     redirectToComparePage() {
       this.$router.replace('/so-sanh');
+    },
+    getProductByCategory() {
+      if (this.category.length > 0) {
+        this.$axios
+          .get(
+            `${process.env.API_HTTP}/productapi/product-list-by-category/${this.category[0].url}`
+          )
+          .then(response => {
+            this.productList = response.data;
+            this.$vs.loading.close();
+            this.completedGetData = true;
+          })
+          .catch(error => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Opps!',
+              text: error,
+            });
+          })
+          .finally(() => {
+            this.$vs.loading.close();
+          });
+      } else {
+        this.$axios
+          .get(`${process.env.API_HTTP}/productapi/product-list-by-state/hot`)
+          .then(response => {
+            this.productList = response.data;
+            this.$vs.loading.close();
+          })
+          .catch(error => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Opps!',
+              text: error,
+            });
+          })
+          .finally(() => {
+            this.$vs.loading.close();
+          });
+      }
     },
   },
 };

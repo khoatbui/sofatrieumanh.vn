@@ -41,20 +41,34 @@
             >
               <h4 class="data__price">
                 {{
+                  productDetail.price == '' ||
+                  typeof productDetail.price == 'undefined'
+                    ? 'Liên hệ'
+                    : new Intl.NumberFormat('vi-VN', {
+                        style: 'currency',
+                        currency: 'VND',
+                        minimumFractionDigits: 0,
+                      })
+                        .format(productDetail.price)
+                        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                }}
+              </h4>
+              <span
+                v-if="
+                  productDetail.oldPrice !== '' &&
+                    typeof productDetail.oldPrice !== 'undefined'
+                "
+                class="discount__price"
+                >{{
                   new Intl.NumberFormat('vi-VN', {
                     style: 'currency',
                     currency: 'VND',
                     minimumFractionDigits: 0,
-                  }).format(productDetail.price)
-                }}
-              </h4>
-              <span class="discount__price">{{
-                new Intl.NumberFormat('vi-VN', {
-                  style: 'currency',
-                  currency: 'VND',
-                  minimumFractionDigits: 0,
-                }).format(productDetail.oldPrice)
-              }}</span>
+                  })
+                    .format(productDetail.oldPrice)
+                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                }}</span
+              >
             </div>
             <div class="col-12">
               <div class="row mp--none">
@@ -410,6 +424,7 @@ export default {
           )
           .then(response => {
             this.productDetail = response.data;
+            this.$emit('categoryDate', this.productDetail.category);
             this.$vs.loading.close();
             this.completedGetData = true;
           })
@@ -634,6 +649,9 @@ export default {
   height: 500px;
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .category__name {
   font-size: 3rem;

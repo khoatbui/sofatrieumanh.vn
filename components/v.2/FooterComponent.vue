@@ -155,8 +155,8 @@
 
 <style lang="scss">
 .footer__component {
-  background-color: $primary__color;
-  color: $secondary__color;
+  background-color: $footer__bg__color;
+  color: $primary__text;
 }
 .footer__top {
   padding: 2rem 0 1rem 0;
@@ -174,12 +174,12 @@
   font-size: 0.9rem;
 }
 .footer__top__item a {
-  color: $secondary__color;
+  color: $primary__text;
   text-decoration: none !important;
 }
 .footer__top__title::before {
   content: '';
-  border-bottom: 3px solid $secondary__color;
+  border-bottom: 3px solid $primary__text;
   position: absolute;
   top: 2.5rem;
   width: 40%;
@@ -187,7 +187,7 @@
 .subscribe__input {
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;
-  border: 0;
+  border: 1px solid $secondary__color;
   padding: 0.4rem 0.8rem;
   margin: 0;
   background-color: $white__color !important;
