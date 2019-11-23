@@ -9,7 +9,7 @@
 import Vue from 'vue';
 import Vuesax from 'vuesax';
 import HeaderComponent from '@/components/HeaderComponent.vue';
-import FooterComponent from '@/components/FooterComponent.vue';
+import FooterComponent from '@/components/v.2/FooterComponent.vue';
 
 import 'vuesax/dist/vuesax.css'; // Vuesax styles
 import 'material-icons/iconfont/material-icons.css';
