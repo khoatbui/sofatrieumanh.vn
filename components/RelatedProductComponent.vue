@@ -127,7 +127,6 @@ export default {
     getTop8Product() {
       if (this.productList.length > 0) {
         return this.productList.filter((product, index) => {
-          console.log(index);
           return index < 8;
         });
       }
