@@ -30,7 +30,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-12 col-md-6 col-lg-2 mp--none pr-2">
+          <div class="col-6 col-md-6 col-lg-2 mp--none pr-2">
             <h6 class="footer__top__title">Sản phẩm</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item">
@@ -55,7 +55,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-12 col-md-6 col-lg-2 mp--none pr-2">
+          <div class="col-6 col-md-6 col-lg-2 mp--none pr-2">
             <h6 class="footer__top__title">Quicklink</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item">

@@ -1,6 +1,6 @@
 <template>
   <div class="tuvan__component">
-    <div class="row mp--none category__component">
+    <div class="row mp--none category__component w-100">
       <div
         class="col-12 mx-auto mp--none d-flex justify-content-center align-items-center flex-column tuvan__img"
       >
@@ -99,7 +99,7 @@
 </template>
 <script>
 export default {
-  layout: 'mainlayout',
+  layout: 'pagelayout',
   data: () => ({
     comment: {
       fullName: '',

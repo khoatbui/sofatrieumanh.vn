@@ -1,6 +1,6 @@
 <template>
   <div class="product__detail__component">
-    <div class="row m-0 p-0 category__component">
+    <div class="row m-0 p-0 category__component w-100">
       <div class="product__detail__image__src">
         <div
           class="category__info w-100 d-flex justify-content-center align-items-center flex-column"

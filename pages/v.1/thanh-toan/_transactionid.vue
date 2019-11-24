@@ -174,7 +174,7 @@
 </template>
 <script>
 export default {
-  layout: 'mainlayout',
+  layout: 'pagelayout',
   data: () => ({
     order: {
       paymentType: '',

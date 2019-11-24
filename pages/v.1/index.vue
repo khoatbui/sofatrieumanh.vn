@@ -45,7 +45,7 @@ import ProductByTypeComponent from '@/components/ProductByTypeComponent.vue';
 import RequestAdvisorComponent from '@/components/RequestAdvisorComponent.vue';
 import BestSellerProductComponent from '@/components/BestSellerProductComponent.vue';
 export default {
-  layout: 'mainlayout',
+  layout: 'pagelayout',
   components: {
     InstructionStepComponent,
     PromotionComponent,

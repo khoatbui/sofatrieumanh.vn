@@ -1,6 +1,6 @@
 <template>
   <div class="productlist__component">
-    <div class="row mp--none category__component section__margin">
+    <div class="row mp--none category__component w-100 p-0 m-0 section__margin">
       <div
         class="col-12 col-md-10 mx-auto mp--none d-flex justify-content-center align-items-center flex-column"
       >
@@ -610,7 +610,7 @@ export default {
 };
 </script>
 <style lang="scss">
-// .category__component {
+// .category__component w-100 {
 //   background-color: $secondary__color;
 //   color: $white__color;
 // }

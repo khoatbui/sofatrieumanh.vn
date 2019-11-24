@@ -4,8 +4,8 @@
       <client-only>
         <carousel
           :items="1"
-          :dots="true"
-          :nav="true"
+          :dots="false"
+          :nav="false"
           :autoplay="true"
           :loop="true"
         >
@@ -31,7 +31,7 @@
       <div class="desktop__header_bottom p-2">
         <div class="leftside__header">
           <nuxt-link to="/">
-            <h1>TM.</h1>
+            <h1>Tm.</h1>
           </nuxt-link>
           <vs-dropdown vs-custom-content>
             <a class="a-icon drop__head" href.prevent>
@@ -244,6 +244,7 @@
               icon="search"
               placeholder="Search"
               class="input__search"
+              @keyup.enter="redirectTo(`/danh-muc/tim-kiem/?search=${search}`)"
             />
           </div>
           <div class="header__favorite">

@@ -10,7 +10,7 @@
 import BlogDetailComponent from '@/components/BlogDetailComponent';
 import SlideProductComponent from '@/components/SlideProductComponent';
 export default {
-  layout: 'mainlayout',
+  layout: 'pagelayout',
   components: {
     BlogDetailComponent,
     SlideProductComponent,

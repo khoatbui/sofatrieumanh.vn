@@ -1,6 +1,6 @@
 <template>
   <div class="productlist__component">
-    <div class="row mp--none category__component">
+    <div class="row mp--none category__component m-0 p-0 w-100">
       <div class="product__list__image__src">
         <div
           class="category__info w-100 d-flex justify-content-center align-items-center flex-column"
@@ -557,6 +557,12 @@ export default {
     categoryDetail: {},
     categoryList: [],
   }),
+  watch: {
+    $route(to, from) {
+      // react to route changes...
+      this.getProductList();
+    },
+  },
   mounted() {
     this.getProductList();
     this.GetCategoryList();
@@ -646,7 +652,28 @@ export default {
     },
     getProductList() {
       this.$vs.loading();
-      if (this.$route.params.id.length > 0) {
+      console.log(this.$route.query.search);
+      if (typeof this.$route.query.search !== 'undefined') {
+        this.$axios
+          .get(
+            `${process.env.API_HTTP}/productapi/product-list-by-search/${this.$route.query.search}`
+          )
+          .then(response => {
+            this.productList = response.data;
+            console.log(this.productList);
+            this.$vs.loading.close();
+          })
+          .catch(error => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Opps!',
+              text: error,
+            });
+          })
+          .finally(() => {
+            this.$vs.loading.close();
+          });
+      } else if (this.$route.params.id.length > 0) {
         this.$axios
           .get(
             `${process.env.API_HTTP}/productapi/product-list-by-category/${this.$route.params.id}`
@@ -691,7 +718,7 @@ export default {
 };
 </script>
 <style lang="scss">
-// .category__component {
+// .category__component w-100 {
 //   background-color: $secondary__color;
 //   color: $white__color;
 // }

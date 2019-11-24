@@ -1,53 +1,50 @@
-const express = require('express')
-const multer = require('multer')
-const controller = require('../controllers/upload.controller')
-const router = express.Router()
+const express = require('express');
+const multer = require('multer');
+const controller = require('../controllers/upload.controller');
+const router = express.Router();
 // SET PRODUCT
-var productStorage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, 'static/images/product')
+let productStorage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, 'static/images/product');
   },
-  filename: function(req, file, cb) {
-    console.log(file)
-    cb(null, file.originalname)
-  }
-})
-var uploadProduct = multer({ storage: productStorage })
+  filename(req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+let uploadProduct = multer({ storage: productStorage });
 
 // SET BLOGS
-var blogtStorage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, 'static/images/blogs')
+let blogtStorage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, 'static/images/blogs');
   },
-  filename: function(req, file, cb) {
-    console.log(file)
-    cb(null, file.originalname)
-  }
-})
+  filename(req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
 
-var uploadBlog = multer({ storage: blogtStorage })
+let uploadBlog = multer({ storage: blogtStorage });
 
 // SET PROMOTION
-var promotionStorage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, 'static/images/promotion')
+let promotionStorage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, 'static/images/promotion');
   },
-  filename: function(req, file, cb) {
-    console.log(file)
-    cb(null, file.originalname)
-  }
-})
+  filename(req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
 
-var uploadPromotion = multer({ storage: promotionStorage })
+let uploadPromotion = multer({ storage: promotionStorage });
 router.post(
   '/upload-product-img',
   uploadProduct.any(),
   controller.uploadMultiImages
-)
-router.post('/upload-blog-img', uploadBlog.any(), controller.uploadMultiImages)
+);
+router.post('/upload-blog-img', uploadBlog.any(), controller.uploadMultiImages);
 router.post(
   '/upload-promotion-img',
   uploadPromotion.any(),
   controller.uploadMultiImages
-)
-module.exports = router
+);
+module.exports = router;

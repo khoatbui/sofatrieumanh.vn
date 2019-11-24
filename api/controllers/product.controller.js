@@ -178,6 +178,33 @@ module.exports.getAllProductsListByCategory = function(req, res) {
     console.log(error);
   }
 };
+module.exports.getAllProductsListBySearch = function(req, res) {
+  try {
+    Product.find({
+      productName: { $regex: req.params.keyword },
+      isActive: true,
+    })
+      .select({
+        productName: 1,
+        price: 1,
+        oldPrice: 1,
+        _id: 1,
+        createDate: 1,
+        isHot: 1,
+        url: 1,
+        images: 1,
+      })
+      .exec((error, response) => {
+        if (error) {
+          return next(error);
+        } else {
+          res.status(200).json(response);
+        }
+      });
+  } catch (error) {
+    console.log(error);
+  }
+};
 module.exports.getAllProductsListByCategoryId = function(req, res) {
   try {
     Product.find({

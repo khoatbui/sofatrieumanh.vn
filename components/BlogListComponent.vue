@@ -1,6 +1,6 @@
 <template>
   <div class="bloglist__component">
-    <div class="row mp--none category__component section__margin">
+    <div class="row mp--none category__component w-100 section__margin">
       <div
         class="col-12 col-md-10 mx-auto mp--none d-flex justify-content-center align-items-center flex-column"
       >

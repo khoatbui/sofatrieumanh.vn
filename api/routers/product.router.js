@@ -11,6 +11,10 @@ router.get(
   controller.getAllProductsListByCategory
 );
 router.get(
+  '/product-list-by-search/:keyword',
+  controller.getAllProductsListBySearch
+);
+router.get(
   '/product-list-by-category-id/:id',
   controller.getAllProductsListByCategoryId
 );

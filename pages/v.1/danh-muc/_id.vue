@@ -14,7 +14,7 @@
 import RelatedProductComponent from '@/components/RelatedProductComponent.vue';
 import ProductListComponent from '@/components/ProductListComponent.vue';
 export default {
-  layout: 'mainlayout',
+  layout: 'pagelayout',
   components: {
     RelatedProductComponent,
     ProductListComponent,

@@ -230,7 +230,7 @@
 </template>
 <script>
 export default {
-  layout: 'mainlayout',
+  layout: 'pagelayout',
   head() {
     return {
       title: this.title,

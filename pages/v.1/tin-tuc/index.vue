@@ -18,7 +18,7 @@ import RelatedProductComponent from '@/components/RelatedProductComponent.vue';
 import BlogListComponent from '@/components/BlogListComponent.vue';
 import RequestAdvisorComponent from '@/components/RequestAdvisorComponent.vue';
 export default {
-  layout: 'mainlayout',
+  layout: 'pagelayout',
   components: {
     RelatedProductComponent,
     BlogListComponent,

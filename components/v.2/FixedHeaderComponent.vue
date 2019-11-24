@@ -7,7 +7,7 @@
       <div class="desktop__header_bottom p-2">
         <div class="leftside__header">
           <nuxt-link to="/">
-            <h1>TM.</h1>
+            <h1>Tm.</h1>
           </nuxt-link>
           <vs-dropdown vs-custom-content>
             <a class="a-icon drop__head" href.prevent>
@@ -220,6 +220,7 @@
               icon="search"
               placeholder="Search"
               class="input__search"
+              @keyup.enter="redirectTo(`/danh-muc/tim-kiem/?search=${search}`)"
             />
           </div>
           <div class="header__favorite">
@@ -559,39 +560,39 @@ export default {
 }
 // MOBILE
 .header__logo {
-  color: $primary__color;
+  color: $secondary__color;
   font-weight: 700;
 }
 .vs-navbar--btn-responsive {
   background-color: #fff !important;
-  color: $primary__color;
+  color: $secondary__color;
 }
 .vs-navbar--btn-responsive span {
-  background-color: $primary__color;
+  background-color: $secondary__color;
 }
 .vs-navbar--btn-responsive:hover {
   background-color: #fff !important;
   outline: none !important;
-  color: $primary__color;
+  color: $secondary__color;
 }
 .vs-navbar--item a {
   font-size: 1.2rem !important;
-  color: $primary__color;
+  color: $secondary__color;
   font-weight: 600;
 }
 .mobile__menu {
   display: flex;
-  color: $primary__color;
+  color: $secondary__color;
 }
 .desktop__img,
 .desktop__header {
   display: none !important;
 }
 .mobile__menu a {
-  color: $primary__color !important;
+  color: $secondary__color !important;
 }
 .mobile__menu .vs-navbar--btn-responsive .btn-responsive-line {
-  background-color: $primary__color !important;
+  background-color: $secondary__color !important;
 }
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
