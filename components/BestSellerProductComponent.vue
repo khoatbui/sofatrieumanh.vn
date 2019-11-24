@@ -1,8 +1,8 @@
 <template>
   <div class="bestseller__component">
     <div class="container">
-      <div class="row mp--none">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mp--none">
+      <div class="row m-0 p-0">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 m-0 p-0">
           <h6 class="bestseller__title">Sản phẩm bán chạy</h6>
           <p class="bestseller__content">
             Sofa TrieuManh mang đến cho những người yêu nội thất những trải
@@ -16,10 +16,10 @@
             </i></nuxt-link
           >
         </div>
-        <div class="col-12 col-sm-6 col-md-8 col-lg-9 mp--none">
-          <div class="row mp--none">
+        <div class="col-12 col-sm-6 col-md-8 col-lg-9 m-0 p-0">
+          <div class="row m-0 p-0">
             <div
-              class="col-12 mp--none d-flex justify-content-start align-items-center flex-wrap"
+              class="col-12 m-0 p-0 d-flex justify-content-start align-items-center flex-wrap"
             >
               <div class="card border-0 bestseller__item">
                 <div class="card-body p-1">

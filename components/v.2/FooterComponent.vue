@@ -2,8 +2,8 @@
   <div class="footer__component">
     <div class="footer__top">
       <div class="container">
-        <div class="row mp--none">
-          <div class="col-12 col-md-6 col-lg-5 mp--none pr-4">
+        <div class="row m-0 p-0">
+          <div class="col-12 col-md-6 col-lg-5 m-0 p-0 pr-4">
             <h6 class="footer__top__title">
               Nội thất Triệu Mạnh
             </h6>
@@ -30,7 +30,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-6 col-md-6 col-lg-2 mp--none pr-2">
+          <div class="col-6 col-md-6 col-lg-2 m-0 p-0 pr-2">
             <h6 class="footer__top__title">Sản phẩm</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item">
@@ -55,7 +55,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-6 col-md-6 col-lg-2 mp--none pr-2">
+          <div class="col-6 col-md-6 col-lg-2 m-0 p-0 pr-2">
             <h6 class="footer__top__title">Quicklink</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item">
@@ -85,7 +85,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-12 col-md-6 col-lg-3 mp--none">
+          <div class="col-12 col-md-6 col-lg-3 m-0 p-0">
             <h6 class="footer__top__title">Đăng kí</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item footer__top__item__subscribe">
@@ -129,10 +129,10 @@
         </div>
       </div>
     </div>
-    <div class="footer__bottom py-2 mp--none">
+    <div class="footer__bottom py-2 m-0 p-0">
       <div class="container">
         <div
-          class="row mp--none d-flex flex-wrap justify-content-between align-items-center"
+          class="row m-0 p-0 d-flex flex-wrap justify-content-between align-items-center"
         >
           <div class="footer__bottom__left">
             <span>Bản quyền © thuộc về sofatrieumanh, 2019</span>

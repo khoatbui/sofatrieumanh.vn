@@ -1,14 +1,14 @@
 <template>
   <div class="giohang__component section__padding">
     <div class="container">
-      <div class="row mp--none">
-        <div class="col-12 col-md-8 mp--none p-2">
-          <div class="card border-0 mp--none">
+      <div class="row m-0 p-0">
+        <div class="col-12 col-md-8 m-0 p-0 p-2">
+          <div class="card border-0 m-0 p-0">
             <div class="card-body">
               <div
-                class="row mp--none border p-2 align-items-center my-2 flex-wrap"
+                class="row m-0 p-0 border p-2 align-items-center my-2 flex-wrap"
               >
-                <div class="col-2 col-md-1 mp--none">
+                <div class="col-2 col-md-1 m-0 p-0">
                   <vs-button
                     radius
                     :color="'#156867'"
@@ -17,11 +17,11 @@
                     icon="clear"
                   ></vs-button>
                 </div>
-                <div class="col-6 col-md-4 mp--none">
+                <div class="col-6 col-md-4 m-0 p-0">
                   <div class="cart__item__img"></div>
                 </div>
                 <div
-                  class="col-4 col-md-3 mp--none d-flex justify-content-around align-items-center"
+                  class="col-4 col-md-3 m-0 p-0 d-flex justify-content-around align-items-center"
                 >
                   <vs-button
                     radius
@@ -42,16 +42,16 @@
                   ></vs-button>
                 </div>
                 <div
-                  class="col-12 col-md-4 mp--none d-flex flex-column justify-content-center align-items-end"
+                  class="col-12 col-md-4 m-0 p-0 d-flex flex-column justify-content-center align-items-end"
                 >
                   <span class="text-muted text__size--x09"> 229,000 x 3</span>
                   <strong>Tong tien: 989,000</strong>
                 </div>
               </div>
               <div
-                class="row mp--none border p-2 align-items-center my-2 flex-wrap"
+                class="row m-0 p-0 border p-2 align-items-center my-2 flex-wrap"
               >
-                <div class="col-2 col-md-1 mp--none">
+                <div class="col-2 col-md-1 m-0 p-0">
                   <vs-button
                     radius
                     :color="'#156867'"
@@ -60,11 +60,11 @@
                     icon="clear"
                   ></vs-button>
                 </div>
-                <div class="col-6 col-md-4 mp--none">
+                <div class="col-6 col-md-4 m-0 p-0">
                   <div class="cart__item__img"></div>
                 </div>
                 <div
-                  class="col-4 col-md-3 mp--none d-flex justify-content-around align-items-center"
+                  class="col-4 col-md-3 m-0 p-0 d-flex justify-content-around align-items-center"
                 >
                   <vs-button
                     radius
@@ -85,16 +85,16 @@
                   ></vs-button>
                 </div>
                 <div
-                  class="col-12 col-md-4 mp--none d-flex flex-column justify-content-center align-items-end"
+                  class="col-12 col-md-4 m-0 p-0 d-flex flex-column justify-content-center align-items-end"
                 >
                   <span class="text-muted text__size--x09"> 229,000 x 3</span>
                   <strong>Tong tien: 989,000</strong>
                 </div>
               </div>
               <div
-                class="row mp--none border p-2 align-items-center my-2 flex-wrap"
+                class="row m-0 p-0 border p-2 align-items-center my-2 flex-wrap"
               >
-                <div class="col-2 col-md-1 mp--none">
+                <div class="col-2 col-md-1 m-0 p-0">
                   <vs-button
                     radius
                     :color="'#156867'"
@@ -103,11 +103,11 @@
                     icon="clear"
                   ></vs-button>
                 </div>
-                <div class="col-6 col-md-4 mp--none">
+                <div class="col-6 col-md-4 m-0 p-0">
                   <div class="cart__item__img"></div>
                 </div>
                 <div
-                  class="col-4 col-md-3 mp--none d-flex justify-content-around align-items-center"
+                  class="col-4 col-md-3 m-0 p-0 d-flex justify-content-around align-items-center"
                 >
                   <vs-button
                     radius
@@ -128,16 +128,16 @@
                   ></vs-button>
                 </div>
                 <div
-                  class="col-12 col-md-4 mp--none d-flex flex-column justify-content-center align-items-end"
+                  class="col-12 col-md-4 m-0 p-0 d-flex flex-column justify-content-center align-items-end"
                 >
                   <span class="text-muted text__size--x09"> 229,000 x 3</span>
                   <strong>Tong tien: 989,000</strong>
                 </div>
               </div>
               <div
-                class="row mp--none border p-2 align-items-center my-2 flex-wrap"
+                class="row m-0 p-0 border p-2 align-items-center my-2 flex-wrap"
               >
-                <div class="col-2 col-md-1 mp--none">
+                <div class="col-2 col-md-1 m-0 p-0">
                   <vs-button
                     radius
                     :color="'#156867'"
@@ -146,11 +146,11 @@
                     icon="clear"
                   ></vs-button>
                 </div>
-                <div class="col-6 col-md-4 mp--none">
+                <div class="col-6 col-md-4 m-0 p-0">
                   <div class="cart__item__img"></div>
                 </div>
                 <div
-                  class="col-4 col-md-3 mp--none d-flex justify-content-around align-items-center"
+                  class="col-4 col-md-3 m-0 p-0 d-flex justify-content-around align-items-center"
                 >
                   <vs-button
                     radius
@@ -171,7 +171,7 @@
                   ></vs-button>
                 </div>
                 <div
-                  class="col-12 col-md-4 mp--none d-flex flex-column justify-content-center align-items-end"
+                  class="col-12 col-md-4 m-0 p-0 d-flex flex-column justify-content-center align-items-end"
                 >
                   <span class="text-muted text__size--x09"> 229,000 x 3</span>
                   <strong>Tong tien: 989,000</strong>
@@ -180,42 +180,42 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-4 mp--none p-2">
-          <div class="card border-0 mp--none">
+        <div class="col-12 col-md-4 m-0 p-0 p-2">
+          <div class="card border-0 m-0 p-0">
             <div class="card-body">
-              <div class="row mp--none mb-4">
-                <div class="col-12 mp--none">
+              <div class="row m-0 p-0 mb-4">
+                <div class="col-12 m-0 p-0">
                   <h5 class="total__title">Tong don hang</h5>
                 </div>
               </div>
-              <div class="row mp--none border-bottom my-3">
-                <div class="col-6 mp--none text-left">
+              <div class="row m-0 p-0 border-bottom my-3">
+                <div class="col-6 m-0 p-0 text-left">
                   <p class="total__title__text text-muted">San pham 01</p>
                 </div>
-                <div class="col-6 mp--none text-right">
+                <div class="col-6 m-0 p-0 text-right">
                   <p class="total__title__item">2 x 265,000</p>
                 </div>
               </div>
-              <div class="row mp--none border-bottom my-3">
-                <div class="col-6 mp--none text-left">
+              <div class="row m-0 p-0 border-bottom my-3">
+                <div class="col-6 m-0 p-0 text-left">
                   <p class="total__title__text text-muted">San pham 02</p>
                 </div>
-                <div class="col-6 mp--none text-right">
+                <div class="col-6 m-0 p-0 text-right">
                   <p class="total__title__item">2 x 265,000</p>
                 </div>
               </div>
-              <div class="row mp--none border-bottom my-3">
-                <div class="col-6 mp--none text-left">
+              <div class="row m-0 p-0 border-bottom my-3">
+                <div class="col-6 m-0 p-0 text-left">
                   <p class="total__title__total text-muted">
                     <strong>Tong tien</strong>
                   </p>
                 </div>
-                <div class="col-6 mp--none text-right">
+                <div class="col-6 m-0 p-0 text-right">
                   <p class="total__title"><strong> 2 x 265,000</strong></p>
                 </div>
               </div>
-              <div class="row mp--none thanhtoan__section">
-                <div class="col-12 mp--none">
+              <div class="row m-0 p-0 thanhtoan__section">
+                <div class="col-12 m-0 p-0">
                   <vs-button color="warning" type="filled" class="w-100"
                     >Tien hanh thanh toan</vs-button
                   >

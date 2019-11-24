@@ -1,7 +1,7 @@
 <template>
   <div class="newcategory__component">
     <div class="container">
-      <div class="row mp--none py-4">
+      <div class="row m-0 p-0 py-4">
         <div class="col-12">
           <client-only>
             <!-- important to add client-only-->

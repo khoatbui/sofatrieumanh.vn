@@ -1,7 +1,7 @@
 <template>
   <div v-if="images !== null" class="gallery__image__component">
-    <div class="row mp--none">
-      <div class="col-12 mp--none">
+    <div class="row m-0 p-0">
+      <div class="col-12 m-0 p-0">
         <client-only>
           <ImageMagnifier
             :src="selectedImage === null ? images[0].path : selectedImage.path"
@@ -15,7 +15,7 @@
           ></ImageMagnifier>
         </client-only>
       </div>
-      <div class="col-12 mp--none">
+      <div class="col-12 m-0 p-0">
         <carousel
           class="gallery__image__carouse"
           :responsive="{

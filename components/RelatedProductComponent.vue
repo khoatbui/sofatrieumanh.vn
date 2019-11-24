@@ -4,19 +4,19 @@
     class="related__component"
   >
     <div class="container">
-      <div class="row mp--none">
-        <div class="col-12 mp--none">
+      <div class="row m-0 p-0">
+        <div class="col-12 m-0 p-0">
           <h6 class="component__title">Sản phẩm liên quan</h6>
         </div>
       </div>
-      <div class="row mp--none">
+      <div class="row m-0 p-0">
         <div
           v-for="(pro, ist) in getTop8Product"
           :key="ist + 'prod'"
-          class="col-12 col-sm-6 col-md-3 col-lg-3"
+          class="col-12 col-sm-6 col-md-3 col-lg-3 m-0 p-0"
         >
           <div class="card border-0 product__card">
-            <div class="card-body mp--none p-2">
+            <div class="card-body m-0 p-0 p-2">
               <div
                 class="product__image cursor__pointer"
                 :style="

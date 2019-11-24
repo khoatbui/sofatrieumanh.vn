@@ -1,6 +1,6 @@
 <template>
   <div v-if="blogList.length > 0" class="hotblog__component">
-    <div class="row mp--none mb-4">
+    <div class="row m-0 p-0 mb-4">
       <div class="col-12 text-center">
         <h6 class="component__title">TrieuManh Blogs</h6>
         <p class="component__intro">

@@ -1,6 +1,6 @@
 <template>
   <div class="productlist__component">
-    <div class="row mp--none category__component m-0 p-0 w-100">
+    <div class="row m-0 p-0 category__component m-0 p-0 w-100">
       <div class="product__list__image__src">
         <div
           class="category__info w-100 d-flex justify-content-center align-items-center flex-column"
@@ -16,8 +16,8 @@
       </div>
     </div>
     <div class="container mt-4 pt-4">
-      <div class="row mp--none">
-        <div class="col-0 col-md-4 col-lg-3 mp--none filter__component px-2">
+      <div class="row m-0 p-0">
+        <div class="col-0 col-md-4 col-lg-3 m-0 p-0 filter__component px-2">
           <div class="category__sidebar my-4">
             <div class="category__header">
               <h5 v-b-toggle.collapse-category>
@@ -27,12 +27,12 @@
             <b-collapse
               id="collapse-category"
               visible
-              class="category__body mp--none"
+              class="category__body m-0 p-0"
             >
               <b-card class="border-0">
                 <div class="category__block">
-                  <div class="row mp--none">
-                    <div class="col-12 mp--none">
+                  <div class="row m-0 p-0">
+                    <div class="col-12 m-0 p-0">
                       <ul class="category__list">
                         <li class="category__item">
                           <span class="category__item__name">Ghe Sofa</span>
@@ -82,17 +82,17 @@
             <b-collapse
               id="collapse-filter"
               visible
-              class="filter__body mp--none"
+              class="filter__body m-0 p-0"
             >
               <b-card class="border-0">
                 <div class="filter__block">
-                  <div class="row mp--none">
-                    <div class="col-12 mp--none">
+                  <div class="row m-0 p-0">
+                    <div class="col-12 m-0 p-0">
                       <h6 class="filter__title">Chất liệu</h6>
                     </div>
                   </div>
-                  <div class="row mp--none">
-                    <div class="col-12 mp--none">
+                  <div class="row m-0 p-0">
+                    <div class="col-12 m-0 p-0">
                       <ul class="filter__list">
                         <li class="filter__item">
                           <vs-checkbox
@@ -134,13 +134,13 @@
                   </div>
                 </div>
                 <div class="filter__block">
-                  <div class="row mp--none">
-                    <div class="col-12 mp--none">
+                  <div class="row m-0 p-0">
+                    <div class="col-12 m-0 p-0">
                       <h6 class="filter__title">Giá</h6>
                     </div>
                   </div>
-                  <div class="row mp--none">
-                    <div class="col-12 mp--none">
+                  <div class="row m-0 p-0">
+                    <div class="col-12 m-0 p-0">
                       <ul class="filter__list">
                         <li class="filter__item py-4">
                           <vs-slider
@@ -154,13 +154,13 @@
                   </div>
                 </div>
                 <div class="filter__block">
-                  <div class="row mp--none">
-                    <div class="col-12 mp--none">
+                  <div class="row m-0 p-0">
+                    <div class="col-12 m-0 p-0">
                       <h6 class="filter__title">Tag</h6>
                     </div>
                   </div>
-                  <div class="row mp--none">
-                    <div class="col-12 mp--none">
+                  <div class="row m-0 p-0">
+                    <div class="col-12 m-0 p-0">
                       <ul class="filter__list">
                         <li class="filter__item py-4">
                           <span class="tag__badge">Sofa</span>
@@ -173,7 +173,7 @@
             </b-collapse>
           </div>
         </div>
-        <div class="col-12 col-md-8 col-lg-9 mp--none product__component px-2">
+        <div class="col-12 col-md-8 col-lg-9 m-0 p-0 product__component px-2">
           <div class="sort__component">
             <div class="breadcrumb__left">
               <ul class="breadcrumb__list">
@@ -206,14 +206,14 @@
             </div>
           </div>
           <div class="product__list">
-            <div class="row mp--none w-100">
+            <div class="row m-0 p-0 w-100">
               <div
                 v-for="(product, index) in productList"
                 :key="index + 'product'"
                 class="col-12 col-sm-6 col-md-4 col-lg-4"
               >
                 <div class="card border-0 product__card cursor--pointer">
-                  <div class="card-body mp--none p-2">
+                  <div class="card-body m-0 p-0 p-2">
                     <div
                       class="product__image"
                       :style="
@@ -364,8 +364,8 @@
           <div class="category__sidebar">
             <b-card class="border-0">
               <div class="category__block">
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
+                <div class="row m-0 p-0">
+                  <div class="col-12 m-0 p-0">
                     <ul class="category__list">
                       <li
                         v-for="(cte, index) in categoryList"
@@ -429,13 +429,13 @@
           <div class="filter__sidebar">
             <b-card class="border-0">
               <div class="filter__block">
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
+                <div class="row m-0 p-0">
+                  <div class="col-12 m-0 p-0">
                     <h6 class="filter__title">Chat lieu</h6>
                   </div>
                 </div>
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
+                <div class="row m-0 p-0">
+                  <div class="col-12 m-0 p-0">
                     <ul class="filter__list">
                       <li class="filter__item">
                         <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
@@ -459,13 +459,13 @@
                 </div>
               </div>
               <div class="filter__block">
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
+                <div class="row m-0 p-0">
+                  <div class="col-12 m-0 p-0">
                     <h6 class="filter__title">Chat lieu</h6>
                   </div>
                 </div>
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
+                <div class="row m-0 p-0">
+                  <div class="col-12 m-0 p-0">
                     <ul class="filter__list">
                       <li class="filter__item">
                         <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
@@ -489,13 +489,13 @@
                 </div>
               </div>
               <div class="filter__block">
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
+                <div class="row m-0 p-0">
+                  <div class="col-12 m-0 p-0">
                     <h6 class="filter__title">Chat lieu</h6>
                   </div>
                 </div>
-                <div class="row mp--none">
-                  <div class="col-12 mp--none">
+                <div class="row m-0 p-0">
+                  <div class="col-12 m-0 p-0">
                     <ul class="filter__list">
                       <li class="filter__item">
                         <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>

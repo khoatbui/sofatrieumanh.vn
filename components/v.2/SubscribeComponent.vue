@@ -1,10 +1,10 @@
 <template>
   <div class="subscribe__component">
     <div class="row d-flex justify-content-center align-items-center">
-      <div class="col-12 col-md-6 mp--none text-center">
+      <div class="col-12 col-md-6 m-0 p-0 text-center">
         <h6>Bạn muốn nhận các chương trình khuyến mãi</h6>
       </div>
-      <div class="col-12 col-md-6 sub__input mp--none">
+      <div class="col-12 col-md-6 sub__input m-0 p-0">
         <input
           id="iRegitry"
           type="text"

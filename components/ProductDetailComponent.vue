@@ -1,10 +1,10 @@
 <template>
   <div class="product__detail__component">
     <div class="product__overview container">
-      <div class="row mp--none">
-        <div class="col-12 col-md-6 mp--none">
-          <div class="row mp--none">
-            <!-- <div class="col-4 mp--none image__list">
+      <div class="row m-0 p-0">
+        <div class="col-12 col-md-6 m-0 p-0">
+          <div class="row m-0 p-0">
+            <!-- <div class="col-4 m-0 p-0 image__list">
               <div
                 v-for="(img, i) in productDetail.images"
                 :key="i + 'subimage'"
@@ -21,7 +21,7 @@
                 ></div>
               </div>
             </div> -->
-            <div class="col-12 mp--none main__image">
+            <div class="col-12 m-0 p-0 main__image">
               <div
                 class="image__item"
                 :style="
@@ -55,7 +55,7 @@
                 ></vs-button>
               </div>
             </div>
-            <div class="col-12 mp--none">
+            <div class="col-12 m-0 p-0">
               <div class="image__list">
                 <div
                   v-for="(img, i) in 5"
@@ -86,12 +86,12 @@
             Your browser does not support the video tag.
           </video>
         </div> -->
-        <div class="col-12 col-md-6 mp--none">
-          <div class="row mp--none px-4">
-            <div class="col-12 mp--none my-2">
+        <div class="col-12 col-md-6 m-0 p-0">
+          <div class="row m-0 p-0 px-4">
+            <div class="col-12 m-0 p-0 my-2">
               <h4 class="data__title">{{ productDetail.productName }}</h4>
             </div>
-            <div class="col-12 mp--none my-2">
+            <div class="col-12 m-0 p-0 my-2">
               <h4 class="data__price">
                 {{
                   new Intl.NumberFormat('vi-VN', {
@@ -109,11 +109,11 @@
                 }).format(productDetail.oldPrice)
               }}</span>
             </div>
-            <div class="col-12 mp--none my-2">
+            <div class="col-12 m-0 p-0 my-2">
               <span class="label__overview">Kích thước</span>
               <span class="data__overview mx-2">{{ productDetail.size }}</span>
             </div>
-            <div class="col-12 mp--none my-2 d-flex align-items-center">
+            <div class="col-12 m-0 p-0 my-2 d-flex align-items-center">
               <span class=" d-flex align-items-center">
                 <vs-button
                   :color="'#156867'"
@@ -137,7 +137,7 @@
               >
             </div>
             <div
-              class="col-12 mp--none d-flex justify-content-start align-items-center py-4"
+              class="col-12 m-0 p-0 d-flex justify-content-start align-items-center py-4"
             >
               <div class="product__step__item">
                 <img src="/images/steps/confirm.png" alt="" class="step__img" />
@@ -156,14 +156,14 @@
                 <span class="step__title">Giao hàng</span>
               </div>
             </div>
-            <div class="col-12 mp--none my-2">
+            <div class="col-12 m-0 p-0 my-2">
               <span class="label__overview">Chất liệu</span>
               <span class="data__overview mx-2"
                 >{{ productDetail.productFrameMaterial }} /
                 {{ productDetail.productFrontMaterial }}</span
               >
             </div>
-            <div class="col-12 mp--none my-2">
+            <div class="col-12 m-0 p-0 my-2">
               <span class="label__overview">Chia sẻ</span>
               <div class="data__overview mx-2">
                 <vs-button
@@ -206,8 +206,8 @@
     </div>
     <div class="product__detail">
       <div class="container">
-        <div class="row mp--none">
-          <div class="col-12 mp--none">
+        <div class="row m-0 p-0">
+          <div class="col-12 m-0 p-0">
             <vs-tabs :color="'#156867'">
               <vs-tab label="Mô tả">
                 <div class="con-tab-ejemplo">
@@ -219,8 +219,8 @@
               </vs-tab>
               <vs-tab label="Đánh giá">
                 <div class="con-tab-ejemplo">
-                  <div class="row mp--none">
-                    <div class="col-12 col-md-6 mp--none p-2 comment__list">
+                  <div class="row m-0 p-0">
+                    <div class="col-12 col-md-6 m-0 p-0 p-2 comment__list">
                       <div class="my-4 comment__item">
                         <img
                           src="/images/user.png"
@@ -228,14 +228,14 @@
                           class="comment__logo"
                         />
                         <div class="comment__content">
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             2019-26-07
                           </p>
-                          <p class="mp--none px-2 text__size--x09">
+                          <p class="m-0 p-0 px-2 text__size--x09">
                             San pham cua cac ban rat tot, chung toi ung ho cac
                             ban
                           </p>
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             Huy dung
                           </p>
                         </div>
@@ -247,13 +247,13 @@
                           class="comment__logo"
                         />
                         <div class="comment__content">
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             2019-26-07
                           </p>
-                          <p class="mp--none px-2 text__size--x09">
+                          <p class="m-0 p-0 px-2 text__size--x09">
                             Mẫu mã đẹp, giao hàng và lắp ráp cẩn thận
                           </p>
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             Minh Lanh
                           </p>
                         </div>
@@ -265,13 +265,13 @@
                           class="comment__logo"
                         />
                         <div class="comment__content">
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             2019-26-07
                           </p>
-                          <p class="mp--none px-2 text__size--x09">
+                          <p class="m-0 p-0 px-2 text__size--x09">
                             Sản phẩm khá chất lượng, tư vấn nhiệt tình
                           </p>
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             Nguyen THi My
                           </p>
                         </div>
@@ -283,19 +283,19 @@
                           class="comment__logo"
                         />
                         <div class="comment__content">
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             2019-26-07
                           </p>
-                          <p class="mp--none px-2 text__size--x09">
+                          <p class="m-0 p-0 px-2 text__size--x09">
                             Giá cả tốt
                           </p>
-                          <p class="mp--none px-2 text__size--x07 text-muted">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
                             Sam
                           </p>
                         </div>
                       </div>
                     </div>
-                    <div class="col-12 col-md-6 mp--none comment__form  p-2">
+                    <div class="col-12 col-md-6 m-0 p-0 comment__form  p-2">
                       <vs-input
                         v-model="comment.fullName"
                         label="Name"

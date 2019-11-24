@@ -42,7 +42,7 @@
 
             <vs-dropdown-menu class="menu__dropdown">
               <vs-dropdown-item divider>
-                <div class="row mp--none">
+                <div class="row m-0 p-0">
                   <div class="col-4 py-1 px-4">
                     <nuxt-link to="/danh-muc/sofa-don">Sofa đơn</nuxt-link>
                   </div>
@@ -59,7 +59,7 @@
                 </div>
               </vs-dropdown-item>
               <vs-dropdown-item divider>
-                <div class="row mp--none">
+                <div class="row m-0 p-0">
                   <div class="col-4 py-1 px-4">
                     <nuxt-link to="/danh-muc/sofa-gia-re"
                       >Sofa giá rẻ</nuxt-link
@@ -78,7 +78,7 @@
                 </div>
               </vs-dropdown-item>
               <vs-dropdown-item divider>
-                <div class="row mp--none">
+                <div class="row m-0 p-0">
                   <div class="col-4 py-1 px-4">
                     <nuxt-link to="/danh-muc/sofa-nhap-khau"
                       >Sofa nhập khẩu</nuxt-link
@@ -97,7 +97,7 @@
                 </div>
               </vs-dropdown-item>
               <vs-dropdown-item divider>
-                <div class="row mp--none">
+                <div class="row m-0 p-0">
                   <div class="col-4 py-1 px-4">
                     <nuxt-link to="/danh-muc/sofa-don">Sofa cổ điển</nuxt-link>
                   </div>
@@ -112,7 +112,7 @@
                 </div>
               </vs-dropdown-item>
               <vs-dropdown-item divider>
-                <div class="row mp--none">
+                <div class="row m-0 p-0">
                   <div class="col-4 py-1 px-4">
                     <nuxt-link to="/danh-muc/sofa-karaoke"
                       >Sofa kakaoke</nuxt-link
@@ -127,7 +127,7 @@
                 </div>
               </vs-dropdown-item>
               <vs-dropdown-item divider>
-                <div class="row mp--none">
+                <div class="row m-0 p-0">
                   <div class="col-4 py-1 px-4">
                     <nuxt-link to="/danh-muc/sofa-da">Sofa da</nuxt-link>
                   </div>
@@ -142,7 +142,7 @@
                 </div>
               </vs-dropdown-item>
               <vs-dropdown-item divider>
-                <div class="row mp--none">
+                <div class="row m-0 p-0">
                   <div class="col-12 py-1 px-4">
                     <nuxt-link to="/danh-muc/ghe-sofa" class="view__all__btn"
                       >Xem tất cả</nuxt-link
@@ -161,7 +161,7 @@
 
             <vs-dropdown-menu class="menu__dropdown">
               <vs-dropdown-item divider>
-                <div class="row mp--none">
+                <div class="row m-0 p-0">
                   <div class="col-4 py-1 px-4">
                     <nuxt-link to="/danh-muc/ban-sofa">Bàn sofa</nuxt-link>
                   </div>
@@ -171,7 +171,7 @@
                 </div>
               </vs-dropdown-item>
               <vs-dropdown-item divider>
-                <div class="row mp--none">
+                <div class="row m-0 p-0">
                   <div class="col-4 py-1 px-4">
                     <nuxt-link to="/danh-muc/ban-go">Bàn gỗ</nuxt-link>
                   </div>
@@ -182,7 +182,7 @@
               </vs-dropdown-item>
 
               <vs-dropdown-item divider>
-                <div class="row mp--none">
+                <div class="row m-0 p-0">
                   <div class="col-12 py-1 px-4">
                     <nuxt-link to="/danh-muc/ban-sofa" class="view__all__btn"
                       >Xem tất cả</nuxt-link
@@ -203,7 +203,7 @@
 
             <vs-dropdown-menu class="menu__dropdown">
               <vs-dropdown-item divider>
-                <div class="row mp--none">
+                <div class="row m-0 p-0">
                   <div class="col-6 py-1 px-4">
                     <nuxt-link to="/danh-muc/noi-that-phong-khach"
                       >Nội thất phòng khách</nuxt-link
@@ -217,7 +217,7 @@
                 </div>
               </vs-dropdown-item>
               <vs-dropdown-item divider>
-                <div class="row mp--none">
+                <div class="row m-0 p-0">
                   <div class="col-6 py-1 px-4">
                     <nuxt-link to="/danh-muc/noi-that-phong-ngu"
                       >Nội thất phòng ngủ</nuxt-link
@@ -292,7 +292,7 @@
       <vs-navbar v-model="activeItem" class="nabarx py-2 mobile__menu">
         <div slot="title">
           <nuxt-link to="/"
-            ><vs-navbar-title class="text__size--x2 mp--none header__logo">
+            ><vs-navbar-title class="text__size--x2 m-0 p-0 header__logo">
               Sofa <fa :icon="['fas', 'couch']" />
             </vs-navbar-title>
           </nuxt-link>

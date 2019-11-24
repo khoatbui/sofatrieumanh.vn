@@ -3,34 +3,34 @@
     <InstructionStepComponent />
     <PromotionComponent />
     <div class="container section__margin">
-      <div class="row mp--none my-2">
-        <div class="col-12 mp--none">
+      <div class="row m-0 p-0 my-2">
+        <div class="col-12 m-0 p-0">
           <ProductByTypeComponent :product-type-url="'ghe-sofa'" />
         </div>
       </div>
     </div>
     <BestSellerProductComponent class="section__margin" />
     <div class="container section__margin">
-      <div class="row mp--none my-2">
-        <div class="col-12 mp--none">
+      <div class="row m-0 p-0 my-2">
+        <div class="col-12 m-0 p-0">
           <ProductByTypeComponent :product-type-url="'ban'" />
         </div>
       </div>
-      <div class="row mp--none my-2">
-        <div class="col-12 mp--none">
+      <div class="row m-0 p-0 my-2">
+        <div class="col-12 m-0 p-0">
           <ProductByTypeComponent :product-type-url="'noi-that'" />
         </div>
       </div>
     </div>
     <RequestAdvisorComponent class="section__margin" />
     <div class="container section__margin">
-      <div class="row mp--none my-2">
-        <div class="col-12 mp--none">
+      <div class="row m-0 p-0 my-2">
+        <div class="col-12 m-0 p-0">
           <ProductByTypeComponent :product-type-url="'sofa-khuyen-mai'" />
         </div>
       </div>
-      <div class="row mp--none my-2">
-        <div class="col-12 mp--none">
+      <div class="row m-0 p-0 my-2">
+        <div class="col-12 m-0 p-0">
           <ProductByTypeComponent :product-type-url="'sofa-thanh-ly'" />
         </div>
       </div>

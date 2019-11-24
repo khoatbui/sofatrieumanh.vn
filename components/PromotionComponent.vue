@@ -5,10 +5,10 @@
         <div
           v-for="(pro, index) in promotionList"
           :key="index + 'saspro'"
-          class="row mp--none h-100"
+          class="row m-0 p-0 h-100"
         >
           <div
-            class="col-12 col-md-6 mp--none promotion__content d-flex flex-column justify-content-center align-items-center"
+            class="col-12 col-md-6 m-0 p-0 promotion__content d-flex flex-column justify-content-center align-items-center"
           >
             <h6 class="promotion__content__title">{{ pro.promotionName }}</h6>
             <p>{{ pro.promotionIntro }}</p>
@@ -16,7 +16,7 @@
               View more
             </button>
           </div>
-          <div class="col-6 mp--none promotion__slide">
+          <div class="col-6 m-0 p-0 promotion__slide">
             <img
               :style="
                 `background-image: url('${

@@ -1,8 +1,8 @@
 <template>
   <div class="admin__footer__component">
-    <div class="row mp--none">
-      <div class="col-12 mp--none py-1 text-center">
-        <p class="text__size--x08 mp--none">Admin page by sofatrieumanh.com</p>
+    <div class="row m-0 p-0">
+      <div class="col-12 m-0 p-0 py-1 text-center">
+        <p class="text__size--x08 m-0 p-0">Admin page by sofatrieumanh.com</p>
       </div>
     </div>
   </div>

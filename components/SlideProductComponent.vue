@@ -1,72 +1,69 @@
 <template>
-  <div class="sliderproduct__component">
-    <div class="row mp--none">
-      <div class="col-12 mp--none">
+  <div v-if="productList.length > 0" class="sliderproduct__component">
+    <div class="row m-0 p-0">
+      <div class="col-12 m-0 p-0">
         <h3 class="slider__title">San pham hap dan</h3>
       </div>
     </div>
-    <div class="row mp--none">
-      <div class="col-12 mp--none">
+    <div class="row m-0 p-0">
+      <div class="col-12 m-0 p-0">
         <client-only>
-          <!-- important to add client-only-->
-
           <carousel
             :responsive="{
-              0: { items: 1, nav: true },
-              600: { items: 3, nav: true },
-              900: { items: 4, nav: true },
+              0: { items: 1, nav: false },
+              600: { items: 3, nav: false },
+              900: { items: 4, nav: false },
             }"
             :dots="false"
+            :nav="false"
             :autoplay="true"
             :loop="true"
           >
-            <div class="card mp--none border-0 slideproduct__item">
-              <div class="slide__product__img"></div>
-              <div class="card-body mp--none p-2">
-                <h6 class="product__item__name">SOFA GÓC CỔ ĐIỂN MÃ 1468</h6>
+            <div
+              v-for="(product, i) in productList"
+              :key="i + 'productlist'"
+              class="card m-0 p-2 border-0 slideproduct__item"
+            >
+              <div
+                class="slide__product__img cursor__pointer"
+                :style="`background-image:url('${product.images[0].path}')`"
+                @click="redirectTo(product.url)"
+              ></div>
+              <div class="card-body m-0 p-0 p-2">
+                <h6
+                  class="product__item__name cursor__pointer"
+                  @click="redirectTo(product.url)"
+                >
+                  {{ product.productName }}
+                </h6>
                 <div class="slide__product__item__price">
-                  <span class="slide__current__price">2,560,270</span>
-                  <span class="slide__discount__price">3,900,000</span>
-                </div>
-              </div>
-            </div>
-            <div class="card mp--none border-0 slideproduct__item">
-              <div class="slide__product__img"></div>
-              <div class="card-body mp--none p-2">
-                <h6 class="product__item__name">SOFA GÓC CỔ ĐIỂN MÃ 1468</h6>
-                <div class="slide__product__item__price">
-                  <span class="slide__current__price">2,560,270</span>
-                  <span class="slide__discount__price">3,900,000</span>
-                </div>
-              </div>
-            </div>
-            <div class="card mp--none border-0 slideproduct__item">
-              <div class="slide__product__img"></div>
-              <div class="card-body mp--none p-2">
-                <h6 class="product__item__name">SOFA GÓC CỔ ĐIỂN MÃ 1468</h6>
-                <div class="slide__product__item__price">
-                  <span class="slide__current__price">2,560,270</span>
-                  <span class="slide__discount__price">3,900,000</span>
-                </div>
-              </div>
-            </div>
-            <div class="card mp--none border-0 slideproduct__item">
-              <div class="slide__product__img"></div>
-              <div class="card-body mp--none p-2">
-                <h6 class="product__item__name">SOFA GÓC CỔ ĐIỂN MÃ 1468</h6>
-                <div class="slide__product__item__price">
-                  <span class="slide__current__price">2,560,270</span>
-                  <span class="slide__discount__price">3,900,000</span>
-                </div>
-              </div>
-            </div>
-            <div class="card mp--none border-0 slideproduct__item">
-              <div class="slide__product__img"></div>
-              <div class="card-body mp--none p-2">
-                <h6 class="product__item__name">SOFA GÓC CỔ ĐIỂN MÃ 1468</h6>
-                <div class="slide__product__item__price">
-                  <span class="slide__current__price">2,560,270</span>
-                  <span class="slide__discount__price">3,900,000</span>
+                  <span class="slide__current__price">{{
+                    product.price == '' || typeof product.price == 'undefined'
+                      ? 'Liên hệ'
+                      : new Intl.NumberFormat('vi-VN', {
+                          style: 'currency',
+                          currency: 'VND',
+                          minimumFractionDigits: 0,
+                        })
+                          .format(product.price)
+                          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                  }}</span>
+                  <span
+                    v-if="
+                      product.oldPrice !== '' &&
+                        typeof product.oldPrice !== 'undefined'
+                    "
+                    class="slide__discount__price"
+                    >{{
+                      new Intl.NumberFormat('vi-VN', {
+                        style: 'currency',
+                        currency: 'VND',
+                        minimumFractionDigits: 0,
+                      })
+                        .format(product.oldPrice)
+                        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                    }}</span
+                  >
                 </div>
               </div>
             </div>
@@ -76,6 +73,40 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data: () => ({
+    productList: [],
+  }),
+  mounted() {
+    this.getProductListByType();
+  },
+  methods: {
+    redirectTo(url) {
+      this.$router.replace(`/san-pham/${url}`);
+    },
+    getProductListByType() {
+      this.$vs.loading();
+      this.$axios
+        .get(`${process.env.API_HTTP}/productapi/product-list-by-state/new`)
+        .then(response => {
+          this.productList = response.data;
+          this.$vs.loading.close();
+        })
+        .catch(error => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error,
+          });
+        })
+        .finally(() => {
+          this.$vs.loading.close();
+        });
+    },
+  },
+};
+</script>
 <style lang="scss">
 .slider__title {
   font-size: 2rem;

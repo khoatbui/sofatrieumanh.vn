@@ -1,8 +1,8 @@
 <template>
   <div class="blogs__page">
-    <div class="container section__margin">
-      <div class="row mp--none">
-        <div class="col-12 mp--none">
+    <div class="section__margin--b">
+      <div class="row m-0 p-0">
+        <div class="col-12 m-0 p-0">
           <BlogListComponent />
         </div>
       </div>
@@ -10,7 +10,7 @@
     <div class="section__margin">
       <RequestAdvisorComponent />
     </div>
-    <RelatedProductComponent class="section__margin" />
+    <RelatedProductComponent :category="[]" class="section__margin" />
   </div>
 </template>
 <script>

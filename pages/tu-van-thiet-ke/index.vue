@@ -1,18 +1,18 @@
 <template>
   <div class="tuvan__component">
-    <div class="row mp--none category__component w-100">
+    <div class="row m-0 p-0 category__component w-100">
       <div
-        class="col-12 mx-auto mp--none d-flex justify-content-center align-items-center flex-column tuvan__img"
+        class="col-12 mx-auto m-0 p-0 d-flex justify-content-center align-items-center flex-column tuvan__img"
       >
         <h1 class="category__name text__white__color text-center">
           Yêu cầu tư vấn thiết kế cho ngôi nhà của bạn
         </h1>
       </div>
     </div>
-    <div class="secondary__background">
-      <div class="container section__padding">
-        <div class="row mp--none">
-          <div class="col-12 col-md-6 mp--none">
+    <div class="section__padding--y">
+      <div class="container section__padding--y">
+        <div class="row m-0 p-0">
+          <div class="col-12 col-md-6 m-0 p-0">
             <h6 class="contact__title">Liên lạc trực tiếp với chúng tôi</h6>
             <div
               class="contact__item d-flex flex-column justify-content-center align-items-start"
@@ -57,23 +57,23 @@
               <span>care@sofatrieumanh.com / sofatrieumanh@gmail.com</span>
             </div>
           </div>
-          <div class="col-12 col-md-6 mp--none tuvan__form">
+          <div class="col-12 col-md-6 m-0 p-0 tuvan__form">
             <h6 class="contact__title">Hoặc gửi cho chúng tôi tin nhắn</h6>
             <vs-input
               v-model="comment.fullName"
-              label="Name"
-              placeholder="John Carrick"
+              label="Họ tên"
+              placeholder="Nguyen Quy Hanh"
               class="w-100 border__radius--none custom__input"
             />
             <vs-input
               v-model="comment.email"
-              label="Email"
-              placeholder="yourmail@email.com"
+              label="Địa chỉ email"
+              placeholder="email@gmail.com"
               class="w-100 border__radius--none custom__input"
             />
             <vs-input
               v-model="comment.phoneNumber"
-              label="Phone number"
+              label="Số điện thoại"
               placeholder="+84 935-235-695"
               class="w-100 border__radius--none custom__input"
             />
@@ -86,10 +86,10 @@
               />
             </div>
             <vs-button
-              :color="'#156867'"
+              :color="'#ffb400'"
               type="filled"
               class="px-4 py-2 border__radius--none"
-              >Send</vs-button
+              >Gửi yêu cầu</vs-button
             >
           </div>
         </div>
@@ -129,7 +129,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-  min-height: 350px;
+  min-height: 450px;
 }
 .text__white__color {
   color: $white__color !important;

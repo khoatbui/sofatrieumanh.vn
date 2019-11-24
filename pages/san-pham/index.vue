@@ -1,14 +1,17 @@
 <template>
   <div class="product__page">
-    <div class="row mp--none">
-      <div class="col-12 mp--none p-0">
+    <div class="row m-0 p-0">
+      <div class="col-12 m-0 p-0 p-0">
         <ProductDetailComponent @categoryDate="updateCategory" />
       </div>
     </div>
-    <div class="section__margin">
+    <div class="section__margin--y">
       <RequestAdvisorComponent />
     </div>
-    <RelatedProductComponent class="section__margin" :category="categoryList" />
+    <RelatedProductComponent
+      class="section__margin--y"
+      :category="categoryList"
+    />
   </div>
 </template>
 <script>

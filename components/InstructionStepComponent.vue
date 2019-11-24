@@ -1,9 +1,9 @@
 <template>
   <div class="instruction__component">
     <div class="container">
-      <div class="row mp--none">
+      <div class="row m-0 p-0">
         <div
-          class="col-12 mp--none d-flex justify-content-between align-items-center py-4"
+          class="col-12 m-0 p-0 d-flex justify-content-between align-items-center py-4"
         >
           <div class="step__item">
             <img src="/images/steps/shopping.png" alt="" class="step__img" />

@@ -66,7 +66,7 @@
               >
             </div>
             <div class="col-12">
-              <div class="row mp--none">
+              <div class="row m-0 p-0">
                 <div class="col-5 col-md-3 m-0 p-0">
                   <span class="label__overview">Kích thước :</span>
                 </div>
@@ -432,9 +432,9 @@ export default {
   font-weight: bold;
   margin: 0 0.85rem;
 }
-.product__tab .vs-tabs--li.activeChild {
-  color: $primary__text !important;
-}
+// .product__tab .vs-tabs--li.activeChild {
+//   color: $primary__text !important;
+// }
 .product__tab .vs-tabs--li.activeChild button {
   outline: none !important;
 }

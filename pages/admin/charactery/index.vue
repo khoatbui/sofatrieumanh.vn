@@ -1,7 +1,7 @@
 <template>
   <div class="admin__charactery__page">
-    <div class="row mp--none my-2">
-      <div class="col-12 mp--none">
+    <div class="row m-0 p-0 my-2">
+      <div class="col-12 m-0 p-0">
         <div class="card border-0 shadow">
           <div class="card-body d-flex justify-content-end align-items-center">
             <vs-button
@@ -22,8 +22,8 @@
         </div>
       </div>
     </div>
-    <div class="row mp--none my-2">
-      <div class="col-12 mp--none">
+    <div class="row m-0 p-0 my-2">
+      <div class="col-12 m-0 p-0">
         <div class="card border-0 shadow">
           <vs-table
             v-model="selected"
@@ -82,7 +82,7 @@
         :active.sync="editPopup"
       >
         <div class="popup_body">
-          <div class="row mp--none mb-3">
+          <div class="row m-0 p-0 mb-3">
             <div class="col-12 col-md-6">
               <vs-input
                 v-model="editedItem.characteryName"
@@ -95,7 +95,7 @@
               <vs-checkbox v-model="editedItem.isActive">Public ?</vs-checkbox>
             </div>
           </div>
-          <div class="row mp--none margin__top--4 border-top">
+          <div class="row m-0 p-0 margin__top--4 border-top">
             <div class="col-12 py-2 d-flex justify-content-end">
               <vs-button
                 color="danger"

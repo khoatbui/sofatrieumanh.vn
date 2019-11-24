@@ -1,6 +1,6 @@
 <template>
   <div class="topproduct__component">
-    <div class="row mp--none mb-4">
+    <div class="row m-0 p-0 mb-4">
       <div class="col-12 text-center">
         <h6 class="component__title">Top sản phẩm</h6>
         <p class="component__intro">
@@ -8,8 +8,8 @@
         </p>
       </div>
     </div>
-    <div class="row mp--none">
-      <div class="col-12 mp--none">
+    <div class="row m-0 p-0">
+      <div class="col-12 m-0 p-0">
         <vs-tabs
           v-model="activeTab"
           alignment="center"
@@ -17,14 +17,14 @@
           color="#333333"
         >
           <vs-tab label="Sản phẩm hot">
-            <div class="row mp--none">
+            <div class="row m-0 p-0">
               <div
                 v-for="(pro, ist) in productList"
                 :key="ist + 'prod'"
-                class="col-12 col-sm-6 col-md-3 col-lg-3"
+                class="col-12 col-sm-6 col-md-3 col-lg-3 m-0 p-0"
               >
                 <div class="card border-0 product__card">
-                  <div class="card-body mp--none p-2">
+                  <div class="card-body m-0 p-0 p-2">
                     <div
                       class="product__image cursor__pointer"
                       :style="
@@ -118,14 +118,14 @@
             </div>
           </vs-tab>
           <vs-tab label="Sản phẩm mới">
-            <div class="row mp--none">
+            <div class="row m-0 p-0">
               <div
                 v-for="(pro, ist) in productList"
                 :key="ist + 'prod'"
                 class="col-12 col-sm-6 col-md-3 col-lg-3 p-0"
               >
                 <div class="card border-0 product__card">
-                  <div class="card-body mp--none p-2">
+                  <div class="card-body m-0 p-0 p-2">
                     <div
                       class="product__image cursor__pointer"
                       :style="
@@ -235,14 +235,14 @@
             </div>
           </vs-tab>
           <vs-tab label="Khuyến mại nhiều nhất">
-            <div class="row mp--none">
+            <div class="row m-0 p-0">
               <div
                 v-for="(pro, ist) in productList"
                 :key="ist + 'prod'"
                 class="col-12 col-sm-6 col-md-3 col-lg-3"
               >
                 <div class="card border-0 product__card">
-                  <div class="card-body mp--none p-2">
+                  <div class="card-body m-0 p-0 p-2">
                     <div
                       class="product__image cursor__pointer"
                       :style="
@@ -352,14 +352,14 @@
             </div>
           </vs-tab>
           <vs-tab label="Sản phẩm trend">
-            <div class="row mp--none">
+            <div class="row m-0 p-0">
               <div
                 v-for="(pro, ist) in productList"
                 :key="ist + 'prod'"
                 class="col-12 col-sm-6 col-md-3 col-lg-3"
               >
                 <div class="card border-0 product__card">
-                  <div class="card-body mp--none p-2">
+                  <div class="card-body m-0 p-0 p-2">
                     <div
                       class="product__image cursor__pointer"
                       :style="

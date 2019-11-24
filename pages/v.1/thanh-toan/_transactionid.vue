@@ -1,19 +1,19 @@
 <template>
   <div class="giohang__component section__padding">
     <div class="container">
-      <div class="row mp--none">
-        <div class="col-12 col-md-6 mp--none p-2">
-          <div class="card border-0 mp--none delivery__section">
+      <div class="row m-0 p-0">
+        <div class="col-12 col-md-6 m-0 p-0 p-2">
+          <div class="card border-0 m-0 p-0 delivery__section">
             <div class="card-body">
-              <div class="row mp--none mb-4">
-                <div class="col-12 mp--none">
+              <div class="row m-0 p-0 mb-4">
+                <div class="col-12 m-0 p-0">
                   <h5 class="contact__title">
                     THÔNG TIN GIAO HÀNG
                   </h5>
                 </div>
               </div>
-              <div class="row mp--none my-3">
-                <div class="col-12 mp--none text-left">
+              <div class="row m-0 p-0 my-3">
+                <div class="col-12 m-0 p-0 text-left">
                   <vs-input
                     v-model="order.fullName"
                     color="#156867"
@@ -23,8 +23,8 @@
                   />
                 </div>
               </div>
-              <div class="row mp--none my-3">
-                <div class="col-12 mp--none text-left">
+              <div class="row m-0 p-0 my-3">
+                <div class="col-12 m-0 p-0 text-left">
                   <vs-input
                     v-model="order.phoneNumber"
                     color="#156867"
@@ -34,8 +34,8 @@
                   />
                 </div>
               </div>
-              <div class="row mp--none my-3">
-                <div class="col-12 mp--none text-left">
+              <div class="row m-0 p-0 my-3">
+                <div class="col-12 m-0 p-0 text-left">
                   <vs-input
                     v-model="order.email"
                     color="#156867"
@@ -45,8 +45,8 @@
                   />
                 </div>
               </div>
-              <div class="row mp--none my-3">
-                <div class="col-12 mp--none text-left">
+              <div class="row m-0 p-0 my-3">
+                <div class="col-12 m-0 p-0 text-left">
                   <vs-input
                     v-model="order.address"
                     color="#156867"
@@ -56,8 +56,8 @@
                   />
                 </div>
               </div>
-              <div class="row mp--none my-3">
-                <div class="col-12 mp--none text-left">
+              <div class="row m-0 p-0 my-3">
+                <div class="col-12 m-0 p-0 text-left">
                   <vs-input
                     v-model="order.tinh"
                     color="#156867"
@@ -67,8 +67,8 @@
                   />
                 </div>
               </div>
-              <div class="row mp--none my-3">
-                <div class="col-12 mp--none text-left">
+              <div class="row m-0 p-0 my-3">
+                <div class="col-12 m-0 p-0 text-left">
                   <vs-input
                     v-model="order.quan"
                     color="#156867"
@@ -78,8 +78,8 @@
                   />
                 </div>
               </div>
-              <div class="row mp--none my-3">
-                <div class="col-12 mp--none text-left">
+              <div class="row m-0 p-0 my-3">
+                <div class="col-12 m-0 p-0 text-left">
                   <vs-input
                     v-model="order.phuong"
                     color="#156867"
@@ -92,54 +92,54 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-6 mp--none p-2">
-          <div class="card border-0 mp--none">
+        <div class="col-12 col-md-6 m-0 p-0 p-2">
+          <div class="card border-0 m-0 p-0">
             <div class="card-body">
-              <div class="row mp--none mb-4">
-                <div class="col-12 mp--none">
+              <div class="row m-0 p-0 mb-4">
+                <div class="col-12 m-0 p-0">
                   <h5 class="contact__title">
                     ĐƠN HÀNG CỦA BẠN
                   </h5>
                 </div>
               </div>
-              <div class="row mp--none mb-4">
-                <div class="col-12 mp--none">
+              <div class="row m-0 p-0 mb-4">
+                <div class="col-12 m-0 p-0">
                   <h5 class="total__title">Tong don hang</h5>
                 </div>
               </div>
-              <div class="row mp--none border-bottom my-3">
-                <div class="col-6 mp--none text-left">
+              <div class="row m-0 p-0 border-bottom my-3">
+                <div class="col-6 m-0 p-0 text-left">
                   <p class="total__title__text text-muted">San pham 01</p>
                 </div>
-                <div class="col-6 mp--none text-right">
+                <div class="col-6 m-0 p-0 text-right">
                   <p class="total__title__item">2 x 265,000</p>
                 </div>
               </div>
-              <div class="row mp--none border-bottom my-3">
-                <div class="col-6 mp--none text-left">
+              <div class="row m-0 p-0 border-bottom my-3">
+                <div class="col-6 m-0 p-0 text-left">
                   <p class="total__title__text text-muted">San pham 02</p>
                 </div>
-                <div class="col-6 mp--none text-right">
+                <div class="col-6 m-0 p-0 text-right">
                   <p class="total__title__item">2 x 265,000</p>
                 </div>
               </div>
-              <div class="row mp--none border-bottom my-3">
-                <div class="col-6 mp--none text-left">
+              <div class="row m-0 p-0 border-bottom my-3">
+                <div class="col-6 m-0 p-0 text-left">
                   <p class="total__title__total text-muted">
                     <strong>Tong tien</strong>
                   </p>
                 </div>
-                <div class="col-6 mp--none text-right">
+                <div class="col-6 m-0 p-0 text-right">
                   <p class="total__title"><strong> 2 x 265,000</strong></p>
                 </div>
               </div>
-              <div class="row mp--none my-4">
-                <div class="col-12 mp--none">
+              <div class="row m-0 p-0 my-4">
+                <div class="col-12 m-0 p-0">
                   <h5 class="total__title">Hình thức thanh toán</h5>
                 </div>
               </div>
-              <div class="row mp--none border-bottom my-3">
-                <div class="col-12 mp--none">
+              <div class="row m-0 p-0 border-bottom my-3">
+                <div class="col-12 m-0 p-0">
                   <vs-radio
                     v-model="order.paymentType"
                     :color="'#156867'"
@@ -148,8 +148,8 @@
                   >
                 </div>
               </div>
-              <div class="row mp--none border-bottom my-3">
-                <div class="col-12 mp--none">
+              <div class="row m-0 p-0 border-bottom my-3">
+                <div class="col-12 m-0 p-0">
                   <vs-radio
                     v-model="order.paymentType"
                     :color="'#156867'"
@@ -158,8 +158,8 @@
                   >
                 </div>
               </div>
-              <div class="row mp--none thanhtoan__section">
-                <div class="col-12 mp--none">
+              <div class="row m-0 p-0 thanhtoan__section">
+                <div class="col-12 m-0 p-0">
                   <vs-button color="warning" type="filled" class="w-100"
                     >Đặt hàng</vs-button
                   >

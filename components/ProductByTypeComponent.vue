@@ -1,7 +1,7 @@
 <template>
   <div v-if="productList.length > 0" class="productlist__component">
-    <div class="row mp--none">
-      <div class="col-12 mp--none mt-4 mb-2">
+    <div class="row m-0 p-0">
+      <div class="col-12 m-0 p-0 mt-4 mb-2">
         <h5 class="list__title">
           <strong class="list__title__style">
             {{ categoryDetail.menuName }}</strong
@@ -9,9 +9,9 @@
         </h5>
       </div>
     </div>
-    <div class="row mp--none">
+    <div class="row m-0 p-0">
       <div
-        class="col-12 mp--none d-flex justify-content-start align-items-center flex-wrap"
+        class="col-12 m-0 p-0 d-flex justify-content-start align-items-center flex-wrap"
       >
         <div
           v-for="(product, index) in productList"
