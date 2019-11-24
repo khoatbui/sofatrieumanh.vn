@@ -652,7 +652,6 @@ export default {
     },
     getProductList() {
       this.$vs.loading();
-      console.log(this.$route.query.search);
       if (typeof this.$route.query.search !== 'undefined') {
         this.$axios
           .get(
@@ -660,7 +659,6 @@ export default {
           )
           .then(response => {
             this.productList = response.data;
-            console.log(this.productList);
             this.$vs.loading.close();
           })
           .catch(error => {
