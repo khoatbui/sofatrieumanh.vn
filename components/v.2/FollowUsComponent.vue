@@ -20,7 +20,12 @@
       </carousel>
     </client-only>
 
-    <vs-button color="warning" type="filled" class="followus__btn">
+    <vs-button
+      color="warning"
+      type="filled"
+      class="followus__btn"
+      @click="gotoFacebook"
+    >
       <img src="/images/icon/facebook-50.png" alt="" />
       Follow us on Facebook</vs-button
     >
@@ -38,6 +43,11 @@ export default {
       { image: '/images/facebooks/face_06.jpg' },
     ],
   }),
+  methods: {
+    gotoFacebook() {
+      window.open('https://www.facebook.com/sofatrieumanh/', '_blank');
+    },
+  },
 };
 </script>
 <style lang="scss">

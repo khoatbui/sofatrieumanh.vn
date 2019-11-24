@@ -22,7 +22,7 @@
                 <p class="topcategory__intro">
                   Các danh mục được chọn mua nhiều nhất từ SofaTrieuManh
                 </p>
-                <nuxt-link class="topcategory__btn" to="/danh-muc"
+                <nuxt-link class="topcategory__btn" to="/danh-muc/"
                   >Xem tất cả</nuxt-link
                 >
               </div>

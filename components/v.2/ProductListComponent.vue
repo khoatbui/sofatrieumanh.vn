@@ -575,7 +575,24 @@ export default {
       this.$refs['modal-filter'].hide();
     },
     GetCategoryName() {
-      if (this.$route.params.id.length > 0) {
+      if (typeof this.$route.params.id === 'undefined') {
+        this.$axios
+          .get(`${process.env.API_HTTP}/productapi/product-list`)
+          .then(response => {
+            this.productList = response.data;
+            this.$vs.loading.close();
+          })
+          .catch(error => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Opps!',
+              text: error,
+            });
+          })
+          .finally(() => {
+            this.$vs.loading.close();
+          });
+      } else {
         this.$axios
           .get(
             `${process.env.API_HTTP}/menuapi/single-menu-with-url/${this.$route.params.id}`
@@ -594,7 +611,10 @@ export default {
           .finally(() => {
             this.$vs.loading.close();
           });
-      } else {
+      }
+    },
+    GetCategoryList() {
+      if (typeof this.$route.params.id === 'undefined') {
         this.$axios
           .get(`${process.env.API_HTTP}/productapi/product-list`)
           .then(response => {
@@ -611,10 +631,7 @@ export default {
           .finally(() => {
             this.$vs.loading.close();
           });
-      }
-    },
-    GetCategoryList() {
-      if (this.$route.params.id.length > 0) {
+      } else {
         this.$axios
           .get(`${process.env.API_HTTP}/menuapi/get-category-withurl/`)
           .then(response => {
@@ -631,26 +648,10 @@ export default {
           .finally(() => {
             this.$vs.loading.close();
           });
-      } else {
-        this.$axios
-          .get(`${process.env.API_HTTP}/productapi/product-list`)
-          .then(response => {
-            this.productList = response.data;
-            this.$vs.loading.close();
-          })
-          .catch(error => {
-            this.$vs.notify({
-              color: 'danger',
-              title: 'Opps!',
-              text: error,
-            });
-          })
-          .finally(() => {
-            this.$vs.loading.close();
-          });
       }
     },
     getProductList() {
+      console.log(this.$route.params.id);
       this.$vs.loading();
       if (typeof this.$route.query.search !== 'undefined') {
         this.$axios
@@ -671,11 +672,11 @@ export default {
           .finally(() => {
             this.$vs.loading.close();
           });
-      } else if (this.$route.params.id.length > 0) {
+        return;
+      }
+      if (typeof this.$route.params.id === 'undefined') {
         this.$axios
-          .get(
-            `${process.env.API_HTTP}/productapi/product-list-by-category/${this.$route.params.id}`
-          )
+          .get(`${process.env.API_HTTP}/productapi/product-list`)
           .then(response => {
             this.productList = response.data;
             this.$vs.loading.close();
@@ -692,7 +693,9 @@ export default {
           });
       } else {
         this.$axios
-          .get(`${process.env.API_HTTP}/productapi/product-list`)
+          .get(
+            `${process.env.API_HTTP}/productapi/product-list-by-category/${this.$route.params.id}`
+          )
           .then(response => {
             this.productList = response.data;
             this.$vs.loading.close();

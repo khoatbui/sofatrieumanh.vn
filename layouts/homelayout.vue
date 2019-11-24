@@ -3,6 +3,7 @@
     <HeaderComponent :alway-fix="false" />
     <nuxt class="body__section" />
     <FooterComponent />
+    <CallComponent />
   </div>
 </template>
 <script>
@@ -10,6 +11,7 @@ export default {
   components: {
     HeaderComponent: () => import('@/components/v.2/HeaderComponent'),
     FooterComponent: () => import('@/components/v.2/FooterComponent'),
+    CallComponent: () => import('@/components/v.2/CallComponent'),
   },
 };
 </script>
