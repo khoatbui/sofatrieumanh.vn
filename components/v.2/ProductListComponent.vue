@@ -34,32 +34,15 @@
                   <div class="row m-0 p-0">
                     <div class="col-12 m-0 p-0">
                       <ul class="category__list">
-                        <li class="category__item">
-                          <span class="category__item__name">Ghe Sofa</span>
-                          <span class="category__item__qty">10</span>
-                        </li>
-                        <li class="category__item">
-                          <span class="category__item__name">Ban Sofa</span>
-                          <span class="category__item__qty">10</span>
-                        </li>
-                        <li class="category__item">
-                          <span class="category__item__name">Sofa don</span>
-                          <span class="category__item__qty">10</span>
-                        </li>
-                        <li class="category__item">
-                          <span class="category__item__name">Sofa doi</span>
-                          <span class="category__item__qty">10</span>
-                        </li>
-                        <li class="category__item">
-                          <span class="category__item__name"
-                            >Sofa hien dai</span
-                          >
-                          <span class="category__item__qty">10</span>
-                        </li>
-                        <li class="category__item">
-                          <span class="category__item__name"
-                            >San pham khac</span
-                          >
+                        <li
+                          v-for="(cate, index) in categoryList"
+                          :key="index + 'cate'"
+                          class="category__item"
+                          @click="redirectTo(`/danh-muc/${cate.url}`)"
+                        >
+                          <span class="category__item__name">{{
+                            cate.menuName
+                          }}</span>
                           <span class="category__item__qty">10</span>
                         </li>
                       </ul>
@@ -219,7 +202,7 @@
                       :style="
                         `background-image:url('${product.images[0].path}')`
                       "
-                      @click="redirectTo(product.url)"
+                      @click="redirectTo(`/san-pham/${product.url}`)"
                     >
                       <div class="product__property">
                         <span
@@ -616,9 +599,9 @@ export default {
     GetCategoryList() {
       if (typeof this.$route.params.id === 'undefined') {
         this.$axios
-          .get(`${process.env.API_HTTP}/productapi/product-list`)
+          .get(`${process.env.API_HTTP}/menuapi/get-category-withurl`)
           .then(response => {
-            this.productList = response.data;
+            this.categoryList = response.data;
             this.$vs.loading.close();
           })
           .catch(error => {
@@ -633,7 +616,9 @@ export default {
           });
       } else {
         this.$axios
-          .get(`${process.env.API_HTTP}/menuapi/get-category-withurl/`)
+          .get(
+            `${process.env.API_HTTP}/menuapi/get-category-byurl/${this.$route.params.id}`
+          )
           .then(response => {
             this.categoryList = response.data;
             this.$vs.loading.close();
@@ -651,7 +636,6 @@ export default {
       }
     },
     getProductList() {
-      console.log(this.$route.params.id);
       this.$vs.loading();
       if (typeof this.$route.query.search !== 'undefined') {
         this.$axios
@@ -713,7 +697,7 @@ export default {
       }
     },
     redirectTo(url) {
-      this.$router.replace(`/san-pham/${url}`);
+      this.$router.replace(url);
     },
   },
 };

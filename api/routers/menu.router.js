@@ -5,6 +5,7 @@ const controller = require('../controllers/menu.controller');
 const router = express.Router();
 
 router.get('/', controller.getAllMenus);
+router.get('/get-category-byurl/:id', controller.getMenusByUrl);
 router.get('/get-category-withurl', controller.getAllMenusWithURL);
 router.get('/get-category-with-less', controller.getAllMenusWithLess);
 router.post(

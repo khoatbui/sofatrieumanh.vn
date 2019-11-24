@@ -12,12 +12,12 @@
         </a>
       </li>
       <li>
-        <a href="skype:khoatbui.dev?chat" target="_blank">
+        <a href="skype:0919025915?chat" target="_blank">
           <img src="/images/icon/skype.png" alt="" />
         </a>
       </li>
       <li>
-        <a href="https://zalo.me/0382680180" target="_blank">
+        <a href="https://zalo.me/0919025915" target="_blank">
           <img src="/images/icon/zalo.png" alt="" />
         </a>
       </li>

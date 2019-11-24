@@ -20,12 +20,31 @@ module.exports.getAllMenus = function(req, res) {
       }
     });
 };
-module.exports.getAllMenusWithURL = function(req, res) {
-  Menu.find()
+module.exports.getMenusByUrl = function(req, res) {
+  Menu.find({
+    isActive: true,
+    parentMenu: { $elemMatch: { url: req.params.id } },
+  })
     .select({
       menuName: 1,
       _id: 1,
       url: 1,
+    })
+    .exec((error, response) => {
+      if (error) {
+        return next(error);
+      } else {
+        res.status(200).json(response);
+      }
+    });
+};
+module.exports.getAllMenusWithURL = function(req, res) {
+  Menu.find({ isActive: true })
+    .select({
+      menuName: 1,
+      _id: 1,
+      url: 1,
+      parentMenu: 1,
     })
     .exec((error, response) => {
       if (error) {
