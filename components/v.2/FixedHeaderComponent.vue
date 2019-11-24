@@ -228,6 +228,7 @@
               <i class="material-icons header__icon">
                 favorite_border
               </i>
+              <span class="favo__number">{{ getFavorite }}</span>
             </nuxt-link>
           </div>
           <div class="header__cart">
@@ -356,6 +357,11 @@ export default {
     showNavbar: true,
     lastScrollPosition: 0,
   }),
+  computed: {
+    getFavorite() {
+      return this.$store.state.favoriteItem.favoriteItem;
+    },
+  },
   mounted() {
     window.addEventListener('scroll', this.onScroll);
     this.getPromotionHome();
@@ -418,6 +424,21 @@ export default {
 };
 </script>
 <style lang="scss">
+.header__favorite a {
+  position: relative;
+}
+.favo__number {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  background-color: $danger__color;
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+  color: $white__color;
+  font-size: 0.8rem;
+  text-align: center;
+}
 .desktop__header {
   position: fixed;
   width: 100%;

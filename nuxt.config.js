@@ -1,7 +1,7 @@
 module.exports = {
   mode: 'universal',
   server: {
-    port: 3000, // default: 3000
+    port: 3002, // default: 3000
     timing: false,
   },
   serverMiddleware: [
@@ -65,6 +65,7 @@ module.exports = {
     { src: 'plugins/owl.js', ssr: false },
     { src: '~/plugins/zoomer.js', mode: 'client' },
     'plugins/vuesax.js',
+    { src: '~/plugins/localStorage.js', ssr: false },
   ],
   /*
    ** Nuxt.js dev-modules

@@ -45,7 +45,7 @@ export default {
   }),
   methods: {
     gotoFacebook() {
-      window.open('https://www.facebook.com/sofatrieumanh/', '_blank');
+      window.open('https://www.facebook.com/SANXUATSOFA.TM/', '_blank');
     },
   },
 };
