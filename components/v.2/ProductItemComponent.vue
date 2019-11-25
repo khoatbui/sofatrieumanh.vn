@@ -21,30 +21,40 @@
             >SaleOff</span
           >
         </div>
-        <div class="product__action animated flipInX">
+      </div>
+
+      <div class="product__action animated flipInX fast">
+        <vs-button
+          color="#333333"
+          type="flat"
+          class="py-1 px-2 addtocart__btn"
+          :to="`/san-pham/${product.url}`"
+          >CHỌN MUA</vs-button
+        >
+        <div class="d-flex justify-content-center align-items-center">
           <vs-button
             color="#333333"
             type="flat"
-            class="py-1 px-2 addtocart__btn"
-            :to="`/san-pham/${product.url}`"
-            >CHỌN MUA</vs-button
+            class="py-1 px-2"
+            @click="cartItem(product)"
+            ><i class="material-icons">
+              shopping_cart
+            </i></vs-button
           >
-          <div>
-            <vs-button
-              color="#333333"
-              type="flat"
-              class="py-1 px-2"
-              @click="favoriteItem(product)"
-              ><i class="material-icons">
-                favorite_border
-              </i></vs-button
-            >
-            <vs-button color="#333333" type="flat" class="py-1 px-2"
-              ><i class="material-icons">
-                compare_arrows
-              </i></vs-button
-            >
-          </div>
+          <vs-button
+            color="#333333"
+            type="flat"
+            class="py-1 px-2"
+            @click="favoriteItem(product)"
+            ><i class="material-icons">
+              favorite_border
+            </i></vs-button
+          >
+          <vs-button color="#333333" type="flat" class="py-1 px-2"
+            ><i class="material-icons">
+              compare_arrows
+            </i></vs-button
+          >
         </div>
       </div>
       <div class="product__info">
@@ -106,12 +116,16 @@ export default {
     favoriteItem(item) {
       this.$store.commit('favoriteItem/favoriteItemClick', item);
     },
+    cartItem(item) {
+      this.$store.commit('cartItem/cartItemClick', item);
+    },
   },
 };
 </script>
 <style lang="scss">
 .product__card {
   transition-duration: 1s;
+  position: relative;
 }
 .product__card:hover {
   transform: translateY(-5px);
@@ -124,8 +138,8 @@ export default {
   top: 0.8rem;
   left: 0.8rem;
 }
-.product__image:hover .product__action,
-.product__image:focus .product__action {
+.product__card:hover .product__action,
+.product__card:focus .product__action {
   display: flex;
 }
 .product__action {

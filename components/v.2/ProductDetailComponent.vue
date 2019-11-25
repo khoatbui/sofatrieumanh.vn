@@ -115,8 +115,17 @@
               <vs-button
                 :color="'#ffb400'"
                 type="filled"
-                class="border__radius--none addtocard__btn"
+                class="border__radius--none addtocard__btn mr-1"
+                @click="cartItem(productDetail)"
                 >Thêm vào giỏ hàng</vs-button
+              >
+              <vs-button
+                :color="'#cc1414'"
+                text-color="'#FFF'"
+                type="filled"
+                class="border__radius--none buynow__btn"
+                @click="checkout(productDetail)"
+                >Đặt hàng ngay</vs-button
               >
             </div>
             <div class="col-12 m-0 p-0 my-2 border-top">
@@ -424,6 +433,12 @@ export default {
           });
       }
     },
+    cartItem(item) {
+      this.$store.commit('cartItem/cartItemClick', item);
+    },
+    checkout(item) {
+      this.$router.replace(`/thanh-toan/?checkout=${item.url}`);
+    },
   },
 };
 </script>
@@ -670,5 +685,8 @@ export default {
 }
 .addtocard__btn {
   color: $primary__text;
+}
+.buynow__btn {
+  color: $white__color;
 }
 </style>

@@ -223,20 +223,98 @@
               @keyup.enter="redirectTo(`/danh-muc/tim-kiem/?search=${search}`)"
             />
           </div>
+
           <div class="header__favorite">
-            <nuxt-link to="/favorite">
-              <i class="material-icons header__icon">
-                favorite_border
-              </i>
-              <span class="favo__number">{{ getFavorite }}</span>
-            </nuxt-link>
+            <vs-dropdown vs-custom-content>
+              <nuxt-link to="/favorite" class="favorite__dropdown__title">
+                <i class="material-icons header__icon">
+                  favorite_border
+                </i>
+                <span class="favo__number">{{ getFavorite.qty }}</span>
+              </nuxt-link>
+
+              <vs-dropdown-menu class="cart__dropdown">
+                <vs-dropdown-item
+                  v-for="(favo, index) in getFavorite.list"
+                  :key="index + 'fasve'"
+                  divider
+                >
+                  <div class="row mp--none">
+                    <div class="col-3 mp--none">
+                      <img
+                        :src="favo.images[0].path"
+                        alt=""
+                        class="header__tooltip__image"
+                      />
+                    </div>
+                    <div class="col-7 mp--none">
+                      <p>{{ favo.productName }}</p>
+                    </div>
+                    <div class="col-2 mp--none">
+                      <vs-button
+                        color="danger"
+                        type="border"
+                        size="small"
+                        class="p-1"
+                        @click="removeFavoriteItem(favo)"
+                        ><i class="material-icons text__size--x07">
+                          close
+                        </i></vs-button
+                      >
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+                <vs-dropdown-item divider>
+                  <nuxt-link to="/yeu-thich">Xem tất cả</nuxt-link>
+                </vs-dropdown-item>
+              </vs-dropdown-menu>
+            </vs-dropdown>
           </div>
           <div class="header__cart">
-            <nuxt-link to="/cart">
-              <i class="material-icons header__icon">
-                shopping_cart
-              </i>
-            </nuxt-link>
+            <vs-dropdown vs-custom-content>
+              <nuxt-link to="/cart" class="cart__dropdown__title">
+                <i class="material-icons header__icon">
+                  shopping_cart
+                </i>
+                <span class="cart__number">{{ getCart.qty }}</span>
+              </nuxt-link>
+
+              <vs-dropdown-menu class="cart__dropdown">
+                <vs-dropdown-item
+                  v-for="(cart, index) in getCart.list"
+                  :key="index + 'fasve'"
+                  divider
+                >
+                  <div class="row mp--none">
+                    <div class="col-3 mp--none">
+                      <img
+                        :src="cart.images[0].path"
+                        alt=""
+                        class="header__tooltip__image"
+                      />
+                    </div>
+                    <div class="col-7 mp--none">
+                      <p>{{ cart.productName }}</p>
+                    </div>
+                    <div class="col-2 mp--none">
+                      <vs-button
+                        color="danger"
+                        type="border"
+                        size="small"
+                        class="p-1"
+                        @click="removeCartItem(cart)"
+                        ><i class="material-icons text__size--x07">
+                          close
+                        </i></vs-button
+                      >
+                    </div>
+                  </div>
+                </vs-dropdown-item>
+                <vs-dropdown-item divider>
+                  <nuxt-link to="/gio-hang">Xem tất cả</nuxt-link>
+                </vs-dropdown-item>
+              </vs-dropdown-menu>
+            </vs-dropdown>
           </div>
           <div class="header__account">
             <vs-dropdown vs-custom-content>
@@ -251,7 +329,7 @@
                   <nuxt-link to="/gio-hang">Giỏ hàng</nuxt-link>
                 </vs-dropdown-item>
                 <vs-dropdown-item divider>
-                  <nuxt-link to="/favorite">Sản phẩm yêu thích</nuxt-link>
+                  <nuxt-link to="/yeu-thich">Sản phẩm yêu thích</nuxt-link>
                 </vs-dropdown-item>
                 <vs-dropdown-item divider>
                   <nuxt-link to="/thanh-toan">Thanh toán</nuxt-link>
@@ -359,7 +437,16 @@ export default {
   }),
   computed: {
     getFavorite() {
-      return this.$store.state.favoriteItem.favoriteItem;
+      return {
+        qty: this.$store.state.favoriteItem.favoriteItem,
+        list: this.$store.state.favoriteItem.favoriteList,
+      };
+    },
+    getCart() {
+      return {
+        qty: this.$store.state.cartItem.cartItem,
+        list: this.$store.state.cartItem.cartList,
+      };
     },
   },
   mounted() {
@@ -420,14 +507,30 @@ export default {
     redirectTo(url) {
       this.$router.replace(url);
     },
+    removeCartItem(cart) {
+      this.$store.commit('cartItem/removeCartItemClick', cart);
+    },
+    removeFavoriteItem(favo) {
+      this.$store.commit('favoriteItem/removeFavoriteItemClick', favo);
+    },
   },
 };
 </script>
 <style lang="scss">
-.header__favorite a {
+.header__tooltip__image {
+  height: 30px;
+  width: 30px;
+}
+.favorite__dropdown__title,
+.cart__dropdown__title {
   position: relative;
 }
-.favo__number {
+.cart__dropdown,
+.favorite_-dropdown {
+  min-width: 400px;
+}
+.favo__number,
+.cart__number {
   position: absolute;
   top: -20px;
   right: -10px;
