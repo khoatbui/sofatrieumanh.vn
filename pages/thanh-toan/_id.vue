@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="container">
-      <div v-if="getCart.qty > 0" class="row mp--none">
+      <div v-if="getCart.qty > 0" class="row m-0 p-0">
         <div class="col-12 col-md-6">
           <div class="card border__checkout">
             <div class="card-body">
@@ -59,6 +59,7 @@
                 :text-color="'#2d2430'"
                 type="filled"
                 class="px-4 py-2 border__radius--10 my-3"
+                @click="sendOrder"
                 >Đặt hàng</vs-button
               >
             </div>
@@ -70,7 +71,7 @@
               <div
                 v-for="(pro, index) in getCart.list"
                 :key="index + 'pros'"
-                class="row mp--none py-2 border-bottom"
+                class="row m-0 p-0 py-2 border-bottom"
               >
                 <div class="checkout__card__image col-3 col-md-2">
                   <img
@@ -129,6 +130,75 @@
         </div>
       </div>
     </div>
+    <div v-if="orderSuccess" class="finish__popup animated pulse">
+      <div class="finish__form container">
+        <div class="container">
+          <div class="row m-0 p-0">
+            <div
+              class="col-12 col-md-6 d-flex justify-content-center align-items-center flex-column"
+            >
+              <img src="/images/icon/ok.png" class="finish__image" />
+              <div class="finish__info mb-4">
+                <h5>Cảm ơn quý khách đã đặt hàng tại sofa Triệu Mạnh</h5>
+                <h6 class="danger-text">Mã đơn hàng #0560003265</h6>
+              </div>
+              <div class="finish__note">
+                <p class="text-left text-muted text__size--x08">
+                  Nhân viên của Sofa Triệu Mạnh sẽ gọi điện lại để xác nhận đơn
+                  hàng sau 30 phút. Quý khách vui lòng theo dõi và nhận cuộc gọi
+                  của chúng tôi
+                </p>
+                <p class="text-left text-muted text__size--x08">
+                  Các sản phẩm sẽ được thanh toán theo hình thức chuyển khoản,
+                  hoặc chuyển khoản 50% giá trị đơn hàng ( nhân viên tư vấn sẽ
+                  hướng dẫn khách hàng). Trong trường hợp chuyển khoản, quý
+                  khách vui lòng chuyển khoản theo thông tin sau
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="finish__bank mt-4">
+                <h6>Thông tin chuyển khoản</h6>
+                <div class="row m-0 p-0 py-2 border-bottom">
+                  <div class="col-6 m-0 p-0">
+                    <span>Chủ tài khoản</span>
+                  </div>
+                  <div class="col-6 m-0 p-0 text-left">
+                    <strong>Nguyễn Xuân Hoàn</strong>
+                  </div>
+                </div>
+                <div class="row m-0 p-0 py-2 border-bottom">
+                  <div class="col-6 m-0 p-0">
+                    <span>Số tài khoản</span>
+                  </div>
+                  <div class="col-6 m-0 p-0 text-left">
+                    <strong>045 100 038 2326</strong>
+                  </div>
+                </div>
+                <div class="row m-0 p-0 py-2 border-bottom">
+                  <div class="col-6 m-0 p-0">
+                    <span>Ngân hàng</span>
+                  </div>
+                  <div class="col-6 m-0 p-0 text-left">
+                    <strong>Vietcombank chi nhánh Thành Công, Hà Nội</strong>
+                  </div>
+                </div>
+                <div class="row m-0 p-0 py-2">
+                  <vs-button
+                    :color="'#ffb400'"
+                    :text-color="'#2d2430'"
+                    type="filled"
+                    class="px-4 py-2 border__radius--10 my-3 w-100"
+                    @click="redirectTo"
+                    >Quay về trang chủ</vs-button
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -144,6 +214,7 @@ export default {
     },
     productDetail: {},
     completedGetData: false,
+    orderSuccess: false,
   }),
   computed: {
     getCart() {
@@ -175,8 +246,8 @@ export default {
       this.$store.commit('cartItem/removeCartItemClick', cart);
     },
     getProductDetail() {
-      this.$vs.loading();
       if (typeof this.$route.query.checkout !== 'undefined') {
+        this.$vs.loading();
         this.$axios
           .get(
             `${process.env.API_HTTP}/productapi/single-product-by-url/${this.$route.query.checkout}`
@@ -198,10 +269,42 @@ export default {
           });
       }
     },
+    redirectTo() {
+      this.$router.replace(`/`);
+    },
+    sendOrder() {
+      this.orderSuccess = true;
+    },
   },
 };
 </script>
 <style lang="scss">
+.finish__popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(1, 1, 1, 0.5);
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999999;
+}
+.finish__form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $white__color;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 10px;
+}
+.finish__image {
+  width: 50px;
+}
 .checkout__detail__image__src {
   background-image: url('/images/banner/banner_04.jpg');
   background-position: center;
