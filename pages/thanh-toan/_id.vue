@@ -21,19 +21,19 @@
           <div class="card border__checkout">
             <div class="card-body">
               <vs-input
-                v-model="order.fullName"
+                v-model="order.customer.fullName"
                 label="Họ và tên"
                 placeholder="Nguyễn Văn A"
                 class="w-100 border__radius--none custom__input my-3"
               />
               <vs-input
-                v-model="order.email"
+                v-model="order.customer.email"
                 label="Địa chỉ email"
                 placeholder="email@gmail.com"
                 class="w-100 border__radius--none custom__input my-3"
               />
               <vs-input
-                v-model="order.phoneNumber"
+                v-model="order.customer.phoneNumber"
                 label="Số điện thoại"
                 placeholder="+84 935-235-695"
                 class="w-100 border__radius--none custom__input my-3"
@@ -206,11 +206,15 @@ export default {
   layout: 'pagelayout',
   data: () => ({
     order: {
-      fullName: '',
-      email: '',
-      phoneNumber: '',
+      customer: {
+        fullName: '',
+        email: '',
+        phoneNumber: '',
+      },
       comment: '',
       address: '',
+      totalPrice: 0,
+      products: [],
     },
     productDetail: {},
     completedGetData: false,
@@ -273,7 +277,24 @@ export default {
       this.$router.replace(`/`);
     },
     sendOrder() {
-      this.orderSuccess = true;
+      this.order.totalPrice = this.totalPrice;
+      this.order.products = this.getCart.list;
+      this.$axios
+        .post(`${process.env.API_HTTP}/orderapi/new-order`, this.order)
+        .then(result => {
+          this.$vs.loading.close();
+          this.orderSuccess = true;
+        })
+        .catch(error => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error,
+          });
+        })
+        .finally(() => {
+          this.$vs.loading.close();
+        });
     },
   },
 };
