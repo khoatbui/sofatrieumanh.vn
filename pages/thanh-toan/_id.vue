@@ -183,7 +183,6 @@ export default {
           )
           .then(response => {
             this.productDetail = response.data;
-            console.log(this.productDetail);
             this.$vs.loading.close();
             this.completedGetData = true;
           })
