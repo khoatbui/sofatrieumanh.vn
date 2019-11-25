@@ -25,6 +25,8 @@
                 label="Họ và tên"
                 placeholder="Nguyễn Văn A"
                 class="w-100 border__radius--none custom__input my-3"
+                :danger="validation.target === 'fullName'"
+                :danger-text="validation.text"
               />
               <vs-input
                 v-model="order.customer.email"
@@ -140,7 +142,7 @@
               <img src="/images/icon/ok.png" class="finish__image" />
               <div class="finish__info mb-4">
                 <h5>Cảm ơn quý khách đã đặt hàng tại sofa Triệu Mạnh</h5>
-                <h6 class="danger-text">Mã đơn hàng #0560003265</h6>
+                <h6 class="danger-text">Mã đơn hàng #{{ transactionCode }}</h6>
               </div>
               <div class="finish__note">
                 <p class="text-left text-muted text__size--x08">
@@ -216,9 +218,14 @@ export default {
       totalPrice: 0,
       products: [],
     },
+    validation: {
+      target: '',
+      text: '',
+    },
     productDetail: {},
     completedGetData: false,
     orderSuccess: false,
+    transactionCode: '',
   }),
   computed: {
     getCart() {
@@ -277,11 +284,16 @@ export default {
       this.$router.replace(`/`);
     },
     sendOrder() {
+      if (!this.checkValidation()) {
+        return;
+      }
       this.order.totalPrice = this.totalPrice;
       this.order.products = this.getCart.list;
       this.$axios
         .post(`${process.env.API_HTTP}/orderapi/new-order`, this.order)
         .then(result => {
+          this.transactionCode = result.data.result;
+          this.$store.commit('cartItem/removeOrderdItems', this.order.products);
           this.$vs.loading.close();
           this.orderSuccess = true;
         })
@@ -295,6 +307,37 @@ export default {
         .finally(() => {
           this.$vs.loading.close();
         });
+    },
+    checkValidation() {
+      if (this.order.customer.fullName.length === 0) {
+        this.validation = {
+          target: 'fullName',
+          text: 'Yêu cầu nhập họ tên',
+        };
+        return false;
+      }
+      if (this.order.customer.email.length === 0) {
+        this.validation = {
+          target: 'email',
+          text: 'Yêu cầu nhập email',
+        };
+        return false;
+      }
+      if (this.order.customer.phoneNumber.length === 0) {
+        this.validation = {
+          target: 'phoneNumber',
+          text: 'Yêu cầu nhập số điện thoại liên lạc',
+        };
+        return false;
+      }
+      if (this.order.address.length === 0) {
+        this.validation = {
+          target: 'address',
+          text: 'Yêu cầu nhập địa chỉ nhận hàng',
+        };
+        return false;
+      }
+      return true;
     },
   },
 };

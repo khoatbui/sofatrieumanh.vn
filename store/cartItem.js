@@ -26,4 +26,16 @@ export const mutations = {
       state.cartItem = filtered.length;
     }
   },
+  removeOrderdItems(state, cartItems) {
+    if (typeof state.cartList !== 'undefined') {
+      let filtered = state.cartList;
+      cartItems.forEach(cartItem => {
+        filtered = filtered.filter(function(value, index, arr) {
+          return value.url !== cartItem.url;
+        });
+      });
+      state.cartList = filtered;
+      state.cartItem = filtered.length;
+    }
+  },
 };

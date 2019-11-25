@@ -41,6 +41,9 @@ const orderSchema = new Schema({
     type: Date,
     require: false,
   },
+  transactionCode: {
+    type: String,
+  },
 });
 orderSchema.plugin(uniqueValidator, { message: 'Url already in use.' });
 module.exports = mongoose.model('Order', orderSchema, 'order');
