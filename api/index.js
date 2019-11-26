@@ -36,6 +36,7 @@ const menuRouter = require('./routers/menu.router');
 const promotionRouter = require('./routers/promotion.router');
 const dictionaryRouter = require('./routers/dictionary.router');
 const orderRouter = require('./routers/order.router');
+const authenRouter = require('./routers/login.router');
 // const auth = require('./router/auth.routes')
 
 // app.set('view engine', 'pug')
@@ -53,6 +54,7 @@ app.use('/menuapi', menuRouter);
 app.use('/promotionapi', promotionRouter);
 app.use('/dictionaryapi', dictionaryRouter);
 app.use('/orderapi', orderRouter);
+app.use('/authenapi', authenRouter);
 
 // ↥↥↥↥↥↥↥ ****************ROUTER****************
 

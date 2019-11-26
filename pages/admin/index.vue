@@ -3,6 +3,7 @@
 </template>
 <script>
 export default {
+  middleware: 'authentication',
   layout: 'adminlayout',
 };
 </script>

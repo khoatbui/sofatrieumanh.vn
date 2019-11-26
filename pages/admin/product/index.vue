@@ -329,6 +329,7 @@
 import AdminTipTapComponent from '@/components/AdminTipTapComponent.vue';
 import FileListComponent from '@/components/FileListComponent';
 export default {
+  middleware: 'authentication',
   components: {
     AdminTipTapComponent,
     FileListComponent,

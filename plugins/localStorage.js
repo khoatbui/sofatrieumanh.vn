@@ -9,6 +9,7 @@ export default ({ store }) => {
         'favoriteItem.favoriteList',
         'cartItem.cartItem',
         'cartItem.cartList',
+        'login.loginStatus',
       ],
     })(store);
   });

@@ -127,6 +127,7 @@
 </template>
 <script>
 export default {
+  middleware: 'authentication',
   layout: 'adminlayout',
   data: () => ({
     editPopup: false,
