@@ -64,24 +64,30 @@
               label="Họ tên"
               placeholder="Nguyen Quy Hanh"
               class="w-100 border__radius--none custom__input"
+              :danger="validation.target === 'fullName'"
+              :danger-text="validation.text"
             />
             <vs-input
               v-model="comment.email"
               label="Địa chỉ email"
               placeholder="email@gmail.com"
               class="w-100 border__radius--none custom__input"
+              :danger="validation.target === 'email'"
+              :danger-text="validation.text"
             />
             <vs-input
               v-model="comment.phoneNumber"
               label="Số điện thoại"
               placeholder="+84 935-235-695"
               class="w-100 border__radius--none custom__input"
+              :danger="validation.target === 'phoneNumber'"
+              :danger-text="validation.text"
             />
             <div class="custom__input">
               <label for="icomment" class="label__input">Yêu cầu</label>
               <vs-textarea
                 id="icomment"
-                v-model="comment.comment"
+                v-model="comment.request"
                 class="w-100 comment__input"
               />
             </div>
@@ -89,6 +95,7 @@
               :color="'#ffb400'"
               type="filled"
               class="px-4 py-2 border__radius--none"
+              @click="requestAdvisor"
               >Gửi yêu cầu</vs-button
             >
           </div>
@@ -105,6 +112,11 @@ export default {
       fullName: '',
       email: '',
       phoneNumber: '',
+      request: '',
+    },
+    validation: {
+      target: '',
+      text: '',
     },
   }),
   head() {
@@ -119,6 +131,60 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    requestAdvisor() {
+      if (!this.validationData()) {
+        return;
+      }
+      this.$vs.loading();
+      this.$axios
+        .post(
+          `${process.env.API_HTTP}/advisorapi/register-advisor`,
+          this.comment
+        )
+        .then(result => {
+          this.$vs.notify({
+            color: 'success',
+            title: 'Thankyou!',
+            text: 'Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất.',
+          });
+        })
+        .catch(error => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error,
+          });
+        })
+        .finally(() => {
+          this.$vs.loading.close();
+        });
+    },
+    validationData() {
+      if (this.comment.fullName.length === 0) {
+        this.validation = {
+          target: 'fullName',
+          text: 'Vui lòng nhập họ tên',
+        };
+        return false;
+      }
+      if (this.comment.email.length === 0) {
+        this.validation = {
+          target: 'email',
+          text: 'Vui lòng nhập địa chỉ email',
+        };
+        return false;
+      }
+      if (this.comment.phoneNumber.length === 0) {
+        this.validation = {
+          target: 'phoneNumber',
+          text: 'Vui lòng nhập số điện thoại',
+        };
+        return false;
+      }
+      return true;
+    },
   },
 };
 </script>

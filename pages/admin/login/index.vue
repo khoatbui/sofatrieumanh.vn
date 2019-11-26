@@ -11,7 +11,7 @@
             </div>
           </div>
           <div class="row mp--none">
-            <div class="col-12">
+            <div class="col-12 my-2">
               <vs-input
                 v-model="login.email"
                 label="Email"
@@ -21,7 +21,7 @@
                 :danger-text="validation.text"
               />
             </div>
-            <div class="col-12">
+            <div class="col-12 my-2">
               <vs-input
                 v-model="login.password"
                 type="password"
@@ -32,7 +32,7 @@
                 :danger-text="validation.text"
               />
             </div>
-            <div class="col-12">
+            <div class="col-12 my-2">
               <vs-button color="primary" type="filled" @click="requestLogin"
                 >Login</vs-button
               >

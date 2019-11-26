@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container section__margin--y">
       <div v-if="getCart.qty > 0" class="row m-0 p-0">
         <div class="col-12 col-md-6">
           <div class="card border__checkout">

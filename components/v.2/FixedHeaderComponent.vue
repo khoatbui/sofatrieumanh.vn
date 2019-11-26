@@ -168,7 +168,7 @@
               </vs-dropdown-item>
             </vs-dropdown-menu>
           </vs-dropdown>
-          <nuxt-link to="/danh-muc/sofa-khuyenmai"> Sofa khuyến mãi</nuxt-link>
+          <nuxt-link to="/danh-muc/sofa-khuyen-mai"> Sofa khuyến mãi</nuxt-link>
 
           <vs-dropdown vs-custom-content>
             <a class="a-icon drop__head" href.prevent>

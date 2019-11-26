@@ -35,7 +35,7 @@
         <nuxt-link to="/admin/order">Đơn hàng</nuxt-link>
       </vs-navbar-item>
       <vs-navbar-item index="7">
-        <nuxt-link to="/admin/issues">Yêu cầu</nuxt-link>
+        <nuxt-link to="/admin/advisor">Yêu cầu</nuxt-link>
       </vs-navbar-item>
     </vs-navbar>
   </div>

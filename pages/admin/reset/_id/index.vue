@@ -11,7 +11,7 @@
             </div>
           </div>
           <div class="row mp--none">
-            <div class="col-12">
+            <div class="col-12 my-2">
               <vs-input
                 v-model="login.email"
                 label="Xác nhân email"
@@ -21,7 +21,7 @@
                 :danger-text="validation.text"
               />
             </div>
-            <div class="col-12">
+            <div class="col-12 my-2">
               <vs-input
                 v-model="login.password"
                 label="Mật khẩu mới"
@@ -31,7 +31,7 @@
                 :danger-text="validation.text"
               />
             </div>
-            <div class="col-12">
+            <div class="col-12 my-2">
               <vs-input
                 v-model="login.confirmPassword"
                 label="Xác nhận mật khẩu"
@@ -41,7 +41,7 @@
                 :danger-text="validation.text"
               />
             </div>
-            <div class="col-12">
+            <div class="col-12 my-2">
               <vs-button color="primary" type="filled" @click="changePassword"
                 >Reset</vs-button
               >

@@ -34,7 +34,7 @@
             <h6 class="footer__top__title">Sản phẩm</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item">
-                <nuxt-link to="danh-muc/sofa">
+                <nuxt-link to="danh-muc/ghe-sofa">
                   Sofa
                 </nuxt-link>
               </li>
@@ -89,8 +89,10 @@
             <h6 class="footer__top__title">Đăng kí</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item footer__top__item__subscribe">
-                <input type="text" class="subscribe__input" />
-                <button class="subscribe__btn">Đăng kí</button>
+                <input type="text" class="subscribe__input" :v-model="email" />
+                <button class="subscribe__btn" @click="subscribe">
+                  Đăng kí
+                </button>
               </li>
               <li
                 class="footer__top__item pt-2 footer__bottom__item__subscribe"
@@ -152,7 +154,45 @@
     </div>
   </div>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      email: '',
+    };
+  },
+  methods: {
+    subscribe() {
+      if (this.email.length === 0) {
+        return;
+      }
+      this.$vs.loading();
+      this.$axios
+        .post(
+          `${process.env.API_HTTP}/subscribeapi/register-subscribe`,
+          this.email
+        )
+        .then(result => {
+          this.$vs.notify({
+            color: 'success',
+            title: 'Thankyou!',
+            text: 'Cảm ơn bạn đã đăng kí.',
+          });
+        })
+        .catch(error => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error,
+          });
+        })
+        .finally(() => {
+          this.$vs.loading.close();
+        });
+    },
+  },
+};
+</script>
 <style lang="scss">
 .footer__component {
   background-color: $footer__bg__color;
@@ -191,7 +231,7 @@
   padding: 0.4rem 0.8rem;
   margin: 0;
   background-color: $white__color !important;
-  color: $primary__color !important;
+  color: $primary__text !important;
 }
 .subscribe__btn {
   border-top-right-radius: 100px;

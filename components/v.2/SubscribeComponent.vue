@@ -10,12 +10,54 @@
           type="text"
           name=""
           placeholder="Địa chỉ email của bạn"
+          :v-model="email"
         />
-        <vs-button color="#252531" type="filled">subscribe</vs-button>
+        <vs-button color="#252531" type="filled" @click="subscribe"
+          >subscribe</vs-button
+        >
       </div>
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      email: '',
+    };
+  },
+  methods: {
+    subscribe() {
+      if (this.email.length === 0) {
+        return;
+      }
+      this.$vs.loading();
+      this.$axios
+        .post(
+          `${process.env.API_HTTP}/subscribeapi/register-subscribe`,
+          this.email
+        )
+        .then(result => {
+          this.$vs.notify({
+            color: 'success',
+            title: 'Thankyou!',
+            text: 'Cảm ơn bạn đã đăng kí.',
+          });
+        })
+        .catch(error => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error,
+          });
+        })
+        .finally(() => {
+          this.$vs.loading.close();
+        });
+    },
+  },
+};
+</script>
 <style lang="scss">
 .sub__input {
   display: flex;

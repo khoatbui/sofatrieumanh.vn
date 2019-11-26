@@ -259,6 +259,28 @@
                           </p>
                         </div>
                       </div>
+                      <div
+                        v-for="(comm, index) in comments"
+                        :key="index + 'comme'"
+                        class="my-4 comment__item"
+                      >
+                        <img
+                          src="/images/user.png"
+                          alt=""
+                          class="comment__logo"
+                        />
+                        <div class="comment__content">
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
+                            {{ comm.commentDate }}
+                          </p>
+                          <p class="m-0 p-0 px-2 text__size--x09">
+                            {{ comm.comment }}
+                          </p>
+                          <p class="m-0 p-0 px-2 text__size--x07 text-muted">
+                            {{ comm.fullName }}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                     <div class="col-12 col-md-6 m-0 p-0 comment__form  p-2">
                       <vs-input
@@ -293,7 +315,8 @@
                         :color="'#2d2430'"
                         type="filled"
                         class="px-4 py-2 border__radius--none"
-                        >Send</vs-button
+                        @click="sendComment"
+                        >Gửi đánh giá</vs-button
                       >
                     </div>
                   </div>
@@ -365,6 +388,7 @@ export default {
       scroller_position: 'left',
       zoomer_pane_position: 'right',
     },
+    comments: [],
   }),
   computed: {},
   mounted() {
@@ -402,6 +426,7 @@ export default {
             this.productDetail = response.data;
             this.$emit('categoryDate', this.productDetail.category);
             this.$vs.loading.close();
+            this.getComment();
             this.completedGetData = true;
           })
           .catch(error => {
@@ -438,6 +463,51 @@ export default {
     },
     checkout(item) {
       this.$router.replace(`/thanh-toan/?checkout=${item.url}`);
+    },
+    getComment() {
+      this.$vs.loading();
+      this.$axios
+        .get(
+          `${process.env.API_HTTP}/commentapi/comment-by-productid/${this.productDetail._id}`
+        )
+        .then(response => {
+          this.comments = response.data;
+          this.$vs.loading.close();
+        })
+        .catch(error => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error,
+          });
+        })
+        .finally(() => {
+          this.$vs.loading.close();
+        });
+    },
+    sendComment() {
+      this.$vs.loading();
+      this.comment.productId = this.productDetail._id;
+      this.$axios
+        .post(`${process.env.API_HTTP}/commentapi/create-comment`, this.comment)
+        .then(result => {
+          this.$vs.notify({
+            color: 'success',
+            title: 'Thankyou!',
+            text: 'Cảm ơn bạn đã gửi cho tôi các phản hồi hữu ích',
+          });
+          this.getComment();
+        })
+        .catch(error => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error,
+          });
+        })
+        .finally(() => {
+          this.$vs.loading.close();
+        });
     },
   },
 };
