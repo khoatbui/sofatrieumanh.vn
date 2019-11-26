@@ -27,23 +27,53 @@
               >
                 <div class="cartsum__card__image col-2">
                   <img
-                    :src="pro.images[0].path"
+                    :src="pro.product.images[0].path"
                     alt=""
                     class="cartsum__item__image"
                   />
                 </div>
-                <div class="cartsum__card__body col-8">
-                  <p class="p-0 m-0">{{ pro.productName }}</p>
+                <div class="col-3">
+                  <span class=" d-flex align-items-center mr-4">
+                    <button class="plus__btn" @click="minusQty(pro)">
+                      <i class="material-icons">remove</i>
+                    </button>
+                    <span class="px-2 font-weight-bold text__size--x12">{{
+                      pro.qty
+                    }}</span>
+                    <button class="plus__btn" @click="plusQty(pro)">
+                      <i class="material-icons">add</i>
+                    </button>
+                  </span>
+                </div>
+                <div class="cartsum__card__body col-5">
+                  <p class="p-0 m-0">
+                    {{ pro.qty }} x {{ pro.product.productName }}
+                  </p>
                   <p class="pb-0 mb-0 text__size--x08">
+                    {{ pro.qty }} x
                     {{
-                      pro.price == '' || typeof pro.price == 'undefined'
+                      pro.product.price == '' ||
+                      typeof pro.product.price == 'undefined'
                         ? 'Liên hệ'
                         : new Intl.NumberFormat('vi-VN', {
                             style: 'currency',
                             currency: 'VND',
                             minimumFractionDigits: 0,
                           })
-                            .format(pro.price)
+                            .format(pro.product.price)
+                            .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
+                    }}
+                    =
+                    {{
+                      pro.product.price == '' ||
+                      typeof pro.product.price == 'undefined'
+                        ? 'Liên hệ'
+                        : new Intl.NumberFormat('vi-VN', {
+                            style: 'currency',
+                            currency: 'VND',
+                            minimumFractionDigits: 0,
+                          })
+                            .format(pro.product.price * pro.qty)
                             .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
                     }}
                   </p>
@@ -112,7 +142,7 @@ export default {
         accumulator,
         currentValue
       ) {
-        return accumulator + currentValue.price;
+        return accumulator + currentValue.product.price * currentValue.qty;
       },
       0);
     },
@@ -123,6 +153,17 @@ export default {
     },
     redirectTo() {
       this.$router.replace(`/thanh-toan/`);
+    },
+
+    plusQty(item) {
+      if (item.qty < 10) {
+        this.$store.commit('cartItem/plusItem', item);
+      }
+    },
+    minusQty(item) {
+      if (item.qty > 1) {
+        this.$store.commit('cartItem/minusItem', item);
+      }
     },
   },
 };

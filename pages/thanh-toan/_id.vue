@@ -77,23 +77,26 @@
               >
                 <div class="checkout__card__image col-3 col-md-2">
                   <img
-                    :src="pro.images[0].path"
+                    :src="pro.product.images[0].path"
                     alt=""
                     class="checkout__item__image"
                   />
                 </div>
                 <div class="checkout__card__body col-7 col-md-8">
-                  <p class="p-0 m-0">{{ pro.productName }}</p>
+                  <p class="p-0 m-0">
+                    {{ pro.qty }} x {{ pro.product.productName }}
+                  </p>
                   <p class="pb-0 mb-0 text__size--x08">
                     {{
-                      pro.price == '' || typeof pro.price == 'undefined'
+                      pro.product.price == '' ||
+                      typeof pro.product.price == 'undefined'
                         ? 'Liên hệ'
                         : new Intl.NumberFormat('vi-VN', {
                             style: 'currency',
                             currency: 'VND',
                             minimumFractionDigits: 0,
                           })
-                            .format(pro.price)
+                            .format(pro.product.price)
                             .replace(/(\d)(?=(\d{3})+(?!\d))/g, '.')
                     }}
                   </p>
@@ -235,7 +238,7 @@ export default {
       ) {
         return {
           qty: 1,
-          list: [this.productDetail],
+          list: [{ product: this.productDetail, qty: this.$route.query.qty }],
         };
       }
       return {
@@ -245,7 +248,7 @@ export default {
     },
     totalPrice() {
       return this.getCart.list.reduce(function(accumulator, currentValue) {
-        return accumulator + currentValue.price;
+        return accumulator + currentValue.product.price * currentValue.qty;
       }, 0);
     },
   },

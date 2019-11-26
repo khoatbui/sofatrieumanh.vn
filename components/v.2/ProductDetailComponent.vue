@@ -104,11 +104,13 @@
 
             <div class="col-12 m-0 p-0 my-4 d-flex align-items-center">
               <span class=" d-flex align-items-center mr-4">
-                <button class="plus__btn">
+                <button class="plus__btn" @click="minusQty">
                   <i class="material-icons">remove</i>
                 </button>
-                <span class="px-2 font-weight-bold text__size--x12">1</span>
-                <button class="plus__btn">
+                <span class="px-2 font-weight-bold text__size--x12">{{
+                  qty
+                }}</span>
+                <button class="plus__btn" @click="plusQty">
                   <i class="material-icons">add</i>
                 </button>
               </span>
@@ -116,7 +118,7 @@
                 :color="'#ffb400'"
                 type="filled"
                 class="border__radius--none addtocard__btn mr-1"
-                @click="cartItem(productDetail)"
+                @click="cartItem(productDetail, qty)"
                 >Thêm vào giỏ hàng</vs-button
               >
               <vs-button
@@ -389,6 +391,7 @@ export default {
       zoomer_pane_position: 'right',
     },
     comments: [],
+    qty: 1,
   }),
   computed: {},
   mounted() {
@@ -458,11 +461,16 @@ export default {
           });
       }
     },
-    cartItem(item) {
-      this.$store.commit('cartItem/cartItemClick', item);
+    cartItem(item, quantity) {
+      this.$store.commit('cartItem/cartItemClick', {
+        product: item,
+        qty: quantity,
+      });
     },
     checkout(item) {
-      this.$router.replace(`/thanh-toan/?checkout=${item.url}`);
+      this.$router.replace(
+        `/thanh-toan/?checkout=${item.url}&&qty=${this.qty}`
+      );
     },
     getComment() {
       this.$vs.loading();
@@ -508,6 +516,16 @@ export default {
         .finally(() => {
           this.$vs.loading.close();
         });
+    },
+    plusQty() {
+      if (this.qty < 10) {
+        this.qty++;
+      }
+    },
+    minusQty() {
+      if (this.qty > 1) {
+        this.qty--;
+      }
     },
   },
 };

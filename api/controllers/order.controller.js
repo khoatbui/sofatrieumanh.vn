@@ -19,7 +19,7 @@ module.exports.getAllOrders = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        console.log('Error')
+        console.log('Error');
       } else {
         res.status(200).json(response);
       }
@@ -28,7 +28,7 @@ module.exports.getAllOrders = function(req, res) {
 module.exports.getSingleOrder = function(req, res, next) {
   Order.findById(req.params.id, (error, data) => {
     if (error) {
-      console.log('Error')
+      console.log('Error');
     } else {
       res.status(200).json(data);
     }
@@ -144,8 +144,8 @@ function generateCustomerOrder(order) {
     <div style="color:#000000;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left:20px;">
     <div style="font-size: 12px; line-height: 1.2; font-family: 'Lato', Tahoma, Verdana, Segoe, sans-serif; color: #000000; mso-line-height-alt: 14px;">
     <p style="font-size: 14px; line-height: 1.2; mso-line-height-alt: 17px; margin: 0;"><span style="color: #000000; font-size: 14px;"><a href="https://sofatrieumanh.com" style="text-decoration: none; color: #000000;" target="_blank">${
-      element.productName
-    }</a></span></p>
+      element.qty
+    } x ${element.product.productName}</a></span></p>
     </div>
     </div>
     <!--[if mso]></td></tr></table><![endif]-->
@@ -165,7 +165,9 @@ function generateCustomerOrder(order) {
     <div style="color:#000000;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left:20px;">
     <div style="font-size: 12px; line-height: 1.2; font-family: 'Lato', Tahoma, Verdana, Segoe, sans-serif; color: #000000; mso-line-height-alt: 14px;">
     <p style="font-size: 14px; line-height: 1.2; mso-line-height-alt: 17px; margin: 0;">${
-      typeof element.price === 'undefined' ? 'Liên hệ' : element.price
+      typeof element.product.price === 'undefined'
+        ? 'Liên hệ'
+        : element.product.price
     }</p>
     </div>
     </div>
@@ -716,8 +718,8 @@ function generateStaffOrder(order) {
     <div style="color:#000000;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left:20px;">
     <div style="font-size: 12px; line-height: 1.2; font-family: 'Lato', Tahoma, Verdana, Segoe, sans-serif; color: #000000; mso-line-height-alt: 14px;">
     <p style="font-size: 14px; line-height: 1.2; mso-line-height-alt: 17px; margin: 0;"><span style="color: #000000; font-size: 14px;"><a href="https://sofatrieumanh.com" style="text-decoration: none; color: #000000;" target="_blank">${
-      element.productName
-    }</a></span></p>
+      element.qty
+    } x ${element.product.productName}</a></span></p>
     </div>
     </div>
     <!--[if mso]></td></tr></table><![endif]-->
@@ -737,7 +739,9 @@ function generateStaffOrder(order) {
     <div style="color:#000000;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left:20px;">
     <div style="font-size: 12px; line-height: 1.2; font-family: 'Lato', Tahoma, Verdana, Segoe, sans-serif; color: #000000; mso-line-height-alt: 14px;">
     <p style="font-size: 14px; line-height: 1.2; mso-line-height-alt: 17px; margin: 0;">${
-      typeof element.price === 'undefined' ? 'Liên hệ' : element.price
+      typeof element.product.price === 'undefined'
+        ? 'Liên hệ'
+        : element.product.price
     }</p>
     </div>
     </div>

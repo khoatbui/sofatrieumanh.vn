@@ -94,6 +94,11 @@
             <div class="col-6 col-md-2 my-4 my-md-0 d-flex align-items-end">
               <vs-checkbox v-model="editedItem.isActive">Public ?</vs-checkbox>
             </div>
+            <div class="col-6 col-md-2 my-4 my-md-0 d-flex align-items-end">
+              <vs-checkbox v-model="editedItem.isFilter"
+                >Hiển thị trên filter ?</vs-checkbox
+              >
+            </div>
           </div>
           <div class="row m-0 p-0 margin__top--4 border-top">
             <div class="col-12 py-2 d-flex justify-content-end">
@@ -130,6 +135,7 @@ export default {
     editedItem: {
       characteryName: '',
       isActive: true,
+      isFilter: false,
       createDate: '',
       modifyDate: '',
       createBy: 'trieumanh',
@@ -137,6 +143,7 @@ export default {
     defaultItem: {
       characteryName: '',
       isActive: true,
+      isFilter: false,
       createDate: '',
       modifyDate: '',
       createBy: 'trieumanh',

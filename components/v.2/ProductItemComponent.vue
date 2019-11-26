@@ -117,7 +117,10 @@ export default {
       this.$store.commit('favoriteItem/favoriteItemClick', item);
     },
     cartItem(item) {
-      this.$store.commit('cartItem/cartItemClick', item);
+      this.$store.commit('cartItem/cartItemClick', {
+        product: item,
+        qty: 1,
+      });
     },
   },
 };

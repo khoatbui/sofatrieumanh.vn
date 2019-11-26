@@ -160,7 +160,7 @@
               <vs-dropdown-item divider>
                 <div class="row m-0 p-0">
                   <div class="col-12 py-1 px-4">
-                    <nuxt-link to="/danh-muc/ban-sofa" class="view__all__btn"
+                    <nuxt-link to="/danh-muc/ban" class="view__all__btn"
                       >Xem tất cả</nuxt-link
                     >
                   </div>
@@ -288,13 +288,13 @@
                   <div class="row mp--none">
                     <div class="col-3 mp--none">
                       <img
-                        :src="cart.images[0].path"
+                        :src="cart.product.images[0].path"
                         alt=""
                         class="header__tooltip__image"
                       />
                     </div>
                     <div class="col-7 mp--none">
-                      <p>{{ cart.productName }}</p>
+                      <p>{{ cart.product.productName }}</p>
                     </div>
                     <div class="col-2 mp--none">
                       <vs-button

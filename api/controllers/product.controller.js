@@ -11,10 +11,11 @@ module.exports.getAllProducts = function(req, res) {
       modifyDate: 1,
       isHot: 1,
       isActive: 1,
+      tags: 1,
     })
     .exec((error, response) => {
       if (error) {
-        console.log('Error')
+        console.log('Error');
       } else {
         res.status(200).json(response);
       }
@@ -35,10 +36,12 @@ module.exports.getAllProductsList = function(req, res) {
         createDate: 1,
         isHot: 1,
         url: 1,
+        characteristics: 1,
+        tags: 1,
       })
       .exec((error, response) => {
         if (error) {
-          console.log('Error')
+          console.log('Error');
         } else {
           res.status(200).json(response);
         }
@@ -61,10 +64,12 @@ module.exports.getAllProductsListByNew = function(req, res) {
         isNewProduct: 1,
         isSaleOff: 1,
         url: 1,
+        characteristics: 1,
+        tags: 1,
       })
       .exec((error, response) => {
         if (error) {
-          console.log('Error')
+          console.log('Error');
         } else {
           res.status(200).json(response);
         }
@@ -87,10 +92,12 @@ module.exports.getAllProductsListBySaleOff = function(req, res) {
         images: 1,
         isSaleOff: 1,
         url: 1,
+        characteristics: 1,
+        tags: 1,
       })
       .exec((error, response) => {
         if (error) {
-          console.log('Error')
+          console.log('Error');
         } else {
           res.status(200).json(response);
         }
@@ -113,10 +120,12 @@ module.exports.getAllProductsListByHot = function(req, res) {
         images: 1,
         isSaleOff: 1,
         url: 1,
+        characteristics: 1,
+        tags: 1,
       })
       .exec((error, response) => {
         if (error) {
-          console.log('Error')
+          console.log('Error');
         } else {
           res.status(200).json(response);
         }
@@ -139,10 +148,12 @@ module.exports.getAllProductsListByTrend = function(req, res) {
         isSaleOff: 1,
         images: 1,
         url: 1,
+        characteristics: 1,
+        tags: 1,
       })
       .exec((error, response) => {
         if (error) {
-          console.log('Error')
+          console.log('Error');
         } else {
           res.status(200).json(response);
         }
@@ -158,7 +169,7 @@ module.exports.getAllProductsListByCategory = function(req, res) {
       console.log(menuItem);
       Product.find({
         isActive: true,
-        category:menuItem._id,
+        category: menuItem._id,
         // category: {
         //   $or: [menuItem._id, menuItem.parentMenu],
         // },
@@ -172,10 +183,12 @@ module.exports.getAllProductsListByCategory = function(req, res) {
           isHot: 1,
           url: 1,
           images: 1,
+          characteristics: 1,
+          tags: 1,
         })
         .exec((error, response) => {
           if (error) {
-            console.log('Error')
+            console.log('Error');
           } else {
             console.log(response);
             res.status(200).json(response);
@@ -201,10 +214,12 @@ module.exports.getAllProductsListBySearch = function(req, res) {
         isHot: 1,
         url: 1,
         images: 1,
+        characteristics: 1,
+        tags: 1,
       })
       .exec((error, response) => {
         if (error) {
-          console.log('Error')
+          console.log('Error');
         } else {
           res.status(200).json(response);
         }
@@ -228,10 +243,12 @@ module.exports.getAllProductsListByCategoryId = function(req, res) {
         isHot: 1,
         url: 1,
         images: 1,
+        characteristics: 1,
+        tags: 1,
       })
       .exec((error, response) => {
         if (error) {
-          console.log('Error')
+          console.log('Error');
         } else {
           res.status(200).json(response);
         }
@@ -244,7 +261,7 @@ module.exports.getAllProductsListByCategoryId = function(req, res) {
 module.exports.getSingleProduct = function(req, res, next) {
   Product.findById(req.params.id, (error, data) => {
     if (error) {
-      console.log('Error')
+      console.log('Error');
     } else {
       res.status(200).json(data);
     }
@@ -253,7 +270,7 @@ module.exports.getSingleProduct = function(req, res, next) {
 module.exports.getSingleProductByUrl = function(req, res, next) {
   Product.findOne({ url: req.params.id }, (error, data) => {
     if (error) {
-      console.log('Error')
+      console.log('Error');
     } else {
       res.status(200).json(data);
     }
@@ -290,7 +307,7 @@ module.exports.updateProduct = function(req, res, next) {
     },
     (error, data) => {
       if (error) {
-        console.log('Error')
+        console.log('Error');
       } else {
         res.json(data);
       }
@@ -301,7 +318,7 @@ module.exports.updateProduct = function(req, res, next) {
 module.exports.deleteProduct = function(req, res, next) {
   Product.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
-      console.log('Error')
+      console.log('Error');
     } else {
       res.status(200).json({
         msg: data,

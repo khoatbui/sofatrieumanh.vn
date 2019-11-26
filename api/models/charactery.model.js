@@ -1,26 +1,29 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-const uniqueValidator = require('mongoose-unique-validator')
-mongoose.set('useCreateIndex', true)
-let characterySchema = new Schema({
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const uniqueValidator = require('mongoose-unique-validator');
+mongoose.set('useCreateIndex', true);
+const characterySchema = new Schema({
   characteryName: {
     type: String,
-    unique: true
+    unique: true,
   },
   isActive: {
-    type: Boolean
+    type: Boolean,
+  },
+  isFilter: {
+    type: Boolean,
   },
   createBy: {
-    type: String
+    type: String,
   },
   createDate: {
     type: Date,
-    require: false
+    require: false,
   },
   modifyDate: {
     type: Date,
-    require: false
-  }
-})
-characterySchema.plugin(uniqueValidator, { message: 'Url already in use.' })
-module.exports = mongoose.model('Charactery', characterySchema, 'charactery')
+    require: false,
+  },
+});
+characterySchema.plugin(uniqueValidator, { message: 'Url already in use.' });
+module.exports = mongoose.model('Charactery', characterySchema, 'charactery');

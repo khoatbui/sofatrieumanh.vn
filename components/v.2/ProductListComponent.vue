@@ -68,7 +68,7 @@
               class="filter__body m-0 p-0"
             >
               <b-card class="border-0">
-                <div class="filter__block">
+                <div v-if="characterFilter.length > 0" class="filter__block">
                   <div class="row m-0 p-0">
                     <div class="col-12 m-0 p-0">
                       <h6 class="filter__title">Chất liệu</h6>
@@ -77,39 +77,15 @@
                   <div class="row m-0 p-0">
                     <div class="col-12 m-0 p-0">
                       <ul class="filter__list">
-                        <li class="filter__item">
+                        <li
+                          v-for="(chara, index) in characterFilter"
+                          :key="index + 'chara'"
+                          class="filter__item"
+                        >
                           <vs-checkbox
                             v-model="filter.material"
-                            :vs-value="'GO'"
-                            >Gỗ</vs-checkbox
-                          >
-                        </li>
-                        <li class="filter__item">
-                          <vs-checkbox
-                            v-model="filter.material"
-                            :vs-value="'DA'"
-                            >Da</vs-checkbox
-                          >
-                        </li>
-                        <li class="filter__item">
-                          <vs-checkbox
-                            v-model="filter.material"
-                            :vs-value="'GOEP'"
-                            >Gỗ ép</vs-checkbox
-                          >
-                        </li>
-                        <li class="filter__item">
-                          <vs-checkbox
-                            v-model="filter.material"
-                            :vs-value="'SAT'"
-                            >Sắt</vs-checkbox
-                          >
-                        </li>
-                        <li class="filter__item">
-                          <vs-checkbox
-                            v-model="filter.material"
-                            :vs-value="'KINH'"
-                            >Gỗ</vs-checkbox
+                            :vs-value="chara._id"
+                            >{{ chara.characteryName }}</vs-checkbox
                           >
                         </li>
                       </ul>
@@ -129,7 +105,8 @@
                           <vs-slider
                             v-model="filter.price"
                             :color="'#ffb400'"
-                            step="1"
+                            step="100000"
+                            max="100000000"
                           />
                         </li>
                       </ul>
@@ -146,7 +123,12 @@
                     <div class="col-12 m-0 p-0">
                       <ul class="filter__list">
                         <li class="filter__item py-4">
-                          <span class="tag__badge">Sofa</span>
+                          <span
+                            v-for="(ta, index) in summaryTags"
+                            :key="index + 'tas'"
+                            class="tag__badge"
+                            >{{ ta }}</span
+                          >
                         </li>
                       </ul>
                     </div>
@@ -191,7 +173,7 @@
           <div class="product__list">
             <div class="row m-0 p-0 w-100">
               <div
-                v-for="(product, index) in productList"
+                v-for="(product, index) in productListFilter"
                 :key="index + 'product'"
                 class="col-12 col-sm-6 col-md-4 col-lg-4"
               >
@@ -259,7 +241,6 @@
                             cte.menuName
                           }}</span></nuxt-link
                         >
-                        <span class="category__item__qty">10</span>
                       </li>
                     </ul>
                   </div>
@@ -274,18 +255,18 @@
           <vs-button
             :color="'#156867'"
             size="small"
-            class="border__radius--none mx-1"
+            class="border__radius--none mx-1 px-3"
             type="border"
             @click="hideCategoryModal"
-            >Clear</vs-button
+            >Xoa</vs-button
           >
           <vs-button
-            :color="'#156867'"
+            :color="'#ffb400'"
             type="filled"
             size="small"
-            class="border__radius--none fill__border mx-1"
+            class="border__radius--none fill__border mx-1 px-3"
             @click="hideCategoryModal"
-            >Done</vs-button
+            >Loc</vs-button
           >
         </div>
       </b-modal>
@@ -310,31 +291,25 @@
         <div class="modal__body__section">
           <div class="filter__sidebar">
             <b-card class="border-0">
-              <div class="filter__block">
+              <div v-if="characterFilter.length > 0" class="filter__block">
                 <div class="row m-0 p-0">
                   <div class="col-12 m-0 p-0">
-                    <h6 class="filter__title">Chat lieu</h6>
+                    <h6 class="filter__title">Chất liệu</h6>
                   </div>
                 </div>
                 <div class="row m-0 p-0">
                   <div class="col-12 m-0 p-0">
                     <ul class="filter__list">
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material">Da</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material"
-                          >Gỗ ép</vs-checkbox
+                      <li
+                        v-for="(chara, index) in characterFilter"
+                        :key="index + 'chara'"
+                        class="filter__item"
+                      >
+                        <vs-checkbox
+                          v-model="filter.material"
+                          :vs-value="chara._id"
+                          >{{ chara.characteryName }}</vs-checkbox
                         >
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material">Sắt</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
                       </li>
                     </ul>
                   </div>
@@ -343,28 +318,19 @@
               <div class="filter__block">
                 <div class="row m-0 p-0">
                   <div class="col-12 m-0 p-0">
-                    <h6 class="filter__title">Chat lieu</h6>
+                    <h6 class="filter__title">Giá</h6>
                   </div>
                 </div>
                 <div class="row m-0 p-0">
                   <div class="col-12 m-0 p-0">
                     <ul class="filter__list">
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material">Da</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material"
-                          >Gỗ ép</vs-checkbox
-                        >
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material">Sắt</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
+                      <li class="filter__item py-4">
+                        <vs-slider
+                          v-model="filter.price"
+                          :color="'#ffb400'"
+                          step="100000"
+                          max="100000000"
+                        />
                       </li>
                     </ul>
                   </div>
@@ -373,28 +339,19 @@
               <div class="filter__block">
                 <div class="row m-0 p-0">
                   <div class="col-12 m-0 p-0">
-                    <h6 class="filter__title">Chat lieu</h6>
+                    <h6 class="filter__title">Tag</h6>
                   </div>
                 </div>
                 <div class="row m-0 p-0">
                   <div class="col-12 m-0 p-0">
                     <ul class="filter__list">
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material">Da</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material"
-                          >Gỗ ép</vs-checkbox
+                      <li class="filter__item py-4">
+                        <span
+                          v-for="(ta, index) in summaryTags"
+                          :key="index + 'tas'"
+                          class="tag__badge"
+                          >{{ ta }}</span
                         >
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material">Sắt</vs-checkbox>
-                      </li>
-                      <li class="filter__item">
-                        <vs-checkbox v-model="filter.material">Gỗ</vs-checkbox>
                       </li>
                     </ul>
                   </div>
@@ -409,15 +366,15 @@
           <vs-button
             :color="'#156867'"
             size="small"
-            class="border__radius--none mx-1"
+            class="border__radius--none mx-1 px-3"
             type="border"
             @click="hideFilterModal"
             >Clear</vs-button
           >
           <vs-button
-            :color="'#156867'"
+            :color="'#ffb400'"
             size="small"
-            class="border__radius--none fill__border mx-1"
+            class="border__radius--none fill__border mx-1 px-3"
             type="filled"
             @click="hideFilterModal"
             >Done</vs-button
@@ -436,13 +393,48 @@ export default {
   data: () => ({
     productList: [],
     filter: {
-      price: [0, 3000000],
+      price: 30000000,
       tags: [],
       material: [],
     },
     categoryDetail: {},
     categoryList: [],
+    characterFilter: [],
+    completedData: false,
   }),
+  computed: {
+    productListFilter() {
+      if (this.completedData === true) {
+        const priceFilterProduct = this.productList.filter(element => {
+          return (
+            typeof element.price === 'undefined' ||
+            element.price <= this.filter.price
+          );
+        });
+        if (this.filter.material.length > 0) {
+          return priceFilterProduct.filter(productItem => {
+            const filterCharac = productItem.characteristics.filter(
+              characte => {
+                return this.filter.material.includes(characte);
+              }
+            );
+            return filterCharac.length > 0;
+          });
+        }
+        return priceFilterProduct;
+      }
+      return this.productList;
+    },
+    summaryTags() {
+      let tags = [];
+      this.productList.forEach(element => {
+        tags = tags.concat(element.tags);
+      });
+      return tags.filter(function(elem, index, self) {
+        return index === self.indexOf(elem);
+      });
+    },
+  },
   watch: {
     $route(to, from) {
       // react to route changes...
@@ -452,6 +444,7 @@ export default {
   mounted() {
     this.getProductList();
     this.GetCategoryList();
+    this.getCharacterFilterItems();
   },
   methods: {
     hideCategoryModal() {
@@ -459,45 +452,6 @@ export default {
     },
     hideFilterModal() {
       this.$refs['modal-filter'].hide();
-    },
-    GetCategoryName() {
-      if (typeof this.$route.params.id === 'undefined') {
-        this.$axios
-          .get(`${process.env.API_HTTP}/productapi/product-list`)
-          .then(response => {
-            this.productList = response.data;
-            this.$vs.loading.close();
-          })
-          .catch(error => {
-            this.$vs.notify({
-              color: 'danger',
-              title: 'Opps!',
-              text: error,
-            });
-          })
-          .finally(() => {
-            this.$vs.loading.close();
-          });
-      } else {
-        this.$axios
-          .get(
-            `${process.env.API_HTTP}/menuapi/single-menu-with-url/${this.$route.params.id}`
-          )
-          .then(response => {
-            this.categoryDetail = response.data;
-            this.$vs.loading.close();
-          })
-          .catch(error => {
-            this.$vs.notify({
-              color: 'danger',
-              title: 'Opps!',
-              text: error,
-            });
-          })
-          .finally(() => {
-            this.$vs.loading.close();
-          });
-      }
     },
     GetCategoryList() {
       if (typeof this.$route.params.id === 'undefined') {
@@ -540,6 +494,7 @@ export default {
     },
     getProductList() {
       this.$vs.loading();
+      this.completedData = false;
       if (typeof this.$route.query.search !== 'undefined') {
         this.$axios
           .get(
@@ -547,6 +502,7 @@ export default {
           )
           .then(response => {
             this.productList = response.data;
+            this.completedData = true;
             this.$vs.loading.close();
           })
           .catch(error => {
@@ -566,6 +522,7 @@ export default {
           .get(`${process.env.API_HTTP}/productapi/product-list`)
           .then(response => {
             this.productList = response.data;
+            this.completedData = true;
             this.$vs.loading.close();
           })
           .catch(error => {
@@ -585,6 +542,7 @@ export default {
           )
           .then(response => {
             this.productList = response.data;
+            this.completedData = true;
             this.$vs.loading.close();
           })
           .catch(error => {
@@ -598,6 +556,25 @@ export default {
             this.$vs.loading.close();
           });
       }
+    },
+    getCharacterFilterItems() {
+      this.$axios
+        .get(`${process.env.API_HTTP}/characteryapi/filter-items`)
+        .then(response => {
+          this.characterFilter = response.data;
+          this.$vs.loading.close();
+        })
+        .catch(error => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Opps!',
+            text: error,
+          });
+          this.characterFilter = [];
+        })
+        .finally(() => {
+          this.$vs.loading.close();
+        });
     },
     redirectTo(url) {
       this.$router.replace(url);
@@ -754,6 +731,9 @@ export default {
   border-bottom: 1px solid $muted__text;
   cursor: pointer;
 }
+.category__item__name {
+  color: $muted__text !important;
+}
 .filter__title {
   color: $primary__text;
   font-weight: bold;
@@ -879,7 +859,10 @@ export default {
   background-color: $white__color;
   border: 1px solid $secondary__color;
   border-radius: 100px;
-  padding: 0.4rem 0.8rem;
+  padding: 0.2rem 0.4rem;
+  margin: 0.2rem;
+  display: inline-block;
+  cursor: pointer;
 }
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
