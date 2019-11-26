@@ -16,7 +16,7 @@ module.exports.getAllLogins = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.status(200).json(response);
       }
@@ -26,7 +26,7 @@ module.exports.getAllLogins = function(req, res) {
 module.exports.getSingleLogin = function(req, res, next) {
   Login.findById(req.params.id, (error, data) => {
     if (error) {
-      return next(error);
+      console.log('Error')
     } else {
       res.status(200).json(data);
     }
@@ -64,7 +64,7 @@ module.exports.updateLogin = function(req, res, next) {
     },
     (error, data) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.json(data);
       }
@@ -75,7 +75,7 @@ module.exports.updateLogin = function(req, res, next) {
 module.exports.deleteLogin = function(req, res, next) {
   Login.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
-      return next(error);
+      console.log('Error')
     } else {
       res.status(200).json({
         msg: data,
@@ -88,7 +88,7 @@ module.exports.adminLogin = function(req, res, next) {
   Login.find({ email: req.body.email, password: req.body.password }).exec(
     (error, response) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else if (response.length > 0) {
         res.status(200).json({
           loginStatus: true,
@@ -107,7 +107,7 @@ module.exports.resetPass = function(req, res, next) {
   console.log(req.body);
   Login.find({ email: req.body.email }).exec((error, response) => {
     if (error) {
-      return next(error);
+      console.log('Error')
     } else if (response.length > 0) {
       const hash = createHash(8);
       Login.updateOne({ email: req.body.email }, { resetHash: hash }, function(
@@ -144,7 +144,7 @@ module.exports.changePassword = function(req, res, next) {
   Login.find({ email: req.body.email, resetHash: req.params.hash }).exec(
     (error, response) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else if (response.length > 0) {
         Login.updateOne(
           { email: req.body.email },

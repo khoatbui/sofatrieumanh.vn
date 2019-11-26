@@ -93,7 +93,6 @@
               <vs-select
                 v-model="editedItem.parentMenu"
                 placeholder="Chọn..."
-                multiple
                 autocomplete
                 class="w-100"
                 label="Menu cha"
@@ -177,7 +176,7 @@ export default {
       menuName: '',
       url: '',
       menuIntro: '',
-      parentMenu: [],
+      parentMenu: '',
       isActive: true,
       createDate: '',
       modifyDate: '',
@@ -186,7 +185,7 @@ export default {
     defaultItem: {
       menuName: '',
       menuIntro: '',
-      parentMenu: [],
+      parentMenu: '',
       url: '',
       isActive: true,
       createDate: '',

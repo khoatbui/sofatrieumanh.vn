@@ -253,7 +253,7 @@
                 <vs-select-item
                   v-for="(item, index) in categoryList"
                   :key="index"
-                  :value="item"
+                  :value="item._id"
                   :text="item.menuName"
                 />
               </vs-select>

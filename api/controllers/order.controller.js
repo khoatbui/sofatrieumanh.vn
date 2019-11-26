@@ -19,7 +19,7 @@ module.exports.getAllOrders = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.status(200).json(response);
       }
@@ -28,7 +28,7 @@ module.exports.getAllOrders = function(req, res) {
 module.exports.getSingleOrder = function(req, res, next) {
   Order.findById(req.params.id, (error, data) => {
     if (error) {
-      return next(error);
+      console.log('Error')
     } else {
       res.status(200).json(data);
     }
@@ -76,7 +76,7 @@ module.exports.createOrder = function(req, res, next) {
           customerHtml
         );
         sendOrderEmail(
-          'khoatbui.dev@gmail.com',
+          process.env.RECEIVED_EMAIL,
           `[${transactionCode}] Ban co don hang moi`,
           staffHtml
         );

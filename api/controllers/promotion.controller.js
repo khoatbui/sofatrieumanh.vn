@@ -17,7 +17,7 @@ module.exports.getAllPromotions = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.status(200).json(response);
       }
@@ -35,7 +35,7 @@ module.exports.getAllPromotionsByActive = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.status(200).json(response);
       }
@@ -53,7 +53,7 @@ module.exports.getPromotionByType = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.status(200).json(response);
       }
@@ -62,7 +62,7 @@ module.exports.getPromotionByType = function(req, res) {
 module.exports.getSinglePromotion = function(req, res, next) {
   Promotion.findById(req.params.id, (error, data) => {
     if (error) {
-      return next(error);
+      console.log('Error')
     } else {
       res.status(200).json(data);
     }
@@ -100,7 +100,7 @@ module.exports.updatePromotion = function(req, res, next) {
     },
     (error, data) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.json(data);
       }
@@ -111,7 +111,7 @@ module.exports.updatePromotion = function(req, res, next) {
 module.exports.deletePromotion = function(req, res, next) {
   Promotion.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
-      return next(error);
+      console.log('Error')
     } else {
       res.status(200).json({
         msg: data,

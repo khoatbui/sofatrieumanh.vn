@@ -15,7 +15,7 @@ module.exports.getAllDictionarys = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.status(200).json(response);
       }
@@ -30,7 +30,7 @@ module.exports.getAllDictionarysUsed = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.status(200).json(response);
       }
@@ -39,7 +39,7 @@ module.exports.getAllDictionarysUsed = function(req, res) {
 module.exports.getSingleDictionary = function(req, res, next) {
   Dictionary.findById(req.params.id, (error, data) => {
     if (error) {
-      return next(error);
+      console.log('Error')
     } else {
       res.status(200).json(data);
     }
@@ -77,7 +77,7 @@ module.exports.updateDictionary = function(req, res, next) {
     },
     (error, data) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.json(data);
       }
@@ -88,7 +88,7 @@ module.exports.updateDictionary = function(req, res, next) {
 module.exports.deleteDictionary = function(req, res, next) {
   Dictionary.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
-      return next(error);
+      console.log('Error')
     } else {
       res.status(200).json({
         msg: data,

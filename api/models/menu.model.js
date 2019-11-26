@@ -1,38 +1,35 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-const uniqueValidator = require('mongoose-unique-validator')
-mongoose.set('useCreateIndex', true)
-let menuSchema = new Schema({
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const uniqueValidator = require('mongoose-unique-validator');
+mongoose.set('useCreateIndex', true);
+const menuSchema = new Schema({
   menuName: {
     type: String,
-    unique: true
+    unique: true,
   },
   menuIntro: {
     type: String,
-    required: true
+    required: true,
   },
   url: {
     type: String,
-    require: true
+    require: true,
   },
   isActive: {
-    type: Boolean
+    type: Boolean,
   },
   createBy: {
-    type: String
+    type: String,
   },
   createDate: {
     type: Date,
-    require: false
+    require: false,
   },
   modifyDate: {
     type: Date,
-    require: false
+    require: false,
   },
-  parentMenu: {
-    type: Array,
-    require: true
-  }
-})
-menuSchema.plugin(uniqueValidator, { message: 'Url already in use.' })
-module.exports = mongoose.model('Menu', menuSchema, 'menu')
+  parentMenu: { type: Schema.Types.ObjectId, ref: 'Menu', require: false },
+});
+menuSchema.plugin(uniqueValidator, { message: 'Url already in use.' });
+module.exports = mongoose.model('Menu', menuSchema, 'menu');

@@ -64,7 +64,7 @@ export default {
         return;
       }
       this.$axios
-        .post(`${process.env.API_HTTP}/authenapi/reset`, this.login)
+        .post(`${process.env.API_HTTP}/authenapi/user-login`, this.login)
         .then(result => {
           this.$vs.loading.close();
           if (result.data.loginStatus === false) {

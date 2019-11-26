@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { check, validationResult } = require('express-validator');
 const Product = require('../models/product.model');
-
+const Menu = require('../models/menu.model');
 module.exports.getAllProducts = function(req, res) {
   Product.find()
     .select({
@@ -14,7 +14,7 @@ module.exports.getAllProducts = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.status(200).json(response);
       }
@@ -38,7 +38,7 @@ module.exports.getAllProductsList = function(req, res) {
       })
       .exec((error, response) => {
         if (error) {
-          return next(error);
+          console.log('Error')
         } else {
           res.status(200).json(response);
         }
@@ -64,7 +64,7 @@ module.exports.getAllProductsListByNew = function(req, res) {
       })
       .exec((error, response) => {
         if (error) {
-          return next(error);
+          console.log('Error')
         } else {
           res.status(200).json(response);
         }
@@ -90,7 +90,7 @@ module.exports.getAllProductsListBySaleOff = function(req, res) {
       })
       .exec((error, response) => {
         if (error) {
-          return next(error);
+          console.log('Error')
         } else {
           res.status(200).json(response);
         }
@@ -116,7 +116,7 @@ module.exports.getAllProductsListByHot = function(req, res) {
       })
       .exec((error, response) => {
         if (error) {
-          return next(error);
+          console.log('Error')
         } else {
           res.status(200).json(response);
         }
@@ -142,7 +142,7 @@ module.exports.getAllProductsListByTrend = function(req, res) {
       })
       .exec((error, response) => {
         if (error) {
-          return next(error);
+          console.log('Error')
         } else {
           res.status(200).json(response);
         }
@@ -153,27 +153,35 @@ module.exports.getAllProductsListByTrend = function(req, res) {
 };
 module.exports.getAllProductsListByCategory = function(req, res) {
   try {
-    Product.find({
-      isActive: true,
-      category: { $elemMatch: { url: req.params.id } },
-    })
-      .select({
-        productName: 1,
-        price: 1,
-        oldPrice: 1,
-        _id: 1,
-        createDate: 1,
-        isHot: 1,
-        url: 1,
-        images: 1,
+    Menu.findOne({ url: req.params.id }).then(menuItem => {
+      console.log(req.params.id);
+      console.log(menuItem);
+      Product.find({
+        isActive: true,
+        category:menuItem._id,
+        // category: {
+        //   $or: [menuItem._id, menuItem.parentMenu],
+        // },
       })
-      .exec((error, response) => {
-        if (error) {
-          return next(error);
-        } else {
-          res.status(200).json(response);
-        }
-      });
+        .select({
+          productName: 1,
+          price: 1,
+          oldPrice: 1,
+          _id: 1,
+          createDate: 1,
+          isHot: 1,
+          url: 1,
+          images: 1,
+        })
+        .exec((error, response) => {
+          if (error) {
+            console.log('Error')
+          } else {
+            console.log(response);
+            res.status(200).json(response);
+          }
+        });
+    });
   } catch (error) {
     console.log(error);
   }
@@ -196,7 +204,7 @@ module.exports.getAllProductsListBySearch = function(req, res) {
       })
       .exec((error, response) => {
         if (error) {
-          return next(error);
+          console.log('Error')
         } else {
           res.status(200).json(response);
         }
@@ -209,7 +217,7 @@ module.exports.getAllProductsListByCategoryId = function(req, res) {
   try {
     Product.find({
       isActive: true,
-      category: { $elemMatch: { _id: req.params.id } },
+      category: req.params.id,
     })
       .select({
         productName: 1,
@@ -223,7 +231,7 @@ module.exports.getAllProductsListByCategoryId = function(req, res) {
       })
       .exec((error, response) => {
         if (error) {
-          return next(error);
+          console.log('Error')
         } else {
           res.status(200).json(response);
         }
@@ -236,7 +244,7 @@ module.exports.getAllProductsListByCategoryId = function(req, res) {
 module.exports.getSingleProduct = function(req, res, next) {
   Product.findById(req.params.id, (error, data) => {
     if (error) {
-      return next(error);
+      console.log('Error')
     } else {
       res.status(200).json(data);
     }
@@ -245,7 +253,7 @@ module.exports.getSingleProduct = function(req, res, next) {
 module.exports.getSingleProductByUrl = function(req, res, next) {
   Product.findOne({ url: req.params.id }, (error, data) => {
     if (error) {
-      return next(error);
+      console.log('Error')
     } else {
       res.status(200).json(data);
     }
@@ -282,7 +290,7 @@ module.exports.updateProduct = function(req, res, next) {
     },
     (error, data) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.json(data);
       }
@@ -293,7 +301,7 @@ module.exports.updateProduct = function(req, res, next) {
 module.exports.deleteProduct = function(req, res, next) {
   Product.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
-      return next(error);
+      console.log('Error')
     } else {
       res.status(200).json({
         msg: data,

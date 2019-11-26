@@ -14,7 +14,7 @@ module.exports.getAllCharacterys = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        return next(error)
+        return next
       } else {
         res.status(200).json(response)
       }
@@ -24,7 +24,7 @@ module.exports.getAllCharacterys = function(req, res) {
 module.exports.getSingleCharactery = function(req, res, next) {
   Charactery.findById(req.params.id, (error, data) => {
     if (error) {
-      return next(error)
+      return next
     } else {
       res.status(200).json(data)
     }
@@ -62,7 +62,7 @@ module.exports.updateCharactery = function(req, res, next) {
     },
     (error, data) => {
       if (error) {
-        return next(error)
+        return next
       } else {
         res.json(data)
       }
@@ -73,7 +73,7 @@ module.exports.updateCharactery = function(req, res, next) {
 module.exports.deleteCharactery = function(req, res, next) {
   Charactery.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
-      return next(error)
+      return next
     } else {
       res.status(200).json({
         msg: data

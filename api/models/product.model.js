@@ -71,10 +71,7 @@ const productSchema = new Schema({
     type: Number,
     require: false,
   },
-  category: {
-    type: Array,
-    require: false,
-  },
+  category: [{ type: Schema.Types.ObjectId, ref: 'Menu' }],
   images: {
     type: Array,
     require: false,
@@ -83,10 +80,7 @@ const productSchema = new Schema({
     type: String,
     require: true,
   },
-  characteristics: {
-    type: Array,
-    require: true,
-  },
+  characteristics: [{ type: Schema.Types.ObjectId, ref: 'Charactery' }],
   video: {
     type: String,
     require: false,

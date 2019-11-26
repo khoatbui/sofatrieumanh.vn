@@ -17,7 +17,7 @@ module.exports.getAllBlogs = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.status(200).json(response);
       }
@@ -38,7 +38,7 @@ module.exports.getHotBlogBlogs = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.status(200).json(response);
       }
@@ -49,7 +49,7 @@ module.exports.getSingleBlog = function(req, res, next) {
   try {
     Blog.findById(req.params.id, (error, data) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.status(200).json(data);
       }
@@ -62,7 +62,7 @@ module.exports.getSingleBlogByUrl = function(req, res, next) {
   try {
     Blog.findOne({ url: req.params.id }, (error, data) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.status(200).json(data);
       }
@@ -102,7 +102,7 @@ module.exports.updateBlog = function(req, res, next) {
     },
     (error, data) => {
       if (error) {
-        return next(error);
+        console.log('Error')
       } else {
         res.json(data);
       }
@@ -113,7 +113,7 @@ module.exports.updateBlog = function(req, res, next) {
 module.exports.deleteBlog = function(req, res, next) {
   Blog.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
-      return next(error);
+      console.log('Error')
     } else {
       res.status(200).json({
         msg: data,
