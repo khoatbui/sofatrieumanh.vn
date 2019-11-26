@@ -1,5 +1,16 @@
 <template>
   <div class="newheader__component">
+    <div v-if="promotionList.length === 0" class="desktop__img">
+      <div
+        :style="`background-image:url('/images/banner/banner_01.jpg')`"
+        class="desktop__image__src"
+      >
+        <div class="promotion__header__content">
+          <h6>Sofa Triệu Mạnh</h6>
+          <p>Nơi nâng tầm cuộc sống</p>
+        </div>
+      </div>
+    </div>
     <div v-if="promotionList.length > 0" class="desktop__img">
       <client-only>
         <carousel
