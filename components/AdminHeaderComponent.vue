@@ -37,6 +37,9 @@
       <vs-navbar-item index="7">
         <nuxt-link to="/admin/advisor">Yêu cầu</nuxt-link>
       </vs-navbar-item>
+      <vs-navbar-item index="7">
+        <nuxt-link to="/admin/about">About</nuxt-link>
+      </vs-navbar-item>
     </vs-navbar>
   </div>
 </template>

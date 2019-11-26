@@ -29,6 +29,7 @@ app.use(cors(corsOptions));
 app.use(jsonParser);
 
 const blogRouter = require('./routers/blog.router');
+const aboutRouter = require('./routers/about.router');
 const uploadRouter = require('./routers/upload.router');
 const productRouter = require('./routers/product.router');
 const characteryRouter = require('./routers/charactery.router');
@@ -51,6 +52,7 @@ const advisorRouter = require('./routers/advisor.router');
 const host = process.env.API_HOST || '127.0.0.1';
 const port = process.env.API_PORT || 3002;
 app.use('/blogapi', blogRouter);
+app.use('/aboutapi', aboutRouter);
 app.use('/uploadapi', uploadRouter);
 app.use('/productapi', productRouter);
 app.use('/characteryapi', characteryRouter);
