@@ -81,7 +81,6 @@ export default {
             });
             this.$store.commit('login/changeLoginStatus', true);
             this.$router.replace('/admin');
-            console.log(this.$store.state.login.loginStatus);
           }
         });
     },
