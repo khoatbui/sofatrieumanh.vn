@@ -7,10 +7,10 @@
       <div class="col-12 col-md-6 sub__input m-0 p-0">
         <input
           id="iRegitry"
+          v-model="email"
           type="text"
           name=""
           placeholder="Địa chỉ email của bạn"
-          :v-model="email"
         />
         <vs-button color="#252531" type="filled" @click="subscribe"
           >subscribe</vs-button
@@ -34,7 +34,7 @@ export default {
       this.$vs.loading();
       this.$axios
         .post(
-          `${process.env.API_HTTP}/subscribeapi/register-subscribe`,
+          `${process.env.API_HTTP}/subscribeapi/create-subscribe`,
           this.email
         )
         .then(result => {

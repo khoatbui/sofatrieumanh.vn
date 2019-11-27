@@ -89,7 +89,7 @@
             <h6 class="footer__top__title">Đăng kí</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item footer__top__item__subscribe">
-                <input type="text" class="subscribe__input" :v-model="email" />
+                <input v-model="email" type="text" class="subscribe__input" />
                 <button class="subscribe__btn" @click="subscribe">
                   Đăng kí
                 </button>
@@ -168,11 +168,11 @@ export default {
       }
       this.$vs.loading();
       this.$axios
-        .post(
-          `${process.env.API_HTTP}/subscribeapi/register-subscribe`,
-          this.email
-        )
+        .post(`${process.env.API_HTTP}/subscribeapi/create-subscribe`, {
+          email: this.email,
+        })
         .then(result => {
+          this.$vs.loading.close();
           this.$vs.notify({
             color: 'success',
             title: 'Thankyou!',

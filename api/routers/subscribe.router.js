@@ -7,10 +7,7 @@ const router = express.Router();
 router.get('/', controller.getAllSubscribe);
 
 router.get('/hot-subscribe', controller.getHotSubscribeSubscribe);
-router.post(
-  '/register-subscribe',
-  controller.insertSubscribe
-);
+router.post('/create-subscribe', controller.insertSubscribe);
 
 // Get Single  Users
 router.get('/single-subscribe/:id', controller.getSingleSubscribe);

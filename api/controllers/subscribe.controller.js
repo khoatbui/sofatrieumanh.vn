@@ -17,7 +17,7 @@ module.exports.getAllSubscribe = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        console.log('Error')
+        console.log('Error');
       } else {
         res.status(200).json(response);
       }
@@ -38,7 +38,7 @@ module.exports.getHotSubscribeSubscribe = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        console.log('Error')
+        console.log('Error');
       } else {
         res.status(200).json(response);
       }
@@ -49,7 +49,7 @@ module.exports.getSingleSubscribe = function(req, res, next) {
   try {
     Subscribe.findById(req.params.id, (error, data) => {
       if (error) {
-        console.log('Error')
+        console.log('Error');
       } else {
         res.status(200).json(data);
       }
@@ -62,7 +62,7 @@ module.exports.getSingleSubscribeByUrl = function(req, res, next) {
   try {
     Subscribe.findOne({ url: req.params.id }, (error, data) => {
       if (error) {
-        console.log('Error')
+        console.log('Error');
       } else {
         res.status(200).json(data);
       }
@@ -73,7 +73,7 @@ module.exports.getSingleSubscribeByUrl = function(req, res, next) {
 };
 module.exports.insertSubscribe = function(req, res, next) {
   const errors = validationResult(req);
-
+  console.log(req.body);
   if (!errors.isEmpty()) {
     return res.status(422).jsonp(errors.array());
   } else {
@@ -88,7 +88,7 @@ module.exports.insertSubscribe = function(req, res, next) {
       })
       .catch(error => {
         res.status(500).json({
-          error,
+          'Email đã được đăng kí!',
         });
       });
   }
@@ -102,7 +102,7 @@ module.exports.updateSubscribe = function(req, res, next) {
     },
     (error, data) => {
       if (error) {
-        console.log('Error')
+        console.log('Error');
       } else {
         res.json(data);
       }
@@ -113,7 +113,7 @@ module.exports.updateSubscribe = function(req, res, next) {
 module.exports.deleteSubscribe = function(req, res, next) {
   Subscribe.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
-      console.log('Error')
+      console.log('Error');
     } else {
       res.status(200).json({
         msg: data,
