@@ -505,6 +505,7 @@ export default {
             text: 'Cảm ơn bạn đã gửi cho tôi các phản hồi hữu ích',
           });
           this.getComment();
+          this.clearData();
         })
         .catch(error => {
           this.$vs.notify({
@@ -516,6 +517,13 @@ export default {
         .finally(() => {
           this.$vs.loading.close();
         });
+    },
+    clearData() {
+      this.comment = {
+        fullName: '',
+        email: '',
+        phoneNumber: '',
+      };
     },
     plusQty() {
       if (this.qty < 10) {

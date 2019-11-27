@@ -143,7 +143,7 @@
             <nuxt-link to="about/chinh-sach-rieng-tu"
               >Chính sách riêng tư</nuxt-link
             >
-            <nuxt-link to="about/dieu-khoan-su-dun"
+            <nuxt-link to="about/dieu-khoan-su-dung"
               >Điều khoản sử dụng</nuxt-link
             >
             <nuxt-link to="about/tro-giup">Trợ giúp</nuxt-link>
@@ -164,6 +164,11 @@ export default {
   methods: {
     subscribe() {
       if (this.email.length === 0) {
+        this.$vs.notify({
+          color: 'danger',
+          title: 'Opps!',
+          text: 'Vui lòng nhập địa chỉ email của bạn',
+        });
         return;
       }
       this.$vs.loading();
@@ -183,7 +188,7 @@ export default {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error,
+            text: error.message,
           });
         })
         .finally(() => {

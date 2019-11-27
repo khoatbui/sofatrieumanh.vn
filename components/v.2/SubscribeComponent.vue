@@ -29,6 +29,11 @@ export default {
   methods: {
     subscribe() {
       if (this.email.length === 0) {
+        this.$vs.notify({
+          color: 'danger',
+          title: 'Opps!',
+          text: 'Vui lòng nhập địa chỉ email của bạn',
+        });
         return;
       }
       this.$vs.loading();
@@ -48,7 +53,7 @@ export default {
           this.$vs.notify({
             color: 'danger',
             title: 'Opps!',
-            text: error,
+            text: error.message,
           });
         })
         .finally(() => {
