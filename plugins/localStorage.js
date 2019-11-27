@@ -10,6 +10,8 @@ export default ({ store }) => {
         'cartItem.cartItem',
         'cartItem.cartList',
         'login.loginStatus',
+        'compareItem.compareItem',
+        'compareItem.compareList',
       ],
     })(store);
   });

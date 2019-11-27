@@ -4,6 +4,7 @@
     <nuxt class="body__section" />
     <FooterComponent />
     <CallComponent />
+    <CompareComponent />
   </div>
 </template>
 <script>
@@ -12,6 +13,7 @@ export default {
     HeaderComponent: () => import('@/components/v.2/HeaderComponent'),
     FooterComponent: () => import('@/components/v.2/FooterComponent'),
     CallComponent: () => import('@/components/v.2/CallComponent'),
+    CompareComponent: () => import('@/components/v.2/CompareComponent'),
   },
 };
 </script>

@@ -50,7 +50,11 @@
               favorite_border
             </i></vs-button
           >
-          <vs-button color="#333333" type="flat" class="py-1 px-2"
+          <vs-button
+            color="#333333"
+            type="flat"
+            class="py-1 px-2"
+            @click="compareItem(product)"
             ><i class="material-icons">
               compare_arrows
             </i></vs-button
@@ -115,6 +119,10 @@ export default {
     },
     favoriteItem(item) {
       this.$store.commit('favoriteItem/favoriteItemClick', item);
+    },
+    compareItem(item) {
+      this.$store.commit('compareItem/compareItemClick', item);
+      this.$store.commit('compareItem/showModalCompareClick', true);
     },
     cartItem(item) {
       this.$store.commit('cartItem/cartItemClick', {
