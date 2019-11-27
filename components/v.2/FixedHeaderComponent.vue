@@ -75,10 +75,10 @@
               <vs-dropdown-item divider>
                 <div class="row m-0 p-0">
                   <div class="col-4 py-1 px-4">
-                    <nuxt-link to="/danh-muc/sofa-don">Sofa cổ điển</nuxt-link>
+                    <nuxt-link to="/danh-muc/sofa-co-dien">Sofa cổ điển</nuxt-link>
                   </div>
                   <div class="col-4 py-1 px-4">
-                    <nuxt-link to="/danh-muc/sofa-giuong">Sofa góc</nuxt-link>
+                    <nuxt-link to="/danh-muc/sofa-goc">Sofa góc</nuxt-link>
                   </div>
                   <div class="col-4 py-1 px-4">
                     <nuxt-link to="/danh-muc/sofa-han-quoc"
