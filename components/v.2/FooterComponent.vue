@@ -59,27 +59,27 @@
             <h6 class="footer__top__title">Quicklink</h6>
             <ul class="footer__top__menu">
               <li class="footer__top__item">
-                <nuxt-link to="about/khuyen-mai">
+                <nuxt-link to="/khuyen-mai">
                   Khuyến mại
                 </nuxt-link>
               </li>
               <li class="footer__top__item">
-                <nuxt-link to="about/huong-dan-dat-hang">
+                <nuxt-link to="/about/huong-dan-dat-hang">
                   Hướng dẫn đặt hàng
                 </nuxt-link>
               </li>
               <li class="footer__top__item">
-                <nuxt-link to="about/ve-chung-toi">
+                <nuxt-link to="/about/ve-chung-toi">
                   Về chúng tôi
                 </nuxt-link>
               </li>
               <li class="footer__top__item">
-                <nuxt-link to="about/lien-he">
+                <nuxt-link to="/about/lien-he">
                   Liên hệ
                 </nuxt-link>
               </li>
               <li class="footer__top__item">
-                <nuxt-link to="about/doi-tac">
+                <nuxt-link to="/about/doi-tac">
                   Đối tác
                 </nuxt-link>
               </li>
@@ -140,14 +140,14 @@
             <span>Bản quyền © thuộc về sofatrieumanh, 2019</span>
           </div>
           <div class="footer__bottom__right">
-            <nuxt-link to="about/chinh-sach-rieng-tu"
+            <nuxt-link to="/about/chinh-sach-rieng-tu"
               >Chính sách riêng tư</nuxt-link
             >
-            <nuxt-link to="about/dieu-khoan-su-dung"
+            <nuxt-link to="/about/dieu-khoan-su-dung"
               >Điều khoản sử dụng</nuxt-link
             >
-            <nuxt-link to="about/tro-giup">Trợ giúp</nuxt-link>
-            <nuxt-link to="about/lien-he">Liên hệ</nuxt-link>
+            <nuxt-link to="/about/tro-giup">Trợ giúp</nuxt-link>
+            <nuxt-link to="/about/lien-he">Liên hệ</nuxt-link>
           </div>
         </div>
       </div>
