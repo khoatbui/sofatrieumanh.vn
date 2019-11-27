@@ -11,13 +11,14 @@ module.exports.getAllPromotions = function(req, res) {
       modifyDate: 1,
       isHot: 1,
       isNew: 1,
-
+      url: 1,
+      promotionIntro: 1,
       isActive: 1,
       validDate: 1,
     })
     .exec((error, response) => {
       if (error) {
-        console.log('Error')
+        console.log('Error');
       } else {
         res.status(200).json(response);
       }
@@ -32,10 +33,12 @@ module.exports.getAllPromotionsByActive = function(req, res) {
       url: 1,
       validDate: 1,
       images: 1,
+      url: 1,
+      promotionIntro: 1,
     })
     .exec((error, response) => {
       if (error) {
-        console.log('Error')
+        console.log('Error');
       } else {
         res.status(200).json(response);
       }
@@ -53,7 +56,7 @@ module.exports.getPromotionByType = function(req, res) {
     })
     .exec((error, response) => {
       if (error) {
-        console.log('Error')
+        console.log('Error');
       } else {
         res.status(200).json(response);
       }
@@ -62,13 +65,21 @@ module.exports.getPromotionByType = function(req, res) {
 module.exports.getSinglePromotion = function(req, res, next) {
   Promotion.findById(req.params.id, (error, data) => {
     if (error) {
-      console.log('Error')
+      console.log('Error');
     } else {
       res.status(200).json(data);
     }
   });
 };
-
+module.exports.getSinglePromotionUrl = function(req, res, next) {
+  Promotion.findOne({ url: req.params.id }, (error, data) => {
+    if (error) {
+      console.log('Error');
+    } else {
+      res.status(200).json(data);
+    }
+  });
+};
 module.exports.insertPromotion = function(req, res, next) {
   const errors = validationResult(req);
 
@@ -100,7 +111,7 @@ module.exports.updatePromotion = function(req, res, next) {
     },
     (error, data) => {
       if (error) {
-        console.log('Error')
+        console.log('Error');
       } else {
         res.json(data);
       }
@@ -111,7 +122,7 @@ module.exports.updatePromotion = function(req, res, next) {
 module.exports.deletePromotion = function(req, res, next) {
   Promotion.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
-      console.log('Error')
+      console.log('Error');
     } else {
       res.status(200).json({
         msg: data,

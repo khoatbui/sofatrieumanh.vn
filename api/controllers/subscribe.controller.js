@@ -88,7 +88,8 @@ module.exports.insertSubscribe = function(req, res, next) {
       })
       .catch(error => {
         res.status(500).json({
-          error,
+          message: 'Email đã tồn tại',
+          result: error,
         });
       });
   }

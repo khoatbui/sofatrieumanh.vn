@@ -1,22 +1,19 @@
 <template>
   <div class="tintuc__page">
     <div class="section__padding--b">
-      <AboutDetailComponent class="mb-4 border-bottom" />
-      <RequestAdvisorComponent />
+      <PromotionDetailComponent class="mb-4 border-bottom" />
       <SlideProductComponent class="mt-4 container" />
     </div>
   </div>
 </template>
 <script>
-import AboutDetailComponent from '@/components/AboutDetailComponent';
+import PromotionDetailComponent from '@/components/PromotionDetailComponent';
 import SlideProductComponent from '@/components/SlideProductComponent';
-import RequestAdvisorComponent from '@/components/RequestAdvisorComponent';
 export default {
   layout: 'pagelayout',
   components: {
-    AboutDetailComponent,
+    PromotionDetailComponent,
     SlideProductComponent,
-    RequestAdvisorComponent,
   },
   head() {
     return {

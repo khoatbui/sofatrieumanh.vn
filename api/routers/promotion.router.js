@@ -21,6 +21,8 @@ router.post(
 // Get Single  Promotinos
 router.get('/single-promotion/:id', controller.getSinglePromotion);
 
+router.get('/single-promotion-url/:id', controller.getSinglePromotionUrl);
+
 // Get Promotion By Type
 router.get('/promotion-bytype/:id', controller.getPromotionByType);
 // Update Promotino

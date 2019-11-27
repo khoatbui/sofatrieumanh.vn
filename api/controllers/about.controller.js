@@ -62,6 +62,7 @@ module.exports.getSingleAboutByUrl = function(req, res, next) {
       if (error) {
         console.log('Error');
       } else {
+        console.log(data);
         res.status(200).json(data);
       }
     });
