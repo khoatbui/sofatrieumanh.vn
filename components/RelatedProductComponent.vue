@@ -22,10 +22,9 @@
   </div>
 </template>
 <script>
-import ProductItemComponent from '@/components/v.2/ProductItemComponent';
 export default {
   components: {
-    ProductItemComponent,
+    ProductItemComponent: () => import('@/components/v.2/ProductItemComponent'),
   },
   props: {
     category: {

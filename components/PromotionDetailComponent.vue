@@ -98,7 +98,6 @@
   </div>
 </template>
 <script>
-import RequestAdvisorComponent from '@/components/RequestAdvisorComponent';
 const getMeRandomElements = function(sourceArray, neededElements) {
   const result = [];
   for (let i = 0; i < neededElements; i++) {
@@ -108,7 +107,8 @@ const getMeRandomElements = function(sourceArray, neededElements) {
 };
 export default {
   components: {
-    RequestAdvisorComponent,
+    RequestAdvisorComponent: () =>
+      import('@/components/RequestAdvisorComponent'),
   },
   data: () => ({
     promotionDetail: {},

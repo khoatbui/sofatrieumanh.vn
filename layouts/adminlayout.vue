@@ -6,12 +6,10 @@
   </div>
 </template>
 <script>
-import AdminHeaderComponent from '@/components/AdminHeaderComponent.vue';
-import AdminFooterComponent from '@/components/AdminFooterComponent.vue';
 export default {
   components: {
-    AdminHeaderComponent,
-    AdminFooterComponent,
+    AdminHeaderComponent: () => import('@/components/AdminHeaderComponent'),
+    AdminFooterComponent: () => import('@/components/AdminFooterComponent'),
   },
 };
 </script>

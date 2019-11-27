@@ -14,15 +14,14 @@
   </div>
 </template>
 <script>
-import RelatedProductComponent from '@/components/RelatedProductComponent.vue';
-import PromotionListComponent from '@/components/PromotionListComponent.vue';
-import RequestAdvisorComponent from '@/components/RequestAdvisorComponent.vue';
 export default {
   layout: 'pagelayout',
   components: {
-    RelatedProductComponent,
-    PromotionListComponent,
-    RequestAdvisorComponent,
+    RelatedProductComponent: () =>
+      import('@/components/RelatedProductComponent'),
+    PromotionListComponent: () => import('@/components/PromotionListComponent'),
+    RequestAdvisorComponent: () =>
+      import('@/components/RequestAdvisorComponent'),
   },
   data: () => ({}),
   head() {

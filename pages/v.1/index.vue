@@ -39,19 +39,17 @@
 </template>
 
 <script>
-import PromotionComponent from '@/components/PromotionComponent.vue';
-import InstructionStepComponent from '@/components/InstructionStepComponent.vue';
-import ProductByTypeComponent from '@/components/ProductByTypeComponent.vue';
-import RequestAdvisorComponent from '@/components/RequestAdvisorComponent.vue';
-import BestSellerProductComponent from '@/components/BestSellerProductComponent.vue';
 export default {
   layout: 'pagelayout',
   components: {
-    InstructionStepComponent,
-    PromotionComponent,
-    ProductByTypeComponent,
-    RequestAdvisorComponent,
-    BestSellerProductComponent,
+    InstructionStepComponent: () =>
+      import('@/components/InstructionStepComponent'),
+    PromotionComponent: () => import('@/components/PromotionComponent'),
+    ProductByTypeComponent: () => import('@/components/ProductByTypeComponent'),
+    RequestAdvisorComponent: () =>
+      import('@/components/RequestAdvisorComponent'),
+    BestSellerProductComponent: () =>
+      import('@/components/BestSellerProductComponent'),
   },
   head() {
     return {

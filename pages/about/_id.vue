@@ -8,15 +8,13 @@
   </div>
 </template>
 <script>
-import AboutDetailComponent from '@/components/AboutDetailComponent';
-import SlideProductComponent from '@/components/SlideProductComponent';
-import RequestAdvisorComponent from '@/components/RequestAdvisorComponent';
 export default {
   layout: 'pagelayout',
   components: {
-    AboutDetailComponent,
-    SlideProductComponent,
-    RequestAdvisorComponent,
+    AboutDetailComponent: () => import('@/components/AboutDetailComponent'),
+    SlideProductComponent: () => import('@/components/SlideProductComponent'),
+    RequestAdvisorComponent: () =>
+      import('@/components/RequestAdvisorComponent'),
   },
   head() {
     return {

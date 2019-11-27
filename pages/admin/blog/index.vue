@@ -189,13 +189,11 @@
   </div>
 </template>
 <script>
-import AdminTipTapComponent from '@/components/AdminTipTapComponent.vue';
-import FileListComponent from '@/components/FileListComponent';
 export default {
   middleware: 'authentication',
   components: {
-    AdminTipTapComponent,
-    FileListComponent,
+    AdminTipTapComponent: () => import('@/components/AdminTipTapComponent'),
+    FileListComponent: () => import('@/components/FileListComponent'),
   },
   layout: 'adminlayout',
   data: () => ({

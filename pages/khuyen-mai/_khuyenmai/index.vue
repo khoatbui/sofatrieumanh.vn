@@ -7,13 +7,12 @@
   </div>
 </template>
 <script>
-import PromotionDetailComponent from '@/components/PromotionDetailComponent';
-import SlideProductComponent from '@/components/SlideProductComponent';
 export default {
   layout: 'pagelayout',
   components: {
-    PromotionDetailComponent,
-    SlideProductComponent,
+    PromotionDetailComponent: () =>
+      import('@/components/PromotionDetailComponent'),
+    SlideProductComponent: () => import('@/components/SlideProductComponent'),
   },
   head() {
     return {

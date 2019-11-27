@@ -7,13 +7,11 @@
   </div>
 </template>
 <script>
-import BlogDetailComponent from '@/components/BlogDetailComponent';
-import SlideProductComponent from '@/components/SlideProductComponent';
 export default {
   layout: 'pagelayout',
   components: {
-    BlogDetailComponent,
-    SlideProductComponent,
+    BlogDetailComponent: () => import('@/components/BlogDetailComponent'),
+    SlideProductComponent: () => import('@/components/SlideProductComponent'),
   },
   head() {
     return {

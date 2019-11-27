@@ -15,15 +15,15 @@
   </div>
 </template>
 <script>
-import RelatedProductComponent from '@/components/RelatedProductComponent.vue';
-import ProductDetailComponent from '@/components/v.2/ProductDetailComponent.vue';
-import RequestAdvisorComponent from '@/components/RequestAdvisorComponent.vue';
 export default {
   layout: 'pagelayout',
   components: {
-    RelatedProductComponent,
-    ProductDetailComponent,
-    RequestAdvisorComponent,
+    RelatedProductComponent: () =>
+      import('@/components/RelatedProductComponent'),
+    ProductDetailComponent: () =>
+      import('@/components/v.2/ProductDetailComponent'),
+    RequestAdvisorComponent: () =>
+      import('@/components/RequestAdvisorComponent'),
   },
   data: () => ({
     categoryList: [],

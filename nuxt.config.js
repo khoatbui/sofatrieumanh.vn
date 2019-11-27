@@ -1,7 +1,7 @@
 module.exports = {
   mode: 'universal',
   server: {
-    port: 3004, // default: 3000
+    port: 3000, // default: 3000
     timing: false,
   },
   serverMiddleware: [

@@ -11,13 +11,12 @@
   </div>
 </template>
 <script>
-import RelatedProductComponent from '@/components/RelatedProductComponent.vue';
-import ProductListComponent from '@/components/ProductListComponent.vue';
 export default {
   layout: 'pagelayout',
   components: {
-    RelatedProductComponent,
-    ProductListComponent,
+    RelatedProductComponent: () =>
+      import('@/components/RelatedProductComponent'),
+    ProductListComponent: () => import('@/components/ProductListComponent'),
   },
   data: () => ({}),
   head() {

@@ -63,7 +63,6 @@
   </div>
 </template>
 <script>
-import FollowUsComponent from '@/components/v.2/FollowUsComponent';
 const getMeRandomElements = function(sourceArray, neededElements) {
   const result = [];
   for (let i = 0; i < neededElements; i++) {
@@ -73,7 +72,7 @@ const getMeRandomElements = function(sourceArray, neededElements) {
 };
 export default {
   components: {
-    FollowUsComponent,
+    FollowUsComponent: () => import('@/components/v.2/FollowUsComponent'),
   },
   data: () => ({
     aboutDetail: {},
