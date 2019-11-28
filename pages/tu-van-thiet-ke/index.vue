@@ -121,13 +121,78 @@ export default {
   }),
   head() {
     return {
-      title: this.title,
+      title: 'SofaTrieuManh Yêu cầu tư vấn thiết kế cho ngôi nhà của bạn',
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
+          hid: 'name',
+          name: 'name',
+          content: 'sofatrieumanh.com',
+        },
+        {
           hid: 'description',
           name: 'description',
-          content: 'My custom description',
+          content:
+            'SofaTrieuManh có thể đáp ứng tất cả các thiết kế riêng theo yêu cầu của quý khách. Đến với sofaTrieuManh, bạn có thể yên tâm về chất lượng, dịch vụ và sản phẩm dành cho ngôi nhà của bạn',
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content:
+            'Tư vấn, sofatrieumanh,thiết kế riêng, thiết kế sofa, nội thất đẹp, sản phẩm chất lượng',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content:
+            'SofaTrieuManh cung cấp dịch vụ tư vấn, thiết kế nội thất. Chúng tôi có thể đáp ứng tất cả các thiết kế riêng theo yêu cầu của quý khách. Đến với sofaTrieuManh, bạn có thể yên tâm về chất lượng, dịch vụ và sản phẩm dành cho ngôi nhà của bạn',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: 'SofaTrieuManh Yêu cầu tư vấn thiết kế cho ngôi nhà của bạn',
+        },
+        {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          content: 'sofatrieumanh.com',
+        },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'website',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'http://sofatrieumanh.com/tu-van-thiet-ke',
+        },
+
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary',
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: 'http://sofatrieumanh.com/tu-van-thiet-ke',
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'SofaTrieuManh Yêu cầu tư vấn thiết kế cho ngôi nhà của bạn',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            'SofaTrieuManh cung cấp dịch vụ tư vấn, thiết kế nội thất. Chúng tôi có thể đáp ứng tất cả các thiết kế riêng theo yêu cầu của quý khách. Đến với sofaTrieuManh, bạn có thể yên tâm về chất lượng, dịch vụ và sản phẩm dành cho ngôi nhà của bạn',
+        },
+        {
+          hid: 'twitter:creator',
+          name: 'twitter:creator',
+          content: 'sofatrieumanh.com',
         },
       ],
     };

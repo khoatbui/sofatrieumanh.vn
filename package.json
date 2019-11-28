@@ -1,8 +1,8 @@
 {
-  "name": "sofatrieumanh.vn",
+  "name": "sofatrieumanh.com",
   "version": "1.0.0",
   "description": "Website chính thức của sofa Triệu Mạnh, chuyên cung cấp các sản phẩm sofa, bàn ghế, nội thất cao cấp trên toàn quốc. Các sản phẩm được miễn phí vận chuyển và bảo hành lên tới 10 năm",
-  "author": "sofatrieumanh.vn",
+  "author": "sofatrieumanh.com",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
