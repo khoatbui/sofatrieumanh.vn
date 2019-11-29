@@ -66,6 +66,7 @@ module.exports = {
     { src: '~/plugins/zoomer.js', mode: 'client' },
     'plugins/vuesax.js',
     { src: '~/plugins/localStorage.js', ssr: false },
+    { src: '~plugins/ga.js', mode: 'client' },
   ],
   /*
    ** Nuxt.js dev-modules
