@@ -53,6 +53,7 @@
     "vue-carousel-3d": "^0.2.0",
     "vue-client-only": "^2.0.0",
     "vue-image-magnifier": "^0.2.1",
+    "vue-lazy-image-loading": "^1.2.1",
     "vue-localstorage": "^0.6.2",
     "vue-moment": "^4.0.0",
     "vue-piczoom": "^1.0.6",

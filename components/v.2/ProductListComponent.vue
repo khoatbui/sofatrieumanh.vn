@@ -441,6 +441,7 @@ export default {
     },
   },
   mounted() {
+    this.getCategoryDetail();
     this.getProductList();
     this.GetCategoryList();
     this.getCharacterFilterItems();
@@ -577,6 +578,32 @@ export default {
     },
     redirectTo(url) {
       this.$router.replace(url);
+    },
+    getCategoryDetail() {
+      this.$vs.loading();
+      if (typeof this.$route.params.id === 'undefined') {
+      } else {
+        this.$axios
+          .get(
+            `${process.env.API_HTTP}/menuapi/single-menu-with-url/${this.$route.params.id}`
+          )
+          .then(response => {
+            this.categoryDetail = response.data;
+            this.$emit('categoryEmit', this.categoryDetail);
+            this.$vs.loading.close();
+          })
+          .catch(error => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Opps!',
+              text: error,
+            });
+            this.$vs.loading.close();
+          })
+          .finally(() => {
+            this.$vs.loading.close();
+          });
+      }
     },
   },
 };

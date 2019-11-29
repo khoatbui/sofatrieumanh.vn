@@ -1,13 +1,23 @@
 <template>
   <div class="card border-0 product__card cursor--pointer">
     <div class="card-body m-0 p-0 p-2">
-      <div
+      <!-- <div
         class="product__image"
         :style="
           typeof product.images === 'undefined' || product.images.length === 0
             ? `background-image:url('/images/product/1-01.jpg')`
             : `background-image:url('${product.images[0].path}')`
         "
+        @click="redirectTo(`${product.url}`)"
+      > -->
+      <lazy-background
+        class="product__image"
+        :src="
+          typeof product.images === 'undefined' || product.images.length === 0
+            ? `/images/product/1-01.jpg`
+            : `${product.images[0].path}`
+        "
+        placeholder="https://unsplash.it/1920/1080?image=10"
         @click="redirectTo(`${product.url}`)"
       >
         <div class="product__property">
@@ -21,7 +31,8 @@
             >SaleOff</span
           >
         </div>
-      </div>
+      </lazy-background>
+      <!-- </div> -->
 
       <div class="product__action animated flipInX fast">
         <vs-button

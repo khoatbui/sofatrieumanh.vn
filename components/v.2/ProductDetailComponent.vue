@@ -427,7 +427,7 @@ export default {
           )
           .then(response => {
             this.productDetail = response.data;
-            this.$emit('categoryDate', this.productDetail.category);
+            this.$emit('categoryDate', this.productDetail);
             this.$vs.loading.close();
             this.getComment();
             this.completedGetData = true;

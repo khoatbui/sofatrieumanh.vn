@@ -528,6 +528,7 @@ export default {
               text: 'Tạo sản phẩm thành công',
             });
             this.getProductList();
+            this.resetProperty();
           });
       } else {
         this.$axios

@@ -20,10 +20,15 @@
           :autoplay="true"
           :loop="true"
         >
+          <!-- :style="`background-image:url('/images/banner/banner_0${i}.jpg')`" -->
           <div
             v-for="(pic, i) in promotionList"
             :key="i + 'pic'"
-            :style="`background-image:url('/images/banner/banner_0${i}.jpg')`"
+            :style="
+              typeof pic.images === 'undefined' || pic.images.length === 0
+                ? `background-image:url('/images/banner/banner_00.jpg')`
+                : `background-image:url('${pic.images[0].path}')`
+            "
             class="desktop__image__src"
           >
             <div class="promotion__header__content">

@@ -49,6 +49,7 @@ module.exports = {
     { src: '~/plugins/localStorage.js', ssr: false },
     { src: '~plugins/ga.js', mode: 'client' },
     { src: '~plugins/tawl.js', mode: 'client' },
+    { src: '~plugins/lazyload.js', mode: 'client' },
   ],
   /*
    ** Nuxt.js dev-modules
