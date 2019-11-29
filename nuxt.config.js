@@ -25,25 +25,6 @@ module.exports = {
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [
-      {
-        innerHTML: `<!--Start of Tawk.to Script-->
-      <script type="text/javascript">
-      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-      (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/5dc77a8d43be710e1d1c9020/default';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-      })();
-      </script>
-      <!--End of Tawk.to Script-->`,
-        type: 'text/javascript',
-        charset: 'utf-8',
-      },
-    ],
     __dangerouslyDisableSanitizers: ['script'],
   },
   /*
@@ -67,6 +48,7 @@ module.exports = {
     'plugins/vuesax.js',
     { src: '~/plugins/localStorage.js', ssr: false },
     { src: '~plugins/ga.js', mode: 'client' },
+    { src: '~plugins/tawl.js', mode: 'client' },
   ],
   /*
    ** Nuxt.js dev-modules
