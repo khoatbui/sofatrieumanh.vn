@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGO_URL, {
 const app = express();
 //  origin: 'http://sofatrieumanh.com',
 const corsOptions = {
-  origin: '*',
+  origin: `${process.env.HOSTING_HTTP}`,
   credentials: true,
 };
 app.use(cookieParser());

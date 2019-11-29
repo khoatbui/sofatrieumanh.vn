@@ -4,7 +4,7 @@ module.exports.uploadMultiImages = (req, res, next) => {
     if (!file) {
       const error = new Error('Please upload a file');
       error.httpStatusCode = 400;
-      console.log('Error')
+      console.log('Error');
     } else {
       const returnImages = [];
       file.forEach(function(element) {

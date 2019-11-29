@@ -87,6 +87,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
+    '@nuxtjs/sentry',
     [
       'nuxt-fontawesome',
       {
@@ -105,6 +106,10 @@ module.exports = {
       },
     ],
   ],
+  sentry: {
+    dsn: 'https://a6009493c5504aed8029e22c50339c9c@sentry.io/1838225', // Enter your project's DSN here
+    config: {}, // Additional config
+  },
   styleResources: {
     scss: ['./assets/scss/vars/*.scss', './assets/scss/abstracts/_mixins.scss'],
   },
