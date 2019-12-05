@@ -52,9 +52,11 @@ export default {
       default: null,
     },
   },
-  data: () => ({
-    selectedImage: null,
-  }),
+  data() {
+    return {
+      selectedImage: null,
+    };
+  },
 };
 </script>
 <style lang="scss">

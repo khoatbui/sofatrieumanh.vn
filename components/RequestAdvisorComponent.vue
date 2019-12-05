@@ -9,7 +9,11 @@
             >
               <h4>Bạn yêu ngôi nhà của mình ?</h4>
               <h6>Bạn cần một chiếc sofa cho gia đình?</h6>
-              <vs-button :color="'#ffb400'" type="filled" class="px-4 py-2"
+              <vs-button
+                :color="'#ffb400'"
+                type="filled"
+                class="px-4 py-2"
+                to="/tu-van-thiet-ke"
                 >Yêu cầu thiết kế theo sỏ thích!</vs-button
               >
             </div>

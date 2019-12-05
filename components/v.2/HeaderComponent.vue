@@ -440,50 +440,52 @@ export default {
       default: false,
     },
   },
-  data: () => ({
-    search: '',
-    activeItem: 0,
-    headerPicture: [
-      {
-        image: '/images/banner/banner_01.jpg',
-        promotionName: 'Bộ sưu tập mới',
-        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
-      },
-      {
-        image: '/images/banner/banner_02.jpg',
-        promotionName: 'Bộ sưu tập mới',
-        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
-      },
-      {
-        image: '/images/banner/banner_03.jpg',
-        promotionName: 'Giao diện mới, giảm giá mới',
-        promotionIntro: 'Giảm giá 10% cho các đơn hàng trên 5 triệu',
-      },
-      {
-        image: '/images/banner/banner_04.jpg',
-        promotionName: 'Bộ sưu tập mới',
-        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
-      },
-      {
-        image: '/images/banner/banner_05.jpg',
-        promotionName: 'Bộ sưu tập mới',
-        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
-      },
-      {
-        image: '/images/banner/banner_06.jpg',
-        promotionName: 'Bộ sưu tập mới',
-        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
-      },
-      {
-        image: '/images/banner/banner_07.jpg',
-        promotionName: 'Bộ sưu tập mới',
-        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
-      },
-    ],
-    promotionList: [],
-    showNavbar: true,
-    lastScrollPosition: 0,
-  }),
+  data() {
+    return {
+      search: '',
+      activeItem: 0,
+      headerPicture: [
+        {
+          image: '/images/banner/banner_01.jpg',
+          promotionName: 'Bộ sưu tập mới',
+          promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+        },
+        {
+          image: '/images/banner/banner_02.jpg',
+          promotionName: 'Bộ sưu tập mới',
+          promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+        },
+        {
+          image: '/images/banner/banner_03.jpg',
+          promotionName: 'Giao diện mới, giảm giá mới',
+          promotionIntro: 'Giảm giá 10% cho các đơn hàng trên 5 triệu',
+        },
+        {
+          image: '/images/banner/banner_04.jpg',
+          promotionName: 'Bộ sưu tập mới',
+          promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+        },
+        {
+          image: '/images/banner/banner_05.jpg',
+          promotionName: 'Bộ sưu tập mới',
+          promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+        },
+        {
+          image: '/images/banner/banner_06.jpg',
+          promotionName: 'Bộ sưu tập mới',
+          promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+        },
+        {
+          image: '/images/banner/banner_07.jpg',
+          promotionName: 'Bộ sưu tập mới',
+          promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+        },
+      ],
+      promotionList: [],
+      showNavbar: true,
+      lastScrollPosition: 0,
+    };
+  },
   computed: {
     getFavorite() {
       return {

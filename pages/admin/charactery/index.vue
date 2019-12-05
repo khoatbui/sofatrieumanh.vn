@@ -126,29 +126,31 @@
 export default {
   middleware: 'authentication',
   layout: 'adminlayout',
-  data: () => ({
-    editPopup: false,
-    editedDataLoaded: false,
-    characteryList: [],
-    selected: [],
-    editedIndex: -1,
-    editedItem: {
-      characteryName: '',
-      isActive: true,
-      isFilter: false,
-      createDate: '',
-      modifyDate: '',
-      createBy: 'trieumanh',
-    },
-    defaultItem: {
-      characteryName: '',
-      isActive: true,
-      isFilter: false,
-      createDate: '',
-      modifyDate: '',
-      createBy: 'trieumanh',
-    },
-  }),
+  data() {
+    return {
+      editPopup: false,
+      editedDataLoaded: false,
+      characteryList: [],
+      selected: [],
+      editedIndex: -1,
+      editedItem: {
+        characteryName: '',
+        isActive: true,
+        isFilter: false,
+        createDate: '',
+        modifyDate: '',
+        createBy: 'trieumanh',
+      },
+      defaultItem: {
+        characteryName: '',
+        isActive: true,
+        isFilter: false,
+        createDate: '',
+        modifyDate: '',
+        createBy: 'trieumanh',
+      },
+    };
+  },
   mounted() {
     this.getCharacteryList();
   },

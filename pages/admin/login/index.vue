@@ -48,16 +48,18 @@
 </template>
 <script>
 export default {
-  data: () => ({
-    login: {
-      email: '',
-      password: '',
-    },
-    validation: {
-      target: '',
-      text: '',
-    },
-  }),
+  data() {
+    return {
+      login: {
+        email: '',
+        password: '',
+      },
+      validation: {
+        target: '',
+        text: '',
+      },
+    };
+  },
   methods: {
     requestLogin() {
       if (!this.validationData()) {

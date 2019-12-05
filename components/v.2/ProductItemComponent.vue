@@ -10,30 +10,30 @@
         "
         @click="redirectTo(`${product.url}`)"
       > -->
-      <lazy-background
-        class="product__image"
-        :src="
-          typeof product.images === 'undefined' || product.images.length === 0
-            ? `/images/product/1-01.jpg`
-            : `${product.images[0].path}`
-        "
-        placeholder="https://unsplash.it/1920/1080?image=10"
-        @click="redirectTo(`${product.url}`)"
-      >
-        <div class="product__property">
-          <span v-if="product.isHot" class="custom__badge custom__hot"
-            >Hot</span
-          >
-          <span v-if="product.isNewProduct" class="custom__badge custom__new"
-            >Sản phẩm mới</span
-          >
-          <span v-if="product.isSaleOff" class="custom__badge custom__saleoff"
-            >SaleOff</span
-          >
-        </div>
-      </lazy-background>
-      <!-- </div> -->
-
+      <div @click="redirectTo(`${product.url}`)">
+        <lazy-background
+          class="product__image"
+          :src="
+            typeof product.images === 'undefined' || product.images.length === 0
+              ? `/images/product/1-01.jpg`
+              : `${product.images[0].path}`
+          "
+          placeholder="https://unsplash.it/1920/1080?image=10"
+        >
+          <div class="product__property">
+            <span v-if="product.isHot" class="custom__badge custom__hot"
+              >Hot</span
+            >
+            <span v-if="product.isNewProduct" class="custom__badge custom__new"
+              >Sản phẩm mới</span
+            >
+            <span v-if="product.isSaleOff" class="custom__badge custom__saleoff"
+              >SaleOff</span
+            >
+          </div>
+        </lazy-background>
+        <!-- </div> -->
+      </div>
       <div class="product__action animated flipInX fast">
         <vs-button
           color="#333333"

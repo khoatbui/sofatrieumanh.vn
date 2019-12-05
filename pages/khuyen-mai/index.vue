@@ -23,7 +23,6 @@ export default {
     RequestAdvisorComponent: () =>
       import('@/components/RequestAdvisorComponent'),
   },
-  data: () => ({}),
   head() {
     return {
       title: this.title,

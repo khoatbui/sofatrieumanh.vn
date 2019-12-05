@@ -129,29 +129,31 @@
 export default {
   middleware: 'authentication',
   layout: 'adminlayout',
-  data: () => ({
-    editPopup: false,
-    editedDataLoaded: false,
-    dictionaryList: [],
-    selected: [],
-    editedIndex: -1,
-    editedItem: {
-      dictionaryCode: '',
-      dictionaryName: '',
-      isActive: true,
-      createDate: '',
-      modifyDate: '',
-      createBy: 'trieumanh',
-    },
-    defaultItem: {
-      dictionaryCode: '',
-      dictionaryName: '',
-      isActive: true,
-      createDate: '',
-      modifyDate: '',
-      createBy: 'trieumanh',
-    },
-  }),
+  data() {
+    return {
+      editPopup: false,
+      editedDataLoaded: false,
+      dictionaryList: [],
+      selected: [],
+      editedIndex: -1,
+      editedItem: {
+        dictionaryCode: '',
+        dictionaryName: '',
+        isActive: true,
+        createDate: '',
+        modifyDate: '',
+        createBy: 'trieumanh',
+      },
+      defaultItem: {
+        dictionaryCode: '',
+        dictionaryName: '',
+        isActive: true,
+        createDate: '',
+        modifyDate: '',
+        createBy: 'trieumanh',
+      },
+    };
+  },
   mounted() {
     this.getDictionaryList();
   },

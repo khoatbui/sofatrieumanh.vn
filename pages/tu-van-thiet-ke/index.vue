@@ -107,18 +107,20 @@
 <script>
 export default {
   layout: 'pagelayout',
-  data: () => ({
-    comment: {
-      fullName: '',
-      email: '',
-      phoneNumber: '',
-      request: '',
-    },
-    validation: {
-      target: '',
-      text: '',
-    },
-  }),
+  data() {
+    return {
+      comment: {
+        fullName: '',
+        email: '',
+        phoneNumber: '',
+        request: '',
+      },
+      validation: {
+        target: '',
+        text: '',
+      },
+    };
+  },
   head() {
     return {
       title: 'SofaTrieuManh Yêu cầu tư vấn thiết kế cho ngôi nhà của bạn',

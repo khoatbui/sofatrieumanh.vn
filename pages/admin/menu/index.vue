@@ -160,39 +160,41 @@
 export default {
   middleware: 'authentication',
   layout: 'adminlayout',
-  data: () => ({
-    editPopup: false,
-    editedDataLoaded: false,
-    counterDanger: false,
-    menuList: [],
-    selected: [],
-    editedIndex: -1,
-    parentMenuList: [],
-    errorCheck: {
-      dangerFiel: '',
-      dangerText: '',
-    },
-    editedItem: {
-      menuName: '',
-      url: '',
-      menuIntro: '',
-      parentMenu: '',
-      isActive: true,
-      createDate: '',
-      modifyDate: '',
-      createBy: 'trieumanh',
-    },
-    defaultItem: {
-      menuName: '',
-      menuIntro: '',
-      parentMenu: '',
-      url: '',
-      isActive: true,
-      createDate: '',
-      modifyDate: '',
-      createBy: 'trieumanh',
-    },
-  }),
+  data() {
+    return {
+      editPopup: false,
+      editedDataLoaded: false,
+      counterDanger: false,
+      menuList: [],
+      selected: [],
+      editedIndex: -1,
+      parentMenuList: [],
+      errorCheck: {
+        dangerFiel: '',
+        dangerText: '',
+      },
+      editedItem: {
+        menuName: '',
+        url: '',
+        menuIntro: '',
+        parentMenu: '',
+        isActive: true,
+        createDate: '',
+        modifyDate: '',
+        createBy: 'trieumanh',
+      },
+      defaultItem: {
+        menuName: '',
+        menuIntro: '',
+        parentMenu: '',
+        url: '',
+        isActive: true,
+        createDate: '',
+        modifyDate: '',
+        createBy: 'trieumanh',
+      },
+    };
+  },
   mounted() {
     this.getMenuList();
     this.getParentMenuList();

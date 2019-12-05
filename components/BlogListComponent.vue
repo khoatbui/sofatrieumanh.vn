@@ -60,9 +60,11 @@
 <script>
 export default {
   name: 'BlogListComponent',
-  data: () => ({
-    blogList: [],
-  }),
+  data() {
+    return {
+      blogList: [],
+    };
+  },
   mounted() {
     this.getBlogList();
   },

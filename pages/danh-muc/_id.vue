@@ -11,9 +11,11 @@ export default {
   components: {
     ProductListComponent: () => import('@/components/v.2/ProductListComponent'),
   },
-  data: () => ({
-    categoryDetail: {},
-  }),
+  data() {
+    return {
+      categoryDetail: {},
+    };
+  },
 
   head() {
     return {

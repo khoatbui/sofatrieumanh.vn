@@ -100,11 +100,13 @@ export default {
     RequestAdvisorComponent: () =>
       import('@/components/RequestAdvisorComponent'),
   },
-  data: () => ({
-    blogDetail: {},
-    blogList: [],
-    search: '',
-  }),
+  data() {
+    return {
+      blogDetail: {},
+      blogList: [],
+      search: '',
+    };
+  },
   computed: {
     randomBlogs() {
       if (this.blogList.length > 0) {

@@ -361,14 +361,7 @@
   </div>
 </template>
 <script>
-// import PicZoom from 'vue-piczoom'
-// import { Carousel3d, Slide } from 'vue-carousel-3d'
 export default {
-  components: {
-    // PicZoom,
-    // Carousel3d,
-    // Slide
-  },
   data: () => ({
     comment: {
       fullName: '',
@@ -423,7 +416,6 @@ export default {
       zoomer_pane_position: 'right',
     },
   }),
-  computed: {},
   mounted() {
     this.getProductDetail();
   },

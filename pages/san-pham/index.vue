@@ -25,9 +25,11 @@ export default {
     RequestAdvisorComponent: () =>
       import('@/components/RequestAdvisorComponent'),
   },
-  data: () => ({
-    categoryList: [],
-  }),
+  data() {
+    return {
+      categoryList: [],
+    };
+  },
   head() {
     return {
       title: this.title,

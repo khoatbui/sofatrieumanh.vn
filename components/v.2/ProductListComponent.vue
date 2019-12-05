@@ -389,18 +389,20 @@ export default {
   components: {
     ProductItemComponent: () => import('@/components/v.2/ProductItemComponent'),
   },
-  data: () => ({
-    productList: [],
-    filter: {
-      price: 30000000,
-      tags: [],
-      material: [],
-    },
-    categoryDetail: {},
-    categoryList: [],
-    characterFilter: [],
-    completedData: false,
-  }),
+  data() {
+    return {
+      productList: [],
+      filter: {
+        price: 30000000,
+        tags: [],
+        material: [],
+      },
+      categoryDetail: {},
+      categoryList: [],
+      characterFilter: [],
+      completedData: false,
+    };
+  },
   computed: {
     productListFilter() {
       if (this.completedData === true) {

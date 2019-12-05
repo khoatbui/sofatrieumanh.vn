@@ -36,9 +36,11 @@
 </template>
 <script>
 export default {
-  data: () => ({
-    promotionList: [],
-  }),
+  data: function() {
+    return {
+      promotionList: [],
+    };
+  },
   mounted() {
     this.getPromotionList();
   },

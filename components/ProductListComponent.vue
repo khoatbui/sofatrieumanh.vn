@@ -545,10 +545,11 @@
 </template>
 <script>
 export default {
-  data: () => ({
+   data: function() {
+    return {
     checkBox1: false,
     productList: [],
-  }),
+  }},
   mounted() {
     this.getProductList();
   },

@@ -59,9 +59,11 @@
 <script>
 export default {
   name: 'PromotionListComponent',
-  data: () => ({
-    promotionList: [],
-  }),
+  data() {
+    return {
+      promotionList: [],
+    };
+  },
   mounted() {
     this.getPromotionList();
   },

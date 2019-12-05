@@ -337,63 +337,64 @@ export default {
     GalleryImagesComponent: () =>
       import('@/components/v.2/GalleryImagesComponent'),
   },
-  data: () => ({
-    comment: {
-      fullName: '',
-      email: '',
-      phoneNumber: '',
-    },
-    productDetail: {},
-    completedGetData: false,
-    popupActivo4: false,
-    images: {
-      thumbs: [
-        {
-          id: 1,
-          url: '/images/blogs/blog_01.jpg',
-        },
-        {
-          id: 2,
-          url: '/images/blogs/blog_02.jpg',
-        },
-      ],
-      normal_size: [
-        {
-          id: 1,
-          url: '/images/blogs/blog_01.jpg',
-        },
-        {
-          id: 2,
-          url: '/images/blogs/blog_02.jpg',
-        },
-      ],
-      large_size: [
-        {
-          id: 1,
-          url: '/images/blogs/blog_01.jpg',
-        },
-        {
-          id: 2,
-          url: '/images/blogs/blog_02.jpg',
-        },
-      ],
-    },
-    zoomerOptions: {
-      zoomFactor: 3, // scale for zoomer
-      pane: 'pane', // three type of pane ['pane', 'container-round', 'container']
-      hoverDelay: 300, // how long after the zoomer take effect
-      namespace: 'zoomer', // add a namespace for zoomer component, useful when on page have mutiple zoomer
-      move_by_click: false, // move image by click thumb image or by mouseover
-      scroll_items: 5, // thumbs for scroll
-      choosed_thumb_border_color: '#bbdefb', // choosed thumb border color
-      scroller_button_style: 'line',
-      scroller_position: 'left',
-      zoomer_pane_position: 'right',
-    },
-    comments: [],
-    qty: 1,
-  }),
-  computed: {},
+  data() {
+    return {
+      comment: {
+        fullName: '',
+        email: '',
+        phoneNumber: '',
+      },
+      productDetail: {},
+      completedGetData: false,
+      popupActivo4: false,
+      images: {
+        thumbs: [
+          {
+            id: 1,
+            url: '/images/blogs/blog_01.jpg',
+          },
+          {
+            id: 2,
+            url: '/images/blogs/blog_02.jpg',
+          },
+        ],
+        normal_size: [
+          {
+            id: 1,
+            url: '/images/blogs/blog_01.jpg',
+          },
+          {
+            id: 2,
+            url: '/images/blogs/blog_02.jpg',
+          },
+        ],
+        large_size: [
+          {
+            id: 1,
+            url: '/images/blogs/blog_01.jpg',
+          },
+          {
+            id: 2,
+            url: '/images/blogs/blog_02.jpg',
+          },
+        ],
+      },
+      zoomerOptions: {
+        zoomFactor: 3, // scale for zoomer
+        pane: 'pane', // three type of pane ['pane', 'container-round', 'container']
+        hoverDelay: 300, // how long after the zoomer take effect
+        namespace: 'zoomer', // add a namespace for zoomer component, useful when on page have mutiple zoomer
+        move_by_click: false, // move image by click thumb image or by mouseover
+        scroll_items: 5, // thumbs for scroll
+        choosed_thumb_border_color: '#bbdefb', // choosed thumb border color
+        scroller_button_style: 'line',
+        scroller_position: 'left',
+        zoomer_pane_position: 'right',
+      },
+      comments: [],
+      qty: 1,
+    };
+  },
   mounted() {
     this.getProductDetail();
   },

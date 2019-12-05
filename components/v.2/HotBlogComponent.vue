@@ -66,9 +66,11 @@
 </template>
 <script>
 export default {
-  data: () => ({
-    blogList: [],
-  }),
+  data() {
+    return {
+      blogList: [],
+    };
+  },
   mounted() {
     this.getBlogList();
   },

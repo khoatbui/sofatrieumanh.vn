@@ -110,11 +110,13 @@ export default {
     RequestAdvisorComponent: () =>
       import('@/components/RequestAdvisorComponent'),
   },
-  data: () => ({
-    promotionDetail: {},
-    promotionList: [],
-    search: '',
-  }),
+  data() {
+    return {
+      promotionDetail: {},
+      promotionList: [],
+      search: '',
+    };
+  },
   computed: {
     randomPromotions() {
       if (this.promotionList.length > 0) {

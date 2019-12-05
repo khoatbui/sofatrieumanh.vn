@@ -26,17 +26,19 @@
 </template>
 <script>
 export default {
-  data: () => ({
-    search: '',
-    headerPicture: [
-      {
-        image: '/images/promotion/pro_01.jpg',
-        promotionName: 'Bộ sưu tập mới',
-        promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
-        promotionUrl: '/khuyen-mai/',
-      },
-    ],
-  }),
+  data() {
+    return {
+      search: '',
+      headerPicture: [
+        {
+          image: '/images/promotion/pro_01.jpg',
+          promotionName: 'Bộ sưu tập mới',
+          promotionIntro: 'Giảm giá 20% trên các bộ sưu tập mới',
+          promotionUrl: '/khuyen-mai/',
+        },
+      ],
+    };
+  },
 };
 </script>
 <style lang="scss">

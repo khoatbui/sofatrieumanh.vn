@@ -209,27 +209,29 @@
 <script>
 export default {
   layout: 'pagelayout',
-  data: () => ({
-    order: {
-      customer: {
-        fullName: '',
-        email: '',
-        phoneNumber: '',
+  data() {
+    return {
+      order: {
+        customer: {
+          fullName: '',
+          email: '',
+          phoneNumber: '',
+        },
+        comment: '',
+        address: '',
+        totalPrice: 0,
+        products: [],
       },
-      comment: '',
-      address: '',
-      totalPrice: 0,
-      products: [],
-    },
-    validation: {
-      target: '',
-      text: '',
-    },
-    productDetail: {},
-    completedGetData: false,
-    orderSuccess: false,
-    transactionCode: '',
-  }),
+      validation: {
+        target: '',
+        text: '',
+      },
+      productDetail: {},
+      completedGetData: false,
+      orderSuccess: false,
+      transactionCode: '',
+    };
+  },
   computed: {
     getCart() {
       if (

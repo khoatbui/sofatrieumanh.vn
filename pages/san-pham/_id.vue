@@ -25,10 +25,12 @@ export default {
     RequestAdvisorComponent: () =>
       import('@/components/RequestAdvisorComponent'),
   },
-  data: () => ({
-    categoryList: [],
-    productDetail: {},
-  }),
+  data() {
+    return {
+      categoryList: [],
+      productDetail: {},
+    };
+  },
   computed: {
     getKeyword() {
       if (

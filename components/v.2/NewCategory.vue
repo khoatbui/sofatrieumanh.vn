@@ -46,35 +46,37 @@
 </template>
 <script>
 export default {
-  data: () => ({
-    category: [
-      {
-        categoryName: 'Bàn sofa',
-        categoryUrl: '/danh-muc/ban-sofa',
-        categoryImage: '/images/icon/chair.jpg',
-      },
-      {
-        categoryName: 'Sofa văn phòng',
-        categoryUrl: '/danh-muc/sofa-van-phong',
-        categoryImage: '/images/icon/sofa.jpg',
-      },
-      {
-        categoryName: 'Sofa phòng khách',
-        categoryUrl: '/danh-muc/sofa-phong-khach',
-        categoryImage: '/images/icon/sofa.jpg',
-      },
-      {
-        categoryName: 'Nội thất phòng ăn',
-        categoryUrl: '/danh-muc/noi-that-phong-an',
-        categoryImage: '/images/icon/chair.jpg',
-      },
-      {
-        categoryName: 'Sofa băng(văng)',
-        categoryUrl: '/danh-muc/sofa-bang',
-        categoryImage: '/images/icon/bed.jpg',
-      },
-    ],
-  }),
+  data() {
+    return {
+      category: [
+        {
+          categoryName: 'Bàn sofa',
+          categoryUrl: '/danh-muc/ban-sofa',
+          categoryImage: '/images/icon/chair.jpg',
+        },
+        {
+          categoryName: 'Sofa văn phòng',
+          categoryUrl: '/danh-muc/sofa-van-phong',
+          categoryImage: '/images/icon/sofa.jpg',
+        },
+        {
+          categoryName: 'Sofa phòng khách',
+          categoryUrl: '/danh-muc/sofa-phong-khach',
+          categoryImage: '/images/icon/sofa.jpg',
+        },
+        {
+          categoryName: 'Nội thất phòng ăn',
+          categoryUrl: '/danh-muc/noi-that-phong-an',
+          categoryImage: '/images/icon/chair.jpg',
+        },
+        {
+          categoryName: 'Sofa băng(văng)',
+          categoryUrl: '/danh-muc/sofa-bang',
+          categoryImage: '/images/icon/bed.jpg',
+        },
+      ],
+    };
+  },
 };
 </script>
 <style lang="scss">

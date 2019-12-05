@@ -32,10 +32,12 @@ export default {
       default: null,
     },
   },
-  data: () => ({
-    productList: [],
-    completedGetData: false,
-  }),
+  data() {
+    return {
+      productList: [],
+      completedGetData: false,
+    };
+  },
   computed: {
     getTop8Product() {
       if (this.productList.length > 0) {

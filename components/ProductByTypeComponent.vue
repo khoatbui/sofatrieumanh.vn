@@ -98,11 +98,7 @@
   </div>
 </template>
 <script>
-// import ZoomOnHoverComponent from '@/components/ZoomOnHoverComponent'
 export default {
-  components: {
-    // ZoomOnHoverComponent
-  },
   props: {
     productTypeUrl: {
       type: String,

@@ -33,16 +33,18 @@
 </template>
 <script>
 export default {
-  data: () => ({
-    facebookImage: [
-      { image: '/images/facebooks/face_01.jpg' },
-      { image: '/images/facebooks/face_02.jpg' },
-      { image: '/images/facebooks/face_03.jpg' },
-      { image: '/images/facebooks/face_04.jpg' },
-      { image: '/images/facebooks/face_05.jpg' },
-      { image: '/images/facebooks/face_06.jpg' },
-    ],
-  }),
+  data() {
+    return {
+      facebookImage: [
+        { image: '/images/facebooks/face_01.jpg' },
+        { image: '/images/facebooks/face_02.jpg' },
+        { image: '/images/facebooks/face_03.jpg' },
+        { image: '/images/facebooks/face_04.jpg' },
+        { image: '/images/facebooks/face_05.jpg' },
+        { image: '/images/facebooks/face_06.jpg' },
+      ],
+    };
+  },
   methods: {
     gotoFacebook() {
       window.open('https://www.facebook.com/SANXUATSOFA.TM/', '_blank');

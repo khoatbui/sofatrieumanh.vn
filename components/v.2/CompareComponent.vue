@@ -10,7 +10,7 @@
       >
         <div class="row mp--none">
           <div class="col-12 mp--none">
-            <client-only>
+            <client-only v-if="showHideModal">
               <carousel
                 :responsive="{
                   0: { items: 1, nav: false },
@@ -33,7 +33,7 @@
                         type="flat"
                         icon="close"
                         class="shadow"
-                        @click="removeCompareItem(pro)"
+                        @click="removeCompareItem(pro, $event)"
                       ></vs-button>
                     </div>
                     <div class="row">
@@ -158,10 +158,6 @@
 </template>
 <script>
 export default {
-  data: () => ({
-    productList: [],
-    popupActivo: false,
-  }),
   computed: {
     showHideModal() {
       if (this.$store.state.compareItem.compareItem === 1) {
@@ -177,8 +173,11 @@ export default {
     closeModal() {
       this.$store.commit('compareItem/showModalCompareClick', false);
     },
-    removeCompareItem(favo) {
+    removeCompareItem(favo, event) {
       this.$store.commit('compareItem/removeCompareItemClick', favo);
+      if (event) {
+        event.preventDefault();
+      }
     },
   },
 };

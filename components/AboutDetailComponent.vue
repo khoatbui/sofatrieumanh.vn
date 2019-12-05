@@ -74,11 +74,13 @@ export default {
   components: {
     FollowUsComponent: () => import('@/components/v.2/FollowUsComponent'),
   },
-  data: () => ({
-    aboutDetail: {},
-    aboutList: [],
-    search: '',
-  }),
+  data() {
+    return {
+      aboutDetail: {},
+      aboutList: [],
+      search: '',
+    };
+  },
   computed: {
     randomAbouts() {
       if (this.aboutList.length > 0) {

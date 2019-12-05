@@ -45,10 +45,12 @@
 </template>
 <script>
 export default {
-  data: () => ({
-    colorx: '#1F74FF',
-    indexActive: 0,
-  }),
+  data() {
+    return {
+      colorx: '#1F74FF',
+      indexActive: 0,
+    };
+  },
 };
 </script>
 <style lang="scss">

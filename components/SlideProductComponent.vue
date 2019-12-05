@@ -75,9 +75,11 @@
 </template>
 <script>
 export default {
-  data: () => ({
-    productList: [],
-  }),
+  data() {
+    return {
+      productList: [],
+    };
+  },
   mounted() {
     this.getProductListByType();
   },
