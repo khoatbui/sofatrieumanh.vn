@@ -36,7 +36,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.2.0",
     "hash-generator": "^0.1.0",
-    "http-proxy": "^1.18.0",
+    "http-proxy": "^1.18.1",
     "jquery": "^3.4.1",
     "magnificent": "^2.2.4",
     "material-icons": "^0.3.1",
